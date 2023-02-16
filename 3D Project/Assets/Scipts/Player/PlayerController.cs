@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rb;
 
+    private bool isWalking;
+    private bool isRunning;
+    Animator anim;
+
     public MovementState state;
     public enum MovementState
     {
@@ -52,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -121,6 +126,7 @@ public class PlayerController : MonoBehaviour
         // Mode - Sprinting
         if (grounded && Input.GetKey(sprintKey))
         {
+            anim.SetBool("isRunning", true);
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
         }
@@ -128,6 +134,7 @@ public class PlayerController : MonoBehaviour
         // Mode - Walking
         else if (grounded)
         {
+            anim.SetBool("isWalking", true);
             state = MovementState.walking;
             moveSpeed = walkSpeed;
         }
