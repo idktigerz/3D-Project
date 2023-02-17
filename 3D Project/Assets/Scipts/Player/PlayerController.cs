@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
+            anim.SetBool("isRunning", true);
         }
 
         // Mode - Walking
@@ -142,6 +143,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             state = MovementState.air;
+        }
+        if (grounded && Input.GetKeyUp(sprintKey))
+        {
+            anim.SetBool("isRunning", false);
         }
     }
     private void MovePlayer()
