@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+    private Animator anim;
+
 
     public MovementState state;
     public enum MovementState
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -85,6 +88,9 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+        moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
+
+        anim.SetFloat("Speed", moveDirection.sqrMagnitude);
 
         // when to jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
