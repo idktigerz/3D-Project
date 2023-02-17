@@ -40,8 +40,10 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
-    private Animator anim;
 
+    private bool isWalking;
+    private bool isRunning;
+    Animator anim;
 
     public MovementState state;
     public enum MovementState
@@ -88,9 +90,6 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
-
-        anim.SetFloat("Speed", moveDirection.sqrMagnitude);
 
         // when to jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
@@ -127,14 +126,15 @@ public class PlayerController : MonoBehaviour
         // Mode - Sprinting
         if (grounded && Input.GetKey(sprintKey))
         {
+            anim.SetBool("isRunning", true);
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
-            anim.SetBool("isRunning", true);
         }
 
         // Mode - Walking
         else if (grounded)
         {
+            anim.SetBool("isWalking", true);
             state = MovementState.walking;
             moveSpeed = walkSpeed;
         }
@@ -143,10 +143,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             state = MovementState.air;
-        }
-        if (grounded && Input.GetKeyUp(sprintKey))
-        {
-            anim.SetBool("isRunning", false);
         }
     }
     private void MovePlayer()
