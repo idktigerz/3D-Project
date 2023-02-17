@@ -91,6 +91,11 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
+        anim.SetFloat("Speed", moveDirection.sqrMagnitude);
+
+
+
         // when to jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
@@ -111,6 +116,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(crouchKey))
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+        }
+        if (Input.GetKeyUp(sprintKey))
+        {
+            anim.SetBool("isRunning", false);
         }
     }
 
@@ -134,7 +143,6 @@ public class PlayerController : MonoBehaviour
         // Mode - Walking
         else if (grounded)
         {
-            anim.SetBool("isWalking", true);
             state = MovementState.walking;
             moveSpeed = walkSpeed;
         }
@@ -144,6 +152,7 @@ public class PlayerController : MonoBehaviour
         {
             state = MovementState.air;
         }
+        
     }
     private void MovePlayer()
     {
