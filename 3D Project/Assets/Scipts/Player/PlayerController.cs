@@ -26,28 +26,32 @@ public class PlayerController : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.LeftControl;
+    public KeyCode cameraKey = KeyCode.E;
 
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
     bool grounded;
-
     public Transform orientation;
+    public MovementState state;
 
     float horizontalInput;
     float verticalInput;
-
     Vector3 moveDirection;
-
     Rigidbody rb;
-
     private bool isWalking;
     private bool isRunning;
     Animator anim;
+    [Header("Stamina Check")]
     public float playerStamina;
 
+    [Header("Camera Stuff")]
+    [SerializeField] GameObject cameraUI;
+    private bool cameraON;
+    private int picnum;
 
-    public MovementState state;
+
+
     public enum MovementState
     {
         walking,
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour
         readyToJump = true;
 
         startYScale = transform.localScale.y;
+        picnum = 0;
     }
 
     private void Update()
@@ -124,6 +129,27 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
         }
+        if (Input.GetKeyDown(cameraKey))
+        {
+            if (cameraON)
+            {
+                cameraUI.SetActive(false);
+                cameraON = false;
+
+            }
+            else
+            {
+                cameraUI.SetActive(true);
+                cameraON = true;
+            }
+        }
+        if (Input.GetMouseButtonDown(0) && cameraON)
+        {
+            ScreenCapture.CaptureScreenshot("gamepics/screenshot" + picnum + ".png");
+            Debug.Log("A screenshot was taken!");
+            picnum++;
+        }
+
     }
 
     private void StateHandler()
