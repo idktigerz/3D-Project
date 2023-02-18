@@ -239,6 +239,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 738720083, guid: 92a1cb3265702f5459ee3974dc33b012, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 1405687972, guid: 92a1cb3265702f5459ee3974dc33b012, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.011
@@ -294,6 +298,10 @@ PrefabInstance:
     - target: {fileID: 8651262272811927489, guid: 92a1cb3265702f5459ee3974dc33b012, type: 3}
       propertyPath: m_Name
       value: yBot Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651262272811927489, guid: 92a1cb3265702f5459ee3974dc33b012, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

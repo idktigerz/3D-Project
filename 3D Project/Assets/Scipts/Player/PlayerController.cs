@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     private bool isWalking;
     private bool isRunning;
     Animator anim;
+    public float playerStamina;
+
 
     public MovementState state;
     public enum MovementState
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
         anim.SetFloat("Speed", moveDirection.sqrMagnitude);
+        StaminaChecker(moveDirection.sqrMagnitude);
 
 
 
@@ -133,7 +136,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Mode - Sprinting
-        if (grounded && Input.GetKey(sprintKey))
+        if (grounded && Input.GetKey(sprintKey) && (playerStamina > 0))
         {
             anim.SetBool("isRunning", true);
             state = MovementState.sprinting;
@@ -145,6 +148,7 @@ public class PlayerController : MonoBehaviour
         {
             state = MovementState.walking;
             moveSpeed = walkSpeed;
+            anim.SetBool("isRunning", false);
         }
 
         // Mode - Air
@@ -152,7 +156,7 @@ public class PlayerController : MonoBehaviour
         {
             state = MovementState.air;
         }
-        
+
     }
     private void MovePlayer()
     {
@@ -191,4 +195,18 @@ public class PlayerController : MonoBehaviour
     {
         readyToJump = true;
     }
+
+    private void StaminaChecker(float speed)
+    {
+        if (speed > 0.01 && grounded && Input.GetKey(sprintKey))
+        {
+            if (playerStamina > 0) playerStamina = playerStamina - 20 * Time.deltaTime;
+        }
+        else
+        {
+            if (playerStamina < 100) playerStamina = playerStamina + 20 * Time.deltaTime;
+        }
+        Debug.Log(playerStamina);
+    }
+
 }
