@@ -232,7 +232,6 @@ public class PlayerController : MonoBehaviour
         {
             if (playerStamina < 100) playerStamina = playerStamina + 20 * Time.deltaTime;
         }
-        Debug.Log(playerStamina);
     }
 
 }
