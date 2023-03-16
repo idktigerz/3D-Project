@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeController : MonoBehaviour
 {
@@ -44,6 +46,9 @@ public class TimeController : MonoBehaviour
 
     [SerializeField]
     private float maxMoonLightIntensity;
+
+    [SerializeField]
+    private SceneManager skybox;
 
     private TimeSpan sunriseTime;
 
@@ -96,6 +101,8 @@ public class TimeController : MonoBehaviour
             double percentage = timeSinceSunset.TotalMinutes / sunsetToSunriseDuration.TotalMinutes;
 
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
+
+            
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
@@ -107,6 +114,14 @@ public class TimeController : MonoBehaviour
         sunLight.intensity = Mathf.Lerp(0, maxSunLightIntensity, lightChangeCurve.Evaluate(dotProduct));
         moonLight.intensity = Mathf.Lerp(maxMoonLightIntensity, 0, lightChangeCurve.Evaluate(dotProduct));
         RenderSettings.ambientLight = Color.Lerp(nightAmbientLight, dayAmbientLight, lightChangeCurve.Evaluate(dotProduct));
+    }
+
+    private void UpdateFogSettings()
+    {
+        if (currentTime.TimeOfDay < sunriseTime && currentTime.TimeOfDay > sunsetTime)
+        {
+            //LightingSettings.
+        }
     }
 
     private TimeSpan CalculateTimeDifference(TimeSpan fromTime, TimeSpan toTime)
