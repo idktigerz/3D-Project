@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -145,7 +147,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
-            ScreenCapture.CaptureScreenshot("gamepics/screenshot" + picnum + ".png");
+            ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
+
             Debug.Log("A screenshot was taken!");
             picnum++;
         }
