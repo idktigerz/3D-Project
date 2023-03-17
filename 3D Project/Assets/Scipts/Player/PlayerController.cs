@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class PlayerController : MonoBehaviour
 {
@@ -148,6 +149,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
             ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
+            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/screenshot"+ picnum + ".png") as TextureImporter;
+            if (importer == null)
+            {
+                Debug.LogError("Could not TextureImport from path: ");
+            }
+            else
+            {
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.SaveAndReimport();
+            }
 
             Debug.Log("A screenshot was taken!");
             picnum++;

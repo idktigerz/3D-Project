@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 
 public class DiaryControler : MonoBehaviour
@@ -10,32 +10,34 @@ public class DiaryControler : MonoBehaviour
     public List<GameObject> diaryPhotos;
 
     public List<Sprite> PhotosPage1;
-    public List<Sprite> PhotosPage2;
+
+    private int start = 0;
+
+    private int end = 4;
 
 
 
     private void Start()
     {
+        ImportPhotos();
         ShowDiaryPage(PhotosPage1);
         diaryPage = 1;
-        diaryPhotoPlace.Add(new Vector3(427, 0, 0));
-        diaryPhotoPlace.Add(new Vector3(169, 0, 0));
-        diaryPhotoPlace.Add(new Vector3(-96, 0, 0));
-        diaryPhotoPlace.Add(new Vector3(-355, 0, 0));
-        for (int i = 0; i < diaryPhotoPlace.Count; i++)
-        {
-            diaryPhotos[i].GetComponent<Image>().sprite = PhotosPage1[i];
 
-        }
+
+        diaryPhotos[0].GetComponent<Image>().sprite = PhotosPage1[start];
+        diaryPhotos[1].GetComponent<Image>().sprite = PhotosPage1[start + 1];
+        diaryPhotos[2].GetComponent<Image>().sprite = PhotosPage1[start + 2];
+        diaryPhotos[3].GetComponent<Image>().sprite = PhotosPage1[start + 3];
+
+
     }
     private void ShowDiaryPage(List<Sprite> list)
     {
 
-        for (int i = 0; i < diaryPhotoPlace.Count; i++)
-        {
-            diaryPhotos[i].GetComponent<Image>().sprite = list[i];
-
-        }
+        diaryPhotos[0].GetComponent<Image>().sprite = list[start];
+        diaryPhotos[1].GetComponent<Image>().sprite = list[start + 1];
+        diaryPhotos[2].GetComponent<Image>().sprite = list[start + 2];
+        diaryPhotos[3].GetComponent<Image>().sprite = list[start + 3];
     }
 
     public void SwitchDiaryPage(int num)
@@ -50,11 +52,16 @@ public class DiaryControler : MonoBehaviour
         }
         if (diaryPage == 1)
         {
+            start = 0;
+            end = 4;
             ShowDiaryPage(PhotosPage1);
         }
         else
         {
-            ShowDiaryPage(PhotosPage2);
+            start = diaryPage * 4 - 4;
+            ShowDiaryPage(PhotosPage1);
+            Debug.Log(diaryPage);
+            Debug.Log(start);
         }
     }
     private void Update()
@@ -69,5 +76,14 @@ public class DiaryControler : MonoBehaviour
         }
     }
 
+    private void ImportPhotos()
+    {
+        Object[] sprite = Resources.LoadAll("gamepics", typeof(Sprite));
+        foreach (Sprite t in sprite)
+        {
+            PhotosPage1.Add(t);
+        }
+
+    }
 
 }
