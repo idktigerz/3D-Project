@@ -52,6 +52,9 @@ public class PlayerController : MonoBehaviour
     private bool cameraON;
     private int picnum;
 
+    public TimeController time;
+    
+
 
 
     public enum MovementState
@@ -73,6 +76,7 @@ public class PlayerController : MonoBehaviour
 
         startYScale = transform.localScale.y;
         picnum = 0;
+
     }
 
     private void Update()
