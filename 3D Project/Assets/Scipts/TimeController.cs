@@ -18,7 +18,7 @@ public class TimeController : MonoBehaviour
     private TextMeshProUGUI timeText;
 
     [SerializeField]
-    private DateTime currentTime;
+    public DateTime currentTime;
 
     [SerializeField]
     private Light sunLight;
@@ -47,8 +47,10 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     private float maxMoonLightIntensity;
 
+    private Skybox skybox;
+    
     [SerializeField]
-    private SceneManager skybox;
+    private Texture nightSky;
 
     private TimeSpan sunriseTime;
 
@@ -60,6 +62,8 @@ public class TimeController : MonoBehaviour
 
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
+
+        skybox = new Skybox();
 
     }
 
@@ -102,7 +106,7 @@ public class TimeController : MonoBehaviour
 
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
 
-            
+            //skybox.material.SetTexture("_MainTex", nightSky);
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);

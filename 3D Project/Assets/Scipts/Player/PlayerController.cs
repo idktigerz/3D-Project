@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.LeftControl;
     public KeyCode cameraKey = KeyCode.E;
+    public KeyCode interactKey = KeyCode.F;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -53,8 +55,16 @@ public class PlayerController : MonoBehaviour
     private int picnum;
 
     public TimeController time;
-    
 
+    public GameObject bed;
+
+    public bool canInteract;
+
+    public bool active;
+
+    public Transform cam;
+
+    public float playerActivateDistance;
 
 
     public enum MovementState
@@ -76,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
         startYScale = transform.localScale.y;
         picnum = 0;
-
+  
     }
 
     private void Update()
@@ -93,6 +103,18 @@ public class PlayerController : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        RaycastHit hit;
+        active = Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, playerActivateDistance);
+        if (active && (!hit.collider.CompareTag("Ground")))
+        {
+            canInteract = true;
+        }
+        else
+        {
+            canInteract= false;
+        }
+        Debug.Log(canInteract);
     }
 
     private void FixedUpdate()
@@ -167,6 +189,12 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log("A screenshot was taken!");
             picnum++;
+        }
+
+        if (Input.GetKeyDown(interactKey) && canInteract)
+        {
+            Debug.Log("Resting");
+            StartCoroutine(Rest());
         }
 
     }
@@ -253,4 +281,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private IEnumerator Rest()
+    {
+        Debug.Log("Skipping time");
+
+        Time.timeScale = 100;
+
+        yield return new WaitForSeconds(10);
+
+        Time.timeScale = 1;
+    }
 }
