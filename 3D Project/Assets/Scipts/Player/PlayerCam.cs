@@ -11,6 +11,22 @@ public class PlayerCam : MonoBehaviour
 
     float xRotation;
     float yRotation;
+    [Header("Sphere colider")]
+    public GameObject currentHitObject;
+    public float sphereRadius;
+    public float maxDistance;
+    public LayerMask layerMask;
+
+    private Vector3 origin;
+    private Vector3 direction;
+
+    private float currentHitDistance;
+
+
+
+
+
+
 
     private void Start()
     {
@@ -32,5 +48,29 @@ public class PlayerCam : MonoBehaviour
         // rotate cam and orientation
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+    private void FixedUpdate()
+    {
+        origin = transform.position;
+        direction = transform.forward;
+        RaycastHit hit;
+        if (Physics.SphereCast(origin, sphereRadius, direction, out hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
+        {
+            currentHitObject = hit.transform.gameObject;
+            currentHitDistance = hit.distance;
+        }
+        else
+        {
+            currentHitDistance = maxDistance;
+            currentHitObject = null;
+
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Debug.DrawLine(origin, origin + direction * currentHitDistance);
+        Gizmos.DrawWireSphere(origin + direction * currentHitDistance, sphereRadius);
     }
 }
