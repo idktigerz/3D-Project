@@ -180,6 +180,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("A screenshot was taken!");
             picnum++;
         }
+
+        if (Input.GetKeyDown(interactKey))
+        {
+            StartCoroutine(Rest());
+        }
     }
 
 
@@ -269,7 +274,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Skipping time");
 
-        Time.timeScale = 100;
+        Time.timeScale = 60;
 
         yield return new WaitForSeconds(10);
 
