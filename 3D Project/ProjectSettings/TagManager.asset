@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bed
   - Ground
+  - Animal
   layers:
   - Default
   - TransparentFX
