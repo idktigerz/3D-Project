@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private int picnum;
 
     public TimeController time;
-    
+
 
 
 
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
             {
                 cameraUI.SetActive(false);
                 cameraON = false;
-
+                ImportAssetAsSprite();
             }
             else
             {
@@ -153,23 +153,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
             ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
-            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/screenshot"+ picnum + ".png") as TextureImporter;
-            if (importer == null)
-            {
-                Debug.LogError("Could not TextureImport from path: ");
-            }
-            else
-            {
-                importer.textureType = TextureImporterType.Sprite;
-                importer.spriteImportMode = SpriteImportMode.Single;
-                importer.SaveAndReimport();
-            }
-
+            AssetDatabase.Refresh();
             Debug.Log("A screenshot was taken!");
             picnum++;
         }
-
     }
+    
 
     private void StateHandler()
     {
@@ -250,6 +239,25 @@ public class PlayerController : MonoBehaviour
         else
         {
             if (playerStamina < 100) playerStamina = playerStamina + 20 * Time.deltaTime;
+        }
+    }
+
+    private void ImportAssetAsSprite()
+    {
+        AssetDatabase.Refresh();
+        for (int i = 0; i < picnum; i++)
+        {
+            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/screenshot" + i + ".png") as TextureImporter;
+            if (importer == null)
+            {
+                Debug.LogError("Could not TextureImport from path: ");
+            }
+            else
+            {
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.SaveAndReimport();
+            }
         }
     }
 
