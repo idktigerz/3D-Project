@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
 
     public float playerActivateDistance;
 
+    public GameObject photoCube;
+
 
     public enum MovementState
     {
@@ -78,16 +80,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
         readyToJump = true;
 
         startYScale = transform.localScale.y;
         picnum = 0;
-  
+
     }
 
     private void Update()
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            canInteract= false;
+            canInteract = false;
         }
         Debug.Log(canInteract);
     }
@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
             picnum++;
         }
     }
-    
+
 
     private void StateHandler()
     {
