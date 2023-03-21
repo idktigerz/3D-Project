@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using System;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -70,6 +71,10 @@ public class PlayerController : MonoBehaviour
     public GameObject photoCube;
     public PlayerCam playerCam;
 
+    public TextMeshPro batteryText;
+
+    public float camBattery = 100f;
+
 
 
     public enum MovementState
@@ -109,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
         active = Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, playerActivateDistance);
-        if (active && (!hit.collider.CompareTag("Ground")))
+        if (active && (!hit.collider.CompareTag("Ground") || (hit.collider.CompareTag("Animal"))))
         {
             canInteract = true;
         }
@@ -117,7 +122,13 @@ public class PlayerController : MonoBehaviour
         {
             canInteract = false;
         }
-        Debug.Log(canInteract);
+        Debug.Log("Can interact? " + canInteract);
+
+        if (cameraON)
+        {
+            camBattery -= 1 * Time.deltaTime;
+            batteryText.text = "Battery level" + camBattery;
+        }
     }
 
     private void FixedUpdate()
