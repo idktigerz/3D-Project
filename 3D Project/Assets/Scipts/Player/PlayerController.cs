@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject cameraUI;
     public bool cameraON;
     private int picnum;
+    private int crocodilePicNum;
 
     public TimeController time;
 
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
     public float health = 100f;
 
+
     public enum MovementState
     {
         walking,
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
 
         startYScale = transform.localScale.y;
         picnum = 0;
+        crocodilePicNum = 0;
 
     }
 
@@ -192,7 +195,7 @@ public class PlayerController : MonoBehaviour
             if (!cameraON && camBattery > 0)
             {
                 cameraUI.SetActive(true);
-                cameraON = true;   
+                cameraON = true;
             }
             else
             {
@@ -202,19 +205,30 @@ public class PlayerController : MonoBehaviour
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
             }
         }
+        //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
-            if (playerCam.currentHitObject != null)
+            cameraUI.SetActive(false);
+            GameObject closest = playerCam.getClosestPhotographable();
+            Debug.Log(closest);
+            if (closest != null)
             {
-                ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/" + playerCam.currentHitObject.name + "/screenshot" + picnum + ".png");
+                int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
+                Debug.Log(playerCam.animalList[animalTypeId]);
+                ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/" + playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png");
+                playerCam.picCounter[animalTypeId]++;
+
             }
             else
             {
                 ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
+                picnum++;
             }
             AssetDatabase.Refresh();
             Debug.Log("A screenshot was taken!");
-            picnum++;
+
+            StartCoroutine(CameraUIOn());
+
         }
 
         if (Input.GetKeyDown(interactKey) && canInteract)
@@ -328,12 +342,49 @@ public class PlayerController : MonoBehaviour
 
         Time.timeScale = 1;
     }
+    private IEnumerator CameraUIOn()
+    {
+
+
+        yield return new WaitForSeconds(0);
+        cameraUI.SetActive(true);
+
+
+    }
     private void ImportAssetAsSprite()
     {
         AssetDatabase.Refresh();
         for (int i = 0; i < picnum; i++)
         {
             TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/screenshot" + i + ".png") as TextureImporter;
+            if (importer == null)
+            {
+                Debug.LogError("Could not TextureImport from path: ");
+            }
+            else
+            {
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.SaveAndReimport();
+            }
+        }
+        for (int i = 0; i < playerCam.picCounter[6]; i++)
+        {
+            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/Crocodile/screenshot" + i + ".png") as TextureImporter;
+            if (importer == null)
+            {
+                Debug.LogError("Could not TextureImport from path: ");
+            }
+            else
+            {
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.SaveAndReimport();
+            }
+        }
+        for (int i = 0; i < playerCam.picCounter[10]; i++)
+        {
+            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/Tree/screenshot" + i + ".png") as TextureImporter;
             if (importer == null)
             {
                 Debug.LogError("Could not TextureImport from path: ");

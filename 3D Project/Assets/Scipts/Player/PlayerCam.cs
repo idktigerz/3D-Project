@@ -11,29 +11,38 @@ public class PlayerCam : MonoBehaviour
 
     float xRotation;
     float yRotation;
-    [Header("Sphere colider")]
-    public GameObject currentHitObject;
-    public float sphereRadius;
-    public float maxDistance;
-    public LayerMask layerMask;
-
-    private Vector3 origin;
-    private Vector3 direction;
-
-    private float currentHitDistance;
-
     public PlayerController playerController;
+    [Header("photographable stuff")]
 
+    public int[] picCounter;
 
+    public string[] animalList;
 
-
-
+    public List<GameObject> currentAnimalsInTheframe;
 
 
     private void Start()
     {
+        picCounter = new int[11];
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        for (int i = 0; i < picCounter.Length; i++)
+        {
+            picCounter[i] = 0;
+        }
+        animalList = new string[11];
+        animalList[0] = "snake";
+        animalList[1] = "butterfly";
+        animalList[2] = "parrot";
+        animalList[3] = "sloth";
+        animalList[4] = "frog";
+        animalList[5] = "owl";
+        animalList[6] = "crocodile";
+        animalList[7] = "tiger";
+        animalList[8] = "otter";
+        animalList[9] = "bug";
+        animalList[10] = "tree";
+
     }
 
     private void Update()
@@ -54,34 +63,26 @@ public class PlayerCam : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && GetComponent<Camera>().fieldOfView > 20 && playerController.cameraON)
         {
             GetComponent<Camera>().fieldOfView--;
+
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0 && GetComponent<Camera>().fieldOfView < 60 && playerController.cameraON)
         {
             GetComponent<Camera>().fieldOfView++;
         }
     }
-    private void FixedUpdate()
-    {
-        origin = transform.position;
-        direction = transform.forward;
-        RaycastHit hit;
-        if (Physics.SphereCast(origin, sphereRadius, direction, out hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
-        {
-            currentHitObject = hit.transform.gameObject;
-            currentHitDistance = hit.distance;
-        }
-        else
-        {
-            currentHitDistance = maxDistance;
-            currentHitObject = null;
 
-        }
-    }
-
-    private void OnDrawGizmosSelected()
+    public GameObject getClosestPhotographable()
     {
-        Gizmos.color = Color.red;
-        Debug.DrawLine(origin, origin + direction * currentHitDistance);
-        Gizmos.DrawWireSphere(origin + direction * currentHitDistance, sphereRadius);
+        GameObject closest = null;
+        float closestDistance = 1000000;
+        for (int i = 0; i < currentAnimalsInTheframe.Count; i++)
+        {
+            if (Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position) < closestDistance
+            && Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position) < 100)
+            {
+                closest = currentAnimalsInTheframe[i];
+            }
+        }
+        return closest;
     }
 }
