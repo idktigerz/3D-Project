@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     public float camBattery = 100f;
 
-
+    public float health = 100f;
 
     public enum MovementState
     {
@@ -127,7 +127,22 @@ public class PlayerController : MonoBehaviour
         if (cameraON)
         {
             camBattery -= 1 * Time.deltaTime;
-            batteryText.text = "Battery level" + camBattery;
+            if(camBattery <= 100 &&  camBattery >= 75)
+            {
+                batteryText.text = "Battery - ||||";
+            }else if(camBattery <= 74 && camBattery >= 50)
+            {
+                batteryText.text = "Battery - |||";
+            }
+            else if (camBattery <= 49 && camBattery >= 25)
+            {
+                batteryText.text = "Battery - ||";
+            }
+            else if (camBattery <= 24 && camBattery >= 1)
+            {
+                batteryText.text = "Battery - |";
+            }
+
         }
     }
 
@@ -202,7 +217,7 @@ public class PlayerController : MonoBehaviour
             picnum++;
         }
 
-        if (Input.GetKeyDown(interactKey))
+        if (Input.GetKeyDown(interactKey) && canInteract)
         {
             StartCoroutine(Rest());
         }
@@ -245,11 +260,23 @@ public class PlayerController : MonoBehaviour
     {
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        float forwardsAmount = Vector3.Dot(transform.forward, moveDirection);
 
         // on ground
         if (grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
+        {
+            if(forwardsAmount < -.5f)
+            {
+                rb.AddForce(moveDirection.normalized * moveSpeed * 5f, ForceMode.Force);
+            }else if(forwardsAmount < .5f)
+            {
+                rb.AddForce(moveDirection.normalized * moveSpeed * 7.5f, ForceMode.Force);
+            }
+            else
+            {
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            }      
+        }
         // in air
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
@@ -319,5 +346,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+
 
 }

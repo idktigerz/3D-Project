@@ -50,7 +50,9 @@ public class TimeController : MonoBehaviour
     private Skybox skybox;
     
     [SerializeField]
-    private Texture nightSky;
+    private Material nightSky;
+    [SerializeField]
+    private Material sunSky;
 
     private TimeSpan sunriseTime;
 
@@ -64,7 +66,6 @@ public class TimeController : MonoBehaviour
         sunsetTime = TimeSpan.FromHours(sunsetHour);
 
         skybox = new Skybox();
-
     }
 
     // Update is called once per frame
@@ -96,6 +97,9 @@ public class TimeController : MonoBehaviour
             double percentage = timeSinceSunrise.TotalMinutes / sunriseToSunsetDuration.TotalMinutes;
 
             sunLightRotation = Mathf.Lerp(0, 180, (float)percentage);
+
+            RenderSettings.skybox = sunSky;
+            RenderSettings.ambientLight = dayAmbientLight;
         }
         else
         {
@@ -106,7 +110,8 @@ public class TimeController : MonoBehaviour
 
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
 
-            //skybox.material.SetTexture("_MainTex", nightSky);
+            RenderSettings.skybox = nightSky;
+            RenderSettings.ambientLight = nightAmbientLight;
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
