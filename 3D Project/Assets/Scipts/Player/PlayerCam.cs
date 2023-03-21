@@ -22,6 +22,8 @@ public class PlayerCam : MonoBehaviour
 
     private float currentHitDistance;
 
+    public PlayerController playerController;
+
 
 
 
@@ -49,11 +51,11 @@ public class PlayerCam : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && GetComponent<Camera>().fieldOfView > 20 && playerController.cameraON)
         {
             GetComponent<Camera>().fieldOfView--;
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && GetComponent<Camera>().fieldOfView < 60 && playerController.cameraON)
         {
             GetComponent<Camera>().fieldOfView++;
         }

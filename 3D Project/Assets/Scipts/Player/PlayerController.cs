@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Camera Stuff")]
     [SerializeField] GameObject cameraUI;
-    private bool cameraON;
+    public bool cameraON;
     private int picnum;
 
     public TimeController time;
@@ -179,6 +179,7 @@ public class PlayerController : MonoBehaviour
                 cameraUI.SetActive(false);
                 cameraON = false;
                 ImportAssetAsSprite();
+                playerCam.GetComponent<Camera>().fieldOfView = 60;
             }
             else
             {
