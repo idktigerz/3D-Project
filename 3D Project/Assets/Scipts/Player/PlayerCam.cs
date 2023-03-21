@@ -48,6 +48,15 @@ public class PlayerCam : MonoBehaviour
         // rotate cam and orientation
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            GetComponent<Camera>().fieldOfView--;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            GetComponent<Camera>().fieldOfView++;
+        }
     }
     private void FixedUpdate()
     {
