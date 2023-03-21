@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
     public float playerActivateDistance;
 
     public GameObject photoCube;
+    public PlayerCam playerCam;
+
 
 
     public enum MovementState
@@ -175,7 +177,14 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
-            ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
+            if (playerCam.currentHitObject != null)
+            {
+                ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/" + playerCam.currentHitObject.name + "/screenshot" + picnum + ".png");
+            }
+            else
+            {
+                ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
+            }
             AssetDatabase.Refresh();
             Debug.Log("A screenshot was taken!");
             picnum++;
