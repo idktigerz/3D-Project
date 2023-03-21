@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     public GameObject photoCube;
     public PlayerCam playerCam;
 
-    public TextMeshPro batteryText;
+    public TextMeshProUGUI batteryText;
 
     public float camBattery = 100f;
 
@@ -174,17 +174,17 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(cameraKey))
         {
-            if (cameraON)
+            if (!cameraON && camBattery > 0)
+            {
+                cameraUI.SetActive(true);
+                cameraON = true;   
+            }
+            else
             {
                 cameraUI.SetActive(false);
                 cameraON = false;
                 ImportAssetAsSprite();
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
-            }
-            else
-            {
-                cameraUI.SetActive(true);
-                cameraON = true;
             }
         }
         if (Input.GetMouseButtonDown(0) && cameraON)
