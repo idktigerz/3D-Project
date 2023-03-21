@@ -46,8 +46,6 @@ public class TimeController : MonoBehaviour
 
     [SerializeField]
     private float maxMoonLightIntensity;
-
-    private Skybox skybox;
     
     [SerializeField]
     private Material nightSky;
@@ -57,6 +55,9 @@ public class TimeController : MonoBehaviour
     private TimeSpan sunriseTime;
 
     private TimeSpan sunsetTime;
+
+    [SerializeField]
+    private Light playerLight;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,8 +65,6 @@ public class TimeController : MonoBehaviour
 
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
-
-        skybox = new Skybox();
     }
 
     // Update is called once per frame
@@ -100,6 +99,9 @@ public class TimeController : MonoBehaviour
 
             RenderSettings.skybox = sunSky;
             RenderSettings.ambientLight = dayAmbientLight;
+            RenderSettings.ambientIntensity = 1f;
+            RenderSettings.reflectionIntensity = 1f;
+            playerLight.intensity = 0f;
         }
         else
         {
@@ -112,6 +114,9 @@ public class TimeController : MonoBehaviour
 
             RenderSettings.skybox = nightSky;
             RenderSettings.ambientLight = nightAmbientLight;
+            RenderSettings.ambientIntensity = 0f;
+            RenderSettings.reflectionIntensity = 0f;
+            playerLight.intensity = 1f;
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
