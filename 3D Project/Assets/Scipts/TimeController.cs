@@ -58,6 +58,8 @@ public class TimeController : MonoBehaviour
 
     [SerializeField]
     private Light playerLight;
+    [SerializeField]
+    private Light flashLight;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,7 +90,7 @@ public class TimeController : MonoBehaviour
     {
         float sunLightRotation;
 
-        if(currentTime.TimeOfDay > sunriseTime && currentTime.TimeOfDay < sunsetTime)
+        if (currentTime.TimeOfDay > sunriseTime && currentTime.TimeOfDay < sunsetTime)
         {
             TimeSpan sunriseToSunsetDuration = CalculateTimeDifference(sunriseTime, sunsetTime);
             TimeSpan timeSinceSunrise = CalculateTimeDifference(sunriseTime, currentTime.TimeOfDay);
@@ -102,6 +104,7 @@ public class TimeController : MonoBehaviour
             RenderSettings.ambientIntensity = 1f;
             RenderSettings.reflectionIntensity = 1f;
             playerLight.intensity = 0f;
+            flashLight.intensity = 1f;
         }
         else
         {
@@ -117,6 +120,7 @@ public class TimeController : MonoBehaviour
             RenderSettings.ambientIntensity = 0f;
             RenderSettings.reflectionIntensity = 0f;
             playerLight.intensity = 5f;
+            flashLight.intensity = 10f;
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
@@ -142,7 +146,7 @@ public class TimeController : MonoBehaviour
     {
         TimeSpan difference = toTime - fromTime;
 
-        if(difference.TotalSeconds < 0)
+        if (difference.TotalSeconds < 0)
         {
             difference += TimeSpan.FromHours(24);
         }

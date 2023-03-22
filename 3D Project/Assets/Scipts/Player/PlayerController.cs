@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject diaryUI;
 
+    public GameObject apo;
+
 
     public enum MovementState
     {
@@ -108,6 +110,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(Vector3.Distance(transform.position, apo.GetComponent<Transform>().position));
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f, whatIsGround);
 
@@ -246,11 +249,15 @@ public class PlayerController : MonoBehaviour
             {
                 diaryUI.SetActive(false);
                 diaryOpen = false;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 diaryUI.SetActive(true);
                 diaryOpen = true;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
