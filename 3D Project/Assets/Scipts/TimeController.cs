@@ -45,7 +45,8 @@ public class TimeController : MonoBehaviour
 
     [SerializeField]
     private float maxMoonLightIntensity;
-    
+
+    [Header("Skybox texture")]
     [SerializeField]
     private Material nightSky;
     [SerializeField]
