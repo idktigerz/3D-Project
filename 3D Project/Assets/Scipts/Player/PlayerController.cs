@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour
     public float camBattery = 100f;
 
     public float health = 100f;
+    [Header("Camera Flash")]
+    public GameObject light;
 
 
     public enum MovementState
@@ -130,10 +132,11 @@ public class PlayerController : MonoBehaviour
         if (cameraON)
         {
             camBattery -= 1 * Time.deltaTime;
-            if(camBattery <= 100 &&  camBattery >= 75)
+            if (camBattery <= 100 && camBattery >= 75)
             {
                 batteryText.text = "Battery - ||||";
-            }else if(camBattery <= 74 && camBattery >= 50)
+            }
+            else if (camBattery <= 74 && camBattery >= 50)
             {
                 batteryText.text = "Battery - |||";
             }
@@ -208,6 +211,7 @@ public class PlayerController : MonoBehaviour
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
+            light.SetActive(true);
             cameraUI.SetActive(false);
             GameObject closest = playerCam.getClosestPhotographable();
             Debug.Log(closest);
@@ -228,7 +232,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("A screenshot was taken!");
 
             StartCoroutine(CameraUIOn());
-
+            StartCoroutine(FlashOn());
         }
 
         if (Input.GetKeyDown(interactKey) && canInteract)
@@ -279,17 +283,18 @@ public class PlayerController : MonoBehaviour
         // on ground
         if (grounded)
         {
-            if(forwardsAmount < -.5f)
+            if (forwardsAmount < -.5f)
             {
                 rb.AddForce(moveDirection.normalized * moveSpeed * 5f, ForceMode.Force);
-            }else if(forwardsAmount < .5f)
+            }
+            else if (forwardsAmount < .5f)
             {
                 rb.AddForce(moveDirection.normalized * moveSpeed * 7.5f, ForceMode.Force);
             }
             else
             {
                 rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-            }      
+            }
         }
         // in air
         else if (!grounded)
@@ -344,12 +349,13 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator CameraUIOn()
     {
-
-
         yield return new WaitForSeconds(0);
         cameraUI.SetActive(true);
-
-
+    }
+    private IEnumerator FlashOn()
+    {
+        yield return new WaitForSeconds(1);
+        light.SetActive(false);
     }
     private void ImportAssetAsSprite()
     {
