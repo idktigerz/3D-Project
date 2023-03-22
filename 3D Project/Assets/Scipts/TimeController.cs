@@ -115,7 +115,7 @@ public class TimeController : MonoBehaviour
             RenderSettings.ambientLight = nightAmbientLight;
             RenderSettings.ambientIntensity = 0f;
             RenderSettings.reflectionIntensity = 0f;
-            playerLight.intensity = 1f;
+            playerLight.intensity = 5f;
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);

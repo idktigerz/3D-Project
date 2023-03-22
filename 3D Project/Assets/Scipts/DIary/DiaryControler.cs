@@ -7,9 +7,12 @@ public class DiaryControler : MonoBehaviour
 {
     public List<Vector3> diaryPhotoPlace;
     public int diaryPage;
+    public List<Sprite> MainPagePhotos;
     public List<GameObject> diaryPhotos;
 
+
     public List<Sprite> PhotosPage1;
+
 
     private int start = 0;
 

@@ -80,6 +80,10 @@ public class PlayerController : MonoBehaviour
     [Header("Camera Flash")]
     public GameObject light;
 
+    private bool diaryOpen;
+
+    [SerializeField] GameObject diaryUI;
+
 
     public enum MovementState
     {
@@ -105,7 +109,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f, whatIsGround);
 
         MyInput();
         SpeedControl();
@@ -127,7 +131,6 @@ public class PlayerController : MonoBehaviour
         {
             canInteract = false;
         }
-        Debug.Log("Can interact? " + canInteract);
 
         if (cameraON)
         {
@@ -214,11 +217,9 @@ public class PlayerController : MonoBehaviour
             light.SetActive(true);
             cameraUI.SetActive(false);
             GameObject closest = playerCam.getClosestPhotographable();
-            Debug.Log(closest);
             if (closest != null)
             {
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
-                Debug.Log(playerCam.animalList[animalTypeId]);
                 ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/" + playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png");
                 playerCam.picCounter[animalTypeId]++;
 
@@ -238,6 +239,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(interactKey) && canInteract)
         {
             StartCoroutine(Rest());
+        }
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            if (diaryOpen)
+            {
+                diaryUI.SetActive(false);
+                diaryOpen = false;
+            }
+            else
+            {
+                diaryUI.SetActive(true);
+                diaryOpen = true;
+            }
         }
     }
 
@@ -391,6 +405,34 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < playerCam.picCounter[10]; i++)
         {
             TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/Tree/screenshot" + i + ".png") as TextureImporter;
+            if (importer == null)
+            {
+                Debug.LogError("Could not TextureImport from path: ");
+            }
+            else
+            {
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.SaveAndReimport();
+            }
+        }
+        for (int i = 0; i < playerCam.picCounter[5]; i++)
+        {
+            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/Owl/screenshot" + i + ".png") as TextureImporter;
+            if (importer == null)
+            {
+                Debug.LogError("Could not TextureImport from path: ");
+            }
+            else
+            {
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.SaveAndReimport();
+            }
+        }
+        for (int i = 0; i < playerCam.picCounter[1]; i++)
+        {
+            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/Butterfly/screenshot" + i + ".png") as TextureImporter;
             if (importer == null)
             {
                 Debug.LogError("Could not TextureImport from path: ");

@@ -14,7 +14,6 @@ public class Photographable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log($"a tua mae é uma moto quatro");
     }
 
     // Update is called once per frame

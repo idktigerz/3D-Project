@@ -74,13 +74,17 @@ public class PlayerCam : MonoBehaviour
     public GameObject getClosestPhotographable()
     {
         GameObject closest = null;
-        float closestDistance = 1000000;
+        float closestDistance = 100;
+        float distance;
         for (int i = 0; i < currentAnimalsInTheframe.Count; i++)
         {
-            if (Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position) < closestDistance
-            && Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position) < 100)
+            Debug.Log(currentAnimalsInTheframe[i].name + "is" + Vector3.Distance(playerController.transform.position,
+            currentAnimalsInTheframe[i].transform.position) + "meters away");
+            distance = Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position);
+            if (distance < closestDistance)
             {
                 closest = currentAnimalsInTheframe[i];
+                closestDistance = distance;
             }
         }
         return closest;
