@@ -84,8 +84,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject diaryUI;
 
-    public GameObject apo;
-
 
     public enum MovementState
     {
@@ -110,7 +108,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Vector3.Distance(transform.position, apo.GetComponent<Transform>().position));
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f, whatIsGround);
 

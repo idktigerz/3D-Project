@@ -29,13 +29,12 @@ public class Photographable : MonoBehaviour
     }
     private void OnBecameVisible()
     {
-        Debug.Log("IM VISIBLE");
+
         playerCam.currentAnimalsInTheframe.Add(gameObject);
     }
 
     private void OnBecameInvisible()
     {
-        Debug.Log("IM INVISIBLE");
         playerCam.currentAnimalsInTheframe.Remove(gameObject);
     }
 }
