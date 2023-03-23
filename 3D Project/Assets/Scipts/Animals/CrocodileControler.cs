@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animal : MonoBehaviour
+public class CrocodileControler : MonoBehaviour
 {
+    [SerializeField] float attackRadius;
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.name == "NoiseBubble")
