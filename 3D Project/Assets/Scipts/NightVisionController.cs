@@ -15,6 +15,7 @@ public class NightVisionController : MonoBehaviour
     void Start()
     {
         RenderSettings.ambientLight = defaultLightColor;
+        RenderSettings.ambientIntensity = 0f;
         volume = gameObject.GetComponent<PostProcessVolume>();
         volume.weight = 0;
     }
@@ -33,12 +34,15 @@ public class NightVisionController : MonoBehaviour
         isEnabled = !isEnabled;
         if (isEnabled)
         {
+            
             RenderSettings.ambientLight = boostedLightColor;
+            RenderSettings.ambientIntensity = 2f;
             volume.weight = 1;
             Debug.Log("Nightvision enabled");
         }
         else
         {
+            RenderSettings.ambientIntensity = 0f;
             RenderSettings.ambientLight = defaultLightColor;
             volume.weight = 0;
             Debug.Log("Nightvision disabled");

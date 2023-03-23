@@ -117,7 +117,7 @@ public class TimeController : MonoBehaviour
 
             RenderSettings.skybox = nightSky;
             RenderSettings.ambientLight = nightAmbientLight;
-            RenderSettings.ambientIntensity = 0f;
+            //RenderSettings.ambientIntensity = 0f;
             RenderSettings.reflectionIntensity = 0f;
             playerLight.intensity = 5f;
             flashLight.intensity = 10f;

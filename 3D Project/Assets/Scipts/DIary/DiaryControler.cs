@@ -18,17 +18,15 @@ public class DiaryControler : MonoBehaviour
 
     private int end = 4;
 
-
+    string folderName;
 
     private void Start()
     {
-        ImportPhotos2("Owl");
-        ShowDiaryPage(PhotosPage1);
-        diaryPage = 1;
+        
     }
     private void ShowDiaryPage(List<Sprite> list)
     {
-        GameObject main =FindChildGameObjectByName(gameObject, "OwlPage");
+        GameObject main =FindChildGameObjectByName(gameObject, folderName+"Page");
         FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
         FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = list[start + 1];
         FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = list[start + 2];
@@ -70,24 +68,22 @@ public class DiaryControler : MonoBehaviour
             SwitchDiaryPage(0);
         }
     }
-
-    private void ImportPhotos()
+    private void ImportPhotos(string folder)
     {
-        Object[] sprite = Resources.LoadAll("gamepics", typeof(Sprite));
+        folderName = folder;
+        Object[] sprite = Resources.LoadAll("gamepics/" + folder, typeof(Sprite));
         foreach (Sprite t in sprite)
         {
             PhotosPage1.Add(t);
         }
-
+       
     }
-    private void ImportPhotos2(string folderName)
-    {
-        Object[] sprite = Resources.LoadAll("gamepics/" + folderName, typeof(Sprite));
-        foreach (Sprite t in sprite)
-        {
-            PhotosPage1.Add(t);
-        }
 
+    private void FirstPage(string folderName)
+    {
+        ImportPhotos(folderName);
+        ShowDiaryPage(PhotosPage1);
+        diaryPage = 1;
     }
 
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
