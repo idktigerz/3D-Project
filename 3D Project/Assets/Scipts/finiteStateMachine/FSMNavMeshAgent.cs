@@ -43,8 +43,32 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public void GoToNextPatrolWaypoint()
     {
+        
         agent.isStopped = false;
-        agent.SetDestination(patrolWaypoints[Random.Range(0, patrolWaypoints.Length)].position);
+        //agent.SetDestination(patrolWaypoints[Random.Range(0, patrolWaypoints.Length)].position);
+        //var NewPos = Random.insideUnitCircle.normalized * 100;
+        var NewPos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        if (Vector3.Distance(transform.position, NewPos) > 3)
+        {
+            agent.SetDestination(transform.position + NewPos);
+            Debug.Log("start walking");
+        }
+        else
+        {
+            GoToNextPatrolWaypoint();
+        }
+
+
+    }
+    public IEnumerator WalkingPause()
+    {
+
+        Debug.Log("walking pause");
+        agent.isStopped = true;
+        yield return new WaitForSeconds(2);
+        agent.isStopped = false;
+        GoToNextPatrolWaypoint();
+
     }
 
 

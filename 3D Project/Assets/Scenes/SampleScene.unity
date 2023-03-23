@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2942,6 +2942,7 @@ GameObject:
   - component: {fileID: 892430936}
   - component: {fileID: 892430935}
   - component: {fileID: 892430934}
+  - component: {fileID: 892430938}
   m_Layer: 10
   m_Name: Plane
   m_TagString: Ground
@@ -3036,6 +3037,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &892430938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892430933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.33333334
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: a6a5fed0767ce4a49b2ac56d853b513f, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &937390401
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,7 +3723,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2170900083067434700, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
   m_PrefabInstance: {fileID: 2170900083233944075}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1006471043
+--- !u!114 &1006471044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3700,11 +3732,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1006471038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79dc7b25002228d43ac3acfe9f57f98d, type: 3}
+  m_Script: {fileID: 11500000, guid: f603c7a8be37f3946999124494d89822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRadius: 0
---- !u!195 &1006471044
+  patrolWaypoints: []
+  target: {fileID: 317930966}
+  bulletPrefab: {fileID: 7843726927612301049, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
+  shootTimeInterval: 1
+  energy: 100
+  canRun: 0
+--- !u!195 &1006471045
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3713,12 +3750,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 1006471038}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Radius: 1
+  m_Speed: 2
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3726,6 +3763,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1006471050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006471038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a3be61c1055c4448c87d87f38203f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState: {fileID: 11400000, guid: 34c187f55692a934582a0ed4174699e2, type: 2}
 --- !u!1 &1020112928
 GameObject:
   m_ObjectHideFlags: 0
@@ -6664,7 +6714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2170900083067434695, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.4360695
+      value: 7.292
       objectReference: {fileID: 0}
     - target: {fileID: 2170900083067434695, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6716,10 +6766,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2170900083067434700, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1006471043}
+      addedObject: {fileID: 1006471045}
     - targetCorrespondingSourceObject: {fileID: 2170900083067434700, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1006471044}
+    - targetCorrespondingSourceObject: {fileID: 2170900083067434700, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1006471050}
   m_SourcePrefab: {fileID: 100100000, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
 --- !u!1001 &4184069424996931130
 PrefabInstance:
@@ -6743,11 +6796,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.667
+      value: -1.01
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.51
+      value: 32.81
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalRotation.w
