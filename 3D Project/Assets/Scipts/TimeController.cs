@@ -60,6 +60,8 @@ public class TimeController : MonoBehaviour
     private Light playerLight;
     [SerializeField]
     private Light flashLight;
+
+    public bool canToggleNightVision; 
     // Start is called before the first frame update
     void Start()
     {
