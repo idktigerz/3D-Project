@@ -242,7 +242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &76854661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -901,6 +901,10 @@ PrefabInstance:
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 259835296}
+    - target: {fileID: 738720083, guid: 92a1cb3265702f5459ee3974dc33b012, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 697132223}
     - target: {fileID: 738720083, guid: 92a1cb3265702f5459ee3974dc33b012, type: 3}
       propertyPath: batteryText
       value: 
@@ -1954,6 +1958,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1934058324}
+        m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
+        m_MethodName: FirstPage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Crocodile
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1465105577}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &627840976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2027,7 +2055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -537, y: 206}
+  m_AnchoredPosition: {x: -476, y: 310}
   m_SizeDelta: {x: 640, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675028826
@@ -2163,7 +2191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &687854580
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2467,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &791638638
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2727,6 +2755,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1934058324}
+        m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
+        m_MethodName: UnimportPhotos
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3031,7 +3071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &939543909
 Transform:
   m_ObjectHideFlags: 0
@@ -3533,6 +3573,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1934058324}
+        m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
+        m_MethodName: FirstPage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Owl
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &995376374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3666,7 +3718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1127374217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3787,7 +3839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1134381250
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3966,7 +4018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69dfb59d711551445869a60227c0347a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.3960686
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69dfb59d711551445869a60227c0347a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3974,7 +4026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69dfb59d711551445869a60227c0347a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.104786
+      value: 6.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69dfb59d711551445869a60227c0347a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4541,7 +4593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1465105578
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5546,6 +5598,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 76854660}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1934058324}
+        m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
+        m_MethodName: UnimportPhotos
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1731226453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5935,7 +6011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1927108264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6013,7 +6089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1934058320
 MonoBehaviour:
   m_ObjectHideFlags: 0

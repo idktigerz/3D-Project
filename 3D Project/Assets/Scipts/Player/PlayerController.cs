@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject diaryUI;
 
+    PlayerController controller;
+
 
     public enum MovementState
     {
@@ -97,6 +99,7 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        controller = GetComponent<PlayerController>();
         rb.freezeRotation = true;
         readyToJump = true;
 
@@ -244,17 +247,21 @@ public class PlayerController : MonoBehaviour
         {
             if (diaryOpen)
             {
+                playerCam.enabled = true;
                 diaryUI.SetActive(false);
                 diaryOpen = false;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                
             }
             else
             {
+                playerCam.enabled = false;
                 diaryUI.SetActive(true);
                 diaryOpen = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                
             }
         }
     }
