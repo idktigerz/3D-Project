@@ -29,7 +29,6 @@ public class Photographable : MonoBehaviour
     }
     private void OnBecameVisible()
     {
-
         playerCam.currentAnimalsInTheframe.Add(gameObject);
     }
 
