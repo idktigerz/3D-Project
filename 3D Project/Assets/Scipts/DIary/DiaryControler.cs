@@ -109,7 +109,7 @@ public class DiaryControler : MonoBehaviour
     public void FirstPage(string folderName)
     {
         ImportFirstPhoto(folderName);
-        ShowDiaryPage(PhotosPage1);
+        //ShowDiaryPage(PhotosPage1);
         diaryPage = 1;
     }
 
