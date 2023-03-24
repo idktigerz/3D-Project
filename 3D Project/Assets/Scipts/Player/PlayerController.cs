@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour
     [Header("Camera Flash")]
     public GameObject light;
 
+    public NightVisionController nightVisionController;
+
     private bool diaryOpen;
 
     [SerializeField] GameObject diaryUI;
@@ -138,6 +140,10 @@ public class PlayerController : MonoBehaviour
         if (cameraON)
         {
             camBattery -= 1 * Time.deltaTime;
+            if (nightVisionController.isEnabled)
+            {
+                camBattery -= 2 * Time.deltaTime;
+            }
             if (camBattery <= 100 && camBattery >= 75)
             {
                 batteryText.text = "Battery - ||||";
