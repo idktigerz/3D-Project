@@ -43,7 +43,7 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public void GoToNextPatrolWaypoint()
     {
-        
+
         agent.isStopped = false;
         //agent.SetDestination(patrolWaypoints[Random.Range(0, patrolWaypoints.Length)].position);
         //var NewPos = Random.insideUnitCircle.normalized * 100;
@@ -83,7 +83,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         agent.SetDestination(target.position);
     }
 
-    public void Attack()
+    public void CrocodileAttack()
     {
 
         agent.isStopped = true;
@@ -97,15 +97,9 @@ public class FSMNavMeshAgent : MonoBehaviour
             bullet.GetComponent<Rigidbody>().velocity = diretion * 20;
         }
     }
-
-    public void Recover()
+    public void ButterflyAttack()
     {
-        agent.isStopped = false;
-        Debug.Log($"RECOVERING");
-        if (energy < maxEnergy)
-        {
-            energy += 5 * Time.deltaTime;
-        }
+        Debug.Log($"AQUII");
     }
 
     public void RunAway()
