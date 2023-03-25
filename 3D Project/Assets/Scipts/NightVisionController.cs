@@ -9,7 +9,7 @@ public class NightVisionController : MonoBehaviour
     [SerializeField] private Color defaultLightColor;
     [SerializeField] private Color boostedLightColor;
 
-    private bool isEnabled = false;
+    public bool isEnabled = false;
     private PostProcessVolume volume;
     // Start is called before the first frame update
     void Start()
