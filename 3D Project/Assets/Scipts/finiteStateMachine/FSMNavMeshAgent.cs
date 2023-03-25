@@ -19,7 +19,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     float timer = 0;
     float cooldownTime = 2f;
 
-    public bool canRun;
+    public bool canHear;
 
     void Start()
     {
@@ -86,11 +86,9 @@ public class FSMNavMeshAgent : MonoBehaviour
     public void CrocodileAttack()
     {
 
-        agent.isStopped = true;
         shootTimer += Time.deltaTime;
         if (shootTimer > shootTimeInterval)
         {
-            energy -= 5;
             shootTimer = 0;
             Vector3 diretion = (target.position - transform.position).normalized;
             GameObject bullet = GameObject.Instantiate(bulletPrefab, transform.position + transform.forward, Quaternion.identity);
@@ -102,26 +100,20 @@ public class FSMNavMeshAgent : MonoBehaviour
         Debug.Log($"AQUII");
     }
 
-    public void RunAway()
+    private void OnTriggerEnter(Collider other)
     {
-        agent.isStopped = false;
-        Transform point = null;
-        Debug.Log($"RUNNING AWAY");
+        if (other.name == "NoiseBubble")
         {
-            float minDist = 0;
-            Vector3 currentPos = target.position;
-            foreach (Transform w in patrolWaypoints)
-            {
-                float dist = Vector3.Distance(w.position, currentPos);
-                if (minDist < dist)
-                {
-                    point = w;
-                    minDist = dist;
-                    agent.SetDestination(point.position);
-                }
-            }
+            canHear = true;
         }
-        energy += 5 * Time.deltaTime;
-        timer = 0;
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name == "NoiseBubble")
+        {
+            canHear = false;
+        }
+
     }
 }

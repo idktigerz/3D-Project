@@ -23,7 +23,7 @@ public class NoiseBubbleControler : MonoBehaviour
         }
         else
         {
-            transform.localScale = scale * 1;
+            transform.localScale = scale * 0;
         }
     }
 }
