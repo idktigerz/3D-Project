@@ -8,7 +8,7 @@ public class FiniteStateMachine : MonoBehaviour
 {
     private FSMNavMeshAgent navMeshAgent;
     public State initialState;
-    private State currentState;
+    public State currentState;
 
     private void Start()
     {

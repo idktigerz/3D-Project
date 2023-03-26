@@ -58,15 +58,23 @@ public class FSMNavMeshAgent : MonoBehaviour
         }
         else
         {
-            GoToNextPatrolWaypoint();
+            if (gameObject.name == "Crocodile")
+            {
+                GoToNextPatrolWaypoint();
+            }
+            else if (gameObject.name == "Owl")
+            {
+                GoToNextPatrolWaypointOwl();
+            }
+
         }
     }
-    public IEnumerator WalkingPause()
+    public IEnumerator WalkingPause(float time)
     {
 
         Debug.Log("walking pause");
         agent.isStopped = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(time);
         agent.isStopped = false;
         GoToNextPatrolWaypoint();
 
@@ -102,34 +110,24 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         Debug.Log($"AQUII");
     }
-
-    public void RunAway()
-    {
-        agent.isStopped = false;
-        Transform point = null;
-        Debug.Log($"RUNNING AWAY");
-        {
-            float minDist = 0;
-            Vector3 currentPos = target.position;
-            foreach (Transform w in patrolWaypoints)
-            {
-                float dist = Vector3.Distance(w.position, currentPos);
-                if (minDist < dist)
-                {
-                    point = w;
-                    minDist = dist;
-                    agent.SetDestination(point.position);
-                }
-            }
-        }
-        energy += 5 * Time.deltaTime;
-        timer = 0;
-    }
     public void GoToNextPatrolWaypointOwl()
     {
 
         agent.isStopped = false;
         agent.SetDestination(OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position);
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "NoiseBubble")
+        {
+            canHear = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "NoiseBubble")
+        {
+            canHear = false;
+        }
+    }
 }

@@ -11,8 +11,15 @@ public class PatrolAction : Action
         //Debug.Log($"PATROLING");
         if (fsm.GetNavMeshAgent().IsAtDestination())
         {
-            Debug.Log("aaaaaaaaaaaaaaaaaaaaa");
-            fsm.GetNavMeshAgent().StartCoroutine("WalkingPause");
+            if (fsm.name == "Crocodile")
+            {
+                fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 5f);
+            }
+            else if (fsm.name == "Owl")
+            {
+                fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 7f);
+            }
+
         }
     }
 }
