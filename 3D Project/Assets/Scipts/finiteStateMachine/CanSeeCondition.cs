@@ -21,6 +21,5 @@ public class CanSeeCondition : Condition
         }
 
         return negation;
-
     }
 }

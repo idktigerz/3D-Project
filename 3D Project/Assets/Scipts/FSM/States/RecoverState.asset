@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36a43514c28a88842a76cd2182d0dcd0, type: 3}
-  m_Name: AttackState
+  m_Name: RecoverState
   m_EditorClassIdentifier: 
   entryAction: {fileID: 0}
   stateActions:
-  - {fileID: 11400000, guid: b2892646a9a15874d9a8006300278ea6, type: 2}
+  - {fileID: 11400000, guid: 5f793779b5319f149983e3e33d232b6f, type: 2}
   exitAction: {fileID: 0}
   transitions:
-  - {fileID: 11400000, guid: f18190e7760b7164b8a6ea93bcb9a128, type: 2}
-  - {fileID: 11400000, guid: 13bb98814e67850449cda15848337037, type: 2}
+  - {fileID: 11400000, guid: 10e83269d98165a47b78f45493f3191a, type: 2}

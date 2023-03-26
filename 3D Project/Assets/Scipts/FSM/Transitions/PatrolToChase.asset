@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ee356048a9c5c43a0e2e3a0618ac5b, type: 3}
   m_Name: PatrolToChase
   m_EditorClassIdentifier: 
-  decision: {fileID: 11400000, guid: 4f8ab6e8ac567f2469b0b5c955af5bd9, type: 2}
+  decision: {fileID: 11400000, guid: 8da6dd15a2a2a87429a51c653ddd28ae, type: 2}
   action: {fileID: 0}
   targetState: {fileID: 11400000, guid: c117547c55ae16042af9d234a362a234, type: 2}

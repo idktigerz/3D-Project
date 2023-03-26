@@ -19,8 +19,12 @@ public class FSMNavMeshAgent : MonoBehaviour
     float timer = 0;
     float cooldownTime = 2f;
 
+<<<<<<< HEAD
     public bool canHear;
     [Header("Owl Stuff")]
+=======
+    public bool canRun;
+>>>>>>> parent of 42115eb (crocodile ai)
 
     public List<Transform> OwlWaypoints;
     void Start()
@@ -86,9 +90,11 @@ public class FSMNavMeshAgent : MonoBehaviour
     public void CrocodileAttack()
     {
 
+        agent.isStopped = true;
         shootTimer += Time.deltaTime;
         if (shootTimer > shootTimeInterval)
         {
+            energy -= 5;
             shootTimer = 0;
             Vector3 diretion = (target.position - transform.position).normalized;
             GameObject bullet = GameObject.Instantiate(bulletPrefab, transform.position + transform.forward, Quaternion.identity);
@@ -100,21 +106,27 @@ public class FSMNavMeshAgent : MonoBehaviour
         Debug.Log($"AQUII");
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void RunAway()
     {
-        if (other.name == "NoiseBubble")
+        agent.isStopped = false;
+        Transform point = null;
+        Debug.Log($"RUNNING AWAY");
         {
-            canHear = true;
+            float minDist = 0;
+            Vector3 currentPos = target.position;
+            foreach (Transform w in patrolWaypoints)
+            {
+                float dist = Vector3.Distance(w.position, currentPos);
+                if (minDist < dist)
+                {
+                    point = w;
+                    minDist = dist;
+                    agent.SetDestination(point.position);
+                }
+            }
         }
-
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.name == "NoiseBubble")
-        {
-            canHear = false;
-        }
-
+        energy += 5 * Time.deltaTime;
+        timer = 0;
     }
     public void GoToNextPatrolWaypointOwl()
     {
