@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2e46d9578d10d429db5c5f55efa538, type: 3}
   m_Name: CannotHearCondition
   m_EditorClassIdentifier: 
-  negation: 0
-  viewAngle: 0
-  viewDistance: 0
+  negation: 1
+  viewAngle: 60
+  viewDistance: 11

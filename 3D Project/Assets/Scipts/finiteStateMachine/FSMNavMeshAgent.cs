@@ -54,7 +54,6 @@ public class FSMNavMeshAgent : MonoBehaviour
         if (Vector3.Distance(transform.position, NewPos) > 3)
         {
             agent.SetDestination(transform.position + NewPos);
-            Debug.Log("start walking");
         }
         else
         {
@@ -72,11 +71,18 @@ public class FSMNavMeshAgent : MonoBehaviour
     public IEnumerator WalkingPause(float time)
     {
 
-        Debug.Log("walking pause");
+
         agent.isStopped = true;
         yield return new WaitForSeconds(time);
         agent.isStopped = false;
-        GoToNextPatrolWaypoint();
+        if (gameObject.name == "Crocodile")
+        {
+            GoToNextPatrolWaypoint();
+        }
+        else if (gameObject.name == "Owl")
+        {
+            GoToNextPatrolWaypointOwl();
+        }
 
     }
 
@@ -112,9 +118,9 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void GoToNextPatrolWaypointOwl()
     {
-
         agent.isStopped = false;
         agent.SetDestination(OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position);
+        Debug.Log(OwlWaypoints);
     }
     private void OnTriggerEnter(Collider other)
     {

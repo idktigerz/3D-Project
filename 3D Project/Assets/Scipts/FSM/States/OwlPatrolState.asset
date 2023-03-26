@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: OwlPatrolState
   m_EditorClassIdentifier: 
   entryAction: {fileID: 0}
-  stateActions: []
+  stateActions:
+  - {fileID: 11400000, guid: 70469668cb82fb54bb5d938068d6305b, type: 2}
   exitAction: {fileID: 0}
   transitions: []
