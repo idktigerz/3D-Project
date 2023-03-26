@@ -19,12 +19,9 @@ public class FSMNavMeshAgent : MonoBehaviour
     float timer = 0;
     float cooldownTime = 2f;
 
-<<<<<<< HEAD
     public bool canHear;
     [Header("Owl Stuff")]
-=======
     public bool canRun;
->>>>>>> parent of 42115eb (crocodile ai)
 
     public List<Transform> OwlWaypoints;
     void Start()
