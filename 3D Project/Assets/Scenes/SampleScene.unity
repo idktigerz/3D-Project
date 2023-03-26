@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -778,6 +778,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
   m_PrefabInstance: {fileID: 994963350}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &241422943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2170900083067434700, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
+  m_PrefabInstance: {fileID: 2170900083233944075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &259835295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 36697840691008159, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
@@ -1050,6 +1055,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2170900083067434695, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
   m_PrefabInstance: {fileID: 2170900083233944075}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &371180756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241422943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a3be61c1055c4448c87d87f38203f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState: {fileID: 0}
 --- !u!1 &403211965
 GameObject:
   m_ObjectHideFlags: 0
@@ -6751,10 +6769,14 @@ PrefabInstance:
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 259835296}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1006471050, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2170900083067434700, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 371180756}
   m_SourcePrefab: {fileID: 100100000, guid: ef0de99297bbc6844a2485c49688ce8e, type: 3}
 --- !u!1001 &4184069424996931130
 PrefabInstance:

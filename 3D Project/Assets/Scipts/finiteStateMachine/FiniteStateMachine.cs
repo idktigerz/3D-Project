@@ -19,7 +19,7 @@ public class FiniteStateMachine : MonoBehaviour
     private void Update()
     {
         Transition triggeredTrasition = null;
-        foreach(Transition t in currentState.getTransitions())
+        foreach (Transition t in currentState.getTransitions())
         {
             if (t.IsTriggered(this))
             {
@@ -28,7 +28,7 @@ public class FiniteStateMachine : MonoBehaviour
             }
         }
         List<Action> actions = new List<Action>();
-        if(triggeredTrasition != null)
+        if (triggeredTrasition != null)
         {
             actions.Add(currentState.getExitAction());
             actions.Add(triggeredTrasition.GetAction());
@@ -37,9 +37,9 @@ public class FiniteStateMachine : MonoBehaviour
         }
         else
         {
-            foreach(Action action in currentState.getStateActions())
-            { 
-                actions.Add(action); 
+            foreach (Action action in currentState.getStateActions())
+            {
+                actions.Add(action);
             }
         }
         DoActions(actions);
@@ -47,17 +47,17 @@ public class FiniteStateMachine : MonoBehaviour
 
     void DoActions(List<Action> actions)
     {
-        foreach(Action action in actions)
+        foreach (Action action in actions)
         {
-            if(action != null)
+            if (action != null)
             {
                 action.Act(this);
             }
         }
     }
 
-    public FSMNavMeshAgent GetNavMeshAgent() 
-    { 
+    public FSMNavMeshAgent GetNavMeshAgent()
+    {
         return navMeshAgent;
     }
 }

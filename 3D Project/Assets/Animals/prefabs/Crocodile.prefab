@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2170900083067434691}
   - component: {fileID: 1006471045}
   - component: {fileID: 1006471044}
-  - component: {fileID: 1006471050}
   m_Layer: 0
   m_Name: Crocodile
   m_TagString: Untagged
@@ -37,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 1849342698723304336}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2170900083067434688
 MonoBehaviour:
@@ -183,19 +182,8 @@ MonoBehaviour:
   shootTimeInterval: 1
   energy: 100
   canHear: 0
---- !u!114 &1006471050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2170900083067434700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50a3be61c1055c4448c87d87f38203f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialState: {fileID: 11400000, guid: 34c187f55692a934582a0ed4174699e2, type: 2}
+  canRun: 0
+  OwlWaypoints: []
 --- !u!1001 &2170900082962990203
 PrefabInstance:
   m_ObjectHideFlags: 0
