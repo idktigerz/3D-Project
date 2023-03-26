@@ -20,7 +20,9 @@ public class FSMNavMeshAgent : MonoBehaviour
     float cooldownTime = 2f;
 
     public bool canHear;
+    [Header("Owl Stuff")]
 
+    public List<Transform> OwlWaypoints;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -57,8 +59,6 @@ public class FSMNavMeshAgent : MonoBehaviour
         {
             GoToNextPatrolWaypoint();
         }
-
-
     }
     public IEnumerator WalkingPause()
     {
@@ -116,4 +116,11 @@ public class FSMNavMeshAgent : MonoBehaviour
         }
 
     }
+    public void GoToNextPatrolWaypointOwl()
+    {
+
+        agent.isStopped = false;
+        agent.SetDestination(OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position);
+    }
+
 }
