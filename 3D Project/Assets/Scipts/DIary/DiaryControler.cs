@@ -8,11 +8,10 @@ public class DiaryControler : MonoBehaviour
 {
     public List<Vector3> diaryPhotoPlace;
     public int diaryPage;
-    public List<Sprite> MainPagePhotos;
     public List<GameObject> diaryPhotos;
 
-
     public List<Sprite> PhotosPage1;
+    public List<Sprite> MainPagePhotos;
 
 
     private int start = 0;
@@ -34,15 +33,22 @@ public class DiaryControler : MonoBehaviour
         FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = list[start + 2];
         FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = list[start + 3];
     }
+    private void ShowFirstDiaryPage(List<Sprite> list)
+    {
+        GameObject main = FindChildGameObjectByName(gameObject, "FirstPage");
+        Debug.Log(folderName + "Page");
+        FindChildGameObjectByName(main, "Image").GetComponent<Image>().sprite = list[0];
+    }
 
     public void SwitchDiaryPage(int num)
     {
         ImportPhotos(folderName);
         Debug.Log(PhotosPage1.Count);
+        Debug.Log("Page number: " + diaryPage);
         if (num == 0)
         {
             diaryPage++;
-            if(PhotosPage1.Count > 4)
+            if(diaryPage > 4)
             {
                 diaryPage = 1;
             }
@@ -50,7 +56,7 @@ public class DiaryControler : MonoBehaviour
         else
         {
             diaryPage--;
-            if(PhotosPage1.Count < 1)
+            if(diaryPage < 1)
             {
                 diaryPage = 1;
             }
@@ -62,7 +68,7 @@ public class DiaryControler : MonoBehaviour
         }
         else
         {
-            start = diaryPage * 4 - 4;
+            start = diaryPage * 4 - 3;
             ShowDiaryPage(PhotosPage1);
             Debug.Log(diaryPage);
             Debug.Log(start);
@@ -97,7 +103,7 @@ public class DiaryControler : MonoBehaviour
        
         if(sprite.Length >= 1)
         {
-            PhotosPage1.Add((Sprite)sprite[0]);
+            MainPagePhotos.Add((Sprite)sprite[0]);
         }
         else
         {
@@ -108,9 +114,17 @@ public class DiaryControler : MonoBehaviour
 
     public void FirstPage(string folderName)
     {
+        UnimportPhotos();
         ImportFirstPhoto(folderName);
-        ShowDiaryPage(PhotosPage1);
+        ShowFirstDiaryPage(MainPagePhotos);
         diaryPage = 1;
+    }
+
+    public void Album(string folderName)
+    {
+        UnimportPhotos();
+        ImportPhotos(folderName);
+        ShowDiaryPage(PhotosPage1);
     }
 
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
@@ -133,9 +147,8 @@ public class DiaryControler : MonoBehaviour
     }
 
 
-    public void UnimportPhotos()
+    private void UnimportPhotos()
     {
-      
         foreach (Sprite t in PhotosPage1)
         {
             PhotosPage1.Remove(t);

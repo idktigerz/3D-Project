@@ -363,7 +363,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1934058324}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
-        m_MethodName: ImportPhotos
+        m_MethodName: Album
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2002,7 +2002,7 @@ GameObject:
   - component: {fileID: 675028827}
   - component: {fileID: 675028826}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2568,10 +2568,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
-        m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
-        m_MethodName: UnimportPhotos
-        m_Mode: 1
+      - m_Target: {fileID: 1465105577}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3347,7 +3347,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Owl
+          m_StringArgument: Crocodile
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1020112928}
@@ -3398,7 +3398,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1028923868}
+      - m_Target: {fileID: 1401421525}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -3410,7 +3410,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1401421525}
+      - m_Target: {fileID: 1028923868}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -3634,7 +3634,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1934058324}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
-        m_MethodName: ImportPhotos
+        m_MethodName: Album
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4989,7 +4989,7 @@ GameObject:
   - component: {fileID: 1597764235}
   - component: {fileID: 1597764234}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5012,7 +5012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -537, y: 206.00009}
+  m_AnchoredPosition: {x: -403, y: 264}
   m_SizeDelta: {x: 640, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1597764234
@@ -5282,19 +5282,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
-        m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
-        m_MethodName: UnimportPhotos
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1028923868}
+      - m_Target: {fileID: 1401421525}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -6007,13 +5995,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diaryPhotoPlace: []
   diaryPage: 0
-  MainPagePhotos: []
   diaryPhotos:
   - {fileID: 675028824}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   PhotosPage1: []
+  MainPagePhotos: []
 --- !u!1 &1935290910
 GameObject:
   m_ObjectHideFlags: 0
