@@ -24,9 +24,22 @@ public class FSMNavMeshAgent : MonoBehaviour
     public bool canRun;
 
     public List<Transform> OwlWaypoints;
+
+    private float initialSpeed;
+
+    public Vector3 currentDest;
+    private bool canFly;
+    public GameObject OwlBody;
+
+    private void Awake()
+    {
+        OwlWaypoints.Clear();
+    }
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        initialSpeed = agent.speed;
+        if (gameObject.name == "Owl") currentDest = OwlBody.transform.position;
     }
 
     public bool IsAtDestination()
@@ -70,17 +83,20 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public IEnumerator WalkingPause(float time)
     {
-
-
+        canFly = false;
         agent.isStopped = true;
-        yield return new WaitForSeconds(time);
+        agent.speed = 0;
+        yield return new WaitForSecondsRealtime(time);
         agent.isStopped = false;
+        canFly = true;
+        agent.speed = initialSpeed;
         if (gameObject.name == "Crocodile")
         {
             GoToNextPatrolWaypoint();
         }
         else if (gameObject.name == "Owl")
         {
+            Debug.Log($"ESTOU AQUI");
             GoToNextPatrolWaypointOwl();
         }
 
@@ -118,9 +134,14 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void GoToNextPatrolWaypointOwl()
     {
-        agent.isStopped = false;
-        agent.SetDestination(OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position);
-        Debug.Log(OwlWaypoints);
+        if (OwlWaypoints.Count != 0)
+        {
+            agent.isStopped = false;
+            Vector3 pos = OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position;
+            currentDest = pos;
+            agent.SetDestination(pos);
+            canFly = false;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

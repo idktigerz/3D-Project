@@ -17,10 +17,9 @@ public class PatrolAction : Action
             }
             else if (fsm.name == "Owl")
             {
-                fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 7f);
+                fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 10f);
 
             }
-
         }
     }
 }
