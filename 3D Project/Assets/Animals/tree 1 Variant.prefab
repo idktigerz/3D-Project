@@ -159,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9677b8d41d2af07489cc26c5311a9154, type: 3}
       propertyPath: m_Name
-      value: tree 1
+      value: tree 1 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01764f001f5a7749950dd9ee04920b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
+  agent: {fileID: 5621711206308235642, guid: 70ca488f902444140831e395d8831366, type: 3}
 --- !u!4 &1759650888758001105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9677b8d41d2af07489cc26c5311a9154, type: 3}
