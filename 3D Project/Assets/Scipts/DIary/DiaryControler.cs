@@ -29,6 +29,11 @@ public class DiaryControler : MonoBehaviour
     {
         GameObject main = FindChildGameObjectByName(gameObject, folderName+"Page");
         Debug.Log(folderName + "Page");
+        FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = null;
+        FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = null;
+        FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = null;
+        FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = null;
+
         FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
         FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = list[start + 1];
         FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = list[start + 2];
@@ -36,16 +41,16 @@ public class DiaryControler : MonoBehaviour
     }
     private void ShowFirstDiaryPage(List<Sprite> list)
     {
-        GameObject main = FindChildGameObjectByName(gameObject, "FirstPage");
+        GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
+        GameObject seccond = FindChildGameObjectByName(main, "FirstPage");
         Debug.Log(folderName + "Page");
-        FindChildGameObjectByName(main, "Image").GetComponent<Image>().sprite = list[0];
+        FindChildGameObjectByName(seccond, "Image").GetComponent<Image>().sprite = null;
+        FindChildGameObjectByName(seccond, "Image").GetComponent<Image>().sprite = list[0];
     }
 
     public void SwitchDiaryPage(int num)
     {
         ImportPhotos(folderName);
-        Debug.Log(PhotosPage1.Count);
-        Debug.Log("Page number: " + diaryPage);
         if (num == 0)
         {
             diaryPage++;
@@ -115,7 +120,7 @@ public class DiaryControler : MonoBehaviour
 
     public void FirstPage(string folderName)
     {
-        UnimportPhotos();
+        UnimportPhotos(folderName);
         ImportFirstPhoto(folderName);
         ShowFirstDiaryPage(MainPagePhotos);
         diaryPage = 1;
@@ -123,7 +128,7 @@ public class DiaryControler : MonoBehaviour
 
     public void Album(string folderName)
     {
-        UnimportPhotos();
+        UnimportPhotos(folderName);
         ImportPhotos(folderName);
         ShowDiaryPage(PhotosPage1);
     }
@@ -148,16 +153,21 @@ public class DiaryControler : MonoBehaviour
     }
 
 
-    private void UnimportPhotos()
+    public void UnimportPhotos(string folder)
     {
-        Object[] sprite = Resources.LoadAll("gamepics/" + folderName, typeof(Sprite));
+        Debug.Log(PhotosPage1.Count);
+        Debug.Log("--------------------------------------------------------------------");
+        Object[] sprite = Resources.LoadAll("gamepics/" + folder, typeof(Sprite));
         if (sprite != null)
         {
             foreach (Sprite t in sprite)
             {
                 PhotosPage1.Remove(t);
+                MainPagePhotos.Remove(t);
                 Debug.Log("Unimported");
             }
+            Debug.Log(PhotosPage1.Count);
         }
     }
+    
 }

@@ -26,7 +26,6 @@ public class OwlFlyBob : MonoBehaviour
     }
     private void FlyBobHandler()
     {
-        Debug.Log(agent.speed);
         if (Mathf.Abs(gameObject.transform.forward.x) > 0.1f && agent.speed > 0.1f || Mathf.Abs(gameObject.transform.forward.z) > 0.1f && agent.speed > 0.1f)
         {
             timer += Time.deltaTime * flyBobSpeed;
@@ -36,7 +35,6 @@ public class OwlFlyBob : MonoBehaviour
         }
         else if (transform.position != agent.GetComponent<FSMNavMeshAgent>().currentDest)
         {
-            Debug.Log($"ABBAABABABBABBA");
             transform.position = Vector3.MoveTowards(transform.position, agent.GetComponent<FSMNavMeshAgent>().currentDest, 0.1f);
         }
 

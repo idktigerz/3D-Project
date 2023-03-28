@@ -96,7 +96,6 @@ public class FSMNavMeshAgent : MonoBehaviour
         }
         else if (gameObject.name == "Owl")
         {
-            Debug.Log($"ESTOU AQUI");
             GoToNextPatrolWaypointOwl();
         }
 
