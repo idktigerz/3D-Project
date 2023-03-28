@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
-using UnityEngine.WSA;
-using UnityEditor.TerrainTools;
+
+
 
 public class DiaryControler : MonoBehaviour
 {

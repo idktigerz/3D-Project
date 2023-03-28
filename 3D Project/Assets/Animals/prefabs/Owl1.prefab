@@ -181,7 +181,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -902729914
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 15
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -302,6 +302,9 @@ PrefabInstance:
     - {fileID: 65702495048144492, guid: 10cd853e59a586749a113ff14f3ce98a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 10cd853e59a586749a113ff14f3ce98a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1716469597}
     - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 10cd853e59a586749a113ff14f3ce98a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 901184290}
@@ -335,3 +338,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 10cd853e59a586749a113ff14f3ce98a, type: 3}
   m_PrefabInstance: {fileID: 8256607174359051609}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1716469597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102959756075716616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcaed6b71d636c2468bea125b8ff7129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 8256607173779004226}
+  flyBobSpeed: 1
+  flyBobAmmount: 1.2

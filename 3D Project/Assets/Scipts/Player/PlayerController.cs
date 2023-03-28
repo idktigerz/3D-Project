@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
@@ -67,6 +68,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform cam;
 
+    public Camera camera;
+
     public float playerActivateDistance;
 
     public GameObject photoCube;
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
     public float health = 100f;
     [Header("Camera Flash")]
+    public bool isFlashing;
     public GameObject light;
 
     public NightVisionController nightVisionController;
@@ -87,6 +91,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject diaryUI;
 
     PlayerController controller;
+
+    public RenderTexture rt;
 
 
     public enum MovementState
@@ -229,18 +235,22 @@ public class PlayerController : MonoBehaviour
             if (closest != null)
             {
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
+
+  
+
                 ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/" + playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png");
                 playerCam.picCounter[animalTypeId]++;
 
             }
             else
             {
+              
                 ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
                 picnum++;
             }
             AssetDatabase.Refresh();
             Debug.Log("A screenshot was taken!");
-
+            isFlashing = true;
             StartCoroutine(CameraUIOn());
             StartCoroutine(FlashOn());
         }
@@ -387,6 +397,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         light.SetActive(false);
+        isFlashing = false;
     }
     private void ImportAssetAsSprite()
     {

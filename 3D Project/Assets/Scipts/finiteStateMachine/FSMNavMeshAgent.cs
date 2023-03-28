@@ -76,7 +76,7 @@ public class FSMNavMeshAgent : MonoBehaviour
             }
             else if (gameObject.name == "Owl")
             {
-                GoToNextPatrolWaypointOwl();
+                //GoToNextPatrolWaypointOwl();
             }
 
         }
@@ -157,6 +157,10 @@ public class FSMNavMeshAgent : MonoBehaviour
                 }
             }
             agent.SetDestination(longestWaypoint.position);
+        }
+        else if (gameObject.name == "Crocodile")
+        {
+            Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         }
     }
     private void OnTriggerEnter(Collider other)

@@ -1707,11 +1707,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0695e3d2d2b654b88a25bc89188432, type: 3}
---- !u!195 &554687716 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 8256607173779004226, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
-  m_PrefabInstance: {fileID: 9075308695835417437}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &554687718 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8256607173779004252, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
@@ -5729,7 +5724,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 1151
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -5963,7 +5958,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939543908}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
@@ -7847,6 +7842,11 @@ Light:
   m_CorrespondingSourceObject: {fileID: 36697839257398196, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
   m_PrefabInstance: {fileID: 36697840467416832}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1513615164 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 36697840691008162, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
+  m_PrefabInstance: {fileID: 36697840467416832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1531537028
 GameObject:
   m_ObjectHideFlags: 0
@@ -8255,26 +8255,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713451749}
   m_CullTransparentMesh: 1
---- !u!1 &1716469595 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9102959756075716616, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
-  m_PrefabInstance: {fileID: 9075308695835417437}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1716469597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716469595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcaed6b71d636c2468bea125b8ff7129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 554687716}
-  flyBobSpeed: 1
-  flyBobAmmount: 1.2
 --- !u!1 &1731226450
 GameObject:
   m_ObjectHideFlags: 0
@@ -9819,22 +9799,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 317930966}
-    - target: {fileID: 1360649824750090538, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1561893185089844767, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2170900083067434688, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 259835296}
-    - target: {fileID: 2170900083067434691, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
-      propertyPath: m_Constraints
-      value: 126
-      objectReference: {fileID: 0}
     - target: {fileID: 2170900083067434695, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -9845,7 +9813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2170900083067434695, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.067325
+      value: -0.756
       objectReference: {fileID: 0}
     - target: {fileID: 2170900083067434695, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9883,10 +9851,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crocodile
       objectReference: {fileID: 0}
-    - target: {fileID: 2170900083067434700, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2170900084117122842, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerCam
       value: 
@@ -9920,6 +9884,10 @@ PrefabInstance:
       propertyPath: light
       value: 
       objectReference: {fileID: 1508097202}
+    - target: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1513615164}
     - target: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
       propertyPath: diaryUI
       value: 
@@ -10134,10 +10102,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Owl
       objectReference: {fileID: 0}
-    - target: {fileID: 8256607173779004226, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
-      propertyPath: m_Speed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 8256607173779004252, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
       propertyPath: target
       value: 
@@ -10145,8 +10109,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9102959756075716616, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1716469597}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
