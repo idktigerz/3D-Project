@@ -115,7 +115,7 @@ public class DiaryControler : MonoBehaviour
 
     public void FirstPage(string folderName)
     {
-        //UnimportPhotos();
+        UnimportPhotos();
         ImportFirstPhoto(folderName);
         ShowFirstDiaryPage(MainPagePhotos);
         diaryPage = 1;
@@ -123,7 +123,7 @@ public class DiaryControler : MonoBehaviour
 
     public void Album(string folderName)
     {
-        //UnimportPhotos();
+        UnimportPhotos();
         ImportPhotos(folderName);
         ShowDiaryPage(PhotosPage1);
     }
@@ -151,9 +151,13 @@ public class DiaryControler : MonoBehaviour
     private void UnimportPhotos()
     {
         Object[] sprite = Resources.LoadAll("gamepics/" + folderName, typeof(Sprite));
-        foreach (Sprite t in PhotosPage1)
+        if (sprite != null)
         {
-            PhotosPage1.Remove(t);
+            foreach (Sprite t in sprite)
+            {
+                PhotosPage1.Remove(t);
+                Debug.Log("Unimported");
+            }
         }
     }
 }
