@@ -143,6 +143,23 @@ public class FSMNavMeshAgent : MonoBehaviour
             canFly = false;
         }
     }
+    public void RunAway()
+    {
+        Transform longestWaypoint = null;
+        float longestDistance = 0;
+        if (gameObject.name == "Owl")
+        {
+            foreach (var w in OwlWaypoints)
+            {
+                if (Vector3.Distance(target.position, w.position) > longestDistance)
+                {
+                    longestWaypoint = w;
+                    Debug.Log(longestWaypoint);
+                }
+            }
+            agent.SetDestination(longestWaypoint.position);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "NoiseBubble")
