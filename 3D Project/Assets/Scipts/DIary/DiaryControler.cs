@@ -29,10 +29,6 @@ public class DiaryControler : MonoBehaviour
     {
         GameObject main = FindChildGameObjectByName(gameObject, folderName+"Page");
         Debug.Log(folderName + "Page");
-        FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = null;
-        FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = null;
-        FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = null;
-        FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = null;
 
         FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
         FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = list[start + 1];
@@ -54,7 +50,7 @@ public class DiaryControler : MonoBehaviour
         if (num == 0)
         {
             diaryPage++;
-            if(diaryPage > 4)
+            if(diaryPage > end)
             {
                 diaryPage = 1;
             }
@@ -120,7 +116,6 @@ public class DiaryControler : MonoBehaviour
 
     public void FirstPage(string folderName)
     {
-        UnimportPhotos(folderName);
         ImportFirstPhoto(folderName);
         ShowFirstDiaryPage(MainPagePhotos);
         diaryPage = 1;
@@ -128,7 +123,6 @@ public class DiaryControler : MonoBehaviour
 
     public void Album(string folderName)
     {
-        UnimportPhotos(folderName);
         ImportPhotos(folderName);
         ShowDiaryPage(PhotosPage1);
     }
@@ -155,19 +149,8 @@ public class DiaryControler : MonoBehaviour
 
     public void UnimportPhotos(string folder)
     {
-        Debug.Log(PhotosPage1.Count);
-        Debug.Log("--------------------------------------------------------------------");
-        Object[] sprite = Resources.LoadAll("gamepics/" + folder, typeof(Sprite));
-        if (sprite != null)
-        {
-            foreach (Sprite t in sprite)
-            {
-                PhotosPage1.Remove(t);
-                MainPagePhotos.Remove(t);
-                Debug.Log("Unimported");
-            }
-            Debug.Log(PhotosPage1.Count);
-        }
+        PhotosPage1.Clear();
+        MainPagePhotos.Clear();
     }
-    
+
 }
