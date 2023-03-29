@@ -15,11 +15,12 @@ public class PatrolAction : Action
             {
                 fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 5f);
             }
-            else if (fsm.name == "Owl")
+            else if (fsm.name == "Owl" && fsm.GetNavMeshAgent().canFly)
             {
                 fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 10f);
 
             }
+
         }
     }
 }

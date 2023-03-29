@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 140122524}
   - component: {fileID: 140122523}
   - component: {fileID: 140122522}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140122521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 1323}
+  m_LocalPosition: {x: -89.6, y: -7.3, z: 92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10102,6 +10102,14 @@ PrefabInstance:
     - target: {fileID: 4889937480648498084, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
       propertyPath: m_Name
       value: Owl
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256607173779004226, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
+      propertyPath: m_Acceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256607173779004226, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8256607173779004252, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
       propertyPath: target

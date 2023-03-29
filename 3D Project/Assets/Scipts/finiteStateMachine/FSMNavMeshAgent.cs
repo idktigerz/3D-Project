@@ -28,7 +28,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     private float initialSpeed;
 
     public Vector3 currentDest;
-    private bool canFly;
+    public bool canFly;
     public GameObject OwlBody;
 
     private void Awake()
@@ -37,6 +37,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     void Start()
     {
+        canFly = true;
         agent = GetComponent<NavMeshAgent>();
         initialSpeed = agent.speed;
         if (gameObject.name == "Owl") currentDest = OwlBody.transform.position;
@@ -139,7 +140,6 @@ public class FSMNavMeshAgent : MonoBehaviour
             Vector3 pos = OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position;
             currentDest = pos;
             agent.SetDestination(pos);
-            canFly = false;
         }
     }
     public void RunAway()
@@ -148,6 +148,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         float longestDistance = 0;
         if (gameObject.name == "Owl")
         {
+            agent.isStopped = false;
             foreach (var w in OwlWaypoints)
             {
                 if (Vector3.Distance(target.position, w.position) > longestDistance)
