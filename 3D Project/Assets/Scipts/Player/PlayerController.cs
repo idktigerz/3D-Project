@@ -236,15 +236,39 @@ public class PlayerController : MonoBehaviour
             {
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
 
-  
 
+                /*var currentRT = RenderTexture.active;
+                RenderTexture.active = camera.targetTexture;
+
+                // Render the camera's view.
+                camera.Render();
+
+                // Make a new texture and read the active Render Texture into it.
+                Texture2D image = new Texture2D(camera.targetTexture.width / 2, camera.targetTexture.height, TextureFormat.RGB24, false);
+                image.ReadPixels(new Rect(0, 0, camera.targetTexture.width / 4, camera.targetTexture.height / 2), 0, 0);
+                image.Apply();
+
+                byte[] bytes = image.EncodeToPNG();
+                string path = playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png";
+
+                File.WriteAllBytes("Assets/Resources/gamepics/" + path, bytes);*/
                 ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/" + playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png");
                 playerCam.picCounter[animalTypeId]++;
 
             }
             else
             {
-              
+                /*var currentRT = RenderTexture.active;
+                RenderTexture.active = camera.targetTexture;
+                camera.Render();
+                Texture2D image = new Texture2D(camera.targetTexture.width, camera.targetTexture.height, TextureFormat.RGB24, false);
+                image.ReadPixels(new Rect(0, 0, camera.targetTexture.width, camera.targetTexture.height), 0, 0);
+                image.Apply();
+
+                byte[] bytes = image.EncodeToPNG();
+                string path = "/screenshot" + picnum + ".png";
+
+                File.WriteAllBytes("Assets/Resources/gamepics/" + path, bytes);*/
                 ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
                 picnum++;
             }

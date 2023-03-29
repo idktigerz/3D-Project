@@ -30,6 +30,12 @@ public class DiaryControler : MonoBehaviour
         GameObject main = FindChildGameObjectByName(gameObject, folderName+"Page");
         Debug.Log(folderName + "Page");
 
+        FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = null;
+        FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = null;
+        FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = null;
+        FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = null;
+
+
         FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
         FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = list[start + 1];
         FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = list[start + 2];
@@ -147,8 +153,15 @@ public class DiaryControler : MonoBehaviour
     }
 
 
-    public void UnimportPhotos(string folder)
+    public void UnimportPhotos()
     {
+        PhotosPage1.Clear();
+        MainPagePhotos.Clear();
+    }
+
+    public void Back()
+    {
+        diaryPage = 0;
         PhotosPage1.Clear();
         MainPagePhotos.Clear();
     }
