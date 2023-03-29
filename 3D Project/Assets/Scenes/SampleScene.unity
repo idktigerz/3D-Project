@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeMultiplier: 1000
-  startHour: 20
+  startHour: 12
   timeText: {fileID: 1531537030}
   sunLight: {fileID: 705507994}
   sunriseHour: 6.4
@@ -1898,7 +1898,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1934058324}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: UnimportPhotos
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6260,7 +6260,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1934058324}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: UnimportPhotos
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
