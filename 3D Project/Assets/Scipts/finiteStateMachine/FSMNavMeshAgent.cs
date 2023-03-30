@@ -137,6 +137,7 @@ public class FSMNavMeshAgent : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
             attacking = true;
+            StartCoroutine("CrocAttackWait");
 
 
         }
@@ -149,7 +150,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         yield return new WaitForSeconds(2);
         canAttack = true;
     }
-  
+
     public void GoToNextPatrolWaypointOwl()
     {
         if (OwlWaypoints.Count != 0)
