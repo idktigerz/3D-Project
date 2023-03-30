@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701b9561f17b4df41bff38ab7bf6515a, type: 3}
   m_Name: FlashedCondition
   m_EditorClassIdentifier: 
-  negation: 1
+  negation: 0
   viewAngle: 60
   viewDistance: 10

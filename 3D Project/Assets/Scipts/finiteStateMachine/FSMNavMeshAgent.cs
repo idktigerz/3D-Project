@@ -20,6 +20,9 @@ public class FSMNavMeshAgent : MonoBehaviour
     float cooldownTime = 2f;
 
     public bool canHear;
+    [Header("Animal Stuff")]
+    public bool flashed;
+    
     [Header("Owl Stuff")]
     public bool canRun;
 

@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<PlayerController>();
         rb.freezeRotation = true;
         readyToJump = true;
-
+        isFlashing = false;
         startYScale = transform.localScale.y;
         picnum = 0;
         crocodilePicNum = 0;
@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour
                 diaryOpen = false;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                
+
             }
             else
             {
@@ -301,7 +301,7 @@ public class PlayerController : MonoBehaviour
                 diaryOpen = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
-                
+
             }
         }
     }

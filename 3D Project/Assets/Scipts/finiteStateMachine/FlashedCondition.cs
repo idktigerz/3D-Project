@@ -11,10 +11,10 @@ public class FlashedCondition : Condition
     public override bool Test(FiniteStateMachine fsm)
     {
         Vector3 direction = fsm.GetNavMeshAgent().target.position - fsm.GetNavMeshAgent().transform.position;
-        if (direction.magnitude < viewDistance|| fsm.GetComponent<PlayerController>().isFlashing)
+        if (direction.magnitude < viewDistance && fsm.GetNavMeshAgent().target.GetComponent<PlayerController>().isFlashing)
         {
             float angle = Vector3.Angle(direction.normalized, fsm.GetNavMeshAgent().transform.forward);
-            if (angle < viewAngle||fsm.GetComponent<PlayerController>().isFlashing)
+            if (angle < viewAngle && fsm.GetNavMeshAgent().target.GetComponent<PlayerController>().isFlashing)
             {
                 return !negation;
             }
