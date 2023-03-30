@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -289,7 +289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107860713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.571, z: -0.237}
+  m_LocalPosition: {x: 0, y: 2.08, z: 0.129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -995,11 +995,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &317930966 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6783777877762348006, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
-  m_PrefabInstance: {fileID: 3269744816721720136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &366767307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2090,6 +2085,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1934058324}
+        m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
+        m_MethodName: ResetStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &627840976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,7 +2482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 118becb6c3524c649b3da49464b36af6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80.96931
+      value: 28.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 118becb6c3524c649b3da49464b36af6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6596,6 +6603,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1934058324}
+        m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
+        m_MethodName: ResetStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &995376374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7066,11 +7085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbf28630d446b74f85921d9055f45f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1056228487 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1056228484, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
-  m_PrefabInstance: {fileID: 3269744816721720136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1116441699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7795,7 +7809,7 @@ MonoBehaviour:
   camBattery: 100
   health: 100
   isFlashing: 0
-  light: {fileID: 705507993}
+  light: {fileID: 1508097202}
   nightVisionController: {fileID: 939543910}
   diaryUI: {fileID: 1934058319}
   rt: {fileID: 0}
@@ -10065,7 +10079,7 @@ GameObject:
   - component: {fileID: 2089573615}
   - component: {fileID: 2089573614}
   m_Layer: 0
-  m_Name: NoiseBubble (1)
+  m_Name: NoiseBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10098,7 +10112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf17accf894971c4d93da0789e201bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 1056228487}
+  playerAnimator: {fileID: 1388826676}
 --- !u!135 &2089573615
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10368,7 +10382,11 @@ PrefabInstance:
     - target: {fileID: 1006471044, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 317930966}
+      objectReference: {fileID: 1388826677}
+    - target: {fileID: 1006471044, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7843726927612301049, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
     - target: {fileID: 2170900083067434688, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerCam
       value: 
@@ -10687,7 +10705,7 @@ PrefabInstance:
     - target: {fileID: 8256607173779004252, guid: ba10ab7a48fd6f34ebe8ef85a2e2c54e, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 317930966}
+      objectReference: {fileID: 1388826677}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

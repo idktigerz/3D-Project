@@ -23,11 +23,11 @@ public class DiaryControler : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
     private void ShowDiaryPage(List<Sprite> list)
     {
-        GameObject main = FindChildGameObjectByName(gameObject, folderName+"Page");
+        GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
         Debug.Log(folderName + "Page");
 
         FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = null;
@@ -47,7 +47,12 @@ public class DiaryControler : MonoBehaviour
         GameObject seccond = FindChildGameObjectByName(main, "FirstPage");
         Debug.Log(folderName + "Page");
         FindChildGameObjectByName(seccond, "Image").GetComponent<Image>().sprite = null;
-        FindChildGameObjectByName(seccond, "Image").GetComponent<Image>().sprite = list[0];
+        if (list[0] != null) FindChildGameObjectByName(seccond, "Image").GetComponent<Image>().sprite = list[0];
+    }
+    public void ResetStart()
+    {
+        start = 0;
+        diaryPage = 1;
     }
 
     public void SwitchDiaryPage(int num)
@@ -56,7 +61,7 @@ public class DiaryControler : MonoBehaviour
         if (num == 0)
         {
             diaryPage++;
-            if(diaryPage > end)
+            if (diaryPage > end)
             {
                 diaryPage = 1;
             }
@@ -64,7 +69,7 @@ public class DiaryControler : MonoBehaviour
         else
         {
             diaryPage--;
-            if(diaryPage < 1)
+            if (diaryPage < 1)
             {
                 diaryPage = 1;
             }
@@ -101,15 +106,15 @@ public class DiaryControler : MonoBehaviour
         {
             PhotosPage1.Add(t);
         }
-       
+
     }
 
     private void ImportFirstPhoto(string folder)
     {
         folderName = folder;
         Object[] sprite = Resources.LoadAll("gamepics/" + folder, typeof(Sprite));
-       
-        if(sprite.Length >= 1)
+
+        if (sprite.Length >= 1)
         {
             MainPagePhotos.Add((Sprite)sprite[0]);
         }
