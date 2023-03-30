@@ -131,13 +131,11 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         if (canAttack)
         {
-            Debug.Log($"attack");
             rb.constraints = RigidbodyConstraints.None;
             Vector3 direction = transform.position - target.transform.position;
             float force = 2;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
-            StartCoroutine("CrocAttackWait");
             attacking = true;
 
 
@@ -145,17 +143,13 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     IEnumerator CrocAttackWait()
     {
-        Debug.Log($"dadadadadadaddadadad");
         yield return new WaitForSeconds(0.3f);
         rb.constraints = RigidbodyConstraints.FreezeAll;
         attacking = false;
         yield return new WaitForSeconds(2);
         canAttack = true;
     }
-    public void ButterflyAttack()
-    {
-        Debug.Log($"AQUII");
-    }
+  
     public void GoToNextPatrolWaypointOwl()
     {
         if (OwlWaypoints.Count != 0)
