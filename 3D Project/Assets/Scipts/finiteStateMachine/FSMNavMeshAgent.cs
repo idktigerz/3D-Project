@@ -22,7 +22,10 @@ public class FSMNavMeshAgent : MonoBehaviour
     public bool canHear;
     [Header("Animal Stuff")]
     public bool flashed;
-    
+    private Rigidbody rb;
+    [SerializeField] bool canAttack;
+    private bool attacking;
+
     [Header("Owl Stuff")]
     public bool canRun;
 
@@ -44,6 +47,13 @@ public class FSMNavMeshAgent : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         initialSpeed = agent.speed;
         if (gameObject.name == "Owl") currentDest = OwlBody.transform.position;
+        rb = GetComponent<Rigidbody>();
+        canAttack = true;
+        GameObject[] trees = GameObject.FindGameObjectsWithTag("OwlTrees");
+        foreach (GameObject tree in trees)
+        {
+            OwlWaypoints.Add(FindChildGameObjectByName(tree, "OwlWaypoint").transform);
+        }
     }
 
     public bool IsAtDestination()
@@ -119,17 +129,28 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public void CrocodileAttack()
     {
-
-        agent.isStopped = true;
-        shootTimer += Time.deltaTime;
-        if (shootTimer > shootTimeInterval)
+        if (canAttack)
         {
-            energy -= 5;
-            shootTimer = 0;
-            Vector3 diretion = (target.position - transform.position).normalized;
-            GameObject bullet = GameObject.Instantiate(bulletPrefab, transform.position + transform.forward, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().velocity = diretion * 20;
+            Debug.Log($"attack");
+            rb.constraints = RigidbodyConstraints.None;
+            Vector3 direction = transform.position - target.transform.position;
+            float force = 2;
+            GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
+            canAttack = false;
+            StartCoroutine("CrocAttackWait");
+            attacking = true;
+
+
         }
+    }
+    IEnumerator CrocAttackWait()
+    {
+        Debug.Log($"dadadadadadaddadadad");
+        yield return new WaitForSeconds(0.3f);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        attacking = false;
+        yield return new WaitForSeconds(2);
+        canAttack = true;
     }
     public void ButterflyAttack()
     {
@@ -180,5 +201,30 @@ public class FSMNavMeshAgent : MonoBehaviour
         {
             canHear = false;
         }
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player") && attacking)
+        {
+            Debug.Log($"o diogo é gay");
+        }
+    }
+    private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
+    {
+        for (int i = 0; i < topParentObject.transform.childCount; i++)
+        {
+            if (topParentObject.transform.GetChild(i).name == gameObjectName)
+            {
+                return topParentObject.transform.GetChild(i).gameObject;
+            }
+
+            GameObject tmp = FindChildGameObjectByName(topParentObject.transform.GetChild(i).gameObject, gameObjectName);
+
+            if (tmp != null)
+            {
+                return tmp;
+            }
+        }
+        return null;
     }
 }

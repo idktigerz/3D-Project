@@ -42,7 +42,6 @@ public class PlayerCam : MonoBehaviour
         animalList[8] = "otter";
         animalList[9] = "bug";
         animalList[10] = "tree";
-
     }
 
     private void Update()
@@ -78,8 +77,6 @@ public class PlayerCam : MonoBehaviour
         float distance;
         for (int i = 0; i < currentAnimalsInTheframe.Count; i++)
         {
-            Debug.Log(currentAnimalsInTheframe[i].name + "is" + Vector3.Distance(playerController.transform.position,
-            currentAnimalsInTheframe[i].transform.position) + "meters away");
             distance = Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position);
             if (distance < closestDistance)
             {

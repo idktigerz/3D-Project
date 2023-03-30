@@ -9,7 +9,7 @@ public class TreeScipt : MonoBehaviour
     void Start()
     {
         GameObject waypoint = FindChildGameObjectByName(gameObject, "OwlWaypoint");
-        agent.OwlWaypoints.Add(waypoint.transform);
+        //agent.OwlWaypoints.Add(waypoint.transform);
     }
 
     // Update is called once per frame
