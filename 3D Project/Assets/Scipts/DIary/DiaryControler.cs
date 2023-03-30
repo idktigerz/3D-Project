@@ -36,10 +36,35 @@ public class DiaryControler : MonoBehaviour
         FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = null;
 
 
-        FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
+        if(list.Count == 1)
+        {
+            FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
+        }
+        else if(list.Count == 2)
+        {
+            FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
+            FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = list[start + 1];
+        }else if(list.Count == 3)
+        {
+            FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
+            FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = list[start + 1];
+            FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = list[start + 2];
+        }else if(list.Count >= 4)
+        {
+            FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
+            FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = list[start + 1];
+            FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = list[start + 2];
+            FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = list[start + 3];
+        }
+        else
+        {
+            Debug.Log("No photos");
+        }
+
+        /*FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
         FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = list[start + 1];
         FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = list[start + 2];
-        FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = list[start + 3];
+        FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = list[start + 3];*/
     }
     private void ShowFirstDiaryPage(List<Sprite> list)
     {
