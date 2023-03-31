@@ -18,7 +18,10 @@ public class PatrolAction : Action
             else if (fsm.name == "Owl" && fsm.GetNavMeshAgent().canFly)
             {
                 fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 10f);
-
+            }
+            else if (fsm.name == "Butterfly" && fsm.GetNavMeshAgent())
+            {
+                fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 1f);
             }
 
         }

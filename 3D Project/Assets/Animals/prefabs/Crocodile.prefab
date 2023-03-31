@@ -313,13 +313,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolWaypoints: []
   target: {fileID: 0}
-  bulletPrefab: {fileID: 2170900083067434700}
+  bulletPrefab: {fileID: 7843726927612301049, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
   shootTimeInterval: 1
   energy: 100
   canHear: 0
+  flashed: 0
+  canAttack: 0
   canRun: 0
   OwlWaypoints: []
   currentDest: {x: 0, y: 0, z: 0}
+  canFly: 0
   OwlBody: {fileID: 0}
 --- !u!114 &371180756
 MonoBehaviour:

@@ -93,6 +93,23 @@ public class FSMNavMeshAgent : MonoBehaviour
                 //GoToNextPatrolWaypointOwl();
             }
 
+
+        }
+    }
+    public void GoToNextPatrolWaypointButter()
+    {
+
+        agent.isStopped = false;
+        //agent.SetDestination(patrolWaypoints[Random.Range(0, patrolWaypoints.Length)].position);
+        //var NewPos = Random.insideUnitCircle.normalized * 100;
+        var NewPos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        if (Vector3.Distance(transform.position, NewPos) > 3)
+        {
+            agent.SetDestination(transform.position + NewPos);
+        }
+        else
+        {
+            GoToNextPatrolWaypointButter();
         }
     }
     public IEnumerator WalkingPause(float time)
@@ -112,6 +129,12 @@ public class FSMNavMeshAgent : MonoBehaviour
         {
             GoToNextPatrolWaypointOwl();
         }
+        else if (gameObject.name == "Butterfly")
+        {
+            GoToNextPatrolWaypointButter();
+        }
+
+
 
     }
 
@@ -163,11 +186,13 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void RunAway()
     {
+
         Transform longestWaypoint = null;
         float longestDistance = 0;
         if (gameObject.name == "Owl")
         {
             agent.isStopped = false;
+            agent.speed = initialSpeed;
             foreach (var w in OwlWaypoints)
             {
                 if (Vector3.Distance(target.position, w.position) > longestDistance)
