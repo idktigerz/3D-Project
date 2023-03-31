@@ -6226,6 +6226,7 @@ MonoBehaviour:
   defaultLightColor: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 0}
   boostedLightColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   isEnabled: 0
+  timeController: {fileID: 469443138}
 --- !u!114 &939543911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7851,7 +7852,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1388826677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}

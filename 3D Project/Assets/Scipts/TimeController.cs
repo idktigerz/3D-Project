@@ -107,6 +107,7 @@ public class TimeController : MonoBehaviour
             RenderSettings.reflectionIntensity = 1f;
             playerLight.intensity = 0f;
             flashLight.intensity = 1f;
+            canToggleNightVision = false;
         }
         else
         {
@@ -123,6 +124,7 @@ public class TimeController : MonoBehaviour
             RenderSettings.reflectionIntensity = 0f;
             playerLight.intensity = 5f;
             flashLight.intensity = 10f;
+            canToggleNightVision = true;
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);

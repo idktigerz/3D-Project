@@ -93,6 +93,11 @@ public class DiaryControler : MonoBehaviour
         }
         else
         {
+            if (PhotosPage1.Count <= 4)
+            {
+                PhotosPage1.Clear();
+                ImportPhotos(folderName);
+            }
             diaryPage--;
             if (diaryPage < 1)
             {
@@ -101,6 +106,7 @@ public class DiaryControler : MonoBehaviour
         }
         if (diaryPage == 1)
         {
+            
             start = 0;
             ShowDiaryPage(PhotosPage1);
         }

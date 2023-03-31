@@ -11,6 +11,8 @@ public class NightVisionController : MonoBehaviour
 
     public bool isEnabled = false;
     private PostProcessVolume volume;
+
+    public TimeController timeController;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,7 @@ public class NightVisionController : MonoBehaviour
     private void ToggleNightVision()
     {
         isEnabled = !isEnabled;
-        if (isEnabled)
+        if (isEnabled && timeController.canToggleNightVision)
         {
             
             RenderSettings.ambientLight = boostedLightColor;
