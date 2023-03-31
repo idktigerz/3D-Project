@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Animal
   - OwlTrees
+  - Interactable
   layers:
   - Default
   - TransparentFX

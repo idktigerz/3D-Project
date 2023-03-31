@@ -14,6 +14,8 @@ public class DiaryControler : MonoBehaviour
     public List<Sprite> PhotosPage1;
     public List<Sprite> MainPagePhotos;
 
+    public DiaryControler diaryControler;
+
 
     private int start = 0;
 
@@ -30,10 +32,10 @@ public class DiaryControler : MonoBehaviour
         GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
         Debug.Log(folderName + "Page");
 
-        FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = null;
-        FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = null;
-        FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = null;
-        FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = null;
+        //FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = null;
+        //FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = null;
+        //FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = null;
+        //FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = null;
 
 
         if(list.Count == 1)
@@ -95,7 +97,7 @@ public class DiaryControler : MonoBehaviour
         {
             if (PhotosPage1.Count <= 4)
             {
-                PhotosPage1.Clear();
+                //PhotosPage1.Clear();
                 ImportPhotos(folderName);
             }
             diaryPage--;

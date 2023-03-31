@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BedController : MonoBehaviour
 {
-    private bool canInteract = false;
+    public bool canInteract = false;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,15 +16,14 @@ public class BedController : MonoBehaviour
         Debug.Log(canInteract);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             canInteract = true;
         }
     }
-
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision other)
     {
         canInteract = false;
     }

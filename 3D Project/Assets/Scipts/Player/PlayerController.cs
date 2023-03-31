@@ -94,6 +94,10 @@ public class PlayerController : MonoBehaviour
 
     public RenderTexture rt;
 
+    public List<Texture2D> listaTeste;
+
+    public RawImage ImagemTeste;
+
 
     public enum MovementState
     {
@@ -134,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
         active = Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, playerActivateDistance);
-        if (active && (!hit.collider.CompareTag("Ground") || (hit.collider.CompareTag("Animal"))))
+        if (active && hit.collider.CompareTag("Interactable"))
         {
             canInteract = true;
         }
@@ -235,24 +239,20 @@ public class PlayerController : MonoBehaviour
             if (closest != null)
             {
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
+                
+                RenderTexture.active = rt;
+                Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+                tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+                tex.Apply();
+                RenderTexture.active = null;
+                listaTeste.Add(tex);
+                ImagemTeste.texture = listaTeste[0];
 
-
-                /*var currentRT = RenderTexture.active;
-                RenderTexture.active = camera.targetTexture;
-
-                // Render the camera's view.
-                camera.Render();
-
-                // Make a new texture and read the active Render Texture into it.
-                Texture2D image = new Texture2D(camera.targetTexture.width / 2, camera.targetTexture.height, TextureFormat.RGB24, false);
-                image.ReadPixels(new Rect(0, 0, camera.targetTexture.width / 4, camera.targetTexture.height / 2), 0, 0);
-                image.Apply();
-
-                byte[] bytes = image.EncodeToPNG();
+                /*byte[] bytes = image.EncodeToPNG();
                 string path = playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png";
 
-                File.WriteAllBytes("Assets/Resources/gamepics/" + path, bytes);*/
-                ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/" + playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png");
+                File.WriteAllBytes("Assets/Resources/gamepics/" + path, bytes);
+                ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/" + playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png");*/
                 playerCam.picCounter[animalTypeId]++;
 
             }
@@ -279,8 +279,9 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(FlashOn());
         }
 
-        if (Input.GetKeyDown(interactKey) && canInteract)
+        if (Input.GetKey(interactKey) && bed.GetComponent<BedController>().canInteract)
         {
+            Debug.Log($"papapapapa");
             StartCoroutine(Rest());
         }
         if (Input.GetKeyUp(KeyCode.P))
