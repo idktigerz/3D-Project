@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     public List<Texture2D> listaTeste;
 
-    public RawImage ImagemTeste;
+   
 
 
     public enum MovementState
@@ -226,7 +226,6 @@ public class PlayerController : MonoBehaviour
             {
                 cameraUI.SetActive(false);
                 cameraON = false;
-                ImportAssetAsSprite();
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
             }
         }
@@ -246,7 +245,7 @@ public class PlayerController : MonoBehaviour
                 tex.Apply();
                 RenderTexture.active = null;
                 listaTeste.Add(tex);
-                ImagemTeste.texture = listaTeste[0];
+                
 
                 /*byte[] bytes = image.EncodeToPNG();
                 string path = playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png";
@@ -269,10 +268,17 @@ public class PlayerController : MonoBehaviour
                 string path = "/screenshot" + picnum + ".png";
 
                 File.WriteAllBytes("Assets/Resources/gamepics/" + path, bytes);*/
-                ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
+
+                RenderTexture.active = rt;
+                Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+                tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+                tex.Apply();
+                RenderTexture.active = null;
+                listaTeste.Add(tex);
+
+               //ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
                 picnum++;
             }
-            AssetDatabase.Refresh();
             Debug.Log("A screenshot was taken!");
             isFlashing = true;
             StartCoroutine(CameraUIOn());
@@ -424,81 +430,8 @@ public class PlayerController : MonoBehaviour
         light.SetActive(false);
         isFlashing = false;
     }
-    private void ImportAssetAsSprite()
-    {
-        AssetDatabase.Refresh();
-        for (int i = 0; i < picnum; i++)
-        {
-            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/screenshot" + i + ".png") as TextureImporter;
-            if (importer == null)
-            {
-                Debug.LogError("Could not TextureImport from path: ");
-            }
-            else
-            {
-                importer.textureType = TextureImporterType.Sprite;
-                importer.spriteImportMode = SpriteImportMode.Single;
-                importer.SaveAndReimport();
-            }
-        }
-        for (int i = 0; i < playerCam.picCounter[6]; i++)
-        {
-            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/Crocodile/screenshot" + i + ".png") as TextureImporter;
-            if (importer == null)
-            {
-                Debug.LogError("Could not TextureImport from path: ");
-            }
-            else
-            {
-                importer.textureType = TextureImporterType.Sprite;
-                importer.spriteImportMode = SpriteImportMode.Single;
-                importer.SaveAndReimport();
-            }
-        }
-        for (int i = 0; i < playerCam.picCounter[10]; i++)
-        {
-            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/Tree/screenshot" + i + ".png") as TextureImporter;
-            if (importer == null)
-            {
-                Debug.LogError("Could not TextureImport from path: ");
-            }
-            else
-            {
-                importer.textureType = TextureImporterType.Sprite;
-                importer.spriteImportMode = SpriteImportMode.Single;
-                importer.SaveAndReimport();
-            }
-        }
-        for (int i = 0; i < playerCam.picCounter[5]; i++)
-        {
-            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/Owl/screenshot" + i + ".png") as TextureImporter;
-            if (importer == null)
-            {
-                Debug.LogError("Could not TextureImport from path: ");
-            }
-            else
-            {
-                importer.textureType = TextureImporterType.Sprite;
-                importer.spriteImportMode = SpriteImportMode.Single;
-                importer.SaveAndReimport();
-            }
-        }
-        for (int i = 0; i < playerCam.picCounter[1]; i++)
-        {
-            TextureImporter importer = AssetImporter.GetAtPath("Assets/Resources/gamepics/Butterfly/screenshot" + i + ".png") as TextureImporter;
-            if (importer == null)
-            {
-                Debug.LogError("Could not TextureImport from path: ");
-            }
-            else
-            {
-                importer.textureType = TextureImporterType.Sprite;
-                importer.spriteImportMode = SpriteImportMode.Single;
-                importer.SaveAndReimport();
-            }
-        }
-    }
-
+    
+   
 
 
 }
