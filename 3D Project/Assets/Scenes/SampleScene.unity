@@ -8183,6 +8183,7 @@ MonoBehaviour:
   listaTeste: []
   listaTesteOwl: []
   listaTesteCrocodile: []
+  diaryControler: {fileID: 1934058324}
 --- !u!95 &1388826676
 Animator:
   serializedVersion: 5
@@ -10195,6 +10196,8 @@ MonoBehaviour:
   PhotosPage1: []
   MainPagePhotos: []
   playerController: {fileID: 1388826675}
+  crocodilePhotos: []
+  owlPhotos: []
 --- !u!1 &1935290910
 GameObject:
   m_ObjectHideFlags: 0
