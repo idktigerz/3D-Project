@@ -397,7 +397,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: Album
         m_Mode: 5
@@ -1986,7 +1986,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: UnimportPhotos
         m_Mode: 1
@@ -1998,7 +1998,7 @@ MonoBehaviour:
           m_StringArgument: Owl
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: FirstPage
         m_Mode: 5
@@ -2082,7 +2082,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: ResetStart
         m_Mode: 1
@@ -6724,7 +6724,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: UnimportPhotos
         m_Mode: 1
@@ -6736,7 +6736,7 @@ MonoBehaviour:
           m_StringArgument: Crocodile
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: FirstPage
         m_Mode: 5
@@ -6820,7 +6820,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: ResetStart
         m_Mode: 1
@@ -7109,7 +7109,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1934058324}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DiaryControler, Assembly-CSharp
         m_MethodName: Album
         m_Mode: 5
@@ -10188,11 +10188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diaryPhotoPlace: []
   diaryPage: 0
-  diaryPhotos:
-  - {fileID: 675028824}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  diaryPhotos: []
   PhotosPage1: []
   MainPagePhotos: []
   playerController: {fileID: 1388826675}

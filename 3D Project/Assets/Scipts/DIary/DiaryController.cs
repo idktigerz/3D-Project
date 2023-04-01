@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 
-public class DiaryControler : MonoBehaviour
+public class DiaryController : MonoBehaviour
 {
     public List<Vector3> diaryPhotoPlace;
     public int diaryPage;
@@ -17,9 +17,6 @@ public class DiaryControler : MonoBehaviour
     public PlayerController playerController;
     public List<Texture2D> crocodilePhotos;
     public List<Texture2D> owlPhotos;
-
-
-
 
     private int start = 0;
 
@@ -101,7 +98,7 @@ public class DiaryControler : MonoBehaviour
         }
         else
         {
-            if (PhotosPage1.Count <= 4)
+            if (PhotosPage1.Count > 4)
             {
                 //PhotosPage1.Clear();
                 ImportPhotos(folderName);

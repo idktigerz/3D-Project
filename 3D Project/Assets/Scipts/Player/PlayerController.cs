@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     public List<Texture2D> listaTesteOwl;
     public List<Texture2D> listaTesteCrocodile;
 
-    public DiaryControler diaryControler;
+    public DiaryController diaryControler;
 
 
 
@@ -175,6 +175,12 @@ public class PlayerController : MonoBehaviour
                 batteryText.text = "Battery - | \n LOW BATTERY";
             }
 
+        }
+        if (cameraON && camBattery <= 0)
+        {
+            cameraUI.SetActive(false);
+            cameraON = false;
+            playerCam.GetComponent<Camera>().fieldOfView = 60;
         }
     }
 
