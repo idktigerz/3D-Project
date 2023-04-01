@@ -73,11 +73,16 @@ public class DiaryController : MonoBehaviour
     }
     private void ShowFirstDiaryPage(List<Texture2D> list)
     {
+        Debug.Log($"242432423423424");
         GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
+        Debug.Log($"1");
         GameObject seccond = FindChildGameObjectByName(main, "FirstPage");
+        Debug.Log($"2");
         //Debug.Log(folderName + "Page");
         FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = null;
+        Debug.Log($"3");
         if (list[0] != null) FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = list[0];
+        Debug.Log($"4");
     }
     public void ResetStart()
     {
@@ -161,10 +166,13 @@ public class DiaryController : MonoBehaviour
 
     }*/
 
-    public void FirstPage(string folderName)
+    public void FirstPage(string folder)
     {
+        folderName = folder;
         //ImportFirstPhoto(folderName);
-        ShowFirstDiaryPage(playerController.listaTeste);
+        if (folderName == "Crocodile") ShowFirstDiaryPage(crocodilePhotos);
+        else if (folderName == "Owl") ShowFirstDiaryPage(owlPhotos);
+
         diaryPage = 1;
     }
 
