@@ -75,8 +75,8 @@ public class DiaryController : MonoBehaviour
     {
         GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
         GameObject seccond = FindChildGameObjectByName(main, "FirstPage");
-        Debug.Log(folderName + "Page");
-        FindChildGameObjectByName(seccond, "Image").GetComponent<Image>().sprite = null;
+        //Debug.Log(folderName + "Page");
+        FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = null;
         if (list[0] != null) FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = list[0];
     }
     public void ResetStart()
@@ -87,7 +87,7 @@ public class DiaryController : MonoBehaviour
 
     public void SwitchDiaryPage(int num)
     {
-        ImportPhotos(folderName);
+        //ImportPhotos(folderName);
         if (num == 0)
         {
             diaryPage++;
@@ -98,10 +98,10 @@ public class DiaryController : MonoBehaviour
         }
         else
         {
-            if (PhotosPage1.Count > 4)
+            if (playerController.listaTeste.Count > 4)
             {
                 //PhotosPage1.Clear();
-                ImportPhotos(folderName);
+                //ImportPhotos(folderName);
             }
             diaryPage--;
             if (diaryPage < 1)
@@ -134,7 +134,7 @@ public class DiaryController : MonoBehaviour
             SwitchDiaryPage(0);
         }
     }
-    public void ImportPhotos(string folder)
+    /*public void ImportPhotos(string folder)
     {
         folderName = folder;
         Object[] sprite = Resources.LoadAll("gamepics/" + folder, typeof(Sprite));
@@ -143,9 +143,9 @@ public class DiaryController : MonoBehaviour
             PhotosPage1.Add(t);
         }
 
-    }
+    }*/
 
-    private void ImportFirstPhoto(string folder)
+    /*private void ImportFirstPhoto(string folder)
     {
         folderName = folder;
         Object[] sprite = Resources.LoadAll("gamepics/" + folder, typeof(Sprite));
@@ -159,21 +159,23 @@ public class DiaryController : MonoBehaviour
             Debug.LogError("No photos yet");
         }
 
-    }
+    }*/
 
     public void FirstPage(string folderName)
     {
-        ImportFirstPhoto(folderName);
+        //ImportFirstPhoto(folderName);
         ShowFirstDiaryPage(playerController.listaTeste);
         diaryPage = 1;
     }
 
-    public void Album(string folderName)
+    public void Album(string folder)
     {
-        if(folderName=="Crocodile")ShowDiaryPage(crocodilePhotos);
-        else if(folderName=="Owl")ShowDiaryPage(owlPhotos);
-        ImportPhotos(folderName);
-        ShowDiaryPage(playerController.listaTeste);
+        folderName = folder;
+        Debug.Log($"passei aqui");
+        if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
+        else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
+        //ImportPhotos(folderName);
+        //ShowDiaryPage(playerController.listaTeste);
     }
 
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
@@ -196,17 +198,17 @@ public class DiaryController : MonoBehaviour
     }
 
 
-    public void UnimportPhotos()
+    /*public void UnimportPhotos()
     {
         PhotosPage1.Clear();
         MainPagePhotos.Clear();
-    }
+    }*/
 
     public void Back()
     {
         diaryPage = 0;
-        PhotosPage1.Clear();
-        MainPagePhotos.Clear();
+        //PhotosPage1.Clear();
+        //MainPagePhotos.Clear();
     }
 
 }

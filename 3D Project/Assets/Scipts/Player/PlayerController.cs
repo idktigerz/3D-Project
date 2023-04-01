@@ -95,8 +95,6 @@ public class PlayerController : MonoBehaviour
     public RenderTexture rt;
 
     public List<Texture2D> listaTeste;
-    public List<Texture2D> listaTesteOwl;
-    public List<Texture2D> listaTesteCrocodile;
 
     public DiaryController diaryControler;
 
@@ -254,7 +252,7 @@ public class PlayerController : MonoBehaviour
                 tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
                 tex.Apply();
                 RenderTexture.active = null;
-                listaTeste.Add(tex);
+                //listaTeste.Add(tex);
                 if (closest.name == "Crocodile")
                 {
                     diaryControler.crocodilePhotos.Add(tex);
@@ -291,7 +289,7 @@ public class PlayerController : MonoBehaviour
                 tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
                 tex.Apply();
                 RenderTexture.active = null;
-                listaTeste.Add(tex);
+                //listaTeste.Add(tex);
 
                 //ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
                 picnum++;
