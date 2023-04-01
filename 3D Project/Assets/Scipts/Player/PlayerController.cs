@@ -98,6 +98,8 @@ public class PlayerController : MonoBehaviour
     public List<Texture2D> listaTesteOwl;
     public List<Texture2D> listaTesteCrocodile;
 
+    public DiaryControler diaryControler;
+
 
 
 
@@ -240,14 +242,21 @@ public class PlayerController : MonoBehaviour
             if (closest != null)
             {
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
-                
+
                 RenderTexture.active = rt;
                 Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
                 tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
                 tex.Apply();
                 RenderTexture.active = null;
                 listaTeste.Add(tex);
-                
+                if (closest.name == "Crocodile")
+                {
+                    diaryControler.crocodilePhotos.Add(tex);
+                }
+                else if (closest.name == "Owl")
+                {
+                    diaryControler.owlPhotos.Add(tex);
+                }
 
                 /*byte[] bytes = image.EncodeToPNG();
                 string path = playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png";
@@ -278,7 +287,7 @@ public class PlayerController : MonoBehaviour
                 RenderTexture.active = null;
                 listaTeste.Add(tex);
 
-               //ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
+                //ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
                 picnum++;
             }
             Debug.Log("A screenshot was taken!");
@@ -433,8 +442,8 @@ public class PlayerController : MonoBehaviour
         light.SetActive(false);
         isFlashing = false;
     }
-    
-   
+
+
 
 
 }

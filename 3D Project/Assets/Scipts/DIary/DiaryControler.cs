@@ -15,6 +15,10 @@ public class DiaryControler : MonoBehaviour
     public List<Sprite> MainPagePhotos;
 
     public PlayerController playerController;
+    public List<Texture2D> crocodilePhotos;
+    public List<Texture2D> owlPhotos;
+
+
 
 
     private int start = 0;
@@ -38,20 +42,22 @@ public class DiaryControler : MonoBehaviour
         //FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = null;
 
 
-        if(list.Count == 1)
+        if (list.Count == 1)
         {
             FindChildGameObjectByName(main, "image1").GetComponent<RawImage>().texture = list[start];
         }
-        else if(list.Count == 2)
+        else if (list.Count == 2)
         {
             FindChildGameObjectByName(main, "image1").GetComponent<RawImage>().texture = list[start];
             FindChildGameObjectByName(main, "image2").GetComponent<RawImage>().texture = list[start + 1];
-        }else if(list.Count == 3)
+        }
+        else if (list.Count == 3)
         {
             FindChildGameObjectByName(main, "image1").GetComponent<RawImage>().texture = list[start];
             FindChildGameObjectByName(main, "image2").GetComponent<RawImage>().texture = list[start + 1];
             FindChildGameObjectByName(main, "image3").GetComponent<RawImage>().texture = list[start + 2];
-        }else if(list.Count >= 4)
+        }
+        else if (list.Count >= 4)
         {
             FindChildGameObjectByName(main, "image1").GetComponent<RawImage>().texture = list[start];
             FindChildGameObjectByName(main, "image2").GetComponent<RawImage>().texture = list[start + 1];
@@ -108,7 +114,7 @@ public class DiaryControler : MonoBehaviour
         }
         if (diaryPage == 1)
         {
-            
+
             start = 0;
             ShowDiaryPage(playerController.listaTeste);
         }
@@ -167,6 +173,8 @@ public class DiaryControler : MonoBehaviour
 
     public void Album(string folderName)
     {
+        if(folderName=="Crocodile")ShowDiaryPage(crocodilePhotos);
+        else if(folderName=="Owl")ShowDiaryPage(owlPhotos);
         ImportPhotos(folderName);
         ShowDiaryPage(playerController.listaTeste);
     }
