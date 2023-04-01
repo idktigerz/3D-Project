@@ -95,8 +95,10 @@ public class PlayerController : MonoBehaviour
     public RenderTexture rt;
 
     public List<Texture2D> listaTeste;
+    public List<Texture2D> listaTesteOwl;
+    public List<Texture2D> listaTesteCrocodile;
 
-   
+
 
 
     public enum MovementState
@@ -283,6 +285,7 @@ public class PlayerController : MonoBehaviour
             isFlashing = true;
             StartCoroutine(CameraUIOn());
             StartCoroutine(FlashOn());
+            camBattery -= 5;
         }
 
         if (Input.GetKey(interactKey) && bed.GetComponent<BedController>().canInteract)
