@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (camBattery <= 24 && camBattery >= 1)
             {
-                batteryText.text = "Battery - |";
+                batteryText.text = "Battery - | \n LOW BATTERY";
             }
 
         }
