@@ -17,6 +17,9 @@ public class DiaryController : MonoBehaviour
     public PlayerController playerController;
     public List<Texture2D> crocodilePhotos;
     public List<Texture2D> owlPhotos;
+    public List<Texture2D> butterflyPhotos;
+    public List<Texture2D> bugPhotos;
+    public List<Texture2D> frogPhotos;
 
     private int start = 0;
 
@@ -118,12 +121,21 @@ public class DiaryController : MonoBehaviour
         {
 
             start = 0;
-            ShowDiaryPage(playerController.listaTeste);
+            if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
+            else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
+            else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
+            else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
+            else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
+
         }
         else
         {
             start = diaryPage * 4 - 3;
-            ShowDiaryPage(playerController.listaTeste);
+            if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
+            else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
+            else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
+            else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
+            else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
             Debug.Log(diaryPage);
             Debug.Log(start);
         }
@@ -172,6 +184,9 @@ public class DiaryController : MonoBehaviour
         //ImportFirstPhoto(folderName);
         if (folderName == "Crocodile") ShowFirstDiaryPage(crocodilePhotos);
         else if (folderName == "Owl") ShowFirstDiaryPage(owlPhotos);
+        else if (folderName == "Butterfly") ShowFirstDiaryPage(butterflyPhotos);
+        else if (folderName == "Bug") ShowFirstDiaryPage(bugPhotos);
+        else if (folderName == "Frog") ShowFirstDiaryPage(frogPhotos);
 
         diaryPage = 1;
     }
@@ -182,6 +197,9 @@ public class DiaryController : MonoBehaviour
         Debug.Log($"passei aqui");
         if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
         else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
+        else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
+        else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
+        else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
         //ImportPhotos(folderName);
         //ShowDiaryPage(playerController.listaTeste);
     }
@@ -215,8 +233,7 @@ public class DiaryController : MonoBehaviour
     public void Back()
     {
         diaryPage = 0;
-        //PhotosPage1.Clear();
-        //MainPagePhotos.Clear();
+        start = 0;
     }
 
 }

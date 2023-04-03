@@ -70,7 +70,7 @@ public class PlayerCam : MonoBehaviour
         }
     }
 
-    public GameObject getClosestPhotographable()
+    public GameObject GetClosestPhotographable()
     {
         GameObject closest = null;
         float closestDistance = 100;
