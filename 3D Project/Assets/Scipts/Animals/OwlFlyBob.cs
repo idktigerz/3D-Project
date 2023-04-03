@@ -26,7 +26,7 @@ public class OwlFlyBob : MonoBehaviour
     }
     private void FlyBobHandler()
     {
-        if (Mathf.Abs(gameObject.transform.forward.x) > 0.1f && agent.speed > 0.1f || Mathf.Abs(gameObject.transform.forward.z) > 0.1f && agent.speed > 0.1f)
+        if ( agent.speed > 0.1f)
         {
             timer += Time.deltaTime * flyBobSpeed;
             gameObject.transform.localPosition = new Vector3(

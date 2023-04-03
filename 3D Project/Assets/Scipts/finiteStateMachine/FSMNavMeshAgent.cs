@@ -184,7 +184,7 @@ public class FSMNavMeshAgent : MonoBehaviour
             agent.SetDestination(pos);
         }
     }
-    public void RunAway()
+    public void OwlRunAway()
     {
 
         Transform longestWaypoint = null;
@@ -201,13 +201,20 @@ public class FSMNavMeshAgent : MonoBehaviour
                     Debug.Log(longestWaypoint);
                 }
             }
+            currentDest = longestWaypoint.position;
             agent.SetDestination(longestWaypoint.position);
         }
-        else if (gameObject.name == "Crocodile")
+    }
+    public void CrocodileRunAway()
+    {
+        if (gameObject.name == "Crocodile")
         {
-            Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            var NewPos = ((transform.position - target.position));
+            agent.SetDestination(transform.position + NewPos);
+
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "NoiseBubble")

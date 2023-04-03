@@ -261,6 +261,22 @@ public class PlayerController : MonoBehaviour
                 {
                     diaryControler.owlPhotos.Add(tex);
                 }
+                else if (closest.name == "Butterfly")
+                {
+                    diaryControler.butterflyPhotos.Add(tex);
+                }
+                else if (closest.name == "Frog")
+                {
+                    diaryControler.frogPhotos.Add(tex);
+                }
+                else if (closest.name == "Bug")
+                {
+                    diaryControler.bugPhotos.Add(tex);
+                }
+                else if (closest.name == "Baby Tiger")
+                {
+                    diaryControler.babyTigerPhotos.Add(tex);
+                }
 
                 /*byte[] bytes = image.EncodeToPNG();
                 string path = playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png";

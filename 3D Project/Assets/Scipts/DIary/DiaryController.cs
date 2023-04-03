@@ -20,6 +20,9 @@ public class DiaryController : MonoBehaviour
     public List<Texture2D> butterflyPhotos;
     public List<Texture2D> bugPhotos;
     public List<Texture2D> frogPhotos;
+    public List<Texture2D> babyTigerPhotos;
+
+
 
     private int start = 0;
 
@@ -76,16 +79,12 @@ public class DiaryController : MonoBehaviour
     }
     private void ShowFirstDiaryPage(List<Texture2D> list)
     {
-        Debug.Log($"242432423423424");
         GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
-        Debug.Log($"1");
         GameObject seccond = FindChildGameObjectByName(main, "FirstPage");
-        Debug.Log($"2");
         //Debug.Log(folderName + "Page");
         FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = null;
-        Debug.Log($"3");
         if (list[0] != null) FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = list[0];
-        Debug.Log($"4");
+       
     }
     public void ResetStart()
     {
