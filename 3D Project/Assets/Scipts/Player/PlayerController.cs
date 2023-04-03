@@ -242,7 +242,7 @@ public class PlayerController : MonoBehaviour
         {
             light.SetActive(true);
             cameraUI.SetActive(false);
-            GameObject closest = playerCam.getClosestPhotographable();
+            GameObject closest = playerCam.GetClosestPhotographable();
             if (closest != null)
             {
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();

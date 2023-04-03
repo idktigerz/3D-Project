@@ -6,7 +6,7 @@ public class Photographable : MonoBehaviour
 {
     public PlayerCam playerCam;
 
-    public enum PhotographableID { Snake, Butterfly, Parrot, sloth, frog, owl, crocodile, tiger, otter, bug, tree };
+    public enum PhotographableID { Snake, Butterfly, Parrot, Sloth, Frog, Owl, Crocodile, Tiger, Otter, Bug, Tree };
 
     [Header("animal stuff")]
 
