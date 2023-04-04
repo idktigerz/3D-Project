@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-guid: 4b84fc5b921a2cb489078824d26727de
+guid: 736f2d670806f5e43b803af81b01b2e9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - timeText: {instanceID: 0}
-  - sunLight: {instanceID: 0}
-  - moonLight: {instanceID: 0}
-  - nightSky: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

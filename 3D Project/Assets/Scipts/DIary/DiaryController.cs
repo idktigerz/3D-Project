@@ -82,7 +82,7 @@ public class DiaryController : MonoBehaviour
         GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
         GameObject seccond = FindChildGameObjectByName(main, "FirstPage");
         //Debug.Log(folderName + "Page");
-        FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = null;
+        //FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = null;
         if (list.Count > 0)
         {
             FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = list[0];
