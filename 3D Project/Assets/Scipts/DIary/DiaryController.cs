@@ -69,7 +69,7 @@ public class DiaryController : MonoBehaviour
         }
         else
         {
-            Debug.Log("No photos");
+            Debug.LogError("No photos");
         }
 
         /*FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
@@ -83,8 +83,14 @@ public class DiaryController : MonoBehaviour
         GameObject seccond = FindChildGameObjectByName(main, "FirstPage");
         //Debug.Log(folderName + "Page");
         FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = null;
-        if (list[0] != null) FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = list[0];
-       
+        if (list.Count > 0)
+        {
+            FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = list[0];
+        }
+        else
+        {
+            FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = null;
+        }
     }
     public void ResetStart()
     {

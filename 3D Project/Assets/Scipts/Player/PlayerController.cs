@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     public List<Texture2D> listaTeste;
 
-    public DiaryController diaryControler;
+    public DiaryController diaryController;
 
 
 
@@ -255,27 +255,27 @@ public class PlayerController : MonoBehaviour
                 //listaTeste.Add(tex);
                 if (closest.name == "Crocodile")
                 {
-                    diaryControler.crocodilePhotos.Add(tex);
+                    diaryController.crocodilePhotos.Add(tex);
                 }
                 else if (closest.name == "Owl")
                 {
-                    diaryControler.owlPhotos.Add(tex);
+                    diaryController.owlPhotos.Add(tex);
                 }
                 else if (closest.name == "Butterfly")
                 {
-                    diaryControler.butterflyPhotos.Add(tex);
+                    diaryController.butterflyPhotos.Add(tex);
                 }
                 else if (closest.name == "Frog")
                 {
-                    diaryControler.frogPhotos.Add(tex);
+                    diaryController.frogPhotos.Add(tex);
                 }
                 else if (closest.name == "Bug")
                 {
-                    diaryControler.bugPhotos.Add(tex);
+                    diaryController.bugPhotos.Add(tex);
                 }
                 else if (closest.name == "Baby Tiger")
                 {
-                    diaryControler.babyTigerPhotos.Add(tex);
+                    diaryController.babyTigerPhotos.Add(tex);
                 }
 
                 /*byte[] bytes = image.EncodeToPNG();

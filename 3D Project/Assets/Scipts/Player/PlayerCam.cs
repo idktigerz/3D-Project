@@ -17,8 +17,10 @@ public class PlayerCam : MonoBehaviour
     public int[] picCounter;
 
     public string[] animalList;
+    public string[] plantList;
 
     public List<GameObject> currentAnimalsInTheframe;
+    public List<GameObject> currentPlantsInTheframe;
 
 
     private void Start()
@@ -31,17 +33,19 @@ public class PlayerCam : MonoBehaviour
             picCounter[i] = 0;
         }
         animalList = new string[11];
-        animalList[0] = "snake";
-        animalList[1] = "butterfly";
-        animalList[2] = "parrot";
-        animalList[3] = "sloth";
-        animalList[4] = "frog";
-        animalList[5] = "owl";
-        animalList[6] = "crocodile";
-        animalList[7] = "tiger";
-        animalList[8] = "otter";
-        animalList[9] = "bug";
-        animalList[10] = "tree";
+        animalList[0] = "Snake";
+        animalList[1] = "Butterfly";
+        animalList[2] = "Parrot";
+        animalList[3] = "Sloth";
+        animalList[4] = "Frog";
+        animalList[5] = "Owl";
+        animalList[6] = "Crocodile";
+        animalList[7] = "Tiger";
+        animalList[8] = "Otter";
+        animalList[9] = "Bug";
+        animalList[10] = "Tree";
+        
+        plantList = new string[11];
     }
 
     private void Update()
