@@ -112,6 +112,19 @@ public class FSMNavMeshAgent : MonoBehaviour
             GoToNextPatrolWaypointButter();
         }
     }
+    public void GoToNextPatrolWaypointBug()
+    {
+
+        agent.isStopped = false;
+        var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+        agent.SetDestination(transform.position + NewPos);
+    }
+    public void GoToNextPatrolWaypointBabyTiger()
+    {
+        agent.isStopped = false;
+        var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+        agent.SetDestination(target.position + NewPos);
+    }
     public IEnumerator WalkingPause(float time)
     {
         canFly = false;
@@ -133,9 +146,6 @@ public class FSMNavMeshAgent : MonoBehaviour
         {
             GoToNextPatrolWaypointButter();
         }
-
-
-
     }
 
 

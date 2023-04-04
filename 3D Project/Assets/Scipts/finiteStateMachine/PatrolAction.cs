@@ -23,6 +23,14 @@ public class PatrolAction : Action
             {
                 fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 1f);
             }
+            else if (fsm.name == "Bug" && fsm.GetNavMeshAgent())
+            {
+                fsm.GetNavMeshAgent().GoToNextPatrolWaypointBug();
+            }
+            else if (fsm.name == "Baby Tiger" && fsm.GetNavMeshAgent())
+            {
+                fsm.GetNavMeshAgent().GoToNextPatrolWaypointBabyTiger();
+            }
 
         }
     }

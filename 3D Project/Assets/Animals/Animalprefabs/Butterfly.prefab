@@ -291,6 +291,9 @@ PrefabInstance:
     - {fileID: 65702495048144492, guid: 69dfb59d711551445869a60227c0347a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69dfb59d711551445869a60227c0347a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2589472125664867016}
     - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 69dfb59d711551445869a60227c0347a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9211333907121199611}
@@ -314,6 +317,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
   photographableId: 1
+--- !u!1 &3950119943609420359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 69dfb59d711551445869a60227c0347a, type: 3}
+  m_PrefabInstance: {fileID: 4184069424166975254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2589472125664867016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950119943609420359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010bdd4bb8b83a5438578d3cea9012c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 4469786239213325536}
+  flyBobSpeed: 2.3
+  flyBobAmmount: 2
 --- !u!4 &4438989594162548989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 69dfb59d711551445869a60227c0347a, type: 3}
