@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 2749536380334199076}
   - component: {fileID: 1980969485086753063}
   m_Layer: 0
-  m_Name: Poison Orchid3 1
+  m_Name: Poison Orchid3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,7 +756,7 @@ Transform:
   m_Children:
   - {fileID: 4639038730352164288}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1980969485086753063
 MonoBehaviour:
@@ -772,6 +772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openTime: 22
   closeTime: 3
+  orchid: {fileID: 0}
   timeController: {fileID: 0}
 --- !u!1 &4162228546901118187
 GameObject:
