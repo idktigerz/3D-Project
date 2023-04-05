@@ -119,12 +119,30 @@ public class FSMNavMeshAgent : MonoBehaviour
         var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
         agent.SetDestination(transform.position + NewPos);
     }
+    public void GoToNextPatrolWaypointFrog()
+    {
+        agent.isStopped = false;
+        var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+        agent.SetDestination(transform.position + NewPos);
+    }
     public void GoToNextPatrolWaypointBabyTiger()
     {
         agent.isStopped = false;
         var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
         agent.SetDestination(target.position + NewPos);
     }
+    public void GoToNextPatrolWaypointOwl()
+    {
+        if (OwlWaypoints.Count != 0)
+        {
+            agent.isStopped = false;
+            Vector3 pos = OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position;
+            currentDest = pos;
+            agent.SetDestination(pos);
+            energy -= 10;
+        }
+    }
+
     public IEnumerator WalkingPause(float time)
     {
         canFly = false;
@@ -184,16 +202,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         canAttack = true;
     }
 
-    public void GoToNextPatrolWaypointOwl()
-    {
-        if (OwlWaypoints.Count != 0)
-        {
-            agent.isStopped = false;
-            Vector3 pos = OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position;
-            currentDest = pos;
-            agent.SetDestination(pos);
-        }
-    }
+
     public void OwlRunAway()
     {
 
@@ -208,7 +217,7 @@ public class FSMNavMeshAgent : MonoBehaviour
                 if (Vector3.Distance(target.position, w.position) > longestDistance)
                 {
                     longestWaypoint = w;
-                    Debug.Log(longestWaypoint);
+                    longestDistance = Vector3.Distance(target.position, w.position);
                 }
             }
             currentDest = longestWaypoint.position;
@@ -223,6 +232,16 @@ public class FSMNavMeshAgent : MonoBehaviour
             agent.SetDestination(transform.position + NewPos);
 
         }
+    }
+
+    public void OwlRest()
+    {
+        if (IsAtDestination())
+        {
+            agent.speed = 0;
+        }
+        agent.isStopped = false;
+        energy += 2 * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)

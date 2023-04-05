@@ -16,7 +16,7 @@ public class ButterflyBob : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        defaultYPos = 5.46f;
+        defaultYPos = 1.104f;
     }
 
     // Update is called once per frame

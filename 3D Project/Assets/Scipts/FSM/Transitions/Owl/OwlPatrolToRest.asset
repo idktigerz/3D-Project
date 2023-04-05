@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91dd375b6cddb3c449c255a68b59f183, type: 3}
-  m_Name: EnergyIsHighCondition
+  m_Script: {fileID: 11500000, guid: 05ee356048a9c5c43a0e2e3a0618ac5b, type: 3}
+  m_Name: OwlPatrolToRest
   m_EditorClassIdentifier: 
-  hasEnergy: 1
+  decision: {fileID: 11400000, guid: a4074fcde91b75241bb5ce90fbdb5fed, type: 2}
+  action: {fileID: 0}
+  targetState: {fileID: 11400000, guid: 097ee839080933a4daec040d5eda6f25, type: 2}
