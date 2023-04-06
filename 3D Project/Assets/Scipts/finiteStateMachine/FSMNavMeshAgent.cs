@@ -37,12 +37,16 @@ public class FSMNavMeshAgent : MonoBehaviour
     public bool canFly;
     public GameObject OwlBody;
 
+    public GameObject[] listOfAnimals;
+
+
     private void Awake()
     {
         OwlWaypoints.Clear();
     }
     void Start()
     {
+        listOfAnimals = GameObject.FindGameObjectsWithTag("Animal");
         canFly = true;
         agent = GetComponent<NavMeshAgent>();
         initialSpeed = agent.speed;
@@ -243,6 +247,10 @@ public class FSMNavMeshAgent : MonoBehaviour
         agent.isStopped = false;
         energy += 2 * Time.deltaTime;
     }
+    IEnumerator StopHear()
+    {
+        yield return new WaitForSeconds(5);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -255,7 +263,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         if (other.gameObject.name == "NoiseBubble")
         {
-            canHear = false;
+            StartCoroutine("StopHear");
         }
     }
     private void OnCollisionEnter(Collision other)

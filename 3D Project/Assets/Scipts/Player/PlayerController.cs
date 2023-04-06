@@ -98,6 +98,10 @@ public class PlayerController : MonoBehaviour
 
     public DiaryController diaryController;
 
+    public enum PhotographMode { CloseFocus, LongFocus };
+    public PhotographMode photographMode;
+
+
 
 
 
@@ -242,7 +246,16 @@ public class PlayerController : MonoBehaviour
         {
             light.SetActive(true);
             cameraUI.SetActive(false);
-            GameObject closest = playerCam.GetClosestPhotographable();
+            GameObject closest = null;
+            if (photographMode == PhotographMode.CloseFocus)
+            {
+                closest = playerCam.GetClosestPhotographable();
+            }
+            else
+            {
+                closest = playerCam.GetClosestPhotographableAngle();
+            }
+
             if (closest != null)
             {
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();

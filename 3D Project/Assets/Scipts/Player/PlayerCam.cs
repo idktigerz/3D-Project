@@ -44,7 +44,7 @@ public class PlayerCam : MonoBehaviour
         animalList[8] = "Otter";
         animalList[9] = "Bug";
         animalList[10] = "Tree";
-        
+
         plantList = new string[11];
     }
 
@@ -87,6 +87,25 @@ public class PlayerCam : MonoBehaviour
                 closest = currentAnimalsInTheframe[i];
                 closestDistance = distance;
             }
+        }
+        return closest;
+    }
+    public GameObject GetClosestPhotographableAngle()
+    {
+        GameObject closest = null;
+        float closestAngle = Mathf.Infinity;
+        float angle;
+        foreach (GameObject obj in currentAnimalsInTheframe)
+        {
+            Vector3 targetDir = obj.transform.position - transform.position;
+            angle = Vector3.Angle(targetDir, transform.forward);
+
+            if (angle < closestAngle)
+            {
+                closestAngle = angle;
+                closest = obj;
+            }
+
         }
         return closest;
     }

@@ -1834,7 +1834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.134
+      value: 8.18
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2490,7 +2490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.471
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4196,7 +4196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.471
+      value: 8.851
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5747,9 +5747,9 @@ PrefabInstance:
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 259835296}
-    - target: {fileID: 5091474839973480524, guid: 72d19c202d9292e4daced774caa8e489, type: 3}
-      propertyPath: m_Constraints
-      value: 126
+    - target: {fileID: 5571057431040773852, guid: 72d19c202d9292e4daced774caa8e489, type: 3}
+      propertyPath: canAttack
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8388398802373613765, guid: 72d19c202d9292e4daced774caa8e489, type: 3}
       propertyPath: m_RootOrder
@@ -7328,7 +7328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -41.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7358,6 +7358,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1253996098385199550, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.51
+      objectReference: {fileID: 0}
+    - target: {fileID: -1253996098385199550, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}
       propertyPath: m_Name
       value: charachter_PRE@Zombie Idle
@@ -7370,6 +7378,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: -8700617353114198275, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}
     - {fileID: 65702495048144492, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}
+    - {fileID: 8821623529969584324, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e7c145f3d145dc44686a639af6ec6372, type: 3}
       insertIndex: -1
@@ -7917,7 +7926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1257899456686629237, guid: 0c92cb3d9d0f11244b5be4d524982a4c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.166
+      value: -78.14
       objectReference: {fileID: 0}
     - target: {fileID: 1257899456686629237, guid: 0c92cb3d9d0f11244b5be4d524982a4c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9802,7 +9811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.134
+      value: 14.38
       objectReference: {fileID: 0}
     - target: {fileID: 2251356558848958234, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9940,7 +9949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a3be61c1055c4448c87d87f38203f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: {fileID: 11400000, guid: 91840aa5d3bb01347af4c3021b376d0b, type: 2}
+  initialState: {fileID: 11400000, guid: 16a6485263a901f408f796f20814761a, type: 2}
   currentState: {fileID: 0}
 --- !u!114 &1238338679
 MonoBehaviour:
@@ -9967,6 +9976,7 @@ MonoBehaviour:
   currentDest: {x: 0, y: 0, z: 0}
   canFly: 0
   OwlBody: {fileID: 0}
+  listOfAnimals: []
 --- !u!4 &1238338680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1257899456686629237, guid: 0c92cb3d9d0f11244b5be4d524982a4c, type: 3}
@@ -10728,6 +10738,7 @@ MonoBehaviour:
   rt: {fileID: 8400000, guid: e4f376bbb29ef1446a927909475497b2, type: 2}
   listaTeste: []
   diaryController: {fileID: 1934058324}
+  photographMode: 0
 --- !u!95 &1388826676
 Animator:
   serializedVersion: 5
@@ -15865,6 +15876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1388826676}
+  playerController: {fileID: 1388826675}
 --- !u!135 &2089573615
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16531,7 +16543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6783777877762348006, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40.64
+      value: -46.67
       objectReference: {fileID: 0}
     - target: {fileID: 6783777877762348006, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
       propertyPath: m_LocalRotation.w

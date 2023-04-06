@@ -5,6 +5,8 @@ using UnityEngine;
 public class NoiseBubbleControler : MonoBehaviour
 {
     public Animator playerAnimator;
+
+    public PlayerController playerController;
     private Vector3 scale;
     private void Start()
     {
@@ -23,7 +25,11 @@ public class NoiseBubbleControler : MonoBehaviour
         }
         else
         {
-            transform.localScale = scale * 1;
+            transform.localScale = scale * 0;
+        }
+        if (playerController.isFlashing)
+        {
+            transform.localScale = scale * 3;
         }
     }
 }
