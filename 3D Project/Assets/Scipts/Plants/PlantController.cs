@@ -17,23 +17,47 @@ public class PlantController : MonoBehaviour
     public TimeController timeController;
     void Start()
     {
+        
         orchid.SetActive(false);
         //render.enabled = false;
         openHour = TimeSpan.FromHours(openTime);
         closeHour = TimeSpan.FromHours(closeTime);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(openHour > timeController.currentTime.TimeOfDay && closeHour < timeController.currentTime.TimeOfDay)
+        if (openHour > timeController.currentTime.TimeOfDay)
         {
             orchid.SetActive(false);
         }
         else
         {
             orchid.SetActive(true);
-
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(openHour > closeHour)
+        {
+            if (openHour > timeController.currentTime.TimeOfDay && closeHour < timeController.currentTime.TimeOfDay)
+            {
+                orchid.SetActive(false);
+            }
+            else
+            {
+                orchid.SetActive(true);
+
+            }
+        }else if(openHour < closeHour)
+        {
+            if (openHour < timeController.currentTime.TimeOfDay && closeHour > timeController.currentTime.TimeOfDay)
+            {
+                orchid.SetActive(false);
+            }
+            else
+            {
+                orchid.SetActive(true);
+
+            }
+        }
+        
     }
 }
