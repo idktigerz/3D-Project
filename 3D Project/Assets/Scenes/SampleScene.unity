@@ -14630,7 +14630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ResourcePrefab: {fileID: 3030944730939092269, guid: 40f819bc1b7db2f41817fcd1f6ded345, type: 3}
-  spawnChance: 10
+  spawnChance: 2
   distanceBetweenChecks: 0.5
   heightOfCheck: 0
   rangeOfCheck: 30
