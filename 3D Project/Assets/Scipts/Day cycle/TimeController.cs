@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,41 +11,37 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     private float timeMultiplier;
 
+    [Header("Time starts")]
     [SerializeField]
     private float startHour;
-
     [SerializeField]
-    private TextMeshProUGUI timeText;
-
+    private float resetHour;
+    [SerializeField]
+    private float sunriseHour;
+    [SerializeField]
+    private float sunsetHour;
     [SerializeField]
     public DateTime currentTime;
 
+    [Header("Lighting")]
     [SerializeField]
     private Light sunLight;
-
-    [SerializeField]
-    private float sunriseHour;
-
-    [SerializeField]
-    private float sunsetHour;
-
     [SerializeField]
     private Color dayAmbientLight;
-
     [SerializeField]
     private Color nightAmbientLight;
-
     [SerializeField]
     private AnimationCurve lightChangeCurve;
-
     [SerializeField]
     private float maxSunLightIntensity;
-
     [SerializeField]
     private Light moonLight;
-
     [SerializeField]
     private float maxMoonLightIntensity;
+    [SerializeField]
+    private Light playerLight;
+    [SerializeField]
+    private Light flashLight;
 
     [Header("Skybox texture")]
     [SerializeField]
@@ -52,23 +49,30 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     private Material sunSky;
 
+    [Header("Other stuff")]
     private TimeSpan sunriseTime;
-
     private TimeSpan sunsetTime;
+    private TimeSpan resetTime;
+    public int dayCounter;
+    public bool canToggleNightVision;
 
-    [SerializeField]
-    private Light playerLight;
-    [SerializeField]
-    private Light flashLight;
 
-    public bool canToggleNightVision; 
+    [Header("Debugging text")]
+    [SerializeField]
+    private TextMeshProUGUI timeText;
+    [SerializeField]
+    private TextMeshProUGUI dayText;
+
     // Start is called before the first frame update
     void Start()
     {
+        dayCounter = 0;
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
 
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
+
+        resetTime = TimeSpan.FromHours(resetHour);
     }
 
     // Update is called once per frame
@@ -77,6 +81,7 @@ public class TimeController : MonoBehaviour
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
+        UpdateDay();
     }
 
     private void UpdateTimeOfDay()
@@ -86,6 +91,25 @@ public class TimeController : MonoBehaviour
         {
             timeText.text = currentTime.ToString("HH:mm");
         }
+    }
+
+    private void UpdateDay()
+    {
+
+        for (int i = 0; i <= 7;)
+        {
+            i++;
+            if (currentTime.TimeOfDay >= resetTime)
+            {
+                Debug.Log("entered");
+                
+                dayCounter = +i;
+                Debug.Log(i);
+            }
+            break;
+        }
+       
+        dayText.text = "Day: " + dayCounter.ToString();
     }
 
     private void RotateSun()
@@ -136,14 +160,6 @@ public class TimeController : MonoBehaviour
         sunLight.intensity = Mathf.Lerp(0, maxSunLightIntensity, lightChangeCurve.Evaluate(dotProduct));
         moonLight.intensity = Mathf.Lerp(maxMoonLightIntensity, 0, lightChangeCurve.Evaluate(dotProduct));
         RenderSettings.ambientLight = Color.Lerp(nightAmbientLight, dayAmbientLight, lightChangeCurve.Evaluate(dotProduct));
-    }
-
-    private void UpdateFogSettings()
-    {
-        if (currentTime.TimeOfDay < sunriseTime && currentTime.TimeOfDay > sunsetTime)
-        {
-            //LightingSettings.
-        }
     }
 
     private TimeSpan CalculateTimeDifference(TimeSpan fromTime, TimeSpan toTime)

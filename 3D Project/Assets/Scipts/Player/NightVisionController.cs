@@ -30,28 +30,28 @@ public class NightVisionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Nightvision is enabled" + isEnabled);
         if(Input.GetKeyDown(KeyCode.N)) 
         {
             ToggleNightVision();
         }
+
         if (timeController.canToggleNightVision && isEnabled == false)
         {
             RenderSettings.ambientIntensity = 0f;
-            
+
         }
     }
 
     private void ToggleNightVision()
     {
-        isEnabled = !isEnabled;
-        if (isEnabled && timeController.canToggleNightVision && playerController.cameraON)
+        if (isEnabled == false && timeController.canToggleNightVision && playerController.cameraON)
         {
             
             RenderSettings.ambientLight = boostedLightColor;
             RenderSettings.ambientIntensity = 2f;
             volume.weight = 1;
             Debug.Log("Nightvision enabled");
+            isEnabled = true;
         }
         else
         {
@@ -59,6 +59,7 @@ public class NightVisionController : MonoBehaviour
             RenderSettings.ambientLight = defaultLightColor;
             volume.weight = 0;
             Debug.Log("Nightvision disabled");
+            isEnabled = false;
         }
     }
 }

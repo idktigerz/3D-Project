@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
     public float camBattery = 100f;
 
     public float health = 100f;
+
     [Header("Camera Flash")]
     public bool isFlashing;
     public GameObject light;
@@ -291,27 +292,11 @@ public class PlayerController : MonoBehaviour
                     diaryController.babyTigerPhotos.Add(tex);
                 }
 
-                /*byte[] bytes = image.EncodeToPNG();
-                string path = playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png";
-
-                File.WriteAllBytes("Assets/Resources/gamepics/" + path, bytes);
-                ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/" + playerCam.animalList[animalTypeId] + "/screenshot" + playerCam.picCounter[animalTypeId] + ".png");*/
                 playerCam.picCounter[animalTypeId]++;
-
             }
             else
             {
-                /*var currentRT = RenderTexture.active;
-                RenderTexture.active = camera.targetTexture;
-                camera.Render();
-                Texture2D image = new Texture2D(camera.targetTexture.width, camera.targetTexture.height, TextureFormat.RGB24, false);
-                image.ReadPixels(new Rect(0, 0, camera.targetTexture.width, camera.targetTexture.height), 0, 0);
-                image.Apply();
-
-                byte[] bytes = image.EncodeToPNG();
-                string path = "/screenshot" + picnum + ".png";
-
-                File.WriteAllBytes("Assets/Resources/gamepics/" + path, bytes);*/
+      
 
                 RenderTexture.active = rt;
                 Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
