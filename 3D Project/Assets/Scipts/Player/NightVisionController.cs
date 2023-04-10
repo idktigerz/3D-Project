@@ -17,7 +17,10 @@ public class NightVisionController : MonoBehaviour
     void Start()
     {
         RenderSettings.ambientLight = defaultLightColor;
-        RenderSettings.ambientIntensity = 0f;
+        if(timeController.canToggleNightVision)
+        {
+            RenderSettings.ambientIntensity = 0f;
+        }
         volume = gameObject.GetComponent<PostProcessVolume>();
         volume.weight = 0;
     }
@@ -25,9 +28,15 @@ public class NightVisionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Nightvision is enabled" + isEnabled);
         if(Input.GetKeyDown(KeyCode.N)) 
         {
             ToggleNightVision();
+        }
+        if (timeController.canToggleNightVision && isEnabled == false)
+        {
+            RenderSettings.ambientIntensity = 0f;
+            
         }
     }
 
