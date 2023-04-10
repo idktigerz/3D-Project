@@ -146,6 +146,12 @@ public class FSMNavMeshAgent : MonoBehaviour
             energy -= 10;
         }
     }
+    public void GoToNextPatrolWaypointSnake()
+    {
+        agent.isStopped = false;
+        var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+        agent.SetDestination(transform.position + NewPos);
+    }
 
     public IEnumerator WalkingPause(float time)
     {
@@ -183,6 +189,21 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
 
     public void CrocodileAttack()
+    {
+        if (canAttack)
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            Vector3 direction = transform.position - target.transform.position;
+            float force = 2;
+            GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
+            canAttack = false;
+            attacking = true;
+            StartCoroutine("CrocAttackWait");
+
+
+        }
+    }
+     public void SnakeAttack()
     {
         if (canAttack)
         {

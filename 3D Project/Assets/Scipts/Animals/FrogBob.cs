@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ButterflyBob : MonoBehaviour
+public class FrogBob : MonoBehaviour
 {
     public NavMeshAgent agent;
     [SerializeField] private float flyBobSpeed;
@@ -16,7 +16,7 @@ public class ButterflyBob : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        defaultYPos = 3f;
+        defaultYPos = 1.104f;
     }
 
     // Update is called once per frame

@@ -10,16 +10,24 @@ public class CanSeeCondition : Condition
     [SerializeField] private float viewDistance;
     public override bool Test(FiniteStateMachine fsm)
     {
-        Vector3 direction = fsm.GetNavMeshAgent().target.position - fsm.GetNavMeshAgent().transform.position;
-        if (direction.magnitude < viewDistance)
+        if (fsm.name == "Snake")
         {
-            float angle = Vector3.Angle(direction.normalized, fsm.GetNavMeshAgent().transform.forward);
-            if (angle < viewAngle)
+            return true;
+        }
+        else
+        {
+            Vector3 direction = fsm.GetNavMeshAgent().target.position - fsm.GetNavMeshAgent().transform.position;
+            if (direction.magnitude < viewDistance)
             {
-                return !negation;
+                float angle = Vector3.Angle(direction.normalized, fsm.GetNavMeshAgent().transform.forward);
+                if (angle < viewAngle)
+                {
+                    return !negation;
+                }
             }
+
+            return negation;
         }
 
-        return negation;
     }
 }
