@@ -28,7 +28,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     public bool canRun;
 
     [Header("Owl Stuff")]
-    
+
 
     public List<Transform> OwlWaypoints;
 
@@ -204,7 +204,7 @@ public class FSMNavMeshAgent : MonoBehaviour
 
         }
     }
-     public void SnakeAttack()
+    public void SnakeAttack()
     {
         if (canAttack)
         {
@@ -214,10 +214,12 @@ public class FSMNavMeshAgent : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
             attacking = true;
-            StartCoroutine("CrocAttackWait");
-
-
+            StartCoroutine("CrocAttackWait"); 
         }
+    }
+    public void SnakeStaring()
+    {
+        
     }
     IEnumerator CrocAttackWait()
     {
@@ -252,7 +254,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void CrocodileRunAway()
     {
-        if (gameObject.name == "Crocodile"&&canRun)
+        if (gameObject.name == "Crocodile" && canRun)
         {
             var NewPos = ((transform.position - target.position));
             agent.SetDestination(transform.position + NewPos);

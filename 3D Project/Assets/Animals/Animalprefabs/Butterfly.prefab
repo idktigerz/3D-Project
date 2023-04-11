@@ -153,6 +153,7 @@ MonoBehaviour:
   currentDest: {x: 0, y: 0, z: 0}
   canFly: 0
   OwlBody: {fileID: 0}
+  listOfAnimals: []
 --- !u!114 &5711787216110474845
 MonoBehaviour:
   m_ObjectHideFlags: 0
