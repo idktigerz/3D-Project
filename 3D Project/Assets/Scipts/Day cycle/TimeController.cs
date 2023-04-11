@@ -54,8 +54,10 @@ public class TimeController : MonoBehaviour
     private TimeSpan sunsetTime;
     private TimeSpan resetTime;
     public int dayCounter;
+    public int nightCounter;
     public bool canToggleNightVision;
-
+    private bool dayFinished = false;
+    private bool canPassDay;
 
     [Header("Debugging text")]
     [SerializeField]
@@ -66,6 +68,7 @@ public class TimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canPassDay = true;
         dayCounter = 0;
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
 
@@ -78,10 +81,17 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateTimeOfDay();
+        StartCoroutine("UpdateDayTest()");
+
         RotateSun();
         UpdateLightSettings();
-        UpdateDay();
+        //UpdateDay();
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateTimeOfDay();
+
     }
 
     private void UpdateTimeOfDay()
@@ -91,25 +101,35 @@ public class TimeController : MonoBehaviour
         {
             timeText.text = currentTime.ToString("HH:mm");
         }
+        if (currentTime.TimeOfDay >= resetTime && canPassDay)
+        {
+            dayCounter++;
+
+            canPassDay = false;
+            StartCoroutine("UpdateDayTest");
+        }
     }
 
+
+    private IEnumerator UpdateDayTest()
+    {
+        yield return new WaitForSeconds(5);
+        canPassDay = true;
+    }
     private void UpdateDay()
     {
-
-        for (int i = 0; i <= 7;)
+        
+        if(currentTime.TimeOfDay == resetTime && dayFinished == false)
         {
-            i++;
-            if (currentTime.TimeOfDay >= resetTime)
+            dayFinished = true;
+            if (dayFinished == true)
             {
-                Debug.Log("entered");
-                
-                dayCounter = +i;
-                Debug.Log(i);
+                dayCounter++;
             }
-            break;
+            dayFinished = false;
         }
-       
         dayText.text = "Day: " + dayCounter.ToString();
+        Debug.Log(dayCounter); 
     }
 
     private void RotateSun()

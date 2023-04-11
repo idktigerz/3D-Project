@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
     [Header("Camera Flash")]
     public bool isFlashing;
     public GameObject light;
+    public GameObject flashIcon;
 
     public NightVisionController nightVisionController;
 
@@ -246,6 +247,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
             light.SetActive(true);
+            flashIcon.SetActive(true);
             cameraUI.SetActive(false);
             GameObject closest = null;
             if (photographMode == PhotographMode.CloseFocus)
@@ -458,6 +460,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         light.SetActive(false);
+        flashIcon.SetActive(false);
         isFlashing = false;
     }
 

@@ -16,6 +16,8 @@ public class FlashedCondition : Condition
             float angle = Vector3.Angle(direction.normalized, fsm.GetNavMeshAgent().transform.forward);
             if (angle < viewAngle && fsm.GetNavMeshAgent().target.GetComponent<PlayerController>().isFlashing)
             {
+                fsm.GetNavMeshAgent().canRun = true;
+
                 return !negation;
             }
         }

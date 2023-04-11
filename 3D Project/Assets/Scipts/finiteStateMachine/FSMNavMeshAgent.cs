@@ -25,9 +25,10 @@ public class FSMNavMeshAgent : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] bool canAttack;
     private bool attacking;
+    public bool canRun;
 
     [Header("Owl Stuff")]
-    public bool canRun;
+    
 
     public List<Transform> OwlWaypoints;
 
@@ -251,11 +252,11 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void CrocodileRunAway()
     {
-        if (gameObject.name == "Crocodile")
+        if (gameObject.name == "Crocodile"&&canRun)
         {
             var NewPos = ((transform.position - target.position));
             agent.SetDestination(transform.position + NewPos);
-
+            canRun = false;
         }
     }
 
@@ -271,6 +272,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     IEnumerator StopHear()
     {
         yield return new WaitForSeconds(5);
+        canHear = false;
     }
 
     private void OnTriggerEnter(Collider other)
