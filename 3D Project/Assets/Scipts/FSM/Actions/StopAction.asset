@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1bcd08091452449b53277f8a25eb08, type: 3}
-  m_Name: CanSeeConditionSnake
+  m_Script: {fileID: 11500000, guid: 284fdb5250975264a8fab2e501fffcd2, type: 3}
+  m_Name: StopAction
   m_EditorClassIdentifier: 
-  negation: 0
-  viewAngle: 60
-  viewDistance: 15
