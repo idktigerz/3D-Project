@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SnakeChase
   m_EditorClassIdentifier: 
   entryAction: {fileID: 0}
-  stateActions: []
+  stateActions:
+  - {fileID: 11400000, guid: 1a5d98a89442acb47bf68bbcec6d4e1a, type: 2}
   exitAction: {fileID: 0}
   transitions: []

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a43514c28a88842a76cd2182d0dcd0, type: 3}
   m_Name: SnakePatrol
   m_EditorClassIdentifier: 
-  entryAction: {fileID: 11400000, guid: 70469668cb82fb54bb5d938068d6305b, type: 2}
-  stateActions: []
+  entryAction: {fileID: 0}
+  stateActions:
+  - {fileID: 11400000, guid: 70469668cb82fb54bb5d938068d6305b, type: 2}
   exitAction: {fileID: 0}
-  transitions: []
+  transitions:
+  - {fileID: 11400000, guid: ecf95a74b509fdd47a883daa82be5c5a, type: 2}
+  - {fileID: 11400000, guid: b81dd072bd856924c822439a7148b6ee, type: 2}

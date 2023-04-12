@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Finite State Machine/Conditions/CanSeeCondition")]
-public class CanSeeCondition : Condition
+[CreateAssetMenu(menuName = "Finite State Machine/Conditions/CanAttackSnake")]
+public class CanAttackSnake : Condition
 {
     [SerializeField] private bool negation;
     [SerializeField] private float viewAngle;
@@ -16,10 +16,17 @@ public class CanSeeCondition : Condition
             float angle = Vector3.Angle(direction.normalized, fsm.GetNavMeshAgent().transform.forward);
             if (angle < viewAngle)
             {
-                return !negation;
+                Vector3 direction2 = fsm.GetNavMeshAgent().transform.position - fsm.GetNavMeshAgent().target.position;
+                if (direction2.magnitude < viewDistance)
+                {
+                    float angle2 = Vector3.Angle(direction.normalized, fsm.GetNavMeshAgent().target.forward);
+                    if (angle2 < viewAngle&&fsm.GetNavMeshAgent().canAttack)
+                    {
+                        return !negation;
+                    }
+                }
             }
         }
         return negation;
-
     }
 }

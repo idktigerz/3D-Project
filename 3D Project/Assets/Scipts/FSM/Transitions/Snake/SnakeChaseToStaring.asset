@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05ee356048a9c5c43a0e2e3a0618ac5b, type: 3}
-  m_Name: PattrolToChase
+  m_Name: SnakeChaseToStaring
   m_EditorClassIdentifier: 
-  decision: {fileID: 0}
+  decision: {fileID: 11400000, guid: f39bbdb245ac6834c8e7d239f0e9d15f, type: 2}
   action: {fileID: 0}
-  targetState: {fileID: 0}
+  targetState: {fileID: 11400000, guid: 520c92cbc7d2ac54ca529e908f9f9df6, type: 2}

@@ -23,7 +23,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     [Header("Animal Stuff")]
     public bool flashed;
     private Rigidbody rb;
-    [SerializeField] bool canAttack;
+    public bool canAttack;
     private bool attacking;
     public bool canRun;
 
@@ -208,6 +208,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         if (canAttack)
         {
+            Debug.Log($"snakeattacking");
             rb.constraints = RigidbodyConstraints.None;
             Vector3 direction = transform.position - target.transform.position;
             float force = 2;

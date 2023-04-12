@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SnakeStareState
   m_EditorClassIdentifier: 
   entryAction: {fileID: 0}
-  stateActions: []
+  stateActions:
+  - {fileID: 11400000, guid: 151fb231cb65295469a170ca19d15529, type: 2}
   exitAction: {fileID: 0}
   transitions: []
