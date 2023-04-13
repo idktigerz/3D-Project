@@ -26,6 +26,8 @@ public class FSMNavMeshAgent : MonoBehaviour
     public bool canAttack;
     private bool attacking;
     public bool canRun;
+    public float timeStaring;
+    public bool snakeCanAttack;
 
     [Header("Owl Stuff")]
 
@@ -211,16 +213,25 @@ public class FSMNavMeshAgent : MonoBehaviour
             Debug.Log($"snakeattacking");
             rb.constraints = RigidbodyConstraints.None;
             Vector3 direction = transform.position - target.transform.position;
-            float force = 2;
+            float force = 4;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
             attacking = true;
-            StartCoroutine("CrocAttackWait"); 
+            StartCoroutine("CrocAttackWait");
         }
     }
     public void SnakeStaring()
     {
-        
+        Debug.Log($"snakestaring");
+        agent.SetDestination(transform.position);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        timeStaring += 1 * Time.deltaTime;
+        if (timeStaring > 5)
+        {
+            snakeCanAttack = true;
+        }
+
+
     }
     IEnumerator CrocAttackWait()
     {
