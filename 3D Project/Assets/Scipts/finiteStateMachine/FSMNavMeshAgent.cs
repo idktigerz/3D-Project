@@ -42,6 +42,10 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public GameObject[] listOfAnimals;
 
+    private bool canDamagePlayer = false;
+
+    public PlayerController playerController;
+
 
     private void Awake()
     {
@@ -204,7 +208,12 @@ public class FSMNavMeshAgent : MonoBehaviour
             attacking = true;
             StartCoroutine("CrocAttackWait");
 
-
+            if(canDamagePlayer)
+            {
+                playerController.DamagePlayer(25f);
+                canDamagePlayer = false;
+            }
+            
         }
     }
     public void SnakeAttack()
@@ -218,6 +227,13 @@ public class FSMNavMeshAgent : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
             attacking = true;
+            StartCoroutine("CrocAttackWait");
+
+            if (canDamagePlayer)
+            {
+                playerController.DamagePlayer(15f);
+                canDamagePlayer = false;
+            }
             StartCoroutine("CrocAttackWait");
         }
     }
@@ -307,11 +323,18 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player") && attacking)
+        if (other.gameObject.CompareTag("Player") && attacking && canDamagePlayer == false)
         {
-            Debug.Log($"o diogo é gay");
+            canDamagePlayer = true;
         }
     }
+    /*private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player") && attacking && canDamagePlayer == true)
+        {
+            canDamagePlayer = false;
+        }
+    }*/
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
     {
         for (int i = 0; i < topParentObject.transform.childCount; i++)
