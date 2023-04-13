@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pauseMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,7 +22,16 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenu.SetActive(true);
+            if (pauseMenu.activeSelf == true)
+            {
+                Time.timeScale = 1;
+                pauseMenu.SetActive(false);
+            }
+            else
+            {
+                Time.timeScale = 0;
+                pauseMenu.SetActive(true);
+            }
         }
     }
 }
