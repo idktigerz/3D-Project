@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour
 
     private void ProcessInputs()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.SetActive(true);
+        }
     }
 }
