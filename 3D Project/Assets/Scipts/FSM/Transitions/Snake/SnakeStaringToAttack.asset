@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ee356048a9c5c43a0e2e3a0618ac5b, type: 3}
   m_Name: SnakeStaringToAttack
   m_EditorClassIdentifier: 
-  decision: {fileID: 0}
+  decision: {fileID: 11400000, guid: 265533c07f4fc5446ab5d6348203e0cc, type: 2}
   action: {fileID: 0}
-  targetState: {fileID: 0}
+  targetState: {fileID: 11400000, guid: 00a70a419cda2db4e8984e2f7caf0c90, type: 2}

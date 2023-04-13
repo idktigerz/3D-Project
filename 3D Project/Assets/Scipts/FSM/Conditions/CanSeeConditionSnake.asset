@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CanSeeConditionSnake
   m_EditorClassIdentifier: 
   negation: 0
-  viewAngle: 0
-  viewDistance: 0
+  viewAngle: 60
+  viewDistance: 8

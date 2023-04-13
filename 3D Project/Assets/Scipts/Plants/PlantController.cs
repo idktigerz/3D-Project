@@ -12,52 +12,81 @@ public class PlantController : MonoBehaviour
     private TimeSpan openHour;
     private TimeSpan closeHour;
     [SerializeField] 
-    private GameObject orchid;
+    private GameObject plant;
 
     public TimeController timeController;
+    public PlayerController playerController;
+
+    [SerializeField]
+    private int healAmount;
+
+    private bool plantEaten;
+
     void Start()
     {
-        
-        orchid.SetActive(false);
+        plantEaten = false;
+
+        plant.SetActive(false);
         //render.enabled = false;
         openHour = TimeSpan.FromHours(openTime);
         closeHour = TimeSpan.FromHours(closeTime);
+
+        if(openHour == closeHour)
+        {
+            plant.SetActive(true);
+        }
         if (openHour > timeController.currentTime.TimeOfDay)
         {
-            orchid.SetActive(false);
+            plant.SetActive(false);
         }
         else
         {
-            orchid.SetActive(true);
+            plant.SetActive(true);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(openHour > closeHour)
+        if (openHour > closeHour)
         {
             if (openHour > timeController.currentTime.TimeOfDay && closeHour < timeController.currentTime.TimeOfDay)
             {
-                orchid.SetActive(false);
+                plant.SetActive(false);
             }
             else
             {
-                orchid.SetActive(true);
-
-            }
-        }else if(openHour < closeHour)
-        {
-            if (openHour < timeController.currentTime.TimeOfDay && closeHour > timeController.currentTime.TimeOfDay)
-            {
-                orchid.SetActive(false);
-            }
-            else
-            {
-                orchid.SetActive(true);
+                plant.SetActive(true);
 
             }
         }
-        
+        else if (openHour < closeHour)
+        {
+            if (openHour < timeController.currentTime.TimeOfDay && closeHour > timeController.currentTime.TimeOfDay)
+            {
+                plant.SetActive(false);
+            }
+            else
+            {
+                plant.SetActive(true);
+
+            }
+        }
+        if (Input.GetKeyDown(playerController.interactKey) && playerController.canInteractPlant && playerController.health <= 100f && plantEaten == false)
+        {
+            plantEaten = true;
+            playerController.HealPlayer(healAmount);
+            StartCoroutine(ChangePlantState());
+        }
+
     }
+    private IEnumerator ChangePlantState()
+    {
+        plant.SetActive(false);
+
+        yield return new WaitForSeconds(5);
+
+        plant.SetActive(true);
+    }
+
 }

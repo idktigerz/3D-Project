@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bed;
 
     public bool canInteract;
+    public bool canInteractPlant;
 
     public bool active;
 
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
     public PlayerCam playerCam;
 
     public TextMeshProUGUI batteryText;
+    public TextMeshProUGUI interactText;
 
     public float camBattery = 100f;
 
@@ -149,10 +151,18 @@ public class PlayerController : MonoBehaviour
         if (active && hit.collider.CompareTag("Interactable"))
         {
             canInteract = true;
+            interactText.enabled = true;
+
+        }else if(active && hit.collider.CompareTag("Interactable Plant"))
+        {
+            canInteractPlant = true;
+            interactText.enabled = true;
         }
         else
         {
             canInteract = false;
+            canInteractPlant = false;
+            interactText.enabled = false;
         }
 
         if (cameraON)
@@ -186,6 +196,9 @@ public class PlayerController : MonoBehaviour
             cameraON = false;
             playerCam.GetComponent<Camera>().fieldOfView = 60;
         }
+
+        Debug.Log("Player health: " + health);
+        Debug.Log("Interact plant: " + canInteractPlant);
     }
 
     private void FixedUpdate()
@@ -317,10 +330,11 @@ public class PlayerController : MonoBehaviour
             camBattery -= 5;
         }
 
-        if (Input.GetKey(interactKey) && bed.GetComponent<BedController>().canInteract)
+        if (Input.GetKey(interactKey) && canInteract)
         {
             Debug.Log($"papapapapa");
             StartCoroutine(Rest());
+
         }
         if (Input.GetKeyUp(KeyCode.P))
         {
@@ -464,7 +478,19 @@ public class PlayerController : MonoBehaviour
         isFlashing = false;
     }
 
+    public void DamagePlayer(float damage)
+    {
+        health -= damage;
+    }
 
+    public void HealPlayer(int heal)
+    {
+        health += heal;
+        if(health <= 100)
+        {
+            health = 100;
+        }
+    }
 
 
 }

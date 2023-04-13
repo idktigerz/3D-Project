@@ -9,6 +9,7 @@ TagManager:
   - Animal
   - OwlTrees
   - Interactable
+  - Interactable Plant
   layers:
   - Default
   - TransparentFX

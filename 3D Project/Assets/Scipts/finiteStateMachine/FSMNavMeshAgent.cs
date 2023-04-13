@@ -26,6 +26,8 @@ public class FSMNavMeshAgent : MonoBehaviour
     public bool canAttack;
     private bool attacking;
     public bool canRun;
+    public float timeStaring;
+    public bool snakeCanAttack;
 
     [Header("Owl Stuff")]
 
@@ -39,6 +41,10 @@ public class FSMNavMeshAgent : MonoBehaviour
     public GameObject OwlBody;
 
     public GameObject[] listOfAnimals;
+
+    private bool canDamagePlayer = false;
+
+    public PlayerController playerController;
 
 
     private void Awake()
@@ -55,6 +61,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         canAttack = true;
         GameObject[] trees = GameObject.FindGameObjectsWithTag("OwlTrees");
+
         foreach (GameObject tree in trees)
         {
             OwlWaypoints.Add(FindChildGameObjectByName(tree, "OwlWaypoint").transform);
@@ -201,7 +208,12 @@ public class FSMNavMeshAgent : MonoBehaviour
             attacking = true;
             StartCoroutine("CrocAttackWait");
 
-
+            if(canDamagePlayer)
+            {
+                playerController.DamagePlayer(25f);
+                canDamagePlayer = false;
+            }
+            
         }
     }
     public void SnakeAttack()
@@ -211,16 +223,33 @@ public class FSMNavMeshAgent : MonoBehaviour
             Debug.Log($"snakeattacking");
             rb.constraints = RigidbodyConstraints.None;
             Vector3 direction = transform.position - target.transform.position;
-            float force = 2;
+            float force = 4;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
             attacking = true;
-            StartCoroutine("CrocAttackWait"); 
+            StartCoroutine("CrocAttackWait");
+
+            if (canDamagePlayer)
+            {
+                playerController.DamagePlayer(15f);
+                canDamagePlayer = false;
+            }
+            StartCoroutine("CrocAttackWait");
         }
     }
     public void SnakeStaring()
     {
-        
+        Debug.Log($"snakestaring");
+        agent.SetDestination(transform.position);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        timeStaring += 1 * Time.deltaTime;
+        if (timeStaring > 5)
+        {
+            snakeCanAttack = true;
+            timeStaring = 0;
+        }
+
+
     }
     IEnumerator CrocAttackWait()
     {
@@ -294,11 +323,18 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player") && attacking)
+        if (other.gameObject.CompareTag("Player") && attacking && canDamagePlayer == false)
         {
-            Debug.Log($"o diogo é gay");
+            canDamagePlayer = true;
         }
     }
+    /*private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player") && attacking && canDamagePlayer == true)
+        {
+            canDamagePlayer = false;
+        }
+    }*/
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
     {
         for (int i = 0; i < topParentObject.transform.childCount; i++)
