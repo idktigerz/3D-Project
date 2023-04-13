@@ -57,6 +57,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         canAttack = true;
         GameObject[] trees = GameObject.FindGameObjectsWithTag("OwlTrees");
+
         foreach (GameObject tree in trees)
         {
             OwlWaypoints.Add(FindChildGameObjectByName(tree, "OwlWaypoint").transform);
@@ -229,6 +230,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         if (timeStaring > 5)
         {
             snakeCanAttack = true;
+            timeStaring = 0;
         }
 
 
