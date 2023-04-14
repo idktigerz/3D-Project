@@ -44,6 +44,7 @@ public class NightVisionController : MonoBehaviour
 
     private void ToggleNightVision()
     {
+        
         if (isEnabled == false && timeController.canToggleNightVision && playerController.cameraON)
         {
             

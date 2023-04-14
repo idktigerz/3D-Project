@@ -323,7 +323,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player") && attacking && canDamagePlayer == false)
+        if (other.gameObject.CompareTag("Player") && canDamagePlayer == false)
         {
             canDamagePlayer = true;
         }

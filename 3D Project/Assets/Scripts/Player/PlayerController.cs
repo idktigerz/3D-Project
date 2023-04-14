@@ -485,7 +485,7 @@ public class PlayerController : MonoBehaviour
     public void HealPlayer(int heal)
     {
         health += heal;
-        if(health <= 100)
+        if(health >= 100)
         {
             health = 100;
         }
