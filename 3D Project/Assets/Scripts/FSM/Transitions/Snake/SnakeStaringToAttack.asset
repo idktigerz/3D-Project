@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ee356048a9c5c43a0e2e3a0618ac5b, type: 3}
+  m_Name: SnakeStaringToAttack
+  m_EditorClassIdentifier: 
+  decision: {fileID: 11400000, guid: 265533c07f4fc5446ab5d6348203e0cc, type: 2}
+  action: {fileID: 0}
+  targetState: {fileID: 11400000, guid: 00a70a419cda2db4e8984e2f7caf0c90, type: 2}
