@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
     private TextMeshProUGUI dayText;
     public NightVisionController nightVisionController;
     public HealthbarController healthbar;
+    public StaminaBarController staminaBar;
+
     private bool diaryOpen;
     [SerializeField] GameObject diaryUI;
     PlayerController controller;
@@ -439,6 +441,7 @@ public class PlayerController : MonoBehaviour
         {
             if (playerStamina < 100) playerStamina = playerStamina + 20 * Time.deltaTime;
         }
+        staminaBar.UpdateStaminaBar(100, playerStamina);
     }
 
     private IEnumerator Rest()

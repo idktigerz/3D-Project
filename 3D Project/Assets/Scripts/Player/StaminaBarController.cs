@@ -13,7 +13,7 @@ public class StaminaBarController : MonoBehaviour
 
     private float target = 1;
 
-    public void UpdateHealthBar(float maxStamina, float currentStamina)
+    public void UpdateStaminaBar(float maxStamina, float currentStamina)
     {
         target = currentStamina / maxStamina;
     }
