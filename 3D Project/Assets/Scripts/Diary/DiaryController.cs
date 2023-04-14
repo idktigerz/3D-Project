@@ -111,11 +111,6 @@ public class DiaryController : MonoBehaviour
         }
         else
         {
-            if (playerController.listaTeste.Count > 4)
-            {
-                //PhotosPage1.Clear();
-                //ImportPhotos(folderName);
-            }
             diaryPage--;
             if (diaryPage < 1)
             {

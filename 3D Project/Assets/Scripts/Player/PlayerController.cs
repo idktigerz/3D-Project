@@ -13,34 +13,28 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
-
     public float groundDrag;
-
     [Header("Jumping")]
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
-
     [Header("Crouching")]
     public float crouchSpeed;
     public float crouchYScale;
     private float startYScale;
-
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.LeftControl;
     public KeyCode cameraKey = KeyCode.E;
     public KeyCode interactKey = KeyCode.F;
-
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
     bool grounded;
     public Transform orientation;
     public MovementState state;
-
     float horizontalInput;
     float verticalInput;
     Vector3 moveDirection;
@@ -50,68 +44,47 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     [Header("Stamina Check")]
     public float playerStamina;
-
     [Header("Camera Stuff")]
     [SerializeField] GameObject cameraUI;
     public bool cameraON;
     private int picnum;
     private int crocodilePicNum;
-
     public TimeController time;
-
     public GameObject bed;
-
     public bool canInteract;
     public bool canInteractPlant;
-
     public bool active;
-
-
     public Transform cam;
-
     public Camera camera;
-
     public float playerActivateDistance;
-
     public GameObject photoCube;
     public PlayerCam playerCam;
-
     public TextMeshProUGUI batteryText;
     public TextMeshProUGUI interactText;
-
     public float camBattery = 100f;
-
     public float health = 100f;
-
     [Header("Camera Flash")]
     public bool isFlashing;
     public GameObject light;
     public GameObject flashIcon;
-
     [Header("Other")]
     [SerializeField]
     private TextMeshProUGUI timeText;
     [SerializeField]
     private TextMeshProUGUI dayText;
-
     public NightVisionController nightVisionController;
     public HealthbarController healthbar;
-
     private bool diaryOpen;
-
     [SerializeField] GameObject diaryUI;
-
     PlayerController controller;
-
     public RenderTexture rt;
-
     public List<Texture2D> listaTeste;
-
     public DiaryController diaryController;
-
-
     public enum PhotographMode { CloseFocus, LongFocus };
     public PhotographMode photographMode;
+    public int points;
+
+
 
     public enum MovementState
     {
@@ -158,7 +131,8 @@ public class PlayerController : MonoBehaviour
             canInteract = true;
             interactText.enabled = true;
 
-        }else if(active && hit.collider.CompareTag("Interactable Plant"))
+        }
+        else if (active && hit.collider.CompareTag("Interactable Plant"))
         {
             canInteractPlant = true;
             interactText.enabled = true;
@@ -287,37 +261,34 @@ public class PlayerController : MonoBehaviour
                 tex.Apply();
                 RenderTexture.active = null;
                 //listaTeste.Add(tex);
-                if (closest.name == "Crocodile")
+                if (closest.name.Contains("Crocodile"))
                 {
                     diaryController.crocodilePhotos.Add(tex);
                 }
-                else if (closest.name == "Owl")
+                else if (closest.name.Contains("Owl"))
                 {
                     diaryController.owlPhotos.Add(tex);
                 }
-                else if (closest.name == "Butterfly")
+                else if (closest.name.Contains("Butterfly"))
                 {
                     diaryController.butterflyPhotos.Add(tex);
                 }
-                else if (closest.name == "Frog")
+                else if (closest.name.Contains("Frog"))
                 {
                     diaryController.frogPhotos.Add(tex);
                 }
-                else if (closest.name == "Bug")
+                else if (closest.name.Contains("Bug"))
                 {
                     diaryController.bugPhotos.Add(tex);
                 }
-                else if (closest.name == "Baby Tiger")
+                else if (closest.name.Contains("Baby Tiger"))
                 {
                     diaryController.babyTigerPhotos.Add(tex);
                 }
-
                 playerCam.picCounter[animalTypeId]++;
             }
             else
             {
-      
-
                 RenderTexture.active = rt;
                 Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
                 tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
@@ -366,7 +337,8 @@ public class PlayerController : MonoBehaviour
         {
             dayText.enabled = true;
             timeText.enabled = true;
-        }else if (Input.GetKeyUp(KeyCode.Tab))
+        }
+        else if (Input.GetKeyUp(KeyCode.Tab))
         {
             dayText.enabled = false;
             timeText.enabled = false;
@@ -501,7 +473,7 @@ public class PlayerController : MonoBehaviour
     public void HealPlayer(int heal)
     {
         health += heal;
-        if(health >= 100)
+        if (health >= 100)
         {
             health = 100;
         }
