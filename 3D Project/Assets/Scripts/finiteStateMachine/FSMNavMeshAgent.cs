@@ -53,11 +53,12 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         listOfAnimals = GameObject.FindGameObjectsWithTag("Animal");
         canFly = true;
         agent = GetComponent<NavMeshAgent>();
         initialSpeed = agent.speed;
-        if (gameObject.name == "Owl") currentDest = OwlBody.transform.position;
+        if (gameObject.name.Contains("Owl")) currentDest = OwlBody.transform.position;
         rb = GetComponent<Rigidbody>();
         canAttack = true;
         GameObject[] trees = GameObject.FindGameObjectsWithTag("OwlTrees");
@@ -96,11 +97,11 @@ public class FSMNavMeshAgent : MonoBehaviour
         }
         else
         {
-            if (gameObject.name == "Crocodile")
+            if (gameObject.name.Contains("Crocodile"))
             {
                 GoToNextPatrolWaypoint();
             }
-            else if (gameObject.name == "Owl")
+            else if (gameObject.name.Contains("Owl"))
             {
                 //GoToNextPatrolWaypointOwl();
             }
@@ -170,15 +171,15 @@ public class FSMNavMeshAgent : MonoBehaviour
         agent.isStopped = false;
         canFly = true;
         agent.speed = initialSpeed;
-        if (gameObject.name == "Crocodile")
+        if (gameObject.name.Contains("Crocodile"))
         {
             GoToNextPatrolWaypoint();
         }
-        else if (gameObject.name == "Owl")
+        else if (gameObject.name.Contains("Owl"))
         {
             GoToNextPatrolWaypointOwl();
         }
-        else if (gameObject.name == "Butterfly")
+        else if (gameObject.name.Contains("Butterfly"))
         {
             GoToNextPatrolWaypointButter();
         }
@@ -208,12 +209,12 @@ public class FSMNavMeshAgent : MonoBehaviour
             attacking = true;
             StartCoroutine("CrocAttackWait");
 
-            if(canDamagePlayer)
+            if (canDamagePlayer)
             {
                 playerController.DamagePlayer(25f);
                 canDamagePlayer = false;
             }
-            
+
         }
     }
     public void SnakeAttack()
@@ -266,7 +267,7 @@ public class FSMNavMeshAgent : MonoBehaviour
 
         Transform longestWaypoint = null;
         float longestDistance = 0;
-        if (gameObject.name == "Owl")
+        if (gameObject.name.Contains("Owl"))
         {
             agent.isStopped = false;
             agent.speed = initialSpeed;
@@ -284,7 +285,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void CrocodileRunAway()
     {
-        if (gameObject.name == "Crocodile" && canRun)
+        if (gameObject.name.Contains("Crocodile") && canRun)
         {
             var NewPos = ((transform.position - target.position));
             agent.SetDestination(transform.position + NewPos);
@@ -309,14 +310,14 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "NoiseBubble")
+        if (other.gameObject.name.Contains("NoiseBubble"))
         {
             canHear = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "NoiseBubble")
+        if (other.gameObject.name.Contains("NoiseBubble"))
         {
             StartCoroutine("StopHear");
         }

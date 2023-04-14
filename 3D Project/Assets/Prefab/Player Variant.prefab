@@ -297,7 +297,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
-  orientation: {fileID: 0}
+  orientation: {fileID: 6216403346593537433}
   state: 0
   playerStamina: 0
   cameraUI: {fileID: 0}
@@ -320,6 +320,7 @@ MonoBehaviour:
   light: {fileID: 0}
   flashIcon: {fileID: 0}
   nightVisionController: {fileID: 0}
+  healthbar: {fileID: 0}
   diaryUI: {fileID: 0}
   rt: {fileID: 8400000, guid: e4f376bbb29ef1446a927909475497b2, type: 2}
   listaTeste: []
@@ -371,5 +372,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.2204871, y: 3.7349033, z: 1}
+  m_Center: {x: -0.010668993, y: 1.2932329, z: 0}

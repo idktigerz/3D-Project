@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1056228484}
+  playerController: {fileID: 0}
 --- !u!1 &272877812197455425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,11 +1450,11 @@ GameObject:
   - component: {fileID: 1056228480}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6783777877762348006
 Transform:
   m_ObjectHideFlags: 0
@@ -1472,7 +1473,7 @@ Transform:
   - {fileID: 1094329713}
   - {fileID: 1600433318}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1056228484
 Animator:
@@ -1494,6 +1495,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1056228486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1531,17 +1533,27 @@ MonoBehaviour:
   time: {fileID: 0}
   bed: {fileID: 0}
   canInteract: 0
+  canInteractPlant: 0
   active: 0
   cam: {fileID: 0}
+  camera: {fileID: 0}
   playerActivateDistance: 1.5
   photoCube: {fileID: 0}
   playerCam: {fileID: 0}
   batteryText: {fileID: 0}
+  interactText: {fileID: 0}
   camBattery: 100
   health: 100
+  isFlashing: 0
   light: {fileID: 0}
+  flashIcon: {fileID: 0}
   nightVisionController: {fileID: 0}
+  healthbar: {fileID: 0}
   diaryUI: {fileID: 0}
+  rt: {fileID: 8400000, guid: e4f376bbb29ef1446a927909475497b2, type: 2}
+  listaTeste: []
+  diaryController: {fileID: 0}
+  photographMode: 0
 --- !u!54 &1056228481
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -12,31 +12,31 @@ public class PatrolAction : Action
         if (fsm.GetNavMeshAgent().IsAtDestination())
         {
             fsm.GetNavMeshAgent().timeStaring = 0;
-            if (fsm.name == "Crocodile")
+            if (fsm.name.Contains("Crocodile"))
             {
                 fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 5f);
             }
-            else if (fsm.name == "Owl" && fsm.GetNavMeshAgent().canFly)
+            else if (fsm.name.Contains("Owl") && fsm.GetNavMeshAgent().canFly)
             {
                 fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 10f);
             }
-            else if (fsm.name == "Butterfly" && fsm.GetNavMeshAgent())
+            else if (fsm.name.Contains("Butterfly") && fsm.GetNavMeshAgent())
             {
                 fsm.GetNavMeshAgent().StartCoroutine("WalkingPause", 1f);
             }
-            else if (fsm.name == "Bug" && fsm.GetNavMeshAgent())
+            else if (fsm.name.Contains("Bug") && fsm.GetNavMeshAgent())
             {
                 fsm.GetNavMeshAgent().GoToNextPatrolWaypointBug();
             }
-            else if (fsm.name == "Frog" && fsm.GetNavMeshAgent())
+            else if (fsm.name.Contains("Frog") && fsm.GetNavMeshAgent())
             {
                 fsm.GetNavMeshAgent().GoToNextPatrolWaypointFrog();
             }
-            else if (fsm.name == "Baby Tiger" && fsm.GetNavMeshAgent())
+            else if (fsm.name.Contains("Baby Tiger") && fsm.GetNavMeshAgent())
             {
                 fsm.GetNavMeshAgent().GoToNextPatrolWaypointBabyTiger();
             }
-            else if (fsm.name == "Snake" && fsm.GetNavMeshAgent())
+            else if (fsm.name.Contains("Snake") && fsm.GetNavMeshAgent())
             {
                 fsm.GetNavMeshAgent().GoToNextPatrolWaypointSnake();
             }

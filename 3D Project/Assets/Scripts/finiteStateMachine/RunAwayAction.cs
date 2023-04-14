@@ -7,11 +7,11 @@ public class RunAwayAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {
-        if (fsm.name == "Crocodile")
+        if (fsm.name.Contains("Crocodile"))
         {
             fsm.GetNavMeshAgent().CrocodileRunAway();
         }
-        else if (fsm.name == "Owl")
+        else if (fsm.name.Contains("Owl"))
         {
             fsm.GetNavMeshAgent().OwlRunAway();
         }

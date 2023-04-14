@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1982,7 +1982,11 @@ PrefabInstance:
     - target: {fileID: 1006471044, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerController
       value: 
+<<<<<<< Updated upstream
       objectReference: {fileID: 1922808899821454423}
+=======
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     - target: {fileID: 1195938586432577639, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerCam
       value: 
@@ -7700,7 +7704,11 @@ PrefabInstance:
     - target: {fileID: 1980969485086753063, guid: e329e4049b68ad34894133686482ab34, type: 3}
       propertyPath: playerController
       value: 
+<<<<<<< Updated upstream
       objectReference: {fileID: 1922808899821454423}
+=======
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     - target: {fileID: 2749536380334199076, guid: e329e4049b68ad34894133686482ab34, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -13450,14 +13458,17 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1922808899821454424}
+<<<<<<< Updated upstream
     - target: {fileID: 1006471044, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1922808899821454423}
+=======
+>>>>>>> Stashed changes
     - target: {fileID: 1195938586432577639, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 259835296}
+      objectReference: {fileID: 36697840691008160, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
     - target: {fileID: 2170900083067434695, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15465,6 +15476,7 @@ GameObject:
   - component: {fileID: 1886054943}
   - component: {fileID: 1886054944}
   - component: {fileID: 1886054945}
+  - component: {fileID: 1886054946}
   m_Layer: 0
   m_Name: GameControler
   m_TagString: Untagged
@@ -15588,6 +15600,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 49826015}
+--- !u!114 &1886054946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886054939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1903f31f03c873249abf4c9ba0b2bc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResourcePrefab: {fileID: 2170900083067434700, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
+  spawnChance: 50
+  distanceBetweenChecks: 60
+  heightOfCheck: 70
+  rangeOfCheck: 100
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  positivePosition: {x: 314, y: 1445}
+  negativePosition: {x: -97, y: 1186}
 --- !u!1 &1893147075
 GameObject:
   m_ObjectHideFlags: 0
@@ -16370,98 +16404,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 0
---- !u!1 &2000968849
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2000968850}
-  - component: {fileID: 2000968852}
-  - component: {fileID: 2000968851}
-  m_Layer: 6
-  m_Name: RenderCam
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2000968850
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000968849}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 259835295}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &2000968851
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000968849}
-  m_Enabled: 1
---- !u!20 &2000968852
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000968849}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: e4f376bbb29ef1446a927909475497b2, type: 2}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!1001 &2021051414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17215,10 +17157,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCam
       objectReference: {fileID: 0}
-    - target: {fileID: 36697840691008158, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
-      propertyPath: m_TagString
-      value: MainCamera
-      objectReference: {fileID: 0}
     - target: {fileID: 36697840691008159, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -17273,10 +17211,7 @@ PrefabInstance:
       objectReference: {fileID: 1922808899821454423}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 36697840691008159, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2000968850}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
 --- !u!4 &361436085538531868 stripped
@@ -17333,7 +17268,11 @@ PrefabInstance:
     - target: {fileID: 4630170643815858296, guid: cca0928f69e0f324b88eb862dd12d504, type: 3}
       propertyPath: playerController
       value: 
+<<<<<<< Updated upstream
       objectReference: {fileID: 1922808899821454423}
+=======
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     - target: {fileID: 6723560540059498133, guid: cca0928f69e0f324b88eb862dd12d504, type: 3}
       propertyPath: m_Name
       value: Plant2
@@ -17402,22 +17341,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1635203193476636403, guid: 5960921e047954849938167a2c29b6db, type: 3}
-      propertyPath: m_Size.x
-      value: 1.2204871
-      objectReference: {fileID: 0}
-    - target: {fileID: 1635203193476636403, guid: 5960921e047954849938167a2c29b6db, type: 3}
-      propertyPath: m_Size.y
-      value: 3.7349033
-      objectReference: {fileID: 0}
-    - target: {fileID: 1635203193476636403, guid: 5960921e047954849938167a2c29b6db, type: 3}
-      propertyPath: m_Center.x
-      value: -0.010668993
-      objectReference: {fileID: 0}
-    - target: {fileID: 1635203193476636403, guid: 5960921e047954849938167a2c29b6db, type: 3}
-      propertyPath: m_Center.y
-      value: 1.2932329
-      objectReference: {fileID: 0}
     - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db, type: 3}
       propertyPath: bed
       value: 
@@ -17463,10 +17386,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2087022396}
     - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db, type: 3}
-      propertyPath: orientation
-      value: 
-      objectReference: {fileID: 1922808899821454424}
-    - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db, type: 3}
       propertyPath: interactText
       value: 
       objectReference: {fileID: 719314140}
@@ -17488,11 +17407,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6216403346593537433, guid: 5960921e047954849938167a2c29b6db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 16.4
       objectReference: {fileID: 0}
     - target: {fileID: 6216403346593537433, guid: 5960921e047954849938167a2c29b6db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.97322226
+      value: 1260
       objectReference: {fileID: 0}
     - target: {fileID: 6216403346593537433, guid: 5960921e047954849938167a2c29b6db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17582,7 +17501,11 @@ MonoBehaviour:
   closeTime: 0
   plant: {fileID: 8971675834927153134}
   timeController: {fileID: 469443138}
+<<<<<<< Updated upstream
   playerController: {fileID: 1922808899821454423}
+=======
+  playerController: {fileID: 0}
+>>>>>>> Stashed changes
   healAmount: 0
 --- !u!65 &3030944732292002236
 BoxCollider:
@@ -17631,7 +17554,11 @@ MonoBehaviour:
   closeTime: 3
   plant: {fileID: 515985792}
   timeController: {fileID: 469443138}
+<<<<<<< Updated upstream
   playerController: {fileID: 1922808899821454423}
+=======
+  playerController: {fileID: 0}
+>>>>>>> Stashed changes
   healAmount: 10
 --- !u!65 &4125349306450490130
 BoxCollider:
@@ -18096,7 +18023,11 @@ PrefabInstance:
     - target: {fileID: 8256607173779004252, guid: 9ea68e5c662b0ab42a999fc0534e8b00, type: 3}
       propertyPath: playerController
       value: 
+<<<<<<< Updated upstream
       objectReference: {fileID: 1922808899821454423}
+=======
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

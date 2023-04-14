@@ -7,7 +7,7 @@ public class StaringAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {
-        if (fsm.gameObject.name == "Snake") fsm.GetNavMeshAgent().SnakeStaring();
+        if (fsm.gameObject.name.Contains("Snake")) fsm.GetNavMeshAgent().SnakeStaring();
 
     }
 }

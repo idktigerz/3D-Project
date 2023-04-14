@@ -7,8 +7,8 @@ public class AttackAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {
-        if (fsm.gameObject.name == "Crocodile") fsm.GetNavMeshAgent().CrocodileAttack();
-        else if (fsm.gameObject.name == "Snake") fsm.GetNavMeshAgent().SnakeAttack();
+        if (fsm.gameObject.name.Contains("Crocodile")) fsm.GetNavMeshAgent().CrocodileAttack();
+        else if (fsm.gameObject.name.Contains("Snake")) fsm.GetNavMeshAgent().SnakeAttack();
 
     }
 }
