@@ -88,6 +88,12 @@ public class PlayerController : MonoBehaviour
     public GameObject light;
     public GameObject flashIcon;
 
+    [Header("Other")]
+    [SerializeField]
+    private TextMeshProUGUI timeText;
+    [SerializeField]
+    private TextMeshProUGUI dayText;
+
     public NightVisionController nightVisionController;
     public HealthbarController healthbar;
 
@@ -102,6 +108,7 @@ public class PlayerController : MonoBehaviour
     public List<Texture2D> listaTeste;
 
     public DiaryController diaryController;
+
 
     public enum PhotographMode { CloseFocus, LongFocus };
     public PhotographMode photographMode;
@@ -354,6 +361,15 @@ public class PlayerController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
 
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            dayText.enabled = true;
+            timeText.enabled = true;
+        }else if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            dayText.enabled = false;
+            timeText.enabled = false;
         }
     }
 

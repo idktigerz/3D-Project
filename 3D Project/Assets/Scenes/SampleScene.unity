@@ -7700,7 +7700,7 @@ PrefabInstance:
     - target: {fileID: 1980969485086753063, guid: e329e4049b68ad34894133686482ab34, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1922808899821454423}
     - target: {fileID: 2749536380334199076, guid: e329e4049b68ad34894133686482ab34, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -17253,7 +17253,7 @@ PrefabInstance:
     - target: {fileID: 4630170643815858296, guid: cca0928f69e0f324b88eb862dd12d504, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1922808899821454423}
     - target: {fileID: 6723560540059498133, guid: cca0928f69e0f324b88eb862dd12d504, type: 3}
       propertyPath: m_Name
       value: Plant2
@@ -17343,6 +17343,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1513615164}
     - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db, type: 3}
+      propertyPath: dayText
+      value: 
+      objectReference: {fileID: 1528982883}
+    - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db, type: 3}
       propertyPath: diaryUI
       value: 
       objectReference: {fileID: 1934058319}
@@ -17350,6 +17354,10 @@ PrefabInstance:
       propertyPath: cameraUI
       value: 
       objectReference: {fileID: 56882395}
+    - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1531537030}
     - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db, type: 3}
       propertyPath: flashIcon
       value: 
