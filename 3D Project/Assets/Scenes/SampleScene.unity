@@ -1982,11 +1982,7 @@ PrefabInstance:
     - target: {fileID: 1006471044, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerController
       value: 
-<<<<<<< Updated upstream
-      objectReference: {fileID: 1922808899821454423}
-=======
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 1195938586432577639, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerCam
       value: 
@@ -7704,11 +7700,7 @@ PrefabInstance:
     - target: {fileID: 1980969485086753063, guid: e329e4049b68ad34894133686482ab34, type: 3}
       propertyPath: playerController
       value: 
-<<<<<<< Updated upstream
-      objectReference: {fileID: 1922808899821454423}
-=======
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 2749536380334199076, guid: e329e4049b68ad34894133686482ab34, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -13458,13 +13450,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1922808899821454424}
-<<<<<<< Updated upstream
-    - target: {fileID: 1006471044, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 1922808899821454423}
-=======
->>>>>>> Stashed changes
     - target: {fileID: 1195938586432577639, guid: 44edbbee4f37ad940af73c3cb47687d6, type: 3}
       propertyPath: playerCam
       value: 
@@ -17268,11 +17253,7 @@ PrefabInstance:
     - target: {fileID: 4630170643815858296, guid: cca0928f69e0f324b88eb862dd12d504, type: 3}
       propertyPath: playerController
       value: 
-<<<<<<< Updated upstream
-      objectReference: {fileID: 1922808899821454423}
-=======
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 6723560540059498133, guid: cca0928f69e0f324b88eb862dd12d504, type: 3}
       propertyPath: m_Name
       value: Plant2
@@ -17501,11 +17482,7 @@ MonoBehaviour:
   closeTime: 0
   plant: {fileID: 8971675834927153134}
   timeController: {fileID: 469443138}
-<<<<<<< Updated upstream
-  playerController: {fileID: 1922808899821454423}
-=======
   playerController: {fileID: 0}
->>>>>>> Stashed changes
   healAmount: 0
 --- !u!65 &3030944732292002236
 BoxCollider:
@@ -17554,11 +17531,7 @@ MonoBehaviour:
   closeTime: 3
   plant: {fileID: 515985792}
   timeController: {fileID: 469443138}
-<<<<<<< Updated upstream
-  playerController: {fileID: 1922808899821454423}
-=======
   playerController: {fileID: 0}
->>>>>>> Stashed changes
   healAmount: 10
 --- !u!65 &4125349306450490130
 BoxCollider:
@@ -18023,11 +17996,7 @@ PrefabInstance:
     - target: {fileID: 8256607173779004252, guid: 9ea68e5c662b0ab42a999fc0534e8b00, type: 3}
       propertyPath: playerController
       value: 
-<<<<<<< Updated upstream
-      objectReference: {fileID: 1922808899821454423}
-=======
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
