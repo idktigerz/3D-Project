@@ -269,7 +269,7 @@ MonoBehaviour:
   canFly: 0
   OwlBody: {fileID: 0}
   listOfAnimals: []
-  playerController: {fileID: 0}
+  playerController: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
 --- !u!114 &371180756
 MonoBehaviour:
   m_ObjectHideFlags: 0

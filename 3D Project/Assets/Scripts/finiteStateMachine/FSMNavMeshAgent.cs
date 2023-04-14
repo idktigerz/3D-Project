@@ -53,6 +53,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     void Start()
     {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         listOfAnimals = GameObject.FindGameObjectsWithTag("Animal");
         canFly = true;

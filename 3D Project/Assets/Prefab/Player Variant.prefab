@@ -169,11 +169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 16.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.97322226
+      value: 1260
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
       propertyPath: m_LocalRotation.w
@@ -210,6 +210,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
       propertyPath: m_Name
       value: Player Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -319,6 +323,8 @@ MonoBehaviour:
   isFlashing: 0
   light: {fileID: 0}
   flashIcon: {fileID: 0}
+  timeText: {fileID: 0}
+  dayText: {fileID: 0}
   nightVisionController: {fileID: 0}
   healthbar: {fileID: 0}
   diaryUI: {fileID: 0}
@@ -326,6 +332,7 @@ MonoBehaviour:
   listaTeste: []
   diaryController: {fileID: 0}
   photographMode: 0
+  points: 0
 --- !u!54 &3126945806103255597
 Rigidbody:
   m_ObjectHideFlags: 0
