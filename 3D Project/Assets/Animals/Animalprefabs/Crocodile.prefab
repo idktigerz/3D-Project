@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16400a0a7df66949972a3f6c91f4683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCam: {fileID: 0}
+  playerCam: {fileID: 36697840691008160, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
   photographableId: 6
 --- !u!1 &2170900083067434700
 GameObject:
@@ -169,7 +169,7 @@ Transform:
   m_Children:
   - {fileID: 1849342698723304336}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2170900083067434690
 BoxCollider:
@@ -262,11 +262,14 @@ MonoBehaviour:
   flashed: 0
   canAttack: 0
   canRun: 0
+  timeStaring: 0
+  snakeCanAttack: 0
   OwlWaypoints: []
   currentDest: {x: 0, y: 0, z: 0}
   canFly: 0
   OwlBody: {fileID: 0}
   listOfAnimals: []
+  playerController: {fileID: 0}
 --- !u!114 &371180756
 MonoBehaviour:
   m_ObjectHideFlags: 0
