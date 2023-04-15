@@ -129,6 +129,10 @@ public class DiaryController : MonoBehaviour
             else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
             else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
             else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
+            else if (folderName == "White Orchid") ShowDiaryPage(whiteOrchidPhotos);
+            else if (folderName == "Purple Orchid") ShowDiaryPage(purpleOrchidPhotos);
+            else if (folderName == "Cocoa Tree") ShowDiaryPage(cocoaTreePhotos);
+            else if (folderName == "Banana Tree") ShowDiaryPage(bananaTreePhotos);
 
         }
         else
@@ -139,6 +143,11 @@ public class DiaryController : MonoBehaviour
             else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
             else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
             else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
+            else if (folderName == "White Orchid") ShowDiaryPage(whiteOrchidPhotos);
+            else if (folderName == "Purple Orchid") ShowDiaryPage(purpleOrchidPhotos);
+            else if (folderName == "Cocoa Tree") ShowDiaryPage(cocoaTreePhotos);
+            else if (folderName == "Banana Tree") ShowDiaryPage(bananaTreePhotos);
+
             Debug.Log(diaryPage);
             Debug.Log(start);
         }
@@ -154,32 +163,6 @@ public class DiaryController : MonoBehaviour
             SwitchDiaryPage(0);
         }
     }
-    /*public void ImportPhotos(string folder)
-    {
-        folderName = folder;
-        Object[] sprite = Resources.LoadAll("gamepics/" + folder, typeof(Sprite));
-        foreach (Sprite t in sprite)
-        {
-            PhotosPage1.Add(t);
-        }
-
-    }*/
-
-    /*private void ImportFirstPhoto(string folder)
-    {
-        folderName = folder;
-        Object[] sprite = Resources.LoadAll("gamepics/" + folder, typeof(Sprite));
-
-        if (sprite.Length >= 1)
-        {
-            MainPagePhotos.Add((Sprite)sprite[0]);
-        }
-        else
-        {
-            Debug.LogError("No photos yet");
-        }
-
-    }*/
 
     public void FirstPage(string folder)
     {
@@ -190,6 +173,10 @@ public class DiaryController : MonoBehaviour
         else if (folderName == "Butterfly") ShowFirstDiaryPage(butterflyPhotos);
         else if (folderName == "Bug") ShowFirstDiaryPage(bugPhotos);
         else if (folderName == "Frog") ShowFirstDiaryPage(frogPhotos);
+        else if (folderName == "White Orchid") ShowFirstDiaryPage(whiteOrchidPhotos);
+        else if (folderName == "Purple Orchid") ShowFirstDiaryPage(purpleOrchidPhotos);
+        else if (folderName == "Cocoa Tree") ShowFirstDiaryPage(cocoaTreePhotos);
+        else if (folderName == "Banana Tree") ShowFirstDiaryPage(bananaTreePhotos);
 
         diaryPage = 1;
     }
@@ -203,8 +190,10 @@ public class DiaryController : MonoBehaviour
         else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
         else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
         else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
-        //ImportPhotos(folderName);
-        //ShowDiaryPage(playerController.listaTeste);
+        else if (folderName == "White Orchid") ShowDiaryPage(whiteOrchidPhotos);
+        else if (folderName == "Purple Orchid") ShowDiaryPage(purpleOrchidPhotos);
+        else if (folderName == "Cocoa Tree") ShowDiaryPage(cocoaTreePhotos);
+        else if (folderName == "Banana Tree") ShowDiaryPage(bananaTreePhotos);
     }
 
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
@@ -225,13 +214,6 @@ public class DiaryController : MonoBehaviour
         }
         return null;
     }
-
-
-    /*public void UnimportPhotos()
-    {
-        PhotosPage1.Clear();
-        MainPagePhotos.Clear();
-    }*/
 
     public void Back()
     {
