@@ -25,21 +25,15 @@ public class PlantController : MonoBehaviour
     void Start()
     {
         plantEaten = false;
-
-        plant.SetActive(false);
         //render.enabled = false;
         openHour = TimeSpan.FromHours(openTime);
         closeHour = TimeSpan.FromHours(closeTime);
 
-        if(openHour == closeHour)
-        {
-            plant.SetActive(true);
-        }
-        if (openHour > timeController.currentTime.TimeOfDay && plantEaten == false)
+        if (openHour < timeController.currentTime.TimeOfDay && plantEaten == false)
         {
             plant.SetActive(false);
         }
-        else
+        else 
         {
             plant.SetActive(true);
         }
