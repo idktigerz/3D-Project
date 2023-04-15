@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode cameraKey = KeyCode.E;
     public KeyCode interactKey = KeyCode.F;
     public KeyCode reloadKey = KeyCode.R;
-    public KeyCode changeFocusMode = KeyCode.Q;
+    public KeyCode changeFocusModeKey = KeyCode.Q;
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     public int rechargeAmount = 3;
     [Header("Camera Flash")]
     public bool isFlashing;
-    public GameObject light;
+    public GameObject light;  
     public GameObject flashIcon;
     public bool canFlash = false;
     [Header("Other")]
@@ -76,6 +76,9 @@ public class PlayerController : MonoBehaviour
     private TextMeshProUGUI timeText;
     [SerializeField]
     private TextMeshProUGUI dayText;
+    [SerializeField]
+    private TextMeshProUGUI modeText;
+    [Header("Controllers")]
     public NightVisionController nightVisionController;
     public HealthbarController healthbar;
     public StaminaBarController staminaBar;
@@ -239,7 +242,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(changeFocusMode))
+        if (Input.GetKeyDown(changeFocusModeKey))
         {
             
             if(photographMode == PhotographMode.CloseFocus)
@@ -250,6 +253,7 @@ public class PlayerController : MonoBehaviour
             {
                 photographMode = PhotographMode.CloseFocus;
             }
+            modeText.text = "Mode: " + photographMode;
         }
 
         //TAKING THE PIC
