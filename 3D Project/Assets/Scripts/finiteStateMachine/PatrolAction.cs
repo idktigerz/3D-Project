@@ -8,6 +8,7 @@ public class PatrolAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {
+        fsm.GetNavMeshAgent().agent.isStopped = false;
         //Debug.Log($"PATROLING");
         if (fsm.GetNavMeshAgent().IsAtDestination())
         {
@@ -34,7 +35,9 @@ public class PatrolAction : Action
             }
             else if (fsm.name.Contains("Baby Tiger") && fsm.GetNavMeshAgent())
             {
+                fsm.GetNavMeshAgent().Ponto.SetActive(false);
                 fsm.GetNavMeshAgent().GoToNextPatrolWaypointBabyTiger();
+
             }
             else if (fsm.name.Contains("Snake") && fsm.GetNavMeshAgent())
             {

@@ -7,7 +7,8 @@ public class AlertingAction : Action
 {
     public override void Act(FiniteStateMachine fsm)
     {
-        Debug.Log($"alerting");
+        fsm.GetNavMeshAgent().Ponto.SetActive(true);
+        fsm.GetNavMeshAgent().agent.isStopped = true;
 
     }
 }
