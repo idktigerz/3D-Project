@@ -21,8 +21,11 @@ public class DiaryController : MonoBehaviour
     public List<Texture2D> bugPhotos;
     public List<Texture2D> frogPhotos;
     public List<Texture2D> babyTigerPhotos;
-
-
+    public List<Texture2D> snakePhotos;
+    public List<Texture2D> whiteOrchidPhotos;
+    public List<Texture2D> purpleOrchidPhotos;
+    public List<Texture2D> cocoaTreePhotos;
+    public List<Texture2D> bananaTreePhotos;
 
     private int start = 0;
 

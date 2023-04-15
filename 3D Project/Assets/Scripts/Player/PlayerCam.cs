@@ -16,8 +16,7 @@ public class PlayerCam : MonoBehaviour
 
     public int[] picCounter;
 
-    public string[] animalList;
-    public string[] plantList;
+    public string[] photographableList;
 
     public List<GameObject> currentAnimalsInTheframe;
     public List<GameObject> currentPlantsInTheframe;
@@ -32,20 +31,23 @@ public class PlayerCam : MonoBehaviour
         {
             picCounter[i] = 0;
         }
-        animalList = new string[11];
-        animalList[0] = "Snake";
-        animalList[1] = "Butterfly";
-        animalList[2] = "Parrot";
-        animalList[3] = "Sloth";
-        animalList[4] = "Frog";
-        animalList[5] = "Owl";
-        animalList[6] = "Crocodile";
-        animalList[7] = "Tiger";
-        animalList[8] = "Otter";
-        animalList[9] = "Bug";
-        animalList[10] = "Tree";
-
-        plantList = new string[11];
+        photographableList = new string[15];
+        photographableList[0] = "Snake";
+        photographableList[1] = "Butterfly";
+        photographableList[2] = "Parrot";
+        photographableList[3] = "Sloth";
+        photographableList[4] = "Frog";
+        photographableList[5] = "Owl";
+        photographableList[6] = "Crocodile";
+        photographableList[7] = "Tiger";
+        photographableList[8] = "Otter";
+        photographableList[9] = "Bug";
+        photographableList[10] = "Tree";
+        photographableList[11] = "White Orchid";
+        photographableList[12] = "Purple Orchid";
+        photographableList[13] = "Cocoa Tree";
+        photographableList[14] = "Banana Tree";
+        
     }
 
     private void Update()
