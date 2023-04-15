@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class FSMNavMeshAgent : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Transform[] patrolWaypoints;
     public Transform target;
 
@@ -28,6 +28,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     public bool canRun;
     public float timeStaring;
     public bool snakeCanAttack;
+    public GameObject Ponto;
 
     [Header("Owl Stuff")]
 
@@ -50,7 +51,6 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        listOfAnimals = GameObject.FindGameObjectsWithTag("Animal");
         canFly = true;
         agent = GetComponent<NavMeshAgent>();
         initialSpeed = agent.speed;
@@ -58,6 +58,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         canAttack = true;
         if (gameObject.name.Contains("Owl")) StartCoroutine("OwlWaypointsAdder");
+        else if (gameObject.name.Contains("Baby Tiger")) StartCoroutine("AnimalListAdder");
 
 
 
@@ -65,11 +66,17 @@ public class FSMNavMeshAgent : MonoBehaviour
     private IEnumerator OwlWaypointsAdder()
     {
         yield return new WaitForSeconds(0.5f);
+        listOfAnimals = GameObject.FindGameObjectsWithTag("Animal");
         GameObject[] trees = GameObject.FindGameObjectsWithTag("OwlTrees");
         foreach (GameObject tree in trees)
         {
             OwlWaypoints.Add(FindChildGameObjectByName(tree, "OwlWaypoint").transform);
         }
+    }
+     private IEnumerator AnimalListAdder()
+    {
+        yield return new WaitForSeconds(0.5f);
+        listOfAnimals = GameObject.FindGameObjectsWithTag("Animal");
     }
 
     public bool IsAtDestination()
@@ -243,7 +250,6 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void SnakeStaring()
     {
-        Debug.Log($"snakestaring");
         agent.SetDestination(transform.position);
         rb.constraints = RigidbodyConstraints.FreezeAll;
         timeStaring += 1 * Time.deltaTime;

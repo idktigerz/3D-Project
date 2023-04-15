@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 4438989594162548989}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &590779955331416132
 Rigidbody:
@@ -149,11 +149,14 @@ MonoBehaviour:
   flashed: 0
   canAttack: 0
   canRun: 0
+  timeStaring: 0
+  snakeCanAttack: 0
   OwlWaypoints: []
   currentDest: {x: 0, y: 0, z: 0}
   canFly: 0
   OwlBody: {fileID: 0}
   listOfAnimals: []
+  playerController: {fileID: 0}
 --- !u!114 &5711787216110474845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +179,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7843726927612301049}
   m_Enabled: 1
-  m_AgentTypeID: -902729914
+  m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8

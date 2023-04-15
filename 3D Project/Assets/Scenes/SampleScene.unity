@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12519,7 +12519,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655358881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 217, y: 19.88, z: 1221}
+  m_LocalPosition: {x: -185, y: 19.88, z: 1928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14143,7 +14143,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   positivePosition: {x: 376, y: 2004}
-  negativePosition: {x: -246, y: 1721}
+  negativePosition: {x: -246, y: 1242}
 --- !u!4 &1886054941
 Transform:
   m_ObjectHideFlags: 0
@@ -14273,15 +14273,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ResourcePrefab: {fileID: 7843726927612301049, guid: 6862b94d8b3f2514680a214ffb03a067, type: 3}
-  spawnChance: 100
-  distanceBetweenChecks: 40
+  spawnChance: 3
+  distanceBetweenChecks: 10
   heightOfCheck: 70
   rangeOfCheck: 100
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
-  positivePosition: {x: 217, y: 2002}
-  negativePosition: {x: -250, y: 1221}
+  positivePosition: {x: 191, y: 1928}
+  negativePosition: {x: -185, y: 1186}
 --- !u!1 &1893147075
 GameObject:
   m_ObjectHideFlags: 0
