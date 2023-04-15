@@ -179,8 +179,19 @@ public class PlayerController : MonoBehaviour
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
             }
         }
+<<<<<<< Updated upstream
+        if (cameraON && camBattery <= 0)
+        {
+            cameraUI.SetActive(false);
+            cameraON = false;
+            playerCam.GetComponent<Camera>().fieldOfView = 60;
+        }
+
+       
+=======
         Debug.Log("Player health: " + health);
         Debug.Log("Interact plant: " + canInteractPlant);
+>>>>>>> Stashed changes
     }
 
     private void FixedUpdate()
