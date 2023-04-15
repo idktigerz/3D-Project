@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode cameraKey = KeyCode.E;
     public KeyCode interactKey = KeyCode.F;
     public KeyCode reloadKey = KeyCode.R;
+    public KeyCode changeFocusMode = KeyCode.Q;
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
@@ -69,6 +70,7 @@ public class PlayerController : MonoBehaviour
     public bool isFlashing;
     public GameObject light;
     public GameObject flashIcon;
+    public bool canFlash = false;
     [Header("Other")]
     [SerializeField]
     private TextMeshProUGUI timeText;
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour
     public NightVisionController nightVisionController;
     public HealthbarController healthbar;
     public StaminaBarController staminaBar;
+    public BatteryBarController batteryBar;
 
     private bool diaryOpen;
     [SerializeField] GameObject diaryUI;
@@ -151,36 +154,34 @@ public class PlayerController : MonoBehaviour
 
         if (cameraON)
         {
+            canFlash = true;
             camBattery -= 1 * Time.deltaTime;
             if (nightVisionController.isEnabled)
             {
                 camBattery -= 2 * Time.deltaTime;
             }
-            if (camBattery <= 100 && camBattery >= 75)
-            {
-                batteryText.text = "Battery - ||||";
-            }
-            else if (camBattery <= 74 && camBattery >= 50)
-            {
-                batteryText.text = "Battery - |||";
-            }
-            else if (camBattery <= 49 && camBattery >= 25)
-            {
-                batteryText.text = "Battery - ||";
-            }
-            else if (camBattery <= 24 && camBattery >= 1)
-            {
-                batteryText.text = "Battery - | \n LOW BATTERY";
-            }
-            else if (camBattery <= 0)
+            if (camBattery <= 0)
             {
                 cameraUI.SetActive(false);
                 cameraON = false;
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
             }
+            batteryBar.UpdateBatteryBar(100, camBattery);
+
+            if (Input.GetKey(interactKey) && canFlash == true)
+            {
+                canFlash = false;
+                light.SetActive(true);
+                flashIcon.SetActive(true);
+            }
+            else
+            {
+                canFlash = true;
+                light.SetActive(false);
+                flashIcon.SetActive(false);
+            }
         }
-        Debug.Log("Player health: " + health);
-        Debug.Log("Interact plant: " + canInteractPlant);
+        Debug.Log("Camera mode: " + photographMode);
     }
 
     private void FixedUpdate()
@@ -224,6 +225,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
         }
+
         if (Input.GetKeyDown(cameraKey))
         {
             if (!cameraON && camBattery > 0)
@@ -240,10 +242,23 @@ public class PlayerController : MonoBehaviour
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
             }
         }
+
+        if (Input.GetKeyDown(changeFocusMode))
+        {
+            
+            if(photographMode == PhotographMode.CloseFocus)
+            {
+                photographMode = PhotographMode.LongFocus;
+            }
+            else
+            {
+                photographMode = PhotographMode.CloseFocus;
+            }
+        }
+
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
-
             light.SetActive(true);
             flashIcon.SetActive(true);
             cameraUI.SetActive(false);
