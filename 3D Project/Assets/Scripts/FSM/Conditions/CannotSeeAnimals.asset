@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a461bc53a51fa8c4a9f8d61221b731bb, type: 3}
   m_Name: CannotSeeAnimals
   m_EditorClassIdentifier: 
-  negation: 0
-  viewAngle: 0
-  viewDistance: 0
+  negation: 1
+  viewAngle: 50
+  viewDistance: 16
