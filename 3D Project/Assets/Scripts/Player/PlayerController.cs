@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode crouchKey = KeyCode.LeftControl;
     public KeyCode cameraKey = KeyCode.E;
     public KeyCode interactKey = KeyCode.F;
+    public KeyCode reloadKey = KeyCode.R;
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI interactText;
     public float camBattery = 100f;
     public float health = 100f;
+    public int rechargeAmount = 3;
     [Header("Camera Flash")]
     public bool isFlashing;
     public GameObject light;
@@ -107,7 +109,8 @@ public class PlayerController : MonoBehaviour
         startYScale = transform.localScale.y;
         picnum = 0;
         crocodilePicNum = 0;
-
+        dayText.enabled = false;
+        timeText.enabled = false;
         healthbar.UpdateHealthBar(100, health);
     }
 
@@ -169,8 +172,14 @@ public class PlayerController : MonoBehaviour
             {
                 batteryText.text = "Battery - | \n LOW BATTERY";
             }
-
+            else if (camBattery <= 0)
+            {
+                cameraUI.SetActive(false);
+                cameraON = false;
+                playerCam.GetComponent<Camera>().fieldOfView = 60;
+            }
         }
+<<<<<<< Updated upstream
         if (cameraON && camBattery <= 0)
         {
             cameraUI.SetActive(false);
@@ -179,6 +188,10 @@ public class PlayerController : MonoBehaviour
         }
 
        
+=======
+        Debug.Log("Player health: " + health);
+        Debug.Log("Interact plant: " + canInteractPlant);
+>>>>>>> Stashed changes
     }
 
     private void FixedUpdate()
@@ -231,6 +244,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                nightVisionController.isEnabled = false;
+                nightVisionController.volume.weight = 0;
                 cameraUI.SetActive(false);
                 cameraON = false;
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
@@ -310,9 +325,6 @@ public class PlayerController : MonoBehaviour
                 tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
                 tex.Apply();
                 RenderTexture.active = null;
-                //listaTeste.Add(tex);
-
-                //ScreenCapture.CaptureScreenshot("Assets/Resources/gamepics/screenshot" + picnum + ".png");
                 picnum++;
             }
             Debug.Log("A screenshot was taken!");
@@ -320,6 +332,22 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(CameraUIOn());
             StartCoroutine(FlashOn());
             camBattery -= 5;
+        }
+        if (Input.GetKeyDown(reloadKey))
+        {
+            
+            if (rechargeAmount <= 0)
+            {
+                rechargeAmount = 0;
+                print("No more recharges!");
+            }
+            else
+            {
+                camBattery = 100f;
+                rechargeAmount--;
+            }
+            Debug.Log("Recharges: " + rechargeAmount);
+            
         }
 
         if (Input.GetKey(interactKey) && canInteract)
@@ -437,7 +465,8 @@ public class PlayerController : MonoBehaviour
     {
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
+        playerStamina -= 20;
+        staminaBar.UpdateStaminaBar(100, playerStamina);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
     private void ResetJump()
@@ -453,7 +482,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (playerStamina < 100) playerStamina = playerStamina + 20 * Time.deltaTime;
+            if (playerStamina < 100 && grounded) playerStamina = playerStamina + 20 * Time.deltaTime;
         }
         staminaBar.UpdateStaminaBar(100, playerStamina);
     }

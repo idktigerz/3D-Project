@@ -76,6 +76,7 @@ public class TimeController : MonoBehaviour
         sunsetTime = TimeSpan.FromHours(sunsetHour);
 
         resetTime = TimeSpan.FromHours(resetHour);
+
     }
 
     // Update is called once per frame
@@ -85,6 +86,7 @@ public class TimeController : MonoBehaviour
 
         RotateSun();
         UpdateLightSettings();
+        dayText.text = "Day: " + dayCounter.ToString();
         //UpdateDay();
     }
 
@@ -115,21 +117,6 @@ public class TimeController : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         canPassDay = true;
-    }
-    private void UpdateDay()
-    {
-        
-        if(currentTime.TimeOfDay == resetTime && dayFinished == false)
-        {
-            dayFinished = true;
-            if (dayFinished == true)
-            {
-                dayCounter++;
-            }
-            dayFinished = false;
-        }
-        dayText.text = "Day: " + dayCounter.ToString();
-        Debug.Log(dayCounter); 
     }
 
     private void RotateSun()
@@ -164,7 +151,6 @@ public class TimeController : MonoBehaviour
 
             RenderSettings.skybox = nightSky;
             RenderSettings.ambientLight = nightAmbientLight;
-            //RenderSettings.ambientIntensity = 0f;
             RenderSettings.reflectionIntensity = 0f;
             playerLight.intensity = 5f;
             flashLight.intensity = 10f;

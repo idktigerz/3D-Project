@@ -10,7 +10,7 @@ public class NightVisionController : MonoBehaviour
     [SerializeField] private Color boostedLightColor;
 
     public bool isEnabled = false;
-    private PostProcessVolume volume;
+    public PostProcessVolume volume;
 
     public TimeController timeController;
 
@@ -21,7 +21,12 @@ public class NightVisionController : MonoBehaviour
         RenderSettings.ambientLight = defaultLightColor;
         if(timeController.canToggleNightVision)
         {
-            RenderSettings.ambientIntensity = 0.5f;
+            RenderSettings.ambientIntensity = 0.1f;
+        }
+        else
+        {
+            RenderSettings.ambientIntensity = 1f;
+
         }
         volume = gameObject.GetComponent<PostProcessVolume>();
         volume.weight = 0;
@@ -37,7 +42,7 @@ public class NightVisionController : MonoBehaviour
 
         if (timeController.canToggleNightVision && isEnabled == false)
         {
-            RenderSettings.ambientIntensity = 0f;
+            RenderSettings.ambientIntensity = 0.1f;
 
         }
     }
@@ -56,7 +61,7 @@ public class NightVisionController : MonoBehaviour
         }
         else
         {
-            RenderSettings.ambientIntensity = 0.5f;
+            RenderSettings.ambientIntensity = 0.1f;
             RenderSettings.ambientLight = defaultLightColor;
             volume.weight = 0;
             Debug.Log("Nightvision disabled");

@@ -115,7 +115,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9677b8d41d2af07489cc26c5311a9154, type: 3}
       propertyPath: m_RootOrder
+<<<<<<< Updated upstream:3D Project/Assets/ModelPrefabs/PlantPrefabs/Tree.prefab
       value: 24
+=======
+      value: 0
+>>>>>>> Stashed changes:3D Project/Assets/Animals/PlantPrefabs/Tree.prefab
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9677b8d41d2af07489cc26c5311a9154, type: 3}
       propertyPath: m_LocalPosition.x
@@ -184,6 +188,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9677b8d41d2af07489cc26c5311a9154, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6510808836584493124}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9677b8d41d2af07489cc26c5311a9154, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 43768853565810706}
   m_SourcePrefab: {fileID: 100100000, guid: 9677b8d41d2af07489cc26c5311a9154, type: 3}
 --- !u!1 &1378199916218591083 stripped
 GameObject:
@@ -253,6 +260,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378199916218591083}
   m_Mesh: {fileID: -5495902117074765545, guid: 9677b8d41d2af07489cc26c5311a9154, type: 3}
+--- !u!65 &43768853565810706
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378199916218591083}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5033264, y: 4.164566, z: 2.2214441}
+  m_Center: {x: 0.067279816, y: 2.0496516, z: -0.1097703}
 --- !u!4 &1759650888758001105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9677b8d41d2af07489cc26c5311a9154, type: 3}

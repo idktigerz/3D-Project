@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1506,7 +1506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_Name
-      value: bananatree2 Variant
+      value: Banana Tree
       objectReference: {fileID: 0}
     - target: {fileID: 1066235068171334618, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2738,5 +2738,31 @@ PrefabInstance:
     - {fileID: -3824974996824756987, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
     - {fileID: -7769951421894727821, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 851547403339819232}
   m_SourcePrefab: {fileID: 100100000, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
+--- !u!1 &2875558145059519279 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
+  m_PrefabInstance: {fileID: 3110123894234531454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &851547403339819232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2875558145059519279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f75ff23a545f7b49926d241aa5beac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openTime: 0
+  closeTime: 0
+  plant: {fileID: 0}
+  timeController: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
+  playerController: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
+  healAmount: 40

@@ -2997,6 +2997,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8854832208174895257}
+  - component: {fileID: 1195273483552754674}
   m_Layer: 0
   m_Name: Cocoa Tree
   m_TagString: Untagged
@@ -3061,6 +3062,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195273483552754674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8190216308995099171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f75ff23a545f7b49926d241aa5beac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openTime: 0
+  closeTime: 0
+  plant: {fileID: 0}
+  timeController: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
+  playerController: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
+  healAmount: 30
 --- !u!1 &8229177361761087516
 GameObject:
   m_ObjectHideFlags: 0
