@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 canFlash = true;
-                light.SetActive(false);
+                //light.SetActive(false);
                 flashIcon.SetActive(false);
             }
         }
@@ -197,9 +197,6 @@ public class PlayerController : MonoBehaviour
         moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
         anim.SetFloat("Speed", moveDirection.sqrMagnitude);
         StaminaChecker(moveDirection.sqrMagnitude);
-
-
-
         // when to jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
@@ -209,7 +206,6 @@ public class PlayerController : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-
         // start crouch
         if (Input.GetKeyDown(crouchKey))
         {
@@ -259,6 +255,7 @@ public class PlayerController : MonoBehaviour
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
+            Debug.Log(light.name);
             light.SetActive(true);
             flashIcon.SetActive(true);
             cameraUI.SetActive(false);

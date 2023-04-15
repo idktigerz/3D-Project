@@ -161,7 +161,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -214,6 +214,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865064391339405807, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865064391339405807, guid: 54710abc5acac2a4f80de802f90b4c90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.478
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -297,13 +305,15 @@ MonoBehaviour:
   crouchKey: 306
   cameraKey: 101
   interactKey: 102
+  reloadKey: 114
+  changeFocusMode: 113
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   orientation: {fileID: 6216403346593537433}
   state: 0
-  playerStamina: 0
+  playerStamina: 100
   cameraUI: {fileID: 0}
   cameraON: 0
   time: {fileID: 0}
@@ -320,13 +330,17 @@ MonoBehaviour:
   interactText: {fileID: 0}
   camBattery: 100
   health: 100
+  rechargeAmount: 3
   isFlashing: 0
   light: {fileID: 0}
   flashIcon: {fileID: 0}
+  canFlash: 0
   timeText: {fileID: 0}
   dayText: {fileID: 0}
   nightVisionController: {fileID: 0}
   healthbar: {fileID: 0}
+  staminaBar: {fileID: 0}
+  batteryBar: {fileID: 0}
   diaryUI: {fileID: 0}
   rt: {fileID: 8400000, guid: e4f376bbb29ef1446a927909475497b2, type: 2}
   listaTeste: []
