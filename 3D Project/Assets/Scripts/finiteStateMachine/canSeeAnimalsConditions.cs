@@ -13,7 +13,6 @@ public class CanSeeAnimalsCondition : Condition
         bool vari=false;
         foreach (var ani in fsm.GetNavMeshAgent().listOfAnimals)
         {
-            Debug.Log(ani.name);
             Vector3 direction = ani.transform.position - fsm.GetNavMeshAgent().transform.position;
             if (direction.magnitude < viewDistance)
             {

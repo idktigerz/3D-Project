@@ -176,8 +176,7 @@ public class PlayerController : MonoBehaviour
             playerCam.GetComponent<Camera>().fieldOfView = 60;
         }
 
-        Debug.Log("Player health: " + health);
-        Debug.Log("Interact plant: " + canInteractPlant);
+       
     }
 
     private void FixedUpdate()
@@ -238,6 +237,7 @@ public class PlayerController : MonoBehaviour
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
+
             light.SetActive(true);
             flashIcon.SetActive(true);
             cameraUI.SetActive(false);
@@ -253,6 +253,20 @@ public class PlayerController : MonoBehaviour
 
             if (closest != null)
             {
+                int point = GradePhoto(closest);
+                if (point == 1)
+                {
+                    points += 50;
+                }
+                else if (point == 2)
+                {
+                    points += 25;
+                }
+                else if (point == 3)
+                {
+                    points += 5;
+                }
+                Debug.Log(points);
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
 
                 RenderTexture.active = rt;
@@ -308,7 +322,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(interactKey) && canInteract)
         {
-            Debug.Log($"papapapapa");
+
             StartCoroutine(Rest());
 
         }
@@ -443,7 +457,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Rest()
     {
-        Debug.Log("Skipping time");
+       
 
         Time.timeScale = 60;
 
@@ -479,6 +493,25 @@ public class PlayerController : MonoBehaviour
         }
         healthbar.UpdateHealthBar(100, health);
     }
+    private int GradePhoto(GameObject animal)
+    {
 
+        Vector3 direction = transform.position - animal.transform.position;
+        float angle = Vector3.Angle(direction, animal.transform.parent.forward);
+        Vector3 targetDir = animal.transform.position - transform.position;
+        float angle2 = Vector3.Angle(targetDir, transform.forward);
 
+        if (angle < 50 && angle2 < 15)
+        {
+            return 1;
+        }
+        else if (angle < 50 || angle2 < 15)
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
+        }
+    }
 }

@@ -46,11 +46,6 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public PlayerController playerController;
 
-
-    private void Awake()
-    {
-        OwlWaypoints.Clear();
-    }
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -62,8 +57,15 @@ public class FSMNavMeshAgent : MonoBehaviour
         if (gameObject.name.Contains("Owl")) currentDest = OwlBody.transform.position;
         rb = GetComponent<Rigidbody>();
         canAttack = true;
-        GameObject[] trees = GameObject.FindGameObjectsWithTag("OwlTrees");
+        if (gameObject.name.Contains("Owl")) StartCoroutine("OwlWaypointsAdder");
 
+
+
+    }
+    private IEnumerator OwlWaypointsAdder()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameObject[] trees = GameObject.FindGameObjectsWithTag("OwlTrees");
         foreach (GameObject tree in trees)
         {
             OwlWaypoints.Add(FindChildGameObjectByName(tree, "OwlWaypoint").transform);
