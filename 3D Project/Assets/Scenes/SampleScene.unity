@@ -6910,7 +6910,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Butterfly
+          m_StringArgument: Cocoa Tree
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 2123941213}
@@ -10645,7 +10645,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Crocodile
+          m_StringArgument: White Orchid
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 536403818}
@@ -13748,7 +13748,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Owl
+          m_StringArgument: Purple Orchid
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 543053962}
@@ -19741,7 +19741,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bug
+          m_StringArgument: Banana Tree
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 158408135}
