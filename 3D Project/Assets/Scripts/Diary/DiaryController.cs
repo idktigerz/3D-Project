@@ -42,12 +42,6 @@ public class DiaryController : MonoBehaviour
         GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
         Debug.Log(folderName + "Page");
 
-        //FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = null;
-        //FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = null;
-        //FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = null;
-        //FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = null;
-
-
         if (list.Count == 1)
         {
             FindChildGameObjectByName(main, "image1").GetComponent<RawImage>().texture = list[start];
@@ -74,18 +68,11 @@ public class DiaryController : MonoBehaviour
         {
             Debug.LogError("No photos");
         }
-
-        /*FindChildGameObjectByName(main, "image1").GetComponent<Image>().sprite = list[start];
-        FindChildGameObjectByName(main, "image2").GetComponent<Image>().sprite = list[start + 1];
-        FindChildGameObjectByName(main, "image3").GetComponent<Image>().sprite = list[start + 2];
-        FindChildGameObjectByName(main, "image4").GetComponent<Image>().sprite = list[start + 3];*/
     }
     private void ShowFirstDiaryPage(List<Texture2D> list)
     {
         GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
         GameObject seccond = FindChildGameObjectByName(main, "FirstPage");
-        //Debug.Log(folderName + "Page");
-        //FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = null;
         if (list.Count > 0)
         {
             FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = list[0];
@@ -103,7 +90,6 @@ public class DiaryController : MonoBehaviour
 
     public void SwitchDiaryPage(int num)
     {
-        //ImportPhotos(folderName);
         if (num == 0)
         {
             diaryPage++;
@@ -167,7 +153,6 @@ public class DiaryController : MonoBehaviour
     public void FirstPage(string folder)
     {
         folderName = folder;
-        //ImportFirstPhoto(folderName);
         if (folderName == "Crocodile") ShowFirstDiaryPage(crocodilePhotos);
         else if (folderName == "Owl") ShowFirstDiaryPage(owlPhotos);
         else if (folderName == "Butterfly") ShowFirstDiaryPage(butterflyPhotos);
