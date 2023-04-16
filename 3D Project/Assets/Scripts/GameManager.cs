@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         ProcessInputs();
         if(timeController.dayCounter == 7)
         {
+            PlayerPrefs.SetInt("points", playerController.points);
             Endgame();
         }
     }

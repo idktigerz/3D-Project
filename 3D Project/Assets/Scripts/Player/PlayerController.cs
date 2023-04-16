@@ -424,6 +424,10 @@ public class PlayerController : MonoBehaviour
         {
             health = 100000000000;
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            points += 10001;
+        }
 
     }
 

@@ -12,15 +12,16 @@ public class EndGameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(playerController.points < 10000)
+        int score = PlayerPrefs.GetInt("points");
+        if(score < 10000)
         {
-            scoreText.text = "Bad job! \nYou scored: " + playerController.points;
-        }else if(playerController.points > 10000 && playerController.points < 20000)
+            scoreText.text = "Bad job! \nYou scored: " + score;
+        }else if(score > 10000 && score < 20000)
         {
-            scoreText.text = "OK job! \nYou scored: " + playerController.points;
-        }else if (playerController.points > 20000)
+            scoreText.text = "OK job! \nYou scored: " + score;
+        }else if (score > 20000)
         {
-            scoreText.text = "Good job! \nYou scored: " + playerController.points;
+            scoreText.text = "Good job! \nYou scored: " + score;
         }
     }
 
