@@ -24394,6 +24394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeControler
       objectReference: {fileID: 0}
+    - target: {fileID: 8299171452050418193, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
+      propertyPath: m_TagString
+      value: TimeController
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
