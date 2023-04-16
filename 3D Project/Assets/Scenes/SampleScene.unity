@@ -21332,6 +21332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 49826015}
+  playerController: {fileID: 1922808899821454423}
+  timeController: {fileID: 469443138}
+  scoreText: {fileID: 0}
 --- !u!114 &1886054946
 MonoBehaviour:
   m_ObjectHideFlags: 0
