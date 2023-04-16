@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject cameraUI;
     public bool cameraON;
     private int picnum;
-    private int crocodilePicNum;
     public TimeController time;
     public GameObject bed;
     public bool canInteract;
@@ -114,7 +113,6 @@ public class PlayerController : MonoBehaviour
         isFlashing = false;
         startYScale = transform.localScale.y;
         picnum = 0;
-        crocodilePicNum = 0;
         dayText.enabled = false;
         timeText.enabled = false;
         healthbar.UpdateHealthBar(100, health);
@@ -184,7 +182,6 @@ public class PlayerController : MonoBehaviour
                 flashIcon.SetActive(false);
             }
         }
-        Debug.Log("Camera mode: " + photographMode);
     }
 
     private void FixedUpdate()
@@ -259,7 +256,6 @@ public class PlayerController : MonoBehaviour
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
-            Debug.Log(light.name);
             light.SetActive(true);
             flashIcon.SetActive(true);
             cameraUI.SetActive(false);
@@ -288,7 +284,6 @@ public class PlayerController : MonoBehaviour
                 {
                     points += 5;
                 }
-                Debug.Log(points);
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
                 RenderTexture.active = rt;
                 Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
@@ -346,7 +341,6 @@ public class PlayerController : MonoBehaviour
                 RenderTexture.active = null;
                 picnum++;
             }
-            Debug.Log("A screenshot was taken!");
             isFlashing = true;
             StartCoroutine(CameraUIOn());
             StartCoroutine(FlashOn());
@@ -365,7 +359,6 @@ public class PlayerController : MonoBehaviour
                 camBattery = 100f;
                 rechargeAmount--;
             }
-            Debug.Log("Recharges: " + rechargeAmount);
 
         }
 

@@ -40,7 +40,6 @@ public class DiaryController : MonoBehaviour
     private void ShowDiaryPage(List<Texture2D> list)
     {
         GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
-        Debug.Log(folderName + "Page");
 
         if (list.Count == 1)
         {
@@ -133,9 +132,6 @@ public class DiaryController : MonoBehaviour
             else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
             else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
             else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
-
-            Debug.Log(diaryPage);
-            Debug.Log(start);
         }
     }
     private void Update()
@@ -169,7 +165,6 @@ public class DiaryController : MonoBehaviour
     public void Album(string folder)
     {
         folderName = folder;
-        Debug.Log($"passei aqui");
         if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
         else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
         else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);

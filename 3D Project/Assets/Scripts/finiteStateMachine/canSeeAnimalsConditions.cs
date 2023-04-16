@@ -10,8 +10,6 @@ public class CanSeeAnimalsCondition : Condition
     [SerializeField] private float viewDistance;
     public override bool Test(FiniteStateMachine fsm)
     {
-        bool vari = false;
-        Debug.Log($"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         foreach (var ani in fsm.GetNavMeshAgent().listOfAnimals)
         {
             Vector3 direction = ani.transform.position - fsm.GetNavMeshAgent().transform.position;
@@ -20,12 +18,10 @@ public class CanSeeAnimalsCondition : Condition
                 float angle = Vector3.Angle(direction.normalized, fsm.GetNavMeshAgent().transform.forward);
                 if (angle < viewAngle)
                 {
-                    Debug.Log($"verdadeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
                     return !negation;
                 }
             }
         }
-        Debug.Log($"aquiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
         return negation;
     }
 }

@@ -3076,7 +3076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openTime: 0
   closeTime: 0
-  plant: {fileID: 0}
+  plant: {fileID: 3036537679283030971}
   timeController: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
   playerController: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
   healAmount: 30

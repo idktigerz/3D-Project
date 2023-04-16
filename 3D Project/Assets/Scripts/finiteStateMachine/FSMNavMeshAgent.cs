@@ -12,19 +12,12 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public GameObject bulletPrefab;
     public float shootTimeInterval = 1;
-    private float shootTimer = 0;
-
-    private float maxEnergy = 100;
     public float energy = 100;
-    float timer = 0;
-    float cooldownTime = 2f;
-
     public bool canHear;
     [Header("Animal Stuff")]
     public bool flashed;
     private Rigidbody rb;
     public bool canAttack;
-    private bool attacking;
     public bool canRun;
     public float timeStaring;
     public bool snakeCanAttack;
@@ -216,7 +209,6 @@ public class FSMNavMeshAgent : MonoBehaviour
             float force = 2;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
-            attacking = true;
             StartCoroutine("CrocAttackWait");
 
             if (canDamagePlayer)
@@ -231,13 +223,11 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         if (canAttack)
         {
-            Debug.Log($"snakeattacking");
             rb.constraints = RigidbodyConstraints.None;
             Vector3 direction = transform.position - target.transform.position;
             float force = 4;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
-            attacking = true;
             StartCoroutine("CrocAttackWait");
 
             if (canDamagePlayer)
@@ -265,7 +255,6 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         rb.constraints = RigidbodyConstraints.FreezeAll;
-        attacking = false;
         yield return new WaitForSeconds(2);
         canAttack = true;
     }

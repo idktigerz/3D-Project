@@ -58,19 +58,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.93
+      value: -4.0736217
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 0.0000009536743
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.75
+      value: -23.442188
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2753,6 +2753,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5513452821233315723}
   m_SourcePrefab: {fileID: 100100000, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
+--- !u!1 &2352289370319352858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
+  m_PrefabInstance: {fileID: 3110123894234531454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2875558145059519279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
@@ -2772,7 +2777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openTime: 0
   closeTime: 0
-  plant: {fileID: 0}
+  plant: {fileID: 2352289370319352858}
   timeController: {fileID: 0}
   playerController: {fileID: 0}
   healAmount: 40

@@ -56,7 +56,6 @@ public class TimeController : MonoBehaviour
     public int dayCounter;
     public int nightCounter;
     public bool canToggleNightVision;
-    private bool dayFinished = false;
     private bool canPassDay;
 
     [Header("Debugging text")]
@@ -82,8 +81,7 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine("UpdateDayTest()");
-
+        //StartCoroutine("UpdateDayTest()");
         RotateSun();
         UpdateLightSettings();
         dayText.text = "Day: " + dayCounter.ToString();
