@@ -9154,6 +9154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6682044897137388794}
+  - component: {fileID: 3622646659098681025}
   m_Layer: 0
   m_Name: Orchid
   m_TagString: Untagged
@@ -9361,6 +9362,27 @@ Transform:
   m_Father: {fileID: 6727850717125061228}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3622646659098681025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262345931810141484}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5370284, y: 1.307301, z: 1}
+  m_Center: {x: -0.26851434, y: 0.47085834, z: 0}
 --- !u!1 &5347135334287034884
 GameObject:
   m_ObjectHideFlags: 0
@@ -13440,7 +13462,7 @@ GameObject:
   - component: {fileID: -5241085617406302290}
   m_Layer: 0
   m_Name: Good Orchid
-  m_TagString: Untagged
+  m_TagString: Interactable Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13476,8 +13498,8 @@ MonoBehaviour:
   openTime: 22
   closeTime: 3
   plant: {fileID: 5262345931810141484}
-  timeController: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
-  playerController: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
+  timeController: {fileID: 0}
+  playerController: {fileID: 0}
   healAmount: 0
 --- !u!1 &7799412546704449996
 GameObject:

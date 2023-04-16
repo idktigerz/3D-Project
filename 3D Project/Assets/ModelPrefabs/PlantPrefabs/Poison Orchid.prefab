@@ -3095,6 +3095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8636192095656166796}
+  - component: {fileID: 8993514763503097838}
   m_Layer: 0
   m_Name: Orchid
   m_TagString: Untagged
@@ -3181,6 +3182,27 @@ Transform:
   m_Father: {fileID: 5843611043738732942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8993514763503097838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945436128425392585}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.132719, y: 1.4030138, z: 1}
+  m_Center: {x: 0.9329672, y: 0.61167103, z: 0}
 --- !u!1 &5981632390507240426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3857,7 +3879,7 @@ GameObject:
   - component: {fileID: 8698253900635918996}
   m_Layer: 0
   m_Name: Poison Orchid
-  m_TagString: Untagged
+  m_TagString: Interactable Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3893,9 +3915,9 @@ MonoBehaviour:
   openTime: 22
   closeTime: 3
   plant: {fileID: 5945436128425392585}
-  timeController: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
-  playerController: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
-  healAmount: 0
+  timeController: {fileID: 0}
+  playerController: {fileID: 0}
+  healAmount: -5
 --- !u!1 &6544069282836813496
 GameObject:
   m_ObjectHideFlags: 0

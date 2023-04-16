@@ -84,7 +84,15 @@ public class PlantController : MonoBehaviour
 
         plantEaten = false;
 
-        plant.SetActive(true);
+        if(openHour <= timeController.currentTime.TimeOfDay)
+        {
+            plant.SetActive(true);
+        }
+        else
+        {
+            plant.SetActive(false);
+        }
+        
     }
 
 }

@@ -1508,6 +1508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banana Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
+      propertyPath: m_TagString
+      value: Interactable Plant
+      objectReference: {fileID: 0}
     - target: {fileID: 1066235068171334618, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.0882821

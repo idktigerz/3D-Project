@@ -688,6 +688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4639038730352164288}
+  - component: {fileID: 4749872630516563610}
   m_Layer: 0
   m_Name: Orchid
   m_TagString: Untagged
@@ -740,6 +741,27 @@ Transform:
   m_Father: {fileID: 2749536380334199076}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4749872630516563610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462314208891932222}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.87091017, y: 0.67963886, z: 0.65950155}
+  m_Center: {x: -0.24127603, y: 0.18334198, z: -0.17024922}
 --- !u!1 &3625973845384706337
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,10 +772,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2749536380334199076}
   - component: {fileID: 1980969485086753063}
-  - component: {fileID: 5359702126347892666}
   m_Layer: 0
   m_Name: Poison Orchid3
-  m_TagString: Untagged
+  m_TagString: Interactable Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,30 +810,9 @@ MonoBehaviour:
   openTime: 22
   closeTime: 3
   plant: {fileID: 3462314208891932222}
-  timeController: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
-  playerController: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
-  healAmount: 0
---- !u!65 &5359702126347892666
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3625973845384706337}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  timeController: {fileID: 0}
+  playerController: {fileID: 0}
+  healAmount: -5
 --- !u!1 &4162228546901118187
 GameObject:
   m_ObjectHideFlags: 0
