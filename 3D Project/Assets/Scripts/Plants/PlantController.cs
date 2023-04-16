@@ -24,6 +24,8 @@ public class PlantController : MonoBehaviour
 
     void Start()
     {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        timeController = GameObject.FindGameObjectWithTag("TimeController").GetComponent<TimeController>();
         plantEaten = false;
         //render.enabled = false;
         openHour = TimeSpan.FromHours(openTime);

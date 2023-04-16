@@ -5455,9 +5455,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openTime: 22
   closeTime: 3
-  plant: {fileID: 671906295154666637}
-  timeController: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
-  playerController: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
+  plant: {fileID: 5235984225530173914}
+  timeController: {fileID: 0}
+  playerController: {fileID: 0}
   healAmount: 0
 --- !u!65 &5119689554301974524
 BoxCollider:
