@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
     public PhotographMode photographMode;
     public int points;
 
-    public GameObject OwlText;
+    public TextMeshProUGUI OwlText;
 
 
 
@@ -303,7 +303,7 @@ public class PlayerController : MonoBehaviour
                     Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
                     if (closest.GetComponentInParent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
                     {
-                        OwlText.GetComponent<TextMeshPro>().text = "Mission Passed you gained +50 points";
+                        OwlText.text = "Mission Passed you gained +50 points";
                         points += 50;
                     }
                 }
@@ -424,7 +424,7 @@ public class PlayerController : MonoBehaviour
         {
             health = 100000000000;
         }
-       
+
     }
 
 
