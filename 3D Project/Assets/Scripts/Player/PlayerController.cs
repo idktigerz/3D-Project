@@ -93,6 +93,8 @@ public class PlayerController : MonoBehaviour
     public PhotographMode photographMode;
     public int points;
 
+    public GameObject OwlText;
+
 
 
     public enum MovementState
@@ -298,6 +300,12 @@ public class PlayerController : MonoBehaviour
                 else if (closest.name.Contains("Owl"))
                 {
                     diaryController.owlPhotos.Add(tex);
+                    Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
+                    if (closest.GetComponentInParent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
+                    {
+                        OwlText.GetComponent<TextMeshPro>().text = "Mission Passed you gained +50 points";
+                        points += 50;
+                    }
                 }
                 else if (closest.name.Contains("Butterfly"))
                 {
@@ -306,6 +314,10 @@ public class PlayerController : MonoBehaviour
                 else if (closest.name.Contains("Frog"))
                 {
                     diaryController.frogPhotos.Add(tex);
+                }
+                else if (closest.name.Contains("Snake"))
+                {
+                    diaryController.snakePhotos.Add(tex);
                 }
                 else if (closest.name.Contains("Bug"))
                 {
@@ -399,6 +411,20 @@ public class PlayerController : MonoBehaviour
             dayText.enabled = false;
             timeText.enabled = false;
         }
+        //CHEATS
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            playerStamina = 1000000000;
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            camBattery = 100000000000;
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            health = 100000000000;
+        }
+       
     }
 
 

@@ -114,6 +114,7 @@ public class DiaryController : MonoBehaviour
             else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
             else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
             else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
+            else if (folderName == "Snake") ShowDiaryPage(snakePhotos);
             else if (folderName == "WhiteOrchid") ShowDiaryPage(whiteOrchidPhotos);
             else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
             else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
@@ -128,6 +129,7 @@ public class DiaryController : MonoBehaviour
             else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
             else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
             else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
+            else if (folderName == "Snake") ShowDiaryPage(snakePhotos);
             else if (folderName == "WhiteOrchid") ShowDiaryPage(whiteOrchidPhotos);
             else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
             else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
@@ -154,6 +156,7 @@ public class DiaryController : MonoBehaviour
         else if (folderName == "Butterfly") ShowFirstDiaryPage(butterflyPhotos);
         else if (folderName == "Bug") ShowFirstDiaryPage(bugPhotos);
         else if (folderName == "Frog") ShowFirstDiaryPage(frogPhotos);
+        else if (folderName == "Snake") ShowFirstDiaryPage(snakePhotos);
         else if (folderName == "WhiteOrchid") ShowFirstDiaryPage(whiteOrchidPhotos);
         else if (folderName == "PurpleOrchid") ShowFirstDiaryPage(purpleOrchidPhotos);
         else if (folderName == "CocoaTree") ShowFirstDiaryPage(cocoaTreePhotos);
@@ -170,6 +173,7 @@ public class DiaryController : MonoBehaviour
         else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
         else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
         else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
+        else if (folderName == "Snake") ShowDiaryPage(snakePhotos);
         else if (folderName == "WhiteOrchid") ShowDiaryPage(whiteOrchidPhotos);
         else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
         else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);

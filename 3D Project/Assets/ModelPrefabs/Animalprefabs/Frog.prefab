@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 379d38f9644c3f94b9c2cbb36883f8ea, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 379d38f9644c3f94b9c2cbb36883f8ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -108,10 +108,10 @@ PrefabInstance:
       addedObject: {fileID: 17452001143658605}
     - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 379d38f9644c3f94b9c2cbb36883f8ea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9143344971440499029}
+      addedObject: {fileID: 3495900803549865961}
     - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 379d38f9644c3f94b9c2cbb36883f8ea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3495900803549865961}
+      addedObject: {fileID: 4120328430431041045}
   m_SourcePrefab: {fileID: 100100000, guid: 379d38f9644c3f94b9c2cbb36883f8ea, type: 3}
 --- !u!1 &6365212652511026973 stripped
 GameObject:
@@ -126,7 +126,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6365212652511026973}
   m_Enabled: 1
-  m_AgentTypeID: -902729914
+  m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f603c7a8be37f3946999124494d89822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   patrolWaypoints: []
   target: {fileID: 0}
   bulletPrefab: {fileID: 0}
@@ -161,10 +162,15 @@ MonoBehaviour:
   flashed: 0
   canAttack: 0
   canRun: 0
+  timeStaring: 0
+  snakeCanAttack: 0
+  Ponto: {fileID: 0}
   OwlWaypoints: []
   currentDest: {x: 0, y: 0, z: 0}
   canFly: 0
   OwlBody: {fileID: 0}
+  listOfAnimals: []
+  playerController: {fileID: 0}
 --- !u!114 &2754010598322092012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,21 +238,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 379d38f9644c3f94b9c2cbb36883f8ea, type: 3}
   m_PrefabInstance: {fileID: 6094688606057718348}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9143344971440499029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6852452726869250088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010bdd4bb8b83a5438578d3cea9012c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 6982690129727566246}
-  flyBobSpeed: 3
-  flyBobAmmount: 1
 --- !u!114 &3495900803549865961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,3 +252,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
   photographableId: 4
+--- !u!114 &4120328430431041045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852452726869250088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b696b387bb2254893f8d00887146df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 6982690129727566246}
+  flyBobSpeed: 3
+  flyBobAmmount: 1

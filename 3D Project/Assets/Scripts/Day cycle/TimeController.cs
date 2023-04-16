@@ -81,6 +81,10 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            dayCounter = 6;
+        }
         //StartCoroutine("UpdateDayTest()");
         RotateSun();
         UpdateLightSettings();

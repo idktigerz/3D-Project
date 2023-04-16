@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 51ae58cad1a53c745a919a0287083146, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51ae58cad1a53c745a919a0287083146, type: 3}
       propertyPath: m_LocalPosition.x
@@ -91,6 +91,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51ae58cad1a53c745a919a0287083146, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2640607621782195916}
+    - targetCorrespondingSourceObject: {fileID: -3718371245222020591, guid: 51ae58cad1a53c745a919a0287083146, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9091817213594724077}
   m_SourcePrefab: {fileID: 100100000, guid: 51ae58cad1a53c745a919a0287083146, type: 3}
 --- !u!1 &4309554130391866009 stripped
 GameObject:
@@ -178,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f603c7a8be37f3946999124494d89822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   patrolWaypoints: []
   target: {fileID: 0}
   bulletPrefab: {fileID: 0}
@@ -189,6 +193,7 @@ MonoBehaviour:
   canRun: 0
   timeStaring: 0
   snakeCanAttack: 0
+  Ponto: {fileID: 0}
   OwlWaypoints: []
   currentDest: {x: 0, y: 0, z: 0}
   canFly: 0
@@ -231,3 +236,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!1 &8892995706313088473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3718371245222020591, guid: 51ae58cad1a53c745a919a0287083146, type: 3}
+  m_PrefabInstance: {fileID: 3967659692185757640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9091817213594724077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892995706313088473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16400a0a7df66949972a3f6c91f4683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 0}
+  photographableId: 0
