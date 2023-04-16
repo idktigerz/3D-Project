@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     public int rechargeAmount = 3;
     [Header("Camera Flash")]
     public bool isFlashing;
-    public GameObject light;  
+    public GameObject light;
     public GameObject flashIcon;
     public bool canFlash = false;
     [Header("Other")]
@@ -244,8 +244,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(changeFocusModeKey))
         {
-            
-            if(photographMode == PhotographMode.CloseFocus)
+
+            if (photographMode == PhotographMode.CloseFocus)
             {
                 photographMode = PhotographMode.LongFocus;
             }
@@ -290,7 +290,6 @@ public class PlayerController : MonoBehaviour
                 }
                 Debug.Log(points);
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
-
                 RenderTexture.active = rt;
                 Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
                 tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
@@ -321,7 +320,22 @@ public class PlayerController : MonoBehaviour
                 {
                     diaryController.babyTigerPhotos.Add(tex);
                 }
-                playerCam.picCounter[animalTypeId]++;
+                else if (closest.name.Contains("White Orchid"))
+                {
+                    diaryController.whiteOrchidPhotos.Add(tex);
+                }
+                else if (closest.name.Contains("Poison Orchid"))
+                {
+                    diaryController.purpleOrchidPhotos.Add(tex);
+                }
+                else if (closest.name.Contains("Cocoa Tree"))
+                {
+                    diaryController.cocoaTreePhotos.Add(tex);
+                }
+                else if (closest.name.Contains("Banana Tree"))
+                {
+                    diaryController.bananaTreePhotos.Add(tex);
+                }
             }
             else
             {
@@ -340,7 +354,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(reloadKey))
         {
-            
+
             if (rechargeAmount <= 0)
             {
                 rechargeAmount = 0;
@@ -352,7 +366,7 @@ public class PlayerController : MonoBehaviour
                 rechargeAmount--;
             }
             Debug.Log("Recharges: " + rechargeAmount);
-            
+
         }
 
         if (Input.GetKey(interactKey) && canInteract)
@@ -494,7 +508,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Rest()
     {
-       
+
 
         Time.timeScale = 60;
 

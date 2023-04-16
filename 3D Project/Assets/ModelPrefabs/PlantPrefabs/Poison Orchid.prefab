@@ -1173,8 +1173,9 @@ GameObject:
   - component: {fileID: 8006168468613722282}
   - component: {fileID: 7389049405823016809}
   - component: {fileID: 7085526974488705943}
+  - component: {fileID: 1763279187739180892}
   m_Layer: 0
-  m_Name: Sphere.039
+  m_Name: Poison Orchid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1245,6 +1246,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1763279187739180892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961401603065358375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16400a0a7df66949972a3f6c91f4683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 0}
+  photographableId: 11
 --- !u!1 &2236038634349711223
 GameObject:
   m_ObjectHideFlags: 0

@@ -3060,7 +3060,7 @@ Transform:
   - {fileID: 8790935088302177319}
   - {fileID: 7941910397315992163}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1195273483552754674
 MonoBehaviour:
@@ -3257,8 +3257,9 @@ GameObject:
   - component: {fileID: 5661878401285147644}
   - component: {fileID: 3994228844488015202}
   - component: {fileID: 4785167045602828733}
+  - component: {fileID: 647187568409408530}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cocoa Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3329,6 +3330,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &647187568409408530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8567099981805946134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16400a0a7df66949972a3f6c91f4683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 0}
+  photographableId: 12
 --- !u!1 &9069201658898486364
 GameObject:
   m_ObjectHideFlags: 0

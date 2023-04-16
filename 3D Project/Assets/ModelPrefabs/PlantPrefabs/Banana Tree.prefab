@@ -2156,6 +2156,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.86818135
       objectReference: {fileID: 0}
+    - target: {fileID: 5245042011116262203, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
+      propertyPath: m_Name
+      value: Banana Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 5301936809508881357, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.0319283
@@ -2745,6 +2749,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4262903786250328914}
+    - targetCorrespondingSourceObject: {fileID: 5245042011116262203, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5513452821233315723}
   m_SourcePrefab: {fileID: 100100000, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
 --- !u!1 &2875558145059519279 stripped
 GameObject:
@@ -2766,8 +2773,8 @@ MonoBehaviour:
   openTime: 0
   closeTime: 0
   plant: {fileID: 0}
-  timeController: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
-  playerController: {fileID: 1056228486, guid: 53c295e31f201f0409a58569d3e26534, type: 3}
+  timeController: {fileID: 0}
+  playerController: {fileID: 0}
   healAmount: 40
 --- !u!65 &4262903786250328914
 BoxCollider:
@@ -2790,3 +2797,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5358276, y: 7.1825943, z: 1.5223022}
   m_Center: {x: -2.2116966, y: 3.0912971, z: -1.1851943}
+--- !u!1 &7197667957396739397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5245042011116262203, guid: c0640a6224dfff441821e4899a61b08f, type: 3}
+  m_PrefabInstance: {fileID: 3110123894234531454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5513452821233315723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197667957396739397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16400a0a7df66949972a3f6c91f4683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 0}
+  photographableId: 13

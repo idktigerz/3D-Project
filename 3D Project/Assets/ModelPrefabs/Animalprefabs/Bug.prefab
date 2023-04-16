@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a455060587cbc3b4db439d371e70dedc, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a455060587cbc3b4db439d371e70dedc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f603c7a8be37f3946999124494d89822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   patrolWaypoints: []
   target: {fileID: 0}
   bulletPrefab: {fileID: 0}
@@ -173,10 +174,15 @@ MonoBehaviour:
   flashed: 0
   canAttack: 0
   canRun: 0
+  timeStaring: 0
+  snakeCanAttack: 0
+  Ponto: {fileID: 0}
   OwlWaypoints: []
   currentDest: {x: 0, y: 0, z: 0}
   canFly: 0
   OwlBody: {fileID: 0}
+  listOfAnimals: []
+  playerController: {fileID: 0}
 --- !u!114 &8957768471460632278
 MonoBehaviour:
   m_ObjectHideFlags: 0
