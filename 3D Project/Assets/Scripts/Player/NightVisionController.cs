@@ -18,6 +18,7 @@ public class NightVisionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.SetActive(true);
         RenderSettings.ambientLight = defaultLightColor;
         if(timeController.canToggleNightVision)
         {

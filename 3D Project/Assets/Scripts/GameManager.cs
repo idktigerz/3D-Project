@@ -75,16 +75,6 @@ public class GameManager : MonoBehaviour
 
     public void Endgame()
     {
-        Time.timeScale = 0;
-        if(playerController.points < 10000)
-        {
-            scoreText.text = "You're fired!\n You scored: " + playerController.points;
-        }else if(playerController.points > 10000 && playerController.points < 20000)
-        {
-            scoreText.text = "You did okay\n You scored: " + playerController.points;
-        }else if(playerController.points > 20000)
-        {
-            scoreText.text = "Good job!\n You scored: " + playerController.points;
-        }
+        SceneManager.LoadScene("EndGame");
     }
 }
