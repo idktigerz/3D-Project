@@ -13,6 +13,7 @@ public class PlantController : MonoBehaviour
     private TimeSpan closeHour;
     [SerializeField] 
     private GameObject plant;
+    public BoxCollider collider;
 
     public TimeController timeController;
     public PlayerController playerController;
@@ -24,6 +25,7 @@ public class PlantController : MonoBehaviour
 
     void Start()
     {
+        collider = GameObject.FindGameObjectWithTag("Interactable Plant").GetComponent<BoxCollider>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         timeController = GameObject.FindGameObjectWithTag("TimeController").GetComponent<TimeController>();
         plantEaten = false;
@@ -34,10 +36,12 @@ public class PlantController : MonoBehaviour
         if (openHour < timeController.currentTime.TimeOfDay && plantEaten == false)
         {
             plant.SetActive(false);
+            collider.enabled = false;
         }
         else 
         {
             plant.SetActive(true);
+            collider.enabled = true;
         }
     }
 
@@ -49,10 +53,12 @@ public class PlantController : MonoBehaviour
             if (openHour > timeController.currentTime.TimeOfDay && closeHour < timeController.currentTime.TimeOfDay && plantEaten == false)
             {
                 plant.SetActive(false);
+                collider.enabled = false;
             }
             else
             {
                 plant.SetActive(true);
+                collider.enabled = true;
 
             }
         }
@@ -61,10 +67,12 @@ public class PlantController : MonoBehaviour
             if (openHour < timeController.currentTime.TimeOfDay && closeHour > timeController.currentTime.TimeOfDay && plantEaten == false)
             {
                 plant.SetActive(false);
+                collider.enabled = false;
             }
             else
             {
                 plant.SetActive(true);
+                collider.enabled = true;
 
             }
         }
@@ -87,10 +95,12 @@ public class PlantController : MonoBehaviour
         if(openHour <= timeController.currentTime.TimeOfDay)
         {
             plant.SetActive(true);
+            collider.enabled = true;
         }
         else
         {
             plant.SetActive(false);
+            collider.enabled = false;
         }
         
     }
