@@ -95,8 +95,6 @@ public class PlayerController : MonoBehaviour
 
     public TextMeshProUGUI OwlText;
 
-
-
     public enum MovementState
     {
         walking,
