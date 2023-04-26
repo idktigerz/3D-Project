@@ -9154,7 +9154,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6682044897137388794}
-  - component: {fileID: 3622646659098681025}
   m_Layer: 0
   m_Name: Orchid
   m_TagString: Untagged
@@ -9362,27 +9361,6 @@ Transform:
   m_Father: {fileID: 6727850717125061228}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3622646659098681025
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5262345931810141484}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5370284, y: 1.307301, z: 1}
-  m_Center: {x: -0.26851434, y: 0.47085834, z: 0}
 --- !u!1 &5347135334287034884
 GameObject:
   m_ObjectHideFlags: 0
@@ -13460,6 +13438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6727850717125061228}
   - component: {fileID: -5241085617406302290}
+  - component: {fileID: 6619027256395610284}
   m_Layer: 0
   m_Name: Good Orchid
   m_TagString: Interactable Plant
@@ -13498,9 +13477,31 @@ MonoBehaviour:
   openTime: 22
   closeTime: 3
   plant: {fileID: 5262345931810141484}
+  collider: {fileID: 6619027256395610284}
   timeController: {fileID: 0}
   playerController: {fileID: 0}
-  healAmount: 0
+  healAmount: 5
+--- !u!65 &6619027256395610284
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568004020130878211}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5370284, y: 1.307301, z: 1}
+  m_Center: {x: -0.26851434, y: 0.47085834, z: 0}
 --- !u!1 &7799412546704449996
 GameObject:
   m_ObjectHideFlags: 0

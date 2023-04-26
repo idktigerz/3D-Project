@@ -3078,6 +3078,7 @@ MonoBehaviour:
   openTime: 0
   closeTime: 0
   plant: {fileID: 3036537679283030971}
+  collider: {fileID: 6434306294072036628}
   timeController: {fileID: 0}
   playerController: {fileID: 0}
   healAmount: 30
