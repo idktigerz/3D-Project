@@ -22,6 +22,11 @@ public class TimeController : MonoBehaviour
     private float sunsetHour;
     [SerializeField]
     public DateTime currentTime;
+    [SerializeField]
+    private float restHour;
+    [SerializeField]
+    private TimeSpan restTime;
+
 
     [Header("Lighting")]
     [SerializeField]
@@ -75,6 +80,8 @@ public class TimeController : MonoBehaviour
         sunsetTime = TimeSpan.FromHours(sunsetHour);
 
         resetTime = TimeSpan.FromHours(resetHour);
+
+        restTime = TimeSpan.FromHours(restHour);
 
     }
 

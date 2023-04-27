@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour
     public float playerActivateDistance;
     public GameObject photoCube;
     public PlayerCam playerCam;
-    public TextMeshProUGUI batteryText;
     public TextMeshProUGUI interactText;
     public float camBattery = 100f;
     public float health = 100f;
@@ -531,13 +530,12 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Rest()
     {
-
-
         Time.timeScale = 60;
 
         yield return new WaitForSeconds(10);
 
         Time.timeScale = 1;
+        rechargeAmount = 3;
     }
     private IEnumerator CameraUIOn()
     {
