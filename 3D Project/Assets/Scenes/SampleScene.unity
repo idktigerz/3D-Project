@@ -28719,6 +28719,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1528982883}
     - target: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
+      propertyPath: restHour
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
       propertyPath: sunLight
       value: 
       objectReference: {fileID: 705507994}
@@ -28738,6 +28742,10 @@ PrefabInstance:
       propertyPath: flashLight
       value: 
       objectReference: {fileID: 1508097204}
+    - target: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
+      propertyPath: midDayHour
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f, type: 3}
       propertyPath: playerLight
       value: 

@@ -86,15 +86,14 @@ public class PlayerController : MonoBehaviour
     private bool diaryOpen;
     [SerializeField] GameObject diaryUI;
     PlayerController controller;
+    public GameObject timeController;
     public RenderTexture rt;
     public List<Texture2D> listaTeste;
     public DiaryController diaryController;
     public enum PhotographMode { CloseFocus, LongFocus };
     public PhotographMode photographMode;
     public int points;
-
     public TextMeshProUGUI OwlText;
-
     public enum MovementState
     {
         walking,
@@ -108,6 +107,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
+        timeController = GameObject.FindGameObjectWithTag("TimeController");
         rb.freezeRotation = true;
         readyToJump = true;
         isFlashing = false;
@@ -530,11 +530,15 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Rest()
     {
-        Time.timeScale = 60;
-
-        yield return new WaitForSeconds(10);
-
-        Time.timeScale = 1;
+        timeController.GetComponent<TimeController>().enabled = false;
+        yield return new WaitForSeconds(2f);
+        timeController.GetComponent<TimeController>().currentTime += timeController.GetComponent<TimeController>().restTime;
+        Debug.Log(timeController.GetComponent<TimeController>().currentTime.TimeOfDay);
+        timeController.GetComponent<TimeController>().enabled = true;
+        if (timeController.GetComponent<TimeController>().currentTime.TimeOfDay <= timeController.GetComponent<TimeController>().midDayTime)
+        {
+            timeController.GetComponent<TimeController>().dayCounter++;
+        }
         rechargeAmount = 3;
     }
     private IEnumerator CameraUIOn()

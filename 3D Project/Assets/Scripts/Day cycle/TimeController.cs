@@ -25,7 +25,7 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     private float restHour;
     [SerializeField]
-    private TimeSpan restTime;
+    private float midDayHour;
 
 
     [Header("Lighting")]
@@ -58,6 +58,8 @@ public class TimeController : MonoBehaviour
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
     private TimeSpan resetTime;
+    public TimeSpan restTime;
+    public TimeSpan midDayTime;
     public int dayCounter;
     public int nightCounter;
     public bool canToggleNightVision;
@@ -83,6 +85,7 @@ public class TimeController : MonoBehaviour
 
         restTime = TimeSpan.FromHours(restHour);
 
+        midDayTime = TimeSpan.FromHours(midDayHour);
     }
 
     // Update is called once per frame
@@ -105,7 +108,7 @@ public class TimeController : MonoBehaviour
 
     }
 
-    private void UpdateTimeOfDay()
+    public void UpdateTimeOfDay()
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
         if (timeText != null)
