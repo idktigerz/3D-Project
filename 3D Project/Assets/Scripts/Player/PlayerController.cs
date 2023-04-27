@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
     public bool active;
     public Transform cam;
     public Camera camera;
+    public GameObject renderCam;
     public float playerActivateDistance;
     public GameObject photoCube;
     public PlayerCam playerCam;
@@ -256,6 +257,7 @@ public class PlayerController : MonoBehaviour
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
+            renderCam.SetActive(true);
             light.SetActive(true);
             flashIcon.SetActive(true);
             cameraUI.SetActive(false);
@@ -541,6 +543,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0);
         cameraUI.SetActive(true);
+        renderCam.SetActive(false);
     }
     private IEnumerator FlashOn()
     {
