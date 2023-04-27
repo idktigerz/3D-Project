@@ -376,7 +376,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(interactKey) && canInteract)
         {
 
-            StartCoroutine(Rest());
+             StartCoroutine(Rest());
 
         }
         if (Input.GetKeyUp(KeyCode.P))
@@ -487,7 +487,7 @@ public class PlayerController : MonoBehaviour
         }
         // in air
         else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
     }
 
     private void SpeedControl()
