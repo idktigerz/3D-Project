@@ -15982,6 +15982,11 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!1 &1154237247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6327545143938325046, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
+  m_PrefabInstance: {fileID: 36697840467416832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!108 &1182689283 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 36697839500001027, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
@@ -25413,7 +25418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1903f31f03c873249abf4c9ba0b2bc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResourcePrefab: {fileID: 8190216308995099171, guid: 5d3c81eb24a578d41b1303021625d33c, type: 3}
+  ResourcePrefab: {fileID: 919132149155446097, guid: 91e969ac2b4d929458eff3f0d88c13bc, type: 3}
   spawnChance: 50
   distanceBetweenChecks: 50
   heightOfCheck: 70
@@ -28548,6 +28553,10 @@ PrefabInstance:
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 259835296}
+    - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db, type: 3}
+      propertyPath: renderCam
+      value: 
+      objectReference: {fileID: 1154237247}
     - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db, type: 3}
       propertyPath: walkSpeed
       value: 6
