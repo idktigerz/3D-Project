@@ -373,7 +373,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Input.GetKey(interactKey) && canInteract)
+        if (Input.GetKeyDown(interactKey) && canInteract)
         {
 
             StartCoroutine(Rest());
@@ -531,10 +531,11 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Rest()
     {
         timeController.GetComponent<TimeController>().enabled = false;
-        yield return new WaitForSeconds(2f);
         timeController.GetComponent<TimeController>().currentTime += timeController.GetComponent<TimeController>().restTime;
+        yield return new WaitForSeconds(0.5f);
         Debug.Log(timeController.GetComponent<TimeController>().currentTime.TimeOfDay);
         timeController.GetComponent<TimeController>().enabled = true;
+
         if (timeController.GetComponent<TimeController>().currentTime.TimeOfDay <= timeController.GetComponent<TimeController>().midDayTime)
         {
             timeController.GetComponent<TimeController>().dayCounter++;
