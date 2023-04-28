@@ -91,8 +91,6 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
 
         agent.isStopped = false;
-        //agent.SetDestination(patrolWaypoints[Random.Range(0, patrolWaypoints.Length)].position);
-        //var NewPos = Random.insideUnitCircle.normalized * 100;
         var NewPos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
         if (Vector3.Distance(transform.position, NewPos) > 3)
         {
@@ -104,12 +102,6 @@ public class FSMNavMeshAgent : MonoBehaviour
             {
                 GoToNextPatrolWaypoint();
             }
-            else if (gameObject.name.Contains("Owl"))
-            {
-                //GoToNextPatrolWaypointOwl();
-            }
-
-
         }
     }
     public void GoToNextPatrolWaypointButter()
