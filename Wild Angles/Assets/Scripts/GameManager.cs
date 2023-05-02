@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public PlayerController playerController;
     public TimeController timeController;
+    public GameObject player;
 
     public TextMeshProUGUI scoreText;
 
@@ -77,5 +78,10 @@ public class GameManager : MonoBehaviour
     public void Endgame()
     {
         SceneManager.LoadScene("EndGame");
+    }
+
+    public void RespawnPlayer()
+    {
+
     }
 }
