@@ -9,12 +9,13 @@ public class PauseMenuController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
     public void Resume()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Settings()

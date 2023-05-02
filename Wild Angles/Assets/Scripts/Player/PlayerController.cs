@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour
     private TextMeshProUGUI dayText;
     [SerializeField]
     private TextMeshProUGUI modeText;
+    public TextMeshProUGUI OwlText;
+    public int lastDaySaved;
     [Header("Controllers")]
     public NightVisionController nightVisionController;
     public HealthbarController healthbar;
@@ -93,7 +95,6 @@ public class PlayerController : MonoBehaviour
     public enum PhotographMode { CloseFocus, LongFocus };
     public PhotographMode photographMode;
     public int points;
-    public TextMeshProUGUI OwlText;
     public enum MovementState
     {
         walking,
@@ -129,9 +130,15 @@ public class PlayerController : MonoBehaviour
 
         // handle drag
         if (grounded)
+        {
             rb.drag = groundDrag;
+        }
         else
+        {
+            moveDirection.y -= 9.81f * Time.deltaTime;
             rb.drag = 0;
+        }
+
 
         RaycastHit hit;
         active = Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, playerActivateDistance);
@@ -201,10 +208,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
+            if (playerStamina >= 20)
+            {
+                Jump();
 
-            Jump();
-
+            }
             Invoke(nameof(ResetJump), jumpCooldown);
+
         }
         // start crouch
         if (Input.GetKeyDown(crouchKey))
@@ -376,7 +386,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(interactKey) && canInteract)
         {
 
-             StartCoroutine(Rest());
+            StartCoroutine(Rest());
 
         }
         if (Input.GetKeyUp(KeyCode.P))
@@ -487,7 +497,7 @@ public class PlayerController : MonoBehaviour
         }
         // in air
         else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed / airMultiplier, ForceMode.Force);
     }
 
     private void SpeedControl()
@@ -507,6 +517,10 @@ public class PlayerController : MonoBehaviour
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         playerStamina -= 20;
+        if (playerStamina < 0)
+        {
+            playerStamina = 0;
+        }
         staminaBar.UpdateStaminaBar(100, playerStamina);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
@@ -530,10 +544,11 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Rest()
     {
+        lastDaySaved = timeController.GetComponent<TimeController>().dayCounter;
         timeController.GetComponent<TimeController>().enabled = false;
         timeController.GetComponent<TimeController>().currentTime += timeController.GetComponent<TimeController>().restTime;
         yield return new WaitForSeconds(0.5f);
-        Debug.Log(timeController.GetComponent<TimeController>().currentTime.TimeOfDay);
+        //Debug.Log(timeController.GetComponent<TimeController>().currentTime.TimeOfDay);
         timeController.GetComponent<TimeController>().enabled = true;
 
         if (timeController.GetComponent<TimeController>().currentTime.TimeOfDay <= timeController.GetComponent<TimeController>().midDayTime)
@@ -541,6 +556,7 @@ public class PlayerController : MonoBehaviour
             timeController.GetComponent<TimeController>().dayCounter++;
         }
         rechargeAmount = 3;
+
     }
     private IEnumerator CameraUIOn()
     {

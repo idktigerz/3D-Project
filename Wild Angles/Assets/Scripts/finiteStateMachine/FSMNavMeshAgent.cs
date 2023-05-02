@@ -45,7 +45,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         canFly = true;
-        agent = GetComponent<NavMeshAgent>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
         initialSpeed = agent.speed;
         if (gameObject.name.Contains("Owl")) currentDest = OwlBody.transform.position;
         rb = GetComponent<Rigidbody>();
@@ -66,7 +66,7 @@ public class FSMNavMeshAgent : MonoBehaviour
             OwlWaypoints.Add(FindChildGameObjectByName(tree, "OwlWaypoint").transform);
         }
     }
-     private IEnumerator AnimalListAdder()
+    private IEnumerator AnimalListAdder()
     {
         yield return new WaitForSeconds(0.5f);
         listOfAnimals = GameObject.FindGameObjectsWithTag("Animal");
