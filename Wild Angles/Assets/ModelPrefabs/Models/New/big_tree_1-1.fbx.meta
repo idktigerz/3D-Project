@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: color pallete (tree)
-    second: {fileID: 2800000, guid: 684a39f063834354999a74f7c1a38854, type: 3}
+    second: {fileID: 2800000, guid: 7ff1afaf950ff374189bea0b25a41e31, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: c5198edad93fdc948b0dfb6168c70bcf
+guid: 5a11498069c637f4db3788ae15669a59
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 1texture
-    second: {fileID: 2100000, guid: e9f130c2c9ec8914d80181b3bda49fd8, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: color pallete (tree)
-    second: {fileID: 2800000, guid: ad4bb2e069ee2c041884592a67df54d4, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
