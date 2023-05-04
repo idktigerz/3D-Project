@@ -24,6 +24,4 @@ public class EndGameController : MonoBehaviour
             scoreText.text = "Good job! \nYou scored: " + score;
         }
     }
-
-    
 }

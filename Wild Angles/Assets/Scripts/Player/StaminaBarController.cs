@@ -22,5 +22,4 @@ public class StaminaBarController : MonoBehaviour
     {
         staminaBar.fillAmount = Mathf.MoveTowards(staminaBar.fillAmount, target, reduceSpeed * Time.deltaTime);
     }
-
 }
