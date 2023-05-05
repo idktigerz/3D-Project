@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80741f70dd17a3d42acdbff60ed25aea
+guid: ac35f80ba15cc014baa09e1813076d25
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Texture
-    second: {fileID: 2100000, guid: 7939c2726b9b58e4698c84c6a787f682, type: 2}
+    second: {fileID: 2100000, guid: be1bba00de417b14caa6cfdd7cc4451c, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: color pallete (grass)
-    second: {fileID: 2800000, guid: 704534a1c75384e4b836bdd785110789, type: 3}
+    second: {fileID: 2800000, guid: 6a92e1d95e9970e46a754b158bda2aad, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
