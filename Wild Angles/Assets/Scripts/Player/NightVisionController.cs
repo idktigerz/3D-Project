@@ -47,6 +47,7 @@ public class NightVisionController : MonoBehaviour
             RenderSettings.ambientIntensity = 0.1f;
 
         }
+        Debug.Log(RenderSettings.ambientIntensity);
     }
 
     private void ToggleNightVision()
