@@ -483,11 +483,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tent
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4076337948289574973, guid: 71a3980b94ea99e4b92c8a5fe105fbdb, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3930670345750954616, guid: 71a3980b94ea99e4b92c8a5fe105fbdb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2008212783}
   m_SourcePrefab: {fileID: 100100000, guid: 71a3980b94ea99e4b92c8a5fe105fbdb, type: 3}
 --- !u!4 &1458666474 stripped
 Transform:
@@ -702,6 +705,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5255488253128877480}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2008212781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3930670345750954616, guid: 71a3980b94ea99e4b92c8a5fe105fbdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1357062501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2008212783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008212781}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.025891695, y: 0.029301016, z: 0.019705545}
+  m_Center: {x: 0.00005300625, y: 0.00001920282, z: -0.0033760804}
 --- !u!1 &2085257732
 GameObject:
   m_ObjectHideFlags: 0
