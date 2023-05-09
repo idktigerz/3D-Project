@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -250.68687
+      value: -257.29276
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000023841858
+      value: 0.000005722046
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1187.36
+      value: 1197.5018
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
       propertyPath: m_Name
-      value: Crocodile Variant
+      value: Crocodile
       objectReference: {fileID: 0}
     - target: {fileID: 8417361359673230750, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
@@ -111,6 +111,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8899158045648110120}
+    - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 783eba6420681f54aaaa5f63adfc021b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2506973815752605003}
   m_SourcePrefab: {fileID: 100100000, guid: 783eba6420681f54aaaa5f63adfc021b, type: 3}
 --- !u!1 &607983760868062712 stripped
 GameObject:
@@ -274,3 +278,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
   photographableId: 6
+--- !u!114 &2506973815752605003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090702751826983629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
