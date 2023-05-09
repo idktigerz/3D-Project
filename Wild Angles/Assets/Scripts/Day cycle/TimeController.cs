@@ -164,7 +164,7 @@ public class TimeController : MonoBehaviour
             RenderSettings.skybox = nightSky;
             nightSky.Lerp(sunSky, nightSky, sunLightRotation);
             RenderSettings.ambientLight = nightAmbientLight;
-            RenderSettings.reflectionIntensity = 0f;
+            RenderSettings.reflectionIntensity = 0.1f;
             playerLight.intensity = 5f;
             flashLight.intensity = 10f;
             canToggleNightVision = true;

@@ -21,15 +21,6 @@ public class NightVisionController : MonoBehaviour
     {
         gameObject.SetActive(true);
         RenderSettings.ambientLight = defaultLightColor;
-        if (timeController.canToggleNightVision)
-        {
-            RenderSettings.ambientIntensity = 0.1f;
-        }
-        else
-        {
-            RenderSettings.ambientIntensity = 1f;
-
-        }
         volume = gameObject.GetComponent<Volume>();
         volume.weight = 0;
     }
