@@ -162,6 +162,20 @@ public class PlayerController : MonoBehaviour
 
         if (cameraON)
         {
+            GameObject closest;
+            if (photographMode == PhotographMode.CloseFocus)
+            {
+                closest = playerCam.GetClosestPhotographable();
+            }
+            else
+            {
+                closest = playerCam.GetClosestPhotographableAngle();
+            }
+            if(closest != null)
+            {
+                closest.GetComponent<Outline>().enabled = true;
+            }
+
             canFlash = true;
             camBattery -= 1 * Time.deltaTime;
             if (nightVisionController.isEnabled)
@@ -188,6 +202,21 @@ public class PlayerController : MonoBehaviour
                 //light.SetActive(false);
                 flashIcon.SetActive(false);
             }
+            Debug.Log(closest.name);
+        }
+        else
+        {
+            GameObject closest;
+            if (photographMode == PhotographMode.CloseFocus)
+            {
+                closest = playerCam.GetClosestPhotographable();
+            }
+            else
+            {
+                closest = playerCam.GetClosestPhotographableAngle();
+            }
+            closest.GetComponent<Outline>().enabled = false;
+            Debug.Log(closest.name);
         }
     }
 

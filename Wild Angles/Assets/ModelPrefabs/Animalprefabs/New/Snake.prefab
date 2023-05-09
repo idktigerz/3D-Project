@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_Name
-      value: Snake Variant
+      value: Snake
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
@@ -131,7 +131,53 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6555388927800081765}
+    - targetCorrespondingSourceObject: {fileID: -3718371245222020591, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5818727448330241418}
+    - targetCorrespondingSourceObject: {fileID: -3718371245222020591, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 275650049625801161}
   m_SourcePrefab: {fileID: 100100000, guid: a6e9182e68b5fcb4b92e9255c2a56e5d, type: 3}
+--- !u!1 &1141136938236667322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3718371245222020591, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4878402192344604587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5818727448330241418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141136938236667322}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &275650049625801161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141136938236667322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16400a0a7df66949972a3f6c91f4683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 0}
+  photographableId: 0
 --- !u!1 &5724912007579362042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
