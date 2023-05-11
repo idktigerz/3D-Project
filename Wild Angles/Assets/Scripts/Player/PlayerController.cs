@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
     public float playerStamina;
     [Header("Camera Stuff")]
     [SerializeField] GameObject cameraUI;
+    [SerializeField] TextMeshProUGUI popUpText;
+
     public bool cameraON;
     private int picnum;
     public TimeController time;
@@ -171,7 +173,7 @@ public class PlayerController : MonoBehaviour
             {
                 closest = playerCam.GetClosestPhotographableAngle();
             }
-            if(closest != null)
+            if (closest != null)
             {
                 closest.GetComponent<Outline>().enabled = true;
             }
@@ -330,6 +332,8 @@ public class PlayerController : MonoBehaviour
                 tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
                 tex.Apply();
                 RenderTexture.active = null;
+                popUpText.gameObject.SetActive(true);
+                popUpText.text = "new " + closest.name + " photo added to the diary";
                 //listaTeste.Add(tex);
                 if (closest.name.Contains("Crocodile"))
                 {
