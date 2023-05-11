@@ -204,7 +204,6 @@ public class PlayerController : MonoBehaviour
                 //light.SetActive(false);
                 flashIcon.SetActive(false);
             }
-            Debug.Log(closest.name);
         }
         else
         {
