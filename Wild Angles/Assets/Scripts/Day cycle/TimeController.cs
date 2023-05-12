@@ -144,7 +144,7 @@ public class TimeController : MonoBehaviour
 
             sunLightRotation = Mathf.Lerp(0, 180, (float)percentage);
 
-            RenderSettings.skybox = sunSky;
+            //RenderSettings.skybox = sunSky;
             RenderSettings.ambientLight = dayAmbientLight;
             RenderSettings.ambientIntensity = 1f;
             RenderSettings.reflectionIntensity = 1f;
@@ -161,7 +161,7 @@ public class TimeController : MonoBehaviour
 
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
 
-            RenderSettings.skybox = nightSky;
+            //RenderSettings.skybox = nightSky;
 
             RenderSettings.ambientLight = nightAmbientLight;
             RenderSettings.reflectionIntensity = 0.1f;

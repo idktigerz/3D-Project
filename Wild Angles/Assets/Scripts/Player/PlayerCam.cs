@@ -80,9 +80,9 @@ public class PlayerCam : MonoBehaviour
         {
             GetComponent<Camera>().fieldOfView++;
             closestDistance--;
-            if (closestDistance < 30)
+            if (closestDistance < 10)
             {
-                closestDistance = 30;
+                closestDistance = 10;
             }
         }
         if (!playerController.cameraON)
@@ -96,7 +96,6 @@ public class PlayerCam : MonoBehaviour
     {
 
         GameObject closest = null;
-        closestDistance = 30;
         float distance;
         for (int i = 0; i < currentAnimalsInTheframe.Count; i++)
         {
@@ -114,7 +113,6 @@ public class PlayerCam : MonoBehaviour
     public GameObject GetClosestPhotographableAngle()
     {
         GameObject closest = null;
-        closestDistance = 30;
         float closestAngle = Mathf.Infinity;
         float angle;
         float distance;
