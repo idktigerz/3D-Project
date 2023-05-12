@@ -177,7 +177,18 @@ public class PlayerController : MonoBehaviour
             }
             if (closest != null)
             {
-                closest.GetComponent<Outline>().enabled = true;
+                foreach (var animal in playerCam.currentAnimalsInTheframe)
+                {
+                    if (animal != closest)
+                    {
+                        animal.GetComponent<Outline>().enabled = false;
+                    }
+                    else
+                    {
+                        animal.GetComponent<Outline>().enabled = true;
+                    }
+
+                }
             }
 
             canFlash = true;
@@ -210,7 +221,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             renderCam.SetActive(false);
-            GameObject closest;
+            /*GameObject closest;
             if (photographMode == PhotographMode.CloseFocus)
             {
                 closest = playerCam.GetClosestPhotographable();
@@ -220,7 +231,11 @@ public class PlayerController : MonoBehaviour
                 closest = playerCam.GetClosestPhotographableAngle();
             }
             closest.GetComponent<Outline>().enabled = false;
-            Debug.Log(closest.name);
+            Debug.Log(closest.name);*/
+            foreach (var animal in playerCam.currentAnimalsInTheframe)
+            {
+                animal.GetComponent<Outline>().enabled = false;
+            }
         }
     }
 

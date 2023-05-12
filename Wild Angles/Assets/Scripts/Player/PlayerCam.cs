@@ -74,6 +74,7 @@ public class PlayerCam : MonoBehaviour
         {
             GetComponent<Camera>().fieldOfView++;
         }
+        Debug.Log(Input.mousePosition);
     }
 
     public GameObject GetClosestPhotographable()
@@ -87,7 +88,7 @@ public class PlayerCam : MonoBehaviour
             Vector3 direction = currentAnimalsInTheframe[i].transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
             distance = Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position);
-            if (distance < closestDistance && angle < 30)
+            if (distance < closestDistance && IsInTheFrame(currentAnimalsInTheframe[i]))
             {
                 closest = currentAnimalsInTheframe[i];
                 closestDistance = distance;
@@ -107,7 +108,7 @@ public class PlayerCam : MonoBehaviour
             Vector3 targetDir = obj.transform.position - transform.position;
             angle = Vector3.Angle(targetDir, transform.forward);
             distance = Vector3.Distance(playerController.transform.position, obj.transform.position);
-            if (angle < closestAngle && distance < closestDistance)
+            if (angle < closestAngle && distance < closestDistance && IsInTheFrame(obj))
             {
                 closestAngle = angle;
                 closest = obj;
@@ -115,5 +116,17 @@ public class PlayerCam : MonoBehaviour
 
         }
         return closest;
+    }
+    private bool IsInTheFrame(GameObject thing)
+    {
+        Vector3 screenPos = GetComponent<Camera>().WorldToScreenPoint(thing.transform.position);
+        if (330 < screenPos.x && screenPos.x < 1579 && screenPos.y < 871 && screenPos.y > 91)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
