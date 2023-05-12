@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultLightColor: {r: 0, g: 0, b: 0, a: 0}
-  boostedLightColor: {r: 1, g: 1, b: 1, a: 0}
+  boostedLightColor: {r: 1, g: 1, b: 1, a: 1}
   isEnabled: 0
   timeController: {fileID: 469443138}
   volume: {fileID: 746167357}
@@ -483,6 +483,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2626186539985658128, guid: 71a3980b94ea99e4b92c8a5fe105fbdb,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626186539985658128, guid: 71a3980b94ea99e4b92c8a5fe105fbdb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626186539985658128, guid: 71a3980b94ea99e4b92c8a5fe105fbdb,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626186539985658128, guid: 71a3980b94ea99e4b92c8a5fe105fbdb,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.01631
       objectReference: {fileID: 0}
@@ -535,6 +550,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tent
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267870387735774938, guid: 71a3980b94ea99e4b92c8a5fe105fbdb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267870387735774938, guid: 71a3980b94ea99e4b92c8a5fe105fbdb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267870387735774938, guid: 71a3980b94ea99e4b92c8a5fe105fbdb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15353,7 +15383,7 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: e21897833ea6bc64393560d1567ccb7a, type: 2}
   m_TreeDistance: 50
-  m_TreeBillboardDistance: 121
+  m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 471
   m_DetailObjectDistance: 50
@@ -16428,6 +16458,11 @@ PrefabInstance:
       propertyPath: dayText
       value: 
       objectReference: {fileID: 6554239436754253644}
+    - target: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f,
+        type: 3}
+      propertyPath: nightSky
+      value: 
+      objectReference: {fileID: 2100000, guid: c494c335823f54b52b2e87e1b7a63a23, type: 2}
     - target: {fileID: 4427267205629151374, guid: d85037bbf0a35d74c966a322ff730a6f,
         type: 3}
       propertyPath: restHour

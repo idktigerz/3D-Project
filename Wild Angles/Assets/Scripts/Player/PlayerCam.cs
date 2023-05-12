@@ -87,7 +87,7 @@ public class PlayerCam : MonoBehaviour
             Vector3 direction = currentAnimalsInTheframe[i].transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
             distance = Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position);
-            if (distance < closestDistance && angle < 35)
+            if (distance < closestDistance && angle < 30)
             {
                 closest = currentAnimalsInTheframe[i];
                 closestDistance = distance;
@@ -98,14 +98,16 @@ public class PlayerCam : MonoBehaviour
     public GameObject GetClosestPhotographableAngle()
     {
         GameObject closest = null;
+        float closestDistance = 30;
         float closestAngle = Mathf.Infinity;
         float angle;
+        float distance;
         foreach (GameObject obj in currentAnimalsInTheframe)
         {
             Vector3 targetDir = obj.transform.position - transform.position;
             angle = Vector3.Angle(targetDir, transform.forward);
-
-            if (angle < closestAngle)
+            distance = Vector3.Distance(playerController.transform.position, obj.transform.position);
+            if (angle < closestAngle && distance < closestDistance)
             {
                 closestAngle = angle;
                 closest = obj;
