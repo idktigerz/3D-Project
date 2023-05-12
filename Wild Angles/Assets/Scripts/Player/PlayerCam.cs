@@ -21,6 +21,7 @@ public class PlayerCam : MonoBehaviour
     public List<GameObject> currentAnimalsInTheframe;
     public List<GameObject> currentPlantsInTheframe;
 
+    public float closestDistance;
 
     private void Start()
     {
@@ -68,11 +69,25 @@ public class PlayerCam : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && GetComponent<Camera>().fieldOfView > 20 && playerController.cameraON)
         {
             GetComponent<Camera>().fieldOfView--;
-
+            closestDistance++;
+            if (closestDistance > 100)
+            {
+                closestDistance = 100;
+            }
+            
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0 && GetComponent<Camera>().fieldOfView < 60 && playerController.cameraON)
         {
             GetComponent<Camera>().fieldOfView++;
+            closestDistance--;
+            if (closestDistance < 30)
+            {
+                closestDistance = 30;
+            }
+        }
+        if (!playerController.cameraON)
+        {
+            closestDistance = 30;
         }
         Debug.Log(Input.mousePosition);
     }
@@ -81,7 +96,7 @@ public class PlayerCam : MonoBehaviour
     {
 
         GameObject closest = null;
-        float closestDistance = 30;
+        closestDistance = 30;
         float distance;
         for (int i = 0; i < currentAnimalsInTheframe.Count; i++)
         {
@@ -99,7 +114,7 @@ public class PlayerCam : MonoBehaviour
     public GameObject GetClosestPhotographableAngle()
     {
         GameObject closest = null;
-        float closestDistance = 30;
+        closestDistance = 30;
         float closestAngle = Mathf.Infinity;
         float angle;
         float distance;
@@ -113,7 +128,6 @@ public class PlayerCam : MonoBehaviour
                 closestAngle = angle;
                 closest = obj;
             }
-
         }
         return closest;
     }
