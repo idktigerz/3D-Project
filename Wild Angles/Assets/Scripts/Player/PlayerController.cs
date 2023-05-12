@@ -327,7 +327,7 @@ public class PlayerController : MonoBehaviour
                 }
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
                 RenderTexture.active = rt;
-                Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+                Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24,false ,true);
                 tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
                 tex.Apply();
                 RenderTexture.active = null;
@@ -592,7 +592,7 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator CameraUIOn()
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(0.1f);
         cameraUI.SetActive(true);
         renderCam.SetActive(false);
     }

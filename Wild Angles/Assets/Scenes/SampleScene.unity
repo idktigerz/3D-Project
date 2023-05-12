@@ -405,7 +405,7 @@ PrefabInstance:
     - target: {fileID: 226357209440677698, guid: 4988b077ad4685947b3a7bc1894a6c04,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1197.5018
+      value: 1192.54
       objectReference: {fileID: 0}
     - target: {fileID: 226357209440677698, guid: 4988b077ad4685947b3a7bc1894a6c04,
         type: 3}
@@ -446,6 +446,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Crocodile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454874916490194956, guid: 4988b077ad4685947b3a7bc1894a6c04,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088566253758329396, guid: 4988b077ad4685947b3a7bc1894a6c04,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -926,7 +936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2085257733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,7 +1154,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6744357899697611376}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1903f31f03c873249abf4c9ba0b2bc69, type: 3}
   m_Name: 
@@ -2502,7 +2512,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6744357899697611376}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1903f31f03c873249abf4c9ba0b2bc69, type: 3}
   m_Name: 
@@ -15343,9 +15353,9 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: e21897833ea6bc64393560d1567ccb7a, type: 2}
   m_TreeDistance: 2000
-  m_TreeBillboardDistance: 50
+  m_TreeBillboardDistance: 121
   m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
+  m_TreeMaximumFullLODCount: 471
   m_DetailObjectDistance: 200
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
@@ -15360,7 +15370,7 @@ Terrain:
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
+  m_PreserveTreePrototypeLayers: 1
   m_DeringLightProbesForTrees: 0
   m_ReceiveGI: 1
   m_ScaleInLightmap: 0.0256
@@ -18577,6 +18587,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baby Tiger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891270263333911503, guid: 0c92cb3d9d0f11244b5be4d524982a4c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4632548344748188479, guid: 0c92cb3d9d0f11244b5be4d524982a4c,
         type: 3}
@@ -23214,6 +23229,11 @@ PrefabInstance:
       propertyPath: m_ShowCustomSorter
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5925040364641396746, guid: b1570f9f72f43cd4d9add37a65e9eca4,
+        type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6327545143938325046, guid: b1570f9f72f43cd4d9add37a65e9eca4,
         type: 3}
       propertyPath: m_Layer
@@ -23226,6 +23246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2846245958921712825, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
+    - {fileID: 36697840691008163, guid: b1570f9f72f43cd4d9add37a65e9eca4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

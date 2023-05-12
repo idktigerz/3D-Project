@@ -47,7 +47,7 @@ public class PlayerCam : MonoBehaviour
         photographableList[12] = "Purple Orchid";
         photographableList[13] = "Cocoa Tree";
         photographableList[14] = "Banana Tree";
-        
+
     }
 
     private void Update()
@@ -78,13 +78,16 @@ public class PlayerCam : MonoBehaviour
 
     public GameObject GetClosestPhotographable()
     {
+
         GameObject closest = null;
         float closestDistance = 30;
         float distance;
         for (int i = 0; i < currentAnimalsInTheframe.Count; i++)
         {
+            Vector3 direction = currentAnimalsInTheframe[i].transform.position - transform.position;
+            float angle = Vector3.Angle(direction, transform.forward);
             distance = Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position);
-            if (distance < closestDistance)
+            if (distance < closestDistance && angle < 35)
             {
                 closest = currentAnimalsInTheframe[i];
                 closestDistance = distance;

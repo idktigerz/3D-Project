@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010bdd4bb8b83a5438578d3cea9012c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
+  agent: {fileID: 394104042482783972}
   flyBobSpeed: 2.3
   flyBobAmmount: 2
 --- !u!1 &2250777053746335678 stripped
