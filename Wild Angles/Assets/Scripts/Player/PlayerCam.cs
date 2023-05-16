@@ -21,6 +21,7 @@ public class PlayerCam : MonoBehaviour
     public List<GameObject> currentAnimalsInTheframe;
     public List<GameObject> currentPlantsInTheframe;
 
+    public float closestDistance;
 
     private void Start()
     {
@@ -68,26 +69,40 @@ public class PlayerCam : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && GetComponent<Camera>().fieldOfView > 20 && playerController.cameraON)
         {
             GetComponent<Camera>().fieldOfView--;
-
+            closestDistance++;
+            if (closestDistance > 100)
+            {
+                closestDistance = 100;
+            }
+            
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0 && GetComponent<Camera>().fieldOfView < 60 && playerController.cameraON)
         {
             GetComponent<Camera>().fieldOfView++;
+            closestDistance--;
+            if (closestDistance < 10)
+            {
+                closestDistance = 10;
+            }
         }
+        if (!playerController.cameraON)
+        {
+            closestDistance = 30;
+        }
+        Debug.Log(Input.mousePosition);
     }
 
     public GameObject GetClosestPhotographable()
     {
 
         GameObject closest = null;
-        float closestDistance = 30;
         float distance;
         for (int i = 0; i < currentAnimalsInTheframe.Count; i++)
         {
             Vector3 direction = currentAnimalsInTheframe[i].transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
             distance = Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position);
-            if (distance < closestDistance && angle < 35)
+            if (distance < closestDistance && IsInTheFrame(currentAnimalsInTheframe[i]))
             {
                 closest = currentAnimalsInTheframe[i];
                 closestDistance = distance;
@@ -100,18 +115,30 @@ public class PlayerCam : MonoBehaviour
         GameObject closest = null;
         float closestAngle = Mathf.Infinity;
         float angle;
+        float distance;
         foreach (GameObject obj in currentAnimalsInTheframe)
         {
             Vector3 targetDir = obj.transform.position - transform.position;
             angle = Vector3.Angle(targetDir, transform.forward);
-
-            if (angle < closestAngle)
+            distance = Vector3.Distance(playerController.transform.position, obj.transform.position);
+            if (angle < closestAngle && distance < closestDistance && IsInTheFrame(obj))
             {
                 closestAngle = angle;
                 closest = obj;
             }
-
         }
         return closest;
+    }
+    private bool IsInTheFrame(GameObject thing)
+    {
+        Vector3 screenPos = GetComponent<Camera>().WorldToScreenPoint(thing.transform.position);
+        if (330 < screenPos.x && screenPos.x < 1579 && screenPos.y < 871 && screenPos.y > 91)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

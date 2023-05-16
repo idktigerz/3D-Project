@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
         dayText.enabled = false;
         timeText.enabled = false;
         healthbar.UpdateHealthBar(100, health);
+        popUpText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -164,6 +165,7 @@ public class PlayerController : MonoBehaviour
 
         if (cameraON)
         {
+            renderCam.SetActive(true);
             GameObject closest;
             if (photographMode == PhotographMode.CloseFocus)
             {
@@ -175,7 +177,18 @@ public class PlayerController : MonoBehaviour
             }
             if (closest != null)
             {
-                closest.GetComponent<Outline>().enabled = true;
+                foreach (var animal in playerCam.currentAnimalsInTheframe)
+                {
+                    if (animal != closest)
+                    {
+                        animal.GetComponent<Outline>().enabled = false;
+                    }
+                    else
+                    {
+                        animal.GetComponent<Outline>().enabled = true;
+                    }
+
+                }
             }
 
             canFlash = true;
@@ -207,7 +220,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            GameObject closest;
+            renderCam.SetActive(false);
+            /*GameObject closest;
             if (photographMode == PhotographMode.CloseFocus)
             {
                 closest = playerCam.GetClosestPhotographable();
@@ -217,7 +231,11 @@ public class PlayerController : MonoBehaviour
                 closest = playerCam.GetClosestPhotographableAngle();
             }
             closest.GetComponent<Outline>().enabled = false;
-            Debug.Log(closest.name);
+            Debug.Log(closest.name);*/
+            foreach (var animal in playerCam.currentAnimalsInTheframe)
+            {
+                animal.GetComponent<Outline>().enabled = false;
+            }
         }
     }
 
@@ -296,7 +314,7 @@ public class PlayerController : MonoBehaviour
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
-            renderCam.SetActive(true);
+
             light.SetActive(true);
             flashIcon.SetActive(true);
             cameraUI.SetActive(false);
@@ -327,7 +345,7 @@ public class PlayerController : MonoBehaviour
                 }
                 int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
                 RenderTexture.active = rt;
-                Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24,false ,true);
+                Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false, true);
                 tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
                 tex.Apply();
                 RenderTexture.active = null;
@@ -592,9 +610,9 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator CameraUIOn()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         cameraUI.SetActive(true);
-        renderCam.SetActive(false);
+        popUpText.gameObject.SetActive(false);
     }
     private IEnumerator FlashOn()
     {
@@ -627,11 +645,11 @@ public class PlayerController : MonoBehaviour
         Vector3 targetDir = animal.transform.position - transform.position;
         float angle2 = Vector3.Angle(targetDir, transform.forward);
 
-        if (angle < 50 && angle2 < 15)
+        if (angle < 30 && angle2 < 15)
         {
             return 1;
         }
-        else if (angle < 50 || angle2 < 15)
+        else if (angle < 30 || angle2 < 15)
         {
             return 2;
         }

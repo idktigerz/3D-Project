@@ -143,8 +143,8 @@ public class TimeController : MonoBehaviour
             double percentage = timeSinceSunrise.TotalMinutes / sunriseToSunsetDuration.TotalMinutes;
 
             sunLightRotation = Mathf.Lerp(0, 180, (float)percentage);
-            sunSky.Lerp(nightSky, sunSky, sunLightRotation);
-            RenderSettings.skybox = sunSky;
+
+            //RenderSettings.skybox = sunSky;
             RenderSettings.ambientLight = dayAmbientLight;
             RenderSettings.ambientIntensity = 1f;
             RenderSettings.reflectionIntensity = 1f;
@@ -161,8 +161,8 @@ public class TimeController : MonoBehaviour
 
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
 
-            RenderSettings.skybox = nightSky;
-            nightSky.Lerp(sunSky, nightSky, sunLightRotation);
+            //RenderSettings.skybox = nightSky;
+
             RenderSettings.ambientLight = nightAmbientLight;
             RenderSettings.reflectionIntensity = 0.1f;
             playerLight.intensity = 5f;
