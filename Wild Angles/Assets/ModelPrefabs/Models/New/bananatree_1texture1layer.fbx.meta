@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 8e9bb6827236a34448e27b413b0a626f
+guid: a76ab611571a0024eb5631125cb72593
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: texture.001
+    second: {fileID: 2100000, guid: 0117a7bfa52fa9941b39d5a457f60746, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: banana texture
+    second: {fileID: 2800000, guid: 65405361a22972242a57169f1314f103, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
