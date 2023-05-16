@@ -15,6 +15,10 @@ public class RunAwayAction : Action
         {
             fsm.GetNavMeshAgent().OwlRunAway();
         }
+        else if (fsm.name.Contains("Snake"))
+        {
+            fsm.GetNavMeshAgent().SnakeRunAway();
+        }
 
     }
 }

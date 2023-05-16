@@ -181,11 +181,13 @@ public class PlayerController : MonoBehaviour
                 {
                     if (animal != closest)
                     {
-                        animal.GetComponent<Outline>().enabled = false;
+                        Outline outline = animal.GetComponent<Outline>();
+                        if (outline != null) outline.enabled = false;
                     }
                     else
                     {
-                        animal.GetComponent<Outline>().enabled = true;
+                        Outline outline = animal.GetComponent<Outline>();
+                        if (outline != null) outline.enabled = true;
                     }
 
                 }
@@ -234,7 +236,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log(closest.name);*/
             foreach (var animal in playerCam.currentAnimalsInTheframe)
             {
-                animal.GetComponent<Outline>().enabled = false;
+                Outline outline = animal.GetComponent<Outline>();
+                if (outline != null) outline.enabled = false;
             }
         }
     }
@@ -359,12 +362,12 @@ public class PlayerController : MonoBehaviour
                 else if (closest.name.Contains("Owl"))
                 {
                     diaryController.owlPhotos.Add(tex);
-                    Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
-                    if (closest.GetComponentInParent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
+                    //Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
+                    /*if (closest.GetComponentInParent<GameObject>().GetComponentInParent<FiniteStateMachine>().  currentState.name == "OwlPatrolState")
                     {
                         OwlText.text = "Mission Passed you gained +50 points";
                         points += 50;
-                    }
+                    }*/
                 }
                 else if (closest.name.Contains("Butterfly"))
                 {

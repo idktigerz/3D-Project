@@ -74,7 +74,7 @@ public class PlayerCam : MonoBehaviour
             {
                 closestDistance = 100;
             }
-            
+
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0 && GetComponent<Camera>().fieldOfView < 60 && playerController.cameraON)
         {
@@ -97,15 +97,16 @@ public class PlayerCam : MonoBehaviour
 
         GameObject closest = null;
         float distance;
+        float closestDistanceAnimal = 100;
         for (int i = 0; i < currentAnimalsInTheframe.Count; i++)
         {
             Vector3 direction = currentAnimalsInTheframe[i].transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
             distance = Vector3.Distance(playerController.transform.position, currentAnimalsInTheframe[i].transform.position);
-            if (distance < closestDistance && IsInTheFrame(currentAnimalsInTheframe[i]))
+            if (distance < closestDistanceAnimal && distance < closestDistance && IsInTheFrame(currentAnimalsInTheframe[i]))
             {
                 closest = currentAnimalsInTheframe[i];
-                closestDistance = distance;
+                closestDistanceAnimal = distance;
             }
         }
         return closest;

@@ -138,6 +138,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     public void GoToNextPatrolWaypointBabyTiger()
     {
         agent.isStopped = false;
+        agent.speed = 7;
         var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
         agent.SetDestination(target.position + NewPos);
     }
@@ -242,8 +243,15 @@ public class FSMNavMeshAgent : MonoBehaviour
             snakeCanAttack = true;
             timeStaring = 0;
         }
-
-
+    }
+    public void SnakeRunAway()
+    {
+        if (gameObject.name.Contains("Snake") && canRun)
+        {
+            var NewPos = ((transform.position - target.position));
+            agent.SetDestination(transform.position + NewPos);
+            canRun = false;
+        }
     }
     IEnumerator CrocAttackWait()
     {

@@ -10,7 +10,7 @@ public class PatrolAction : Action
     {
         fsm.GetNavMeshAgent().agent.isStopped = false;
         //Debug.Log($"PATROLING");
-        if (fsm.GetNavMeshAgent().IsAtDestination())
+        if (fsm.GetNavMeshAgent().IsAtDestination() || fsm.name.Contains("Baby Tiger") && Vector3.Distance(fsm.gameObject.transform.position, fsm.GetNavMeshAgent().target.position) > 15)
         {
             fsm.GetNavMeshAgent().timeStaring = 0;
             if (fsm.name.Contains("Crocodile"))
@@ -38,6 +38,7 @@ public class PatrolAction : Action
                 fsm.GetNavMeshAgent().Ponto.SetActive(false);
                 fsm.GetNavMeshAgent().GoToNextPatrolWaypointBabyTiger();
 
+
             }
             else if (fsm.name.Contains("Snake") && fsm.GetNavMeshAgent())
             {
@@ -46,5 +47,6 @@ public class PatrolAction : Action
 
 
         }
+
     }
 }
