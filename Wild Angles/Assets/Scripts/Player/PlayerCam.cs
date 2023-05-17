@@ -48,6 +48,7 @@ public class PlayerCam : MonoBehaviour
         photographableList[12] = "Purple Orchid";
         photographableList[13] = "Cocoa Tree";
         photographableList[14] = "Banana Tree";
+        photographableList[15] = "Helconia";
 
     }
 
@@ -89,7 +90,6 @@ public class PlayerCam : MonoBehaviour
         {
             closestDistance = 30;
         }
-        Debug.Log(Input.mousePosition);
     }
 
     public GameObject GetClosestPhotographable()
