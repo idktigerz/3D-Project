@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2691609958117032502}
   - component: {fileID: 2230331262204902780}
+  - component: {fileID: 9215896766751699770}
   m_Layer: 0
   m_Name: Poison Orchid
   m_TagString: Interactable Plant
@@ -48,10 +49,31 @@ MonoBehaviour:
   openTime: 22
   closeTime: 3
   plant: {fileID: 4282639140999510966}
-  collider: {fileID: 4281492118598951110}
+  collider: {fileID: 9215896766751699770}
   timeController: {fileID: 0}
   playerController: {fileID: 0}
   healAmount: -30
+--- !u!65 &9215896766751699770
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636840648601819249}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3851318, y: 0.9881077, z: 1}
+  m_Center: {x: -0.47244263, y: 0.4840318, z: 0}
 --- !u!1001 &4965906049481203454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,6 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3605424910930218409, guid: 5b989b7aae1c67b41a4221a2b03af0a5, type: 3}
+    - {fileID: 9187514042480328248, guid: 5b989b7aae1c67b41a4221a2b03af0a5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -139,12 +162,6 @@ PrefabInstance:
 --- !u!4 &3469228802855788812 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 4965906049481203454}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &4281492118598951110 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 9187514042480328248, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
     type: 3}
   m_PrefabInstance: {fileID: 4965906049481203454}
   m_PrefabAsset: {fileID: 0}

@@ -355,6 +355,7 @@ public class PlayerController : MonoBehaviour
                 popUpText.gameObject.SetActive(true);
                 popUpText.text = "new " + closest.name + " photo added to the diary";
                 //listaTeste.Add(tex);
+                //WHEN TAKING THE PIC ACTIVATE THE IS KNOWN VARIABLE IN PHOTOGRAPHABLE
                 if (closest.name.Contains("Crocodile"))
                 {
                     diaryController.crocodilePhotos.Add(tex);
@@ -363,6 +364,7 @@ public class PlayerController : MonoBehaviour
                 {
                     diaryController.owlPhotos.Add(tex);
                     //Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
+                    //IF (THE STATE IS CORRECT)
                     /*if (closest.GetComponentInParent<GameObject>().GetComponentInParent<FiniteStateMachine>().  currentState.name == "OwlPatrolState")
                     {
                         OwlText.text = "Mission Passed you gained +50 points";

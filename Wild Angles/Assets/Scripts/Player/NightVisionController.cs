@@ -36,9 +36,7 @@ public class NightVisionController : MonoBehaviour
         if (timeController.canToggleNightVision && isEnabled == false)
         {
             RenderSettings.ambientIntensity = 0.1f;
-
         }
-        Debug.Log(RenderSettings.ambientIntensity);
     }
 
     private void ToggleNightVision()

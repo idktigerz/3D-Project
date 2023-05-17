@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ae6db96159e186a41a8ff75e9245cad7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae6db96159e186a41a8ff75e9245cad7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -237.06532
+      value: -24.460907
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae6db96159e186a41a8ff75e9245cad7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000019073486
+      value: -12.868265
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae6db96159e186a41a8ff75e9245cad7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1197.0697
+      value: -8.83606
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae6db96159e186a41a8ff75e9245cad7,
         type: 3}
@@ -66,7 +66,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ae6db96159e186a41a8ff75e9245cad7,
         type: 3}
       propertyPath: m_Name
-      value: Banana Tree Variant
+      value: Banana Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae6db96159e186a41a8ff75e9245cad7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable Plant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

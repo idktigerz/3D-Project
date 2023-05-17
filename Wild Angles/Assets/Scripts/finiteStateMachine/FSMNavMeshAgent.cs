@@ -58,13 +58,11 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     private IEnumerator OwlWaypointsAdder()
     {
-        Debug.Log("affsfsdffaasfsafafa");
         yield return new WaitForSeconds(0.5f);
         listOfAnimals = GameObject.FindGameObjectsWithTag("Animal");
         GameObject[] trees = GameObject.FindGameObjectsWithTag("OwlTrees");
         foreach (GameObject tree in trees)
         {
-            Debug.Log($"aaaaa");
             OwlWaypoints.Add(FindChildGameObjectByName(tree, "OwlWaypoint").transform);
         }
     }

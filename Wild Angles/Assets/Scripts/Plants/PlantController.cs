@@ -11,7 +11,7 @@ public class PlantController : MonoBehaviour
 
     private TimeSpan openHour;
     private TimeSpan closeHour;
-    [SerializeField] 
+    [SerializeField]
     private GameObject plant;
     public BoxCollider collider;
 
@@ -25,7 +25,7 @@ public class PlantController : MonoBehaviour
 
     void Start()
     {
-        collider = GameObject.FindGameObjectWithTag("Interactable Plant").GetComponent<BoxCollider>();
+        collider = GetComponent<BoxCollider>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         timeController = GameObject.FindGameObjectWithTag("TimeController").GetComponent<TimeController>();
         plantEaten = false;
@@ -38,7 +38,7 @@ public class PlantController : MonoBehaviour
             plant.SetActive(false);
             collider.enabled = false;
         }
-        else 
+        else
         {
             plant.SetActive(true);
             collider.enabled = true;
@@ -92,7 +92,7 @@ public class PlantController : MonoBehaviour
 
         plantEaten = false;
 
-        if(openHour <= timeController.currentTime.TimeOfDay)
+        if (openHour <= timeController.currentTime.TimeOfDay)
         {
             plant.SetActive(true);
             collider.enabled = true;
@@ -102,7 +102,7 @@ public class PlantController : MonoBehaviour
             plant.SetActive(false);
             collider.enabled = false;
         }
-        
+
     }
 
 }
