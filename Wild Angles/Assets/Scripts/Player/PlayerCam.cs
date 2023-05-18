@@ -32,7 +32,7 @@ public class PlayerCam : MonoBehaviour
         {
             picCounter[i] = 0;
         }
-        photographableList = new string[16];
+        photographableList = new string[15];
         photographableList[0] = "Snake";
         photographableList[1] = "Butterfly";
         photographableList[2] = "Parrot";
@@ -48,7 +48,7 @@ public class PlayerCam : MonoBehaviour
         photographableList[12] = "Purple Orchid";
         photographableList[13] = "Cocoa Tree";
         photographableList[14] = "Banana Tree";
-        photographableList[15] = "Helconia";
+        //photographableList[15] = "Helconia";
 
     }
 
