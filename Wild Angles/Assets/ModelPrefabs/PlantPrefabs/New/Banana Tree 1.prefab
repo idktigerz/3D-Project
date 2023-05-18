@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6636840648601819249
+--- !u!1 &3962935320074214732
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2691609958117032502}
-  - component: {fileID: 2230331262204902780}
-  - component: {fileID: 9215896766751699770}
+  - component: {fileID: 4091067031773115540}
+  - component: {fileID: 2427414437481246815}
+  - component: {fileID: 775389585415054760}
   m_Layer: 0
-  m_Name: Poison Orchid
+  m_Name: Banana Tree 1
   m_TagString: Interactable Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2691609958117032502
+--- !u!4 &4091067031773115540
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636840648601819249}
+  m_GameObject: {fileID: 3962935320074214732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -267.61115, y: 1.5768988, z: 1206.8065}
+  m_LocalPosition: {x: -264.7046, y: 2.0849671, z: 1207.5261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3469228802855788812}
+  - {fileID: 8890275854129032960}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2230331262204902780
+--- !u!114 &2427414437481246815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636840648601819249}
+  m_GameObject: {fileID: 3962935320074214732}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f75ff23a545f7b49926d241aa5beac9, type: 3}
@@ -48,19 +48,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openTime: 0
   closeTime: 0
-  plant: {fileID: 4282639140999510966}
+  plant: {fileID: 8082635758095545786}
   collider: {fileID: 0}
   timeController: {fileID: 0}
   playerController: {fileID: 0}
-  healAmount: -30
+  healAmount: 50
   plantEaten: 0
---- !u!65 &9215896766751699770
+--- !u!65 &775389585415054760
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636840648601819249}
+  m_GameObject: {fileID: 3962935320074214732}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -73,102 +73,95 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3851318, y: 0.9881077, z: 1}
-  m_Center: {x: -0.47244263, y: 0.4840318, z: 0}
---- !u!1001 &4965906049481203454
+  m_Size: {x: 1.4802856, y: 7.521097, z: 1.0625}
+  m_Center: {x: -0.24014282, y: 3.6932664, z: -0.52978516}
+--- !u!1001 &1787779571457030650
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2691609958117032502}
+    m_TransformParent: {fileID: 4091067031773115540}
     m_Modifications:
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.00000004371139
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 6.1232336e-17
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -6.1232336e-17
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9188623786201572680, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7558221504127880256, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_Name
-      value: Poison Orchid
+      value: Banana Tree
       objectReference: {fileID: 0}
-    - target: {fileID: 9188623786201572680, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9188623786201572680, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+    - target: {fileID: 7558221504127880256, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
         type: 3}
       propertyPath: m_TagString
       value: Interactable Plant
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3605424910930218409, guid: 5b989b7aae1c67b41a4221a2b03af0a5, type: 3}
-    - {fileID: 9187514042480328248, guid: 5b989b7aae1c67b41a4221a2b03af0a5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5b989b7aae1c67b41a4221a2b03af0a5, type: 3}
---- !u!4 &3469228802855788812 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 4965906049481203454}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4282639140999510966 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: de22d31d93e5b6d4b8cf0dc904f225d7, type: 3}
+--- !u!1 &8082635758095545786 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 9188623786201572680, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+  m_CorrespondingSourceObject: {fileID: 7558221504127880256, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
     type: 3}
-  m_PrefabInstance: {fileID: 4965906049481203454}
+  m_PrefabInstance: {fileID: 1787779571457030650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8890275854129032960 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7183209267320755962, guid: de22d31d93e5b6d4b8cf0dc904f225d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1787779571457030650}
   m_PrefabAsset: {fileID: 0}

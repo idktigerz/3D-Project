@@ -21,7 +21,8 @@ public class PlantController : MonoBehaviour
     [SerializeField]
     private int healAmount;
 
-    private bool plantEaten;
+    public bool plantEaten;
+    public bool canInteract;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class PlantController : MonoBehaviour
         openHour = TimeSpan.FromHours(openTime);
         closeHour = TimeSpan.FromHours(closeTime);
 
-        if (openHour < timeController.currentTime.TimeOfDay && plantEaten == false)
+        if (openHour > timeController.currentTime.TimeOfDay && plantEaten == false)
         {
             plant.SetActive(false);
             collider.enabled = false;
@@ -76,7 +77,13 @@ public class PlantController : MonoBehaviour
 
             }
         }
-        if (Input.GetKeyDown(playerController.interactKey) && playerController.canInteractPlant && playerController.health <= 100f && plantEaten == false)
+        if (Input.GetKeyDown(playerController.interactKey) && playerController.canInteractPlant && plantEaten == false && healAmount > 0)
+        {
+            plantEaten = true;
+            playerController.HealPlayer(healAmount);
+            StartCoroutine(ChangePlantState());
+        }
+        else if (Input.GetKeyDown(playerController.interactKey) && playerController.canInteractPlant && plantEaten == false && healAmount < 0)
         {
             plantEaten = true;
             playerController.HealPlayer(healAmount);
@@ -87,12 +94,19 @@ public class PlantController : MonoBehaviour
     private IEnumerator ChangePlantState()
     {
         plant.SetActive(false);
+        collider.enabled = false;
+        Debug.Log(plantEaten);
 
         yield return new WaitForSeconds(5);
 
         plantEaten = false;
 
-        if (openHour <= timeController.currentTime.TimeOfDay)
+        plant.SetActive(true);
+        collider.enabled = true;
+
+
+
+        /*if (openHour <= timeController.currentTime.TimeOfDay)
         {
             plant.SetActive(true);
             collider.enabled = true;
@@ -101,7 +115,7 @@ public class PlantController : MonoBehaviour
         {
             plant.SetActive(false);
             collider.enabled = false;
-        }
+        }*/
 
     }
 
