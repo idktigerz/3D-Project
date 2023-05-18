@@ -468,6 +468,7 @@ public class PlayerController : MonoBehaviour
         {
             if (diaryOpen)
             {
+                timeController.GetComponent<TimeController>().timeMultiplier = 0;
                 playerCam.enabled = true;
                 diaryUI.SetActive(false);
                 diaryOpen = false;
@@ -478,6 +479,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                timeController.GetComponent<TimeController>().timeMultiplier = 500;
                 playerCam.enabled = false;
                 diaryUI.SetActive(true);
                 diaryOpen = true;
