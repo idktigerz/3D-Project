@@ -96,8 +96,13 @@ public class PlayerController : MonoBehaviour
     public RenderTexture rt;
     public List<Texture2D> listaTeste;
     public DiaryController diaryController;
-    public enum PhotographMode { CloseFocus, LongFocus };
-    public PhotographMode photographMode;
+
+    public GameObject notsleptUi;
+    [SerializeField] bool resting;
+    [SerializeField] GameObject tentCammera;
+    [SerializeField] GameObject playerBody;
+
+
     public int points;
     public enum MovementState
     {
@@ -127,6 +132,32 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        //CHECK IF IS RESTING
+        if (resting)
+        {
+            timeController.GetComponent<TimeController>().timeMultiplier = 1500;
+            health += 1 * Time.deltaTime;
+            healthbar.UpdateHealthBar(100, health);
+            if (Input.GetKey(KeyCode.F))
+            {
+                resting = false;
+                playerBody.SetActive(true);
+                tentCammera.SetActive(false);
+                timeController.GetComponent<TimeController>().timeMultiplier = 500;
+            }
+        }
+        //CHECK IF SLEPT IN THE LAST 2 DAYS
+        if (timeController.GetComponent<TimeController>().dayCounter - lastDaySaved >= 2)
+        {
+            health -= 0.7f * Time.deltaTime;
+            healthbar.UpdateHealthBar(100, health);
+            notsleptUi.SetActive(true);
+            //AVISAR PLAYER NO UI
+        }
+        else
+        {
+            notsleptUi.SetActive(false);
+        }
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f, whatIsGround);
 
@@ -182,14 +213,7 @@ public class PlayerController : MonoBehaviour
         {
             renderCam.SetActive(true);
             GameObject closest;
-            if (photographMode == PhotographMode.CloseFocus)
-            {
-                closest = playerCam.GetClosestPhotographable();
-            }
-            else
-            {
-                closest = playerCam.GetClosestPhotographableAngle();
-            }
+            closest = playerCam.GetClosestPhotographable();
             if (closest != null)
             {
                 foreach (var animal in playerCam.currentAnimalsInTheframe)
@@ -304,19 +328,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(changeFocusModeKey))
-        {
 
-            if (photographMode == PhotographMode.CloseFocus)
-            {
-                photographMode = PhotographMode.LongFocus;
-            }
-            else
-            {
-                photographMode = PhotographMode.CloseFocus;
-            }
-            modeText.text = "Mode: " + photographMode;
-        }
 
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
@@ -326,15 +338,7 @@ public class PlayerController : MonoBehaviour
             flashIcon.SetActive(true);
             cameraUI.SetActive(false);
             GameObject closest = null;
-            if (photographMode == PhotographMode.CloseFocus)
-            {
-                closest = playerCam.GetClosestPhotographable();
-            }
-            else
-            {
-                closest = playerCam.GetClosestPhotographableAngle();
-            }
-
+            closest = playerCam.GetClosestPhotographable();
             if (closest != null)
             {
                 int point = GradePhoto(closest);
@@ -449,7 +453,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(interactKey) && canInteract)
         {
 
-            StartCoroutine(Rest());
+            //StartCoroutine(Rest());
+            Restt();
 
         }
         if (Input.GetKeyUp(KeyCode.P))
@@ -462,6 +467,7 @@ public class PlayerController : MonoBehaviour
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
 
+
             }
             else
             {
@@ -470,6 +476,7 @@ public class PlayerController : MonoBehaviour
                 diaryOpen = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                cameraON = false;
 
             }
         }
@@ -620,6 +627,15 @@ public class PlayerController : MonoBehaviour
         }
         rechargeAmount = 3;
 
+    }
+    private void Restt()
+    {
+        lastDaySaved = timeController.GetComponent<TimeController>().dayCounter;
+        resting = true;
+        rechargeAmount = 3;
+        tentCammera.SetActive(true);
+        transform.position = new Vector3(441.08f, 0, 1207.82f);
+        playerBody.SetActive(false);
     }
     private IEnumerator CameraUIOn()
     {

@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class TimeController : MonoBehaviour
 {
     [SerializeField]
-    private float timeMultiplier;
+    public float timeMultiplier;
 
     [Header("Time starts")]
     [SerializeField]

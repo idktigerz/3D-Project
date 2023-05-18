@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject tent;
 
+
     public TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
                 pauseMenu.SetActive(true);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                playerController.cameraON = false;
             }
         }
     }
