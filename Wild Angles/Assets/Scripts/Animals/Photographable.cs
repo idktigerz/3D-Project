@@ -5,8 +5,9 @@ using UnityEngine;
 public class Photographable : MonoBehaviour
 {
     public PlayerCam playerCam;
+    public bool haveBeenSeen;
 
-    public enum PhotographableID { Snake, Butterfly, Parrot, Sloth, Frog, Owl, Crocodile, Tiger, Otter, Bug, WhiteOrchid, PurpleOrchid, CocoaTree, BananaTree,Helconia };
+    public enum PhotographableID { Snake, Butterfly, Parrot, Sloth, Frog, Owl, Crocodile, Tiger, Otter, Bug, WhiteOrchid, PurpleOrchid, CocoaTree, BananaTree, Helconia };
 
     [Header("animal stuff")]
 

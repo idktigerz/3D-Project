@@ -354,6 +354,8 @@ public class PlayerController : MonoBehaviour
                 RenderTexture.active = null;
                 popUpText.gameObject.SetActive(true);
                 popUpText.text = "new " + closest.name + " photo added to the diary";
+                closest.GetComponent<Photographable>().haveBeenSeen = true;
+                UpdatePageUi(closest.name);
                 //listaTeste.Add(tex);
                 //WHEN TAKING THE PIC ACTIVATE THE IS KNOWN VARIABLE IN PHOTOGRAPHABLE
                 if (closest.name.Contains("Crocodile"))
@@ -365,11 +367,13 @@ public class PlayerController : MonoBehaviour
                     diaryController.owlPhotos.Add(tex);
                     //Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
                     //IF (THE STATE IS CORRECT)
-                    /*if (closest.GetComponentInParent<GameObject>().GetComponentInParent<FiniteStateMachine>().  currentState.name == "OwlPatrolState")
+                    GameObject animal = closest.GetComponentInParent<GameObject>();
+                    if (animal.GetComponentInParent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
                     {
                         OwlText.text = "Mission Passed you gained +50 points";
                         points += 50;
-                    }*/
+                    }
+
                 }
                 else if (closest.name.Contains("Butterfly"))
                 {
@@ -662,5 +666,64 @@ public class PlayerController : MonoBehaviour
         {
             return 3;
         }
+    }
+
+    private void UpdatePageUi(string name)
+    {
+        GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
+        TextMeshProUGUI mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI description = FindChildGameObjectByName(objectName, "Description Text").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI fact = FindChildGameObjectByName(objectName, "Fact Text").GetComponent<TextMeshProUGUI>();
+        switch (objectName.name)
+        {
+            case "CrocodilePage":
+                mission.text = "Mission : Take a photo of a crocodile attacking you";
+                description.text = "Description about the animal : Its a Croqui";
+                fact.text = "Fun fact about the animal : croqui ver dangewos be cawefull";
+                break;
+            case "OwlPage":
+                mission.text = "Mission : Take a photo of an Owl flying";
+                description.text = "Description about the animal : Its an Owl";
+                fact.text = "Fun fact about the animal : Owl very active at night";
+                break;
+            case "ButterflyPage":
+                mission.text = "Mission : Take a photo of a butterfly flying ";
+                description.text = "Description about the animal : its a butterfly";
+                fact.text = "Fun fact about the animal : butterfly very beautiful";
+                break;
+            case "BugPage":
+                mission.text = "Mission : Take a perfect photo of a bug";
+                description.text = "Description about the animal : Its a Bug";
+                fact.text = "Fun fact about the animal : very inofencive";
+                break;
+            case "FrogPage":
+                mission.text = "Mission : Take a perfect photo of a frog";
+                description.text = "Description about the animal : Its a frogy";
+                fact.text = "Fun fact about the animal : very boing";
+                break;
+            case "SnakePage":
+                mission.text = "Mission : Take a photo of a Snake Staring at You";
+                description.text = "Description about the animal : Its a Sneke";
+                fact.text = "Fun fact about the animal : Sneke very esquibo";
+                break;
+        }
+    }
+    private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
+    {
+        for (int i = 0; i < topParentObject.transform.childCount; i++)
+        {
+            if (topParentObject.transform.GetChild(i).name == gameObjectName)
+            {
+                return topParentObject.transform.GetChild(i).gameObject;
+            }
+
+            GameObject tmp = FindChildGameObjectByName(topParentObject.transform.GetChild(i).gameObject, gameObjectName);
+
+            if (tmp != null)
+            {
+                return tmp;
+            }
+        }
+        return null;
     }
 }
