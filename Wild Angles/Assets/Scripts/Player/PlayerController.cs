@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
     public HealthbarController healthbar;
     public StaminaBarController staminaBar;
     public BatteryBarController batteryBar;
+    public PlantController plantController;
 
     private bool diaryOpen;
     [SerializeField] GameObject diaryUI;
@@ -111,6 +112,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
         timeController = GameObject.FindGameObjectWithTag("TimeController");
+        plantController = GameObject.FindGameObjectWithTag("Interactable Plant").GetComponent<PlantController>();
         rb.freezeRotation = true;
         readyToJump = true;
         isFlashing = false;
@@ -153,13 +155,13 @@ public class PlayerController : MonoBehaviour
         }
         else if (active && hit.collider.CompareTag("Interactable Plant"))
         {
-            canInteractPlant = true;
             interactText.enabled = true;
+            hit.collider.gameObject.GetComponent<PlantController>().canInteract = true;
         }
         else
         {
+            plantController.canInteract = false;
             canInteract = false;
-            canInteractPlant = false;
             interactText.enabled = false;
         }
 
@@ -223,17 +225,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             renderCam.SetActive(false);
-            /*GameObject closest;
-            if (photographMode == PhotographMode.CloseFocus)
-            {
-                closest = playerCam.GetClosestPhotographable();
-            }
-            else
-            {
-                closest = playerCam.GetClosestPhotographableAngle();
-            }
-            closest.GetComponent<Outline>().enabled = false;
-            Debug.Log(closest.name);*/
             foreach (var animal in playerCam.currentAnimalsInTheframe)
             {
                 Outline outline = animal.GetComponent<Outline>();

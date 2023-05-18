@@ -77,13 +77,13 @@ public class PlantController : MonoBehaviour
 
             }
         }
-        if (Input.GetKeyDown(playerController.interactKey) && playerController.canInteractPlant && plantEaten == false && healAmount > 0)
+        if (Input.GetKeyDown(playerController.interactKey) && canInteract && plantEaten == false && healAmount > 0)
         {
             plantEaten = true;
             playerController.HealPlayer(healAmount);
             StartCoroutine(ChangePlantState());
         }
-        else if (Input.GetKeyDown(playerController.interactKey) && playerController.canInteractPlant && plantEaten == false && healAmount < 0)
+        else if (Input.GetKeyDown(playerController.interactKey) && canInteract && plantEaten == false && healAmount < 0)
         {
             plantEaten = true;
             playerController.HealPlayer(healAmount);
@@ -93,6 +93,7 @@ public class PlantController : MonoBehaviour
     }
     private IEnumerator ChangePlantState()
     {
+        canInteract = false;
         plant.SetActive(false);
         collider.enabled = false;
         Debug.Log(plantEaten);
@@ -103,19 +104,6 @@ public class PlantController : MonoBehaviour
 
         plant.SetActive(true);
         collider.enabled = true;
-
-
-
-        /*if (openHour <= timeController.currentTime.TimeOfDay)
-        {
-            plant.SetActive(true);
-            collider.enabled = true;
-        }
-        else
-        {
-            plant.SetActive(false);
-            collider.enabled = false;
-        }*/
 
     }
 
