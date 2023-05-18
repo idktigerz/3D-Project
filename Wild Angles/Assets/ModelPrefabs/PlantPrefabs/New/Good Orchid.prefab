@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 3077758528016379158}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2892401575573514778
 MonoBehaviour:
@@ -46,13 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f75ff23a545f7b49926d241aa5beac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 22
-  closeTime: 3
+  openTime: 0
+  closeTime: 0
   plant: {fileID: 2449313606658439084}
   collider: {fileID: 0}
   timeController: {fileID: 0}
   playerController: {fileID: 0}
   healAmount: 50
+  plantEaten: 0
 --- !u!65 &2882675925897341501
 BoxCollider:
   m_ObjectHideFlags: 0

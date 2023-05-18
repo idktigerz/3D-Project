@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ProcessInputs();
-        if(timeController.dayCounter == 7)
+        if (timeController.dayCounter == 7)
         {
             PlayerPrefs.SetInt("points", playerController.points);
             Endgame();
@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
-
+        timeController.dayCounter -= playerController.lastDaySaved;
+        Instantiate()
     }
 }
