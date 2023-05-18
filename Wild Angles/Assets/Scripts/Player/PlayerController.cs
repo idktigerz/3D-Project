@@ -148,9 +148,17 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
         active = Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, playerActivateDistance);
+        GameObject companion = null;
         if (active && hit.collider.CompareTag("Interactable"))
         {
             canInteract = true;
+            interactText.enabled = true;
+
+        }
+        else if (active && hit.collider.CompareTag("Companion"))
+        {
+            companion = hit.collider.gameObject;
+            companion.GetComponent<CompanionTuturial>().canInteract = true;
             interactText.enabled = true;
 
         }
@@ -164,6 +172,10 @@ public class PlayerController : MonoBehaviour
             plantController.canInteract = false;
             canInteract = false;
             interactText.enabled = false;
+            if (companion != null)
+            {
+                companion.GetComponent<CompanionTuturial>().canInteract = false;
+            }
         }
 
         if (cameraON)

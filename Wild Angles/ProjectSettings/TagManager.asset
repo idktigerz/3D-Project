@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - TimeController
   - OwlTrees
+  - Companion
   layers:
   - Default
   - TransparentFX
