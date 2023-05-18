@@ -83,7 +83,10 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        timeController.currentTime += timeController.midDayTime;
+        playerController.health = 100;
         timeController.dayCounter = playerController.lastDaySaved;
+
         player.transform.position = tent.transform.position;
     }
 }
