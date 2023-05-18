@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     public TimeController timeController;
     public GameObject player;
+    public GameObject tent;
 
     public TextMeshProUGUI scoreText;
 
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        timeController.dayCounter -= playerController.lastDaySaved;
-        Instantiate()
+        timeController.dayCounter = playerController.lastDaySaved;
+        player.transform.position = tent.transform.position;
     }
 }

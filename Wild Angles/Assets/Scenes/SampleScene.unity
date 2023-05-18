@@ -4198,6 +4198,7 @@ MonoBehaviour:
   playerController: {fileID: 1922808899821454423}
   timeController: {fileID: 469443138}
   player: {fileID: 0}
+  tent: {fileID: 0}
   scoreText: {fileID: 0}
 --- !u!114 &952395766854955987
 MonoBehaviour:
@@ -17114,6 +17115,11 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 9013185015042728331}
+    - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 937387127486397322}
     - target: {fileID: 3091937065446455253, guid: 5960921e047954849938167a2c29b6db,
         type: 3}
       propertyPath: interactText

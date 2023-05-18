@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
     public StaminaBarController staminaBar;
     public BatteryBarController batteryBar;
     public PlantController plantController;
+    public GameManager gameManager;
 
     private bool diaryOpen;
     [SerializeField] GameObject diaryUI;
@@ -626,6 +627,12 @@ public class PlayerController : MonoBehaviour
     {
         health -= damage;
         healthbar.UpdateHealthBar(100, health);
+
+        if (health < 0)
+        {
+            health = 0;
+            gameManager.RespawnPlayer();
+        }
     }
 
     public void HealPlayer(int heal)
