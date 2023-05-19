@@ -7,17 +7,17 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: WaterMat
   m_Shader: {fileID: -6465566751694194690, guid: 5bbf322dd8be42141a46830ae0c9232d,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -38,16 +38,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Depth: 2
     - _QueueControl: 0
-    - _QueueOffset: 1
-    - _Slider: 0
-    - _Strength: 0.58
-    m_Colors:
-    - _Depth_Water_Color: {r: 0, g: 1, b: 0.64446235, a: 0.6588235}
-    - _Shallow_Water_Color: {r: 0, g: 0.44939607, b: 1, a: 0.62352943}
+    - _QueueOffset: 0
+    m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &8208438106948131432
+--- !u!114 &1260500285000819217
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
