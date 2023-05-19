@@ -47333,7 +47333,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1308869306}
   - component: {fileID: 1308869309}
-  - component: {fileID: 1308869308}
   - component: {fileID: 1308869307}
   m_Layer: 0
   m_Name: Camera
@@ -47400,14 +47399,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1308869308
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308869305}
-  m_Enabled: 1
 --- !u!20 &1308869309
 Camera:
   m_ObjectHideFlags: 0
@@ -57799,6 +57790,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1807027230673756892, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807027230673756892, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 3497657490202131504, guid: 72a4946762cc14f44874d295f39bfdca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -57813,6 +57814,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674719873292651182, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674719873292651182, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674719873292651182, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674719873292651182, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.75977707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674719873292651182, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674719873292651182, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674719873292651182, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674719873292651182, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4869683842601473820, guid: 72a4946762cc14f44874d295f39bfdca,
         type: 3}
@@ -57888,6 +57929,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618882545627301162, guid: 72a4946762cc14f44874d295f39bfdca,
+        type: 3}
+      propertyPath: m_Name
+      value: FireplaceLight
       objectReference: {fileID: 0}
     - target: {fileID: 8200629546878156601, guid: 72a4946762cc14f44874d295f39bfdca,
         type: 3}
@@ -98910,6 +98956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 36697839500001027, guid: b1570f9f72f43cd4d9add37a65e9eca4,
+        type: 3}
+      propertyPath: m_Type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 36697839500001027, guid: b1570f9f72f43cd4d9add37a65e9eca4,
         type: 3}
