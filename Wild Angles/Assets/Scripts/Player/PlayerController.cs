@@ -272,10 +272,11 @@ public class PlayerController : MonoBehaviour
                 if (outline != null) outline.enabled = false;
             }
         }
-        if(camBattery <= 0)
+        if (camBattery <= 0)
         {
+            StartCoroutine(NoBatteryText());
             cameraUI.SetActive(false);
-            if(nightVisionController.isEnabled == true)
+            if (nightVisionController.isEnabled == true)
             {
                 nightVisionController.isEnabled = false;
                 nightVisionController.volume.weight = 0;
@@ -335,6 +336,9 @@ public class PlayerController : MonoBehaviour
                 cameraUI.SetActive(false);
                 cameraON = false;
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
+            }
+            if (camBattery <= 0)
+            {
                 StartCoroutine(NoBatteryText());
             }
         }
