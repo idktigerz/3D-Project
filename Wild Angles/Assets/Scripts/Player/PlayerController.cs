@@ -81,6 +81,10 @@ public class PlayerController : MonoBehaviour
     private TextMeshProUGUI modeText;
     public TextMeshProUGUI OwlText;
     public int lastDaySaved;
+    [SerializeField]
+    public Image batteryIcon1;
+    public Image batteryIcon2;
+    public Image batteryIcon3;
     [Header("Controllers")]
     public NightVisionController nightVisionController;
     public HealthbarController healthbar;
@@ -124,8 +128,6 @@ public class PlayerController : MonoBehaviour
         isFlashing = false;
         startYScale = transform.localScale.y;
         picnum = 0;
-        dayText.enabled = false;
-        timeText.enabled = false;
         healthbar.UpdateHealthBar(100, health);
         popUpText.gameObject.SetActive(false);
     }
@@ -138,7 +140,7 @@ public class PlayerController : MonoBehaviour
             timeController.GetComponent<TimeController>().timeMultiplier = 1500;
             health += 1 * Time.deltaTime;
             healthbar.UpdateHealthBar(100, health);
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 resting = false;
                 playerBody.SetActive(true);
@@ -164,6 +166,7 @@ public class PlayerController : MonoBehaviour
         MyInput();
         SpeedControl();
         StateHandler();
+        UpdateRechargeIcon();
 
         // handle drag
         if (grounded)
@@ -183,6 +186,7 @@ public class PlayerController : MonoBehaviour
         if (active && hit.collider.CompareTag("Interactable"))
         {
             canInteract = true;
+            interactText.text = "Press F to rest";
             interactText.enabled = true;
 
         }
@@ -190,6 +194,7 @@ public class PlayerController : MonoBehaviour
         {
             companion = hit.collider.gameObject;
             companion.GetComponent<CompanionTuturial>().canInteract = true;
+            interactText.text = "Press F to interact";
             interactText.enabled = true;
 
         }
@@ -197,6 +202,7 @@ public class PlayerController : MonoBehaviour
         {
             interactText.enabled = true;
             hit.collider.gameObject.GetComponent<PlantController>().canInteract = true;
+            interactText.text = "Press F to interact";
         }
         else
         {
@@ -228,10 +234,8 @@ public class PlayerController : MonoBehaviour
                         Outline outline = animal.GetComponent<Outline>();
                         if (outline != null) outline.enabled = true;
                     }
-
                 }
             }
-
             canFlash = true;
             camBattery -= 1 * Time.deltaTime;
             if (nightVisionController.isEnabled)
@@ -268,6 +272,15 @@ public class PlayerController : MonoBehaviour
                 if (outline != null) outline.enabled = false;
             }
         }
+        if(camBattery <= 0)
+        {
+            cameraUI.SetActive(false);
+            if(nightVisionController.isEnabled == true)
+            {
+                nightVisionController.isEnabled = false;
+                nightVisionController.volume.weight = 0;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -290,7 +303,6 @@ public class PlayerController : MonoBehaviour
             if (playerStamina >= 20)
             {
                 Jump();
-
             }
             Invoke(nameof(ResetJump), jumpCooldown);
 
@@ -320,11 +332,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                nightVisionController.isEnabled = false;
-                nightVisionController.volume.weight = 0;
                 cameraUI.SetActive(false);
                 cameraON = false;
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
+                StartCoroutine(NoBatteryText());
             }
         }
 
@@ -333,7 +344,6 @@ public class PlayerController : MonoBehaviour
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
-
             light.SetActive(true);
             flashIcon.SetActive(true);
             cameraUI.SetActive(false);
@@ -452,12 +462,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(interactKey) && canInteract)
         {
-
-            //StartCoroutine(Rest());
-            Restt();
-
+            Rest();
         }
-        if (Input.GetKeyUp(KeyCode.P))
+        if (Input.GetKeyUp(KeyCode.Tab))
         {
             if (diaryOpen)
             {
@@ -482,16 +489,6 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            dayText.enabled = true;
-            timeText.enabled = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            dayText.enabled = false;
-            timeText.enabled = false;
-        }
         //CHEATS
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -511,7 +508,6 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
 
     private void StateHandler()
     {
@@ -613,24 +609,7 @@ public class PlayerController : MonoBehaviour
         }
         staminaBar.UpdateStaminaBar(100, playerStamina);
     }
-
-    private IEnumerator Rest()
-    {
-        lastDaySaved = timeController.GetComponent<TimeController>().dayCounter;
-        timeController.GetComponent<TimeController>().enabled = false;
-        timeController.GetComponent<TimeController>().currentTime += timeController.GetComponent<TimeController>().restTime;
-        yield return new WaitForSeconds(0.5f);
-        //Debug.Log(timeController.GetComponent<TimeController>().currentTime.TimeOfDay);
-        timeController.GetComponent<TimeController>().enabled = true;
-
-        if (timeController.GetComponent<TimeController>().currentTime.TimeOfDay <= timeController.GetComponent<TimeController>().midDayTime)
-        {
-            timeController.GetComponent<TimeController>().dayCounter++;
-        }
-        rechargeAmount = 3;
-
-    }
-    private void Restt()
+    private void Rest()
     {
         lastDaySaved = timeController.GetComponent<TimeController>().dayCounter;
         resting = true;
@@ -694,6 +673,41 @@ public class PlayerController : MonoBehaviour
         {
             return 3;
         }
+    }
+
+    private void UpdateRechargeIcon()
+    {
+        switch (rechargeAmount)
+        {
+            case 0:
+                batteryIcon1.enabled = false;
+                batteryIcon2.enabled = false;
+                batteryIcon3.enabled = false;
+                break;
+            case 1:
+                batteryIcon1.enabled = true;
+                batteryIcon2.enabled = false;
+                batteryIcon3.enabled = false;
+                break;
+            case 2:
+                batteryIcon1.enabled = true;
+                batteryIcon2.enabled = true;
+                batteryIcon3.enabled = false;
+                break;
+            case 3:
+                batteryIcon1.enabled = true;
+                batteryIcon2.enabled = true;
+                batteryIcon3.enabled = true;
+                break;
+        }
+    }
+
+    private IEnumerator NoBatteryText()
+    {
+        popUpText.gameObject.SetActive(true);
+        popUpText.text = "You have no battery! Quickly, recharge your battery! (Press R to recharge)";
+        yield return new WaitForSeconds(5f);
+        popUpText.gameObject.SetActive(false);
     }
 
     private void UpdatePageUi(string name)
