@@ -160,6 +160,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6791704798546098432}
     m_Modifications:
+    - target: {fileID: -9056761548100668020, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
         type: 3}
       propertyPath: m_RootOrder
@@ -220,12 +225,97 @@ PrefabInstance:
       propertyPath: m_Name
       value: Owl
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: -7686609989614500704, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: -5025915950881744606, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: -4676266828496616880, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: -4388680750337458582, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: -2821761757288588400, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
         type: 3}
       propertyPath: m_Name
       value: Owl
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160272932807521224, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192817599518968238, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767107410675210506, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790183945725220954, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756234939115177793, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295464275771937363, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416183123662447082, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029762987401288513, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310311238757144030, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905609870639353253, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
         type: 3}
       propertyPath: m_TagString
       value: Animal
@@ -288,6 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
+  haveBeenSeen: 0
   photographableId: 5
 --- !u!1 &1612668972983234036 stripped
 GameObject:

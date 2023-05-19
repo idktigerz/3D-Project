@@ -26,6 +26,23 @@ public class DiaryController : MonoBehaviour
     public List<Texture2D> purpleOrchidPhotos;
     public List<Texture2D> cocoaTreePhotos;
     public List<Texture2D> bananaTreePhotos;
+    public List<Texture2D> helconiaPhotos;
+    public List<Texture2D> tigerPhotos;
+    [Header("Temporary Lists")]
+    public List<Texture2D> temptigerPhotos;
+    public List<Texture2D> tempcrocodilePhotos;
+    public List<Texture2D> tempowlPhotos;
+    public List<Texture2D> tempbutterflyPhotos;
+    public List<Texture2D> tempbugPhotos;
+    public List<Texture2D> tempfrogPhotos;
+    public List<Texture2D> tempbabyTigerPhotos;
+    public List<Texture2D> tempsnakePhotos;
+    public List<Texture2D> tempwhiteOrchidPhotos;
+    public List<Texture2D> temppurpleOrchidPhotos;
+    public List<Texture2D> tempcocoaTreePhotos;
+    public List<Texture2D> tempbananaTreePhotos;
+    public List<Texture2D> temphelconiaPhotos;
+
 
     private int start = 0;
 
@@ -115,10 +132,13 @@ public class DiaryController : MonoBehaviour
             else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
             else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
             else if (folderName == "Snake") ShowDiaryPage(snakePhotos);
+            else if (folderName == "Tiger") ShowDiaryPage(tigerPhotos);
             else if (folderName == "WhiteOrchid") ShowDiaryPage(whiteOrchidPhotos);
             else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
             else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
             else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
+            else if (folderName == "Helconia") ShowDiaryPage(helconiaPhotos);
+
 
         }
         else
@@ -130,10 +150,12 @@ public class DiaryController : MonoBehaviour
             else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
             else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
             else if (folderName == "Snake") ShowDiaryPage(snakePhotos);
+            else if (folderName == "Tiger") ShowDiaryPage(tigerPhotos);
             else if (folderName == "WhiteOrchid") ShowDiaryPage(whiteOrchidPhotos);
             else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
             else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
             else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
+            else if (folderName == "Helconia") ShowDiaryPage(helconiaPhotos);
         }
     }
     private void Update()
@@ -157,10 +179,12 @@ public class DiaryController : MonoBehaviour
         else if (folderName == "Bug") ShowFirstDiaryPage(bugPhotos);
         else if (folderName == "Frog") ShowFirstDiaryPage(frogPhotos);
         else if (folderName == "Snake") ShowFirstDiaryPage(snakePhotos);
+        else if (folderName == "Tiger") ShowFirstDiaryPage(tigerPhotos);
         else if (folderName == "WhiteOrchid") ShowFirstDiaryPage(whiteOrchidPhotos);
         else if (folderName == "PurpleOrchid") ShowFirstDiaryPage(purpleOrchidPhotos);
         else if (folderName == "CocoaTree") ShowFirstDiaryPage(cocoaTreePhotos);
         else if (folderName == "BananaTree") ShowFirstDiaryPage(bananaTreePhotos);
+        else if (folderName == "Helconia") ShowFirstDiaryPage(helconiaPhotos);
 
         diaryPage = 1;
     }
@@ -174,10 +198,13 @@ public class DiaryController : MonoBehaviour
         else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
         else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
         else if (folderName == "Snake") ShowDiaryPage(snakePhotos);
+        else if (folderName == "Tiger") ShowDiaryPage(tigerPhotos);
         else if (folderName == "WhiteOrchid") ShowDiaryPage(whiteOrchidPhotos);
         else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
         else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
         else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
+        else if (folderName == "Helconia") ShowDiaryPage(helconiaPhotos);
+
     }
 
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)

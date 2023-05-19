@@ -8,10 +8,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9009416216721352767, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
@@ -63,15 +68,85 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7553238816612254548, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: -6522695966643703301, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: -6186445797578003153, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: -3718371245222020591, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_Name
+      value: Snake
+      objectReference: {fileID: 0}
+    - target: {fileID: -3718371245222020591, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_Name
       value: Snake
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
-      propertyPath: m_Name
-      value: Snake
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790183945725220954, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480909740878747892, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852929629529721487, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819001077394492298, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978176343850268093, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905609870639353253, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649307984373867853, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953085446890567447, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
@@ -102,6 +177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.92500305
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178353486837351355, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -182,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
+  haveBeenSeen: 0
   photographableId: 0
 --- !u!1 &5724912007579362042 stripped
 GameObject:

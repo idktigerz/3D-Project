@@ -377,16 +377,16 @@ public class PlayerController : MonoBehaviour
                 popUpText.gameObject.SetActive(true);
                 popUpText.text = "new " + closest.name + " photo added to the diary";
                 closest.GetComponent<Photographable>().haveBeenSeen = true;
-                UpdatePageUi(closest.name);
+                UpdatePageUi(closest);
                 //listaTeste.Add(tex);
                 //WHEN TAKING THE PIC ACTIVATE THE IS KNOWN VARIABLE IN PHOTOGRAPHABLE
                 if (closest.name.Contains("Crocodile"))
                 {
-                    diaryController.crocodilePhotos.Add(tex);
+                    diaryController.tempcrocodilePhotos.Add(tex);
                 }
                 else if (closest.name.Contains("Owl"))
                 {
-                    diaryController.owlPhotos.Add(tex);
+                    diaryController.tempowlPhotos.Add(tex);
                     //Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
                     //IF (THE STATE IS CORRECT)
                     GameObject animal = closest.GetComponentInParent<GameObject>();
@@ -399,39 +399,39 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (closest.name.Contains("Butterfly"))
                 {
-                    diaryController.butterflyPhotos.Add(tex);
+                    diaryController.tempbutterflyPhotos.Add(tex);
                 }
                 else if (closest.name.Contains("Frog"))
                 {
-                    diaryController.frogPhotos.Add(tex);
+                    diaryController.tempfrogPhotos.Add(tex);
                 }
                 else if (closest.name.Contains("Snake"))
                 {
-                    diaryController.snakePhotos.Add(tex);
+                    diaryController.tempsnakePhotos.Add(tex);
                 }
                 else if (closest.name.Contains("Bug"))
                 {
-                    diaryController.bugPhotos.Add(tex);
+                    diaryController.tempbugPhotos.Add(tex);
                 }
                 else if (closest.name.Contains("Baby Tiger"))
                 {
-                    diaryController.babyTigerPhotos.Add(tex);
+                    diaryController.tempbabyTigerPhotos.Add(tex);
                 }
                 else if (closest.name.Contains("White Orchid"))
                 {
-                    diaryController.whiteOrchidPhotos.Add(tex);
+                    diaryController.tempwhiteOrchidPhotos.Add(tex);
                 }
                 else if (closest.name.Contains("Poison Orchid"))
                 {
-                    diaryController.purpleOrchidPhotos.Add(tex);
+                    diaryController.temppurpleOrchidPhotos.Add(tex);
                 }
                 else if (closest.name.Contains("Cocoa Tree"))
                 {
-                    diaryController.cocoaTreePhotos.Add(tex);
+                    diaryController.tempcocoaTreePhotos.Add(tex);
                 }
                 else if (closest.name.Contains("Banana Tree"))
                 {
-                    diaryController.bananaTreePhotos.Add(tex);
+                    diaryController.tempbananaTreePhotos.Add(tex);
                 }
             }
             else
@@ -621,6 +621,18 @@ public class PlayerController : MonoBehaviour
         tentCammera.SetActive(true);
         transform.position = new Vector3(441.08f, 0, 1207.82f);
         playerBody.SetActive(false);
+        diaryController.crocodilePhotos = diaryController.tempcrocodilePhotos;
+        diaryController.owlPhotos = diaryController.tempowlPhotos;
+        diaryController.snakePhotos = diaryController.tempsnakePhotos;
+        diaryController.butterflyPhotos = diaryController.tempbutterflyPhotos;
+        diaryController.bugPhotos = diaryController.tempbugPhotos;
+        diaryController.tigerPhotos = diaryController.tempbabyTigerPhotos;
+        diaryController.purpleOrchidPhotos = diaryController.temppurpleOrchidPhotos;
+        diaryController.whiteOrchidPhotos = diaryController.tempwhiteOrchidPhotos;
+        diaryController.helconiaPhotos = diaryController.temphelconiaPhotos;
+        diaryController.cocoaTreePhotos = diaryController.tempcocoaTreePhotos;
+        diaryController.bananaTreePhotos = diaryController.tempbananaTreePhotos;
+
     }
     private IEnumerator CameraUIOn()
     {
@@ -714,44 +726,48 @@ public class PlayerController : MonoBehaviour
         popUpText.gameObject.SetActive(false);
     }
 
-    private void UpdatePageUi(string name)
+    private void UpdatePageUi(GameObject animal)
     {
-        GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
-        TextMeshProUGUI mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI description = FindChildGameObjectByName(objectName, "Description Text").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI fact = FindChildGameObjectByName(objectName, "Fact Text").GetComponent<TextMeshProUGUI>();
-        switch (objectName.name)
+        if (animal.CompareTag("Animal"))
         {
-            case "CrocodilePage":
-                mission.text = "Mission : Take a photo of a crocodile attacking you";
-                description.text = "Description about the animal : Its a Croqui";
-                fact.text = "Fun fact about the animal : croqui ver dangewos be cawefull";
-                break;
-            case "OwlPage":
-                mission.text = "Mission : Take a photo of an Owl flying";
-                description.text = "Description about the animal : Its an Owl";
-                fact.text = "Fun fact about the animal : Owl very active at night";
-                break;
-            case "ButterflyPage":
-                mission.text = "Mission : Take a photo of a butterfly flying ";
-                description.text = "Description about the animal : its a butterfly";
-                fact.text = "Fun fact about the animal : butterfly very beautiful";
-                break;
-            case "BugPage":
-                mission.text = "Mission : Take a perfect photo of a bug";
-                description.text = "Description about the animal : Its a Bug";
-                fact.text = "Fun fact about the animal : very inofencive";
-                break;
-            case "FrogPage":
-                mission.text = "Mission : Take a perfect photo of a frog";
-                description.text = "Description about the animal : Its a frogy";
-                fact.text = "Fun fact about the animal : very boing";
-                break;
-            case "SnakePage":
-                mission.text = "Mission : Take a photo of a Snake Staring at You";
-                description.text = "Description about the animal : Its a Sneke";
-                fact.text = "Fun fact about the animal : Sneke very esquibo";
-                break;
+            name = animal.name;
+            GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
+            TextMeshProUGUI mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI description = FindChildGameObjectByName(objectName, "Description Text").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI fact = FindChildGameObjectByName(objectName, "Fact Text").GetComponent<TextMeshProUGUI>();
+            switch (objectName.name)
+            {
+                case "CrocodilePage":
+                    mission.text = "Mission : Take a photo of a crocodile attacking you";
+                    description.text = "Description about the animal : Its a Croqui";
+                    fact.text = "Fun fact about the animal : croqui ver dangewos be cawefull";
+                    break;
+                case "OwlPage":
+                    mission.text = "Mission : Take a photo of an Owl flying";
+                    description.text = "Description about the animal : Its an Owl";
+                    fact.text = "Fun fact about the animal : Owl very active at night";
+                    break;
+                case "ButterflyPage":
+                    mission.text = "Mission : Take a photo of a butterfly flying ";
+                    description.text = "Description about the animal : its a butterfly";
+                    fact.text = "Fun fact about the animal : butterfly very beautiful";
+                    break;
+                case "BugPage":
+                    mission.text = "Mission : Take a perfect photo of a bug";
+                    description.text = "Description about the animal : Its a Bug";
+                    fact.text = "Fun fact about the animal : very inofencive";
+                    break;
+                case "FrogPage":
+                    mission.text = "Mission : Take a perfect photo of a frog";
+                    description.text = "Description about the animal : Its a frogy";
+                    fact.text = "Fun fact about the animal : very boing";
+                    break;
+                case "SnakePage":
+                    mission.text = "Mission : Take a photo of a Snake Staring at You";
+                    description.text = "Description about the animal : Its a Sneke";
+                    fact.text = "Fun fact about the animal : Sneke very esquibo";
+                    break;
+            }
         }
     }
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)

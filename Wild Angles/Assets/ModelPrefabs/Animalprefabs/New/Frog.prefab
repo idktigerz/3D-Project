@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1405558027265217717}
   m_Layer: 0
   m_Name: Frog
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 6581500497188247564}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &7693272258408426462
 NavMeshAgent:
@@ -225,6 +225,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frog
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa8d67cc41fb0b5448113d5de2276fa6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -276,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
+  haveBeenSeen: 0
   photographableId: 4
 --- !u!114 &1466446670288508452
 MonoBehaviour:

@@ -32,23 +32,19 @@ public class PlayerCam : MonoBehaviour
         {
             picCounter[i] = 0;
         }
-        photographableList = new string[15];
+        photographableList = new string[12];
         photographableList[0] = "Snake";
         photographableList[1] = "Butterfly";
-        photographableList[2] = "Parrot";
-        photographableList[3] = "Sloth";
-        photographableList[4] = "Frog";
-        photographableList[5] = "Owl";
-        photographableList[6] = "Crocodile";
-        photographableList[7] = "Tiger";
-        photographableList[8] = "Otter";
-        photographableList[9] = "Bug";
-        photographableList[10] = "Tree";
-        photographableList[11] = "White Orchid";
-        photographableList[12] = "Purple Orchid";
-        photographableList[13] = "Cocoa Tree";
-        photographableList[14] = "Banana Tree";
-        //photographableList[15] = "Helconia";
+        photographableList[2] = "Frog";
+        photographableList[3] = "Owl";
+        photographableList[4] = "Crocodile";
+        photographableList[5] = "Tiger";
+        photographableList[6] = "Bug";
+        photographableList[7] = "White Orchid";
+        photographableList[8] = "Purple Orchid";
+        photographableList[9] = "Cocoa Tree";
+        photographableList[10] = "Banana Tree";
+        photographableList[11] = "Helconia";
 
     }
 
