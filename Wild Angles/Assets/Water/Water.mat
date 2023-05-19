@@ -14,10 +14,10 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3001
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -38,14 +38,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Depth: 1
+    - _Depth: 2
     - _QueueControl: 0
-    - _QueueOffset: 0
+    - _QueueOffset: 1
     - _Slider: 0
-    - _Strength: 0.28
+    - _Strength: 0.58
     m_Colors:
-    - _Depth_Water_Color: {r: 0, g: 0.7193334, b: 0.83, a: 0.6588235}
-    - _Shallow_Water_Color: {r: 0.46666664, g: 0.98039216, b: 1, a: 0}
+    - _Depth_Water_Color: {r: 0, g: 1, b: 0.64446235, a: 0.6588235}
+    - _Shallow_Water_Color: {r: 0, g: 0.44939607, b: 1, a: 0.62352943}
   m_BuildTextureStacks: []
 --- !u!114 &8208438106948131432
 MonoBehaviour:
