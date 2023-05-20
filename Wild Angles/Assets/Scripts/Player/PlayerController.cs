@@ -154,6 +154,10 @@ public class PlayerController : MonoBehaviour
             health -= 0.7f * Time.deltaTime;
             healthbar.UpdateHealthBar(100, health);
             notsleptUi.SetActive(true);
+            if(health <= 0)
+            {
+                gameManager.RespawnPlayer();
+            }
             //AVISAR PLAYER NO UI
         }
         else
