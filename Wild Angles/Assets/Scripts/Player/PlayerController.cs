@@ -105,6 +105,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool resting;
     [SerializeField] GameObject tentCammera;
     [SerializeField] GameObject playerBody;
+    [Header("Sound")]
+    public AudioSource sound;
+    [Header("CameraSound")]
+
+    public AudioClip cameraOutClip, takingPhotoClip;
+
 
 
     public int points;
@@ -334,11 +340,15 @@ public class PlayerController : MonoBehaviour
             {
                 cameraUI.SetActive(true);
                 cameraON = true;
+                sound.clip = cameraOutClip;
+                sound.Play();
             }
             else
             {
                 cameraUI.SetActive(false);
                 cameraON = false;
+                sound.clip = cameraOutClip;
+                sound.Play();
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
             }
             if (camBattery <= 0)
@@ -352,6 +362,8 @@ public class PlayerController : MonoBehaviour
         //TAKING THE PIC
         if (Input.GetMouseButtonDown(0) && cameraON)
         {
+            sound.clip = takingPhotoClip;
+            sound.Play();
             light.SetActive(true);
             flashIcon.SetActive(true);
             cameraUI.SetActive(false);
@@ -476,7 +488,7 @@ public class PlayerController : MonoBehaviour
         {
             if (diaryOpen)
             {
-                timeController.GetComponent<TimeController>().timeMultiplier = 0;
+                timeController.GetComponent<TimeController>().timeMultiplier = 500;
                 playerCam.enabled = true;
                 diaryUI.SetActive(false);
                 diaryOpen = false;
@@ -487,7 +499,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                timeController.GetComponent<TimeController>().timeMultiplier = 500;
+                timeController.GetComponent<TimeController>().timeMultiplier = 0;
+
                 playerCam.enabled = false;
                 diaryUI.SetActive(true);
                 diaryOpen = true;

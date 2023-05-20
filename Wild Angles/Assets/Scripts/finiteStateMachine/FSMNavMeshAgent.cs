@@ -179,6 +179,10 @@ public class FSMNavMeshAgent : MonoBehaviour
         {
             GoToNextPatrolWaypointButter();
         }
+        else if (gameObject.name.Contains("Tiger"))
+        {
+            TigerPatrol();
+        }
     }
 
 
@@ -299,6 +303,53 @@ public class FSMNavMeshAgent : MonoBehaviour
         }
         agent.isStopped = false;
         energy += 2 * Time.deltaTime;
+    }
+    public void TigerPatrol()
+    {
+        agent.isStopped = false;
+        var NewPos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        agent.SetDestination(transform.position + NewPos);
+    }
+    public void TigerStalk()
+    {
+        agent.isStopped = false;
+        if (Vector3.Distance(target.transform.position, transform.position) < 10)
+        {
+            agent.speed = initialSpeed / 1.5f;
+        }
+        else
+        {
+            agent.speed = initialSpeed;
+        }
+        GoToTarget();
+    }
+    public void TigerRunAway()
+    {
+        if (gameObject.name.Contains("Tiger") && canRun)
+        {
+            var NewPos = ((transform.position - target.position));
+            agent.SetDestination(transform.position + NewPos);
+            canRun = false;
+        }
+    }
+    public void TigerAttack()
+    {
+        if (canAttack)
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            Vector3 direction = transform.position - target.transform.position;
+            float force = 4;
+            GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
+            canAttack = false;
+            StartCoroutine("CrocAttackWait");
+
+            if (canDamagePlayer)
+            {
+                playerController.DamagePlayer(15f);
+                canDamagePlayer = false;
+            }
+            StartCoroutine("CrocAttackWait");
+        }
     }
     IEnumerator StopHear()
     {

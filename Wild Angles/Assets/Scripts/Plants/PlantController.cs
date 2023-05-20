@@ -104,7 +104,6 @@ public class PlantController : MonoBehaviour
 
         plant.SetActive(true);
         collider.enabled = true;
-
     }
 
 }

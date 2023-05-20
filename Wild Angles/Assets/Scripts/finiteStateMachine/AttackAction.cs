@@ -9,6 +9,7 @@ public class AttackAction : Action
     {
         if (fsm.gameObject.name.Contains("Crocodile")) fsm.GetNavMeshAgent().CrocodileAttack();
         else if (fsm.gameObject.name.Contains("Snake")) fsm.GetNavMeshAgent().SnakeAttack();
+        else if (fsm.gameObject.name.Contains("Tiger")) fsm.GetNavMeshAgent().TigerAttack();
 
     }
 }

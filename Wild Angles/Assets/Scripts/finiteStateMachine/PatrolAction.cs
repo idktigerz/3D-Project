@@ -37,13 +37,16 @@ public class PatrolAction : Action
             {
                 fsm.GetNavMeshAgent().Ponto.SetActive(false);
                 fsm.GetNavMeshAgent().GoToNextPatrolWaypointBabyTiger();
-
-
             }
             else if (fsm.name.Contains("Snake") && fsm.GetNavMeshAgent())
             {
                 fsm.GetNavMeshAgent().GoToNextPatrolWaypointSnake();
             }
+             else if (fsm.name.Contains("Tiger") && fsm.GetNavMeshAgent())
+            {
+                fsm.GetNavMeshAgent().TigerPatrol();
+            }
+
 
 
         }
