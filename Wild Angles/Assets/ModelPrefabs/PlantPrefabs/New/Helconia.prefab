@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 2836496157407966288}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3069255397286746527
 MonoBehaviour:
@@ -53,6 +53,8 @@ MonoBehaviour:
   timeController: {fileID: 0}
   playerController: {fileID: 0}
   healAmount: 0
+  plantEaten: 0
+  canInteract: 0
 --- !u!65 &7197691807815242788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -156,6 +158,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106773402797581702, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb,
+        type: 3}
+      propertyPath: photographableId
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 91211642141629651, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb, type: 3}

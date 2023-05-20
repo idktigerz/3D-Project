@@ -118,4 +118,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
-  photographableId: 12
+  haveBeenSeen: 0
+  photographableId: 9

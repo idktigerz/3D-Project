@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
   haveBeenSeen: 0
-  photographableId: 9
+  photographableId: 6
 --- !u!1 &9160960359467238015 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a455060587cbc3b4db439d371e70dedc,

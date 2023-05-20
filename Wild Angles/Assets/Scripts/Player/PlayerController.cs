@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
             health -= 0.7f * Time.deltaTime;
             healthbar.UpdateHealthBar(100, health);
             notsleptUi.SetActive(true);
-            if(health <= 0)
+            if (health <= 0)
             {
                 gameManager.RespawnPlayer();
             }
@@ -417,9 +417,9 @@ public class PlayerController : MonoBehaviour
                 {
                     diaryController.tempbugPhotos.Add(tex);
                 }
-                else if (closest.name.Contains("Baby Tiger"))
+                else if (closest.name.Contains("Tiger"))
                 {
-                    diaryController.tempbabyTigerPhotos.Add(tex);
+                    diaryController.tempTigerPhotos.Add(tex);
                 }
                 else if (closest.name.Contains("White Orchid"))
                 {
@@ -630,7 +630,8 @@ public class PlayerController : MonoBehaviour
         diaryController.snakePhotos = diaryController.tempsnakePhotos;
         diaryController.butterflyPhotos = diaryController.tempbutterflyPhotos;
         diaryController.bugPhotos = diaryController.tempbugPhotos;
-        diaryController.tigerPhotos = diaryController.tempbabyTigerPhotos;
+        diaryController.frogPhotos = diaryController.tempfrogPhotos;
+        diaryController.tigerPhotos = diaryController.tempTigerPhotos;
         diaryController.purpleOrchidPhotos = diaryController.temppurpleOrchidPhotos;
         diaryController.whiteOrchidPhotos = diaryController.tempwhiteOrchidPhotos;
         diaryController.helconiaPhotos = diaryController.temphelconiaPhotos;

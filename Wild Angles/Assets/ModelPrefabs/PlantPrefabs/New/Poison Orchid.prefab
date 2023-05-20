@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 3469228802855788812}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2230331262204902780
 MonoBehaviour:
@@ -54,6 +54,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   healAmount: -30
   plantEaten: 0
+  canInteract: 0
 --- !u!65 &9215896766751699770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83,6 +84,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2691609958117032502}
     m_Modifications:
+    - target: {fileID: 3743733444017163879, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+        type: 3}
+      propertyPath: photographableId
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8417047430718013426, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
         type: 3}
       propertyPath: m_RootOrder

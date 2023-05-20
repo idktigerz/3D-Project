@@ -35,7 +35,7 @@ public class DiaryController : MonoBehaviour
     public List<Texture2D> tempbutterflyPhotos;
     public List<Texture2D> tempbugPhotos;
     public List<Texture2D> tempfrogPhotos;
-    public List<Texture2D> tempbabyTigerPhotos;
+    public List<Texture2D> tempTigerPhotos;
     public List<Texture2D> tempsnakePhotos;
     public List<Texture2D> tempwhiteOrchidPhotos;
     public List<Texture2D> temppurpleOrchidPhotos;
