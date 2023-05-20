@@ -44,8 +44,8 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1
-    brushSize: 20.8
+    density: 1.68
+    brushSize: 25
     minScale: 1
     maxScale: 1
     offsetFromPivot: {x: 0, y: 0, z: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
     density: 1
-    brushSize: 25
+    brushSize: 1.9
     minScale: 1
     maxScale: 1
     offsetFromPivot: {x: 0, y: 0, z: 0}
@@ -88,7 +88,7 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1
+    density: 1.35
     brushSize: 25
     minScale: 1
     maxScale: 1
@@ -132,8 +132,8 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1.43
-    brushSize: 25
+    density: 1
+    brushSize: 2.8
     minScale: 1
     maxScale: 1.5
     offsetFromPivot: {x: 0, y: 0, z: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
     density: 1
-    brushSize: 7.3
+    brushSize: 1.7
     minScale: 1
     maxScale: 1.5
     offsetFromPivot: {x: 0, y: 0, z: 0}
@@ -199,9 +199,9 @@ MonoBehaviour:
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
     density: 1
-    brushSize: 5
+    brushSize: 0.2
     minScale: 0.5
-    maxScale: 1.5
+    maxScale: 1
     offsetFromPivot: {x: 0, y: 0, z: 0}
     rotOffsetFromPivot: {x: 0, y: 0, z: 0}
     minSlope: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
     isTagFilteringEnabled: 0
     tagFilter: 
   primarySelectedBrush:
-    brushObject: {fileID: 5724912007579362042, guid: f00e4b0043c012047a6ac0396f264cdc,
+    brushObject: {fileID: 5458424589358267247, guid: 867fac712b2251d42a8965dbd804ea26,
       type: 3}
     usePrefabs: 1
     allowIntercollision: 0
@@ -244,9 +244,9 @@ MonoBehaviour:
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
     density: 1
-    brushSize: 18
-    minScale: 0.5
-    maxScale: 0.5
+    brushSize: 1.9
+    minScale: 1
+    maxScale: 1
     offsetFromPivot: {x: 0, y: 0, z: 0}
     rotOffsetFromPivot: {x: 0, y: 0, z: 0}
     minSlope: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
     isTagFilteringEnabled: 0
     tagFilter: 
   selectedBrushes:
-  - brushObject: {fileID: 5724912007579362042, guid: f00e4b0043c012047a6ac0396f264cdc,
+  - brushObject: {fileID: 5458424589358267247, guid: 867fac712b2251d42a8965dbd804ea26,
       type: 3}
     usePrefabs: 1
     allowIntercollision: 0
@@ -267,9 +267,9 @@ MonoBehaviour:
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
     density: 1
-    brushSize: 18
-    minScale: 0.5
-    maxScale: 0.5
+    brushSize: 1.9
+    minScale: 1
+    maxScale: 1
     offsetFromPivot: {x: 0, y: 0, z: 0}
     rotOffsetFromPivot: {x: 0, y: 0, z: 0}
     minSlope: 0

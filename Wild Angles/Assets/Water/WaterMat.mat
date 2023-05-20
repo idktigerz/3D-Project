@@ -48,7 +48,7 @@ Material:
     - _rippleSpeed: 1.2
     - _rippleslimness: 8
     - _waveScale: 2500
-    - _waveSpeed: 0.0009
+    - _waveSpeed: 0.0002
     m_Colors:
     - _baseColor: {r: 0, g: 0.37159562, b: 1, a: 0}
     - _foamColor: {r: 1.396226, g: 1.396226, b: 1.396226, a: 1}
