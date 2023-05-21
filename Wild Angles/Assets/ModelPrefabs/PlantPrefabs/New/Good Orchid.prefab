@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f75ff23a545f7b49926d241aa5beac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 0
-  closeTime: 0
+  openTime: 18
+  closeTime: 7
   plant: {fileID: 2449313606658439084}
   collider: {fileID: 0}
   timeController: {fileID: 0}

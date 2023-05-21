@@ -39,6 +39,9 @@ public class FSMNavMeshAgent : MonoBehaviour
     private bool canDamagePlayer = false;
 
     public PlayerController playerController;
+    [Header("animations")]
+    public Animator animator;
+
 
     void Start()
     {
@@ -194,6 +197,7 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public void GoToTarget()
     {
+        agent.isStopped = false;
         agent.SetDestination(target.position);
     }
 
@@ -201,12 +205,14 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         if (canAttack)
         {
+            animator.Play("CrocodileAttack");
             rb.constraints = RigidbodyConstraints.None;
             Vector3 direction = transform.position - target.transform.position;
             float force = 2;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
             StartCoroutine("CrocAttackWait");
+
 
             if (canDamagePlayer)
             {
@@ -215,6 +221,13 @@ public class FSMNavMeshAgent : MonoBehaviour
             }
 
         }
+    }
+    IEnumerator CrocAttackWait()
+    {
+        yield return new WaitForSeconds(0.3f);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        yield return new WaitForSeconds(2);
+        canAttack = true;
     }
     public void SnakeAttack()
     {
@@ -255,13 +268,7 @@ public class FSMNavMeshAgent : MonoBehaviour
             canRun = false;
         }
     }
-    IEnumerator CrocAttackWait()
-    {
-        yield return new WaitForSeconds(0.3f);
-        rb.constraints = RigidbodyConstraints.FreezeAll;
-        yield return new WaitForSeconds(2);
-        canAttack = true;
-    }
+
 
 
     public void OwlRunAway()

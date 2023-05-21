@@ -499,6 +499,7 @@ MonoBehaviour:
   OwlBody: {fileID: 0}
   listOfAnimals: []
   playerController: {fileID: 0}
+  animator: {fileID: 1757857792628948297}
 --- !u!95 &1757857792628948297
 Animator:
   serializedVersion: 5

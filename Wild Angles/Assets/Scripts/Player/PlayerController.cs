@@ -306,7 +306,6 @@ public class PlayerController : MonoBehaviour
 
     private void MyInput()
     {
-        Debug.Log(moveSpeed);
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -431,8 +430,8 @@ public class PlayerController : MonoBehaviour
                     diaryController.tempowlPhotos.Add(tex);
                     //Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
                     //IF (THE STATE IS CORRECT)
-                    GameObject animal = closest.GetComponentInParent<GameObject>();
-                    if (animal.GetComponentInParent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
+                    GameObject animal = FindParentWithTag(closest, "Animal");
+                    if (animal.GetComponent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
                     {
                         OwlText.text = "Mission Passed you gained +50 points";
                         points += 50;
@@ -509,6 +508,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(interactKey) && canInteract)
         {
             Rest();
+            Debug.Log($"dadasdasdasgdajydayjdhasgjdagduadtugasduyg");
         }
         if (Input.GetKeyUp(KeyCode.Tab))
         {
@@ -671,18 +671,18 @@ public class PlayerController : MonoBehaviour
         tentCammera.SetActive(true);
         transform.position = new Vector3(441.08f, 0, 1207.82f);
         playerBody.SetActive(false);
-        diaryController.crocodilePhotos = diaryController.tempcrocodilePhotos;
-        diaryController.owlPhotos = diaryController.tempowlPhotos;
-        diaryController.snakePhotos = diaryController.tempsnakePhotos;
-        diaryController.butterflyPhotos = diaryController.tempbutterflyPhotos;
-        diaryController.bugPhotos = diaryController.tempbugPhotos;
-        diaryController.frogPhotos = diaryController.tempfrogPhotos;
-        diaryController.tigerPhotos = diaryController.tempTigerPhotos;
-        diaryController.purpleOrchidPhotos = diaryController.temppurpleOrchidPhotos;
-        diaryController.whiteOrchidPhotos = diaryController.tempwhiteOrchidPhotos;
-        diaryController.helconiaPhotos = diaryController.temphelconiaPhotos;
-        diaryController.cocoaTreePhotos = diaryController.tempcocoaTreePhotos;
-        diaryController.bananaTreePhotos = diaryController.tempbananaTreePhotos;
+        diaryController.crocodilePhotos = new List<Texture2D>(diaryController.tempcrocodilePhotos);
+        diaryController.owlPhotos = new List<Texture2D>(diaryController.tempowlPhotos);
+        diaryController.snakePhotos = new List<Texture2D>(diaryController.tempsnakePhotos);
+        diaryController.butterflyPhotos = new List<Texture2D>(diaryController.tempbutterflyPhotos);
+        diaryController.bugPhotos = new List<Texture2D>(diaryController.tempbugPhotos);
+        diaryController.frogPhotos = new List<Texture2D>(diaryController.tempfrogPhotos);
+        diaryController.tigerPhotos = new List<Texture2D>(diaryController.tempTigerPhotos);
+        diaryController.purpleOrchidPhotos = new List<Texture2D>(diaryController.temppurpleOrchidPhotos);
+        diaryController.whiteOrchidPhotos = new List<Texture2D>(diaryController.tempwhiteOrchidPhotos);
+        diaryController.helconiaPhotos = new List<Texture2D>(diaryController.temphelconiaPhotos);
+        diaryController.cocoaTreePhotos = new List<Texture2D>(diaryController.tempcocoaTreePhotos);
+        diaryController.bananaTreePhotos = new List<Texture2D>(diaryController.tempbananaTreePhotos);
 
     }
     private IEnumerator CameraUIOn()
@@ -722,7 +722,6 @@ public class PlayerController : MonoBehaviour
     }
     private int GradePhoto(GameObject animal)
     {
-
         Vector3 direction = transform.position - animal.transform.position;
         float angle = Vector3.Angle(direction, animal.transform.parent.forward);
         Vector3 targetDir = animal.transform.position - transform.position;
@@ -838,5 +837,18 @@ public class PlayerController : MonoBehaviour
             }
         }
         return null;
+    }
+    public static GameObject FindParentWithTag(GameObject childObject, string tag)
+    {
+        Transform t = childObject.transform;
+        while (t.parent != null)
+        {
+            if (t.parent.tag == tag)
+            {
+                return t.parent.gameObject;
+            }
+            t = t.parent.transform;
+        }
+        return null; // Could not find a parent with given tag.
     }
 }

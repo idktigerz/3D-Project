@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ee356048a9c5c43a0e2e3a0618ac5b, type: 3}
   m_Name: CrocPatrolToAttack
   m_EditorClassIdentifier: 
-  decision: {fileID: 11400000, guid: d6288f639856c364aafc015dd52f6bd7, type: 2}
+  decision: {fileID: 11400000, guid: 5562323ebf1127145ade7442a7c0e05f, type: 2}
   action: {fileID: 0}
   targetState: {fileID: 11400000, guid: a02c52846dfef0643aa447498775b3bd, type: 2}

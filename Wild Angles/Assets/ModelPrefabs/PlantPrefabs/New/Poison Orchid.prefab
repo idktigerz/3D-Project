@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openTime: 0
-  closeTime: 0
+  closeTime: 10
   plant: {fileID: 4282639140999510966}
   collider: {fileID: 0}
   timeController: {fileID: 0}
