@@ -106,7 +106,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject tentCammera;
     [SerializeField] GameObject playerBody;
     [Header("Sound")]
+
     public AudioSource sound;
+    public AudioSource walkSound;
+    public AudioSource sprintSound;
+    [Header("step sounds")]
+    public AudioClip stepClip, sprintClip;
     [Header("CameraSound")]
 
     public AudioClip cameraOutClip, takingPhotoClip;
@@ -301,11 +306,32 @@ public class PlayerController : MonoBehaviour
 
     private void MyInput()
     {
+        Debug.Log(moveSpeed);
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
         moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
         anim.SetFloat("Speed", moveDirection.sqrMagnitude);
+        if (moveDirection.sqrMagnitude > 0.1 && moveSpeed > 10)
+        {
+
+            walkSound.enabled = false;
+            sprintSound.enabled = true;
+        }
+        else if (moveDirection.sqrMagnitude > 0.1)
+        {
+
+            walkSound.enabled = true;
+            sprintSound.enabled = false;
+        }
+        else
+        {
+
+            walkSound.enabled = false;
+            sprintSound.enabled = false;
+
+        }
+
         StaminaChecker(moveDirection.sqrMagnitude);
         // when to jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
@@ -567,7 +593,6 @@ public class PlayerController : MonoBehaviour
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         float forwardsAmount = Vector3.Dot(transform.forward, moveDirection);
-
         // on ground
         if (grounded)
         {
@@ -586,7 +611,15 @@ public class PlayerController : MonoBehaviour
         }
         // in air
         else if (!grounded)
+        {
+            walkSound.enabled = false;
             rb.AddForce(moveDirection.normalized * moveSpeed / airMultiplier, ForceMode.Force);
+        }
+        else
+        {
+            walkSound.enabled = false;
+
+        }
     }
 
     private void SpeedControl()
