@@ -510,7 +510,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(interactKey) && canInteract)
         {
             Rest();
-            Debug.Log($"dadasdasdasgdajydayjdhasgjdagduadtugasduyg");
         }
         if (Input.GetKeyUp(KeyCode.Tab))
         {
