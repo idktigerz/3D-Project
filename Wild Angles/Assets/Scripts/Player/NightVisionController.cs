@@ -33,6 +33,11 @@ public class NightVisionController : MonoBehaviour
             ToggleNightVision();
         }
 
+        if(timeController.canToggleNightVision == false)
+        {
+            volume.weight = 0;
+        }
+
         if (timeController.canToggleNightVision && isEnabled == false)
         {
             RenderSettings.ambientIntensity = 0.1f;

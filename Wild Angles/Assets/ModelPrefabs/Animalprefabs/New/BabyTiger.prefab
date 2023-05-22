@@ -611,7 +611,7 @@ Transform:
   - {fileID: 3431949750584276386}
   - {fileID: 955738816938657713}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 60.275, z: 0}
 --- !u!114 &756445467363312859
 MonoBehaviour:
@@ -756,6 +756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BabyTiger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462357212926484632, guid: 0dd5944ff11436e4fa24cda2f9fe9a65,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1526030842343504119, guid: 0dd5944ff11436e4fa24cda2f9fe9a65,
         type: 3}

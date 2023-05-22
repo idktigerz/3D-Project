@@ -149,6 +149,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Interactable Plant
       objectReference: {fileID: 0}
+    - target: {fileID: 702172564095111909, guid: 663bdcdff6fff9e4f8a7b51ccea94b06,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

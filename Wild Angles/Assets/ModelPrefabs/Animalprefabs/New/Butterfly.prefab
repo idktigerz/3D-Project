@@ -80,6 +80,7 @@ MonoBehaviour:
   OwlBody: {fileID: 0}
   listOfAnimals: []
   playerController: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!195 &394104042482783972
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -174,6 +175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: ec1421efeb7f4ae4cbe3151dd3a276f6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: ec1421efeb7f4ae4cbe3151dd3a276f6,
         type: 3}

@@ -45,6 +45,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane.001
       objectReference: {fileID: 0}
+    - target: {fileID: 1280803271622389661, guid: fdb671aa7b0e47e43984b2c951869502,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5670999673969435092, guid: fdb671aa7b0e47e43984b2c951869502,
         type: 3}
       propertyPath: m_RootOrder

@@ -159,6 +159,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Interactable Plant
       objectReference: {fileID: 0}
+    - target: {fileID: 9188623786201572680, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3605424910930218409, guid: 5b989b7aae1c67b41a4221a2b03af0a5, type: 3}
     - {fileID: 9187514042480328248, guid: 5b989b7aae1c67b41a4221a2b03af0a5, type: 3}

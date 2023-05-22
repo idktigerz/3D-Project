@@ -108,6 +108,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Animal
       objectReference: {fileID: 0}
+    - target: {fileID: -3718371245222020591, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_Name
@@ -394,6 +399,7 @@ MonoBehaviour:
   OwlBody: {fileID: 0}
   listOfAnimals: []
   playerController: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!54 &242364374125363191
 Rigidbody:
   m_ObjectHideFlags: 0

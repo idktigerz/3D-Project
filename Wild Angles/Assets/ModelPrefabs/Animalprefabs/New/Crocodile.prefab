@@ -108,6 +108,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Animal
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 783eba6420681f54aaaa5f63adfc021b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: -8188474619722922200, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
       propertyPath: m_TagString

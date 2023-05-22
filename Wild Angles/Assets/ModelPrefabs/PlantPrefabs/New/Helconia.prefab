@@ -89,6 +89,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Helconia
       objectReference: {fileID: 0}
+    - target: {fileID: 6274832542497463967, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6656177721471599653, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb,
         type: 3}
       propertyPath: m_RootOrder

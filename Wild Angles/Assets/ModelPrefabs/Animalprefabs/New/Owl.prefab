@@ -231,6 +231,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: -7686609989614500704, guid: 798ddd85739efcc4cb68fd23de7b3cf7,
         type: 3}
       propertyPath: m_TagString
