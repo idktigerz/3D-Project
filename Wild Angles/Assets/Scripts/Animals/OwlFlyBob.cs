@@ -35,7 +35,7 @@ public class OwlFlyBob : MonoBehaviour
         }
         else if (transform.position != agent.GetComponent<FSMNavMeshAgent>().currentDest)
         {
-            transform.position = Vector3.MoveTowards(transform.position, agent.GetComponent<FSMNavMeshAgent>().currentDest, 0.1f);
+            transform.position = Vector3.MoveTowards(transform.position, agent.GetComponent<FSMNavMeshAgent>().currentDest, 1f);
         }
 
     }

@@ -147,6 +147,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         if (OwlWaypoints.Count != 0)
         {
+            animator.SetBool("Sleeping", false);
             agent.isStopped = false;
             Vector3 pos = OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position;
             currentDest = pos;
@@ -166,6 +167,10 @@ public class FSMNavMeshAgent : MonoBehaviour
         canFly = false;
         agent.isStopped = true;
         agent.speed = 0;
+        if (gameObject.name.Contains("Owl"))
+        {
+            animator.SetBool("Sleeping", true);
+        }
         yield return new WaitForSecondsRealtime(time);
         agent.isStopped = false;
         canFly = true;
@@ -177,6 +182,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         else if (gameObject.name.Contains("Owl"))
         {
             GoToNextPatrolWaypointOwl();
+            animator.SetBool("Sleeping", false);
         }
         else if (gameObject.name.Contains("Butterfly"))
         {
@@ -307,9 +313,11 @@ public class FSMNavMeshAgent : MonoBehaviour
         if (IsAtDestination())
         {
             agent.speed = 0;
+            animator.SetBool("Sleeping", true);
         }
         agent.isStopped = false;
         energy += 2 * Time.deltaTime;
+
     }
     public void TigerPatrol()
     {

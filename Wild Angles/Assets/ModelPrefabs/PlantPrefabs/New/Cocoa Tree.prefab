@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5434455328806558323}
   - component: {fileID: 3007073739668532585}
+  - component: {fileID: 8277573601870381059}
   m_Layer: 0
   m_Name: Cocoa Tree
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 5569586383946163640}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3007073739668532585
 MonoBehaviour:
@@ -48,12 +49,33 @@ MonoBehaviour:
   openTime: 0
   closeTime: 0
   plant: {fileID: 5044301934509883138}
-  collider: {fileID: 858626147529574302}
+  collider: {fileID: 8277573601870381059}
   timeController: {fileID: 0}
   playerController: {fileID: 0}
   healAmount: 10
   plantEaten: 0
   canInteract: 0
+--- !u!65 &8277573601870381059
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880878818126481511}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 9.950617, z: 1}
+  m_Center: {x: 0, y: 4.4753084, z: 0}
 --- !u!1001 &5746148751096737255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,11 +152,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 702172564095111909, guid: 663bdcdff6fff9e4f8a7b51ccea94b06,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 858626147529574302}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 663bdcdff6fff9e4f8a7b51ccea94b06, type: 3}
 --- !u!1 &5044301934509883138 stripped
 GameObject:
@@ -142,27 +160,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5746148751096737255}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &858626147529574302
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5044301934509883138}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.850478, y: 65.613914, z: 6.3616114}
-  m_Center: {x: 0.69533384, y: 32.734734, z: -0.36580697}
 --- !u!4 &5569586383946163640 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 213162966061303903, guid: 663bdcdff6fff9e4f8a7b51ccea94b06,
