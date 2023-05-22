@@ -370,6 +370,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                nightVisionController.isEnabled = false;
+                nightVisionController.volume.weight = 0;
                 cameraUI.SetActive(false);
                 cameraON = false;
                 sound.clip = cameraOutClip;
