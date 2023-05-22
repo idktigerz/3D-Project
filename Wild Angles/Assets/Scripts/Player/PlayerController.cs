@@ -421,6 +421,7 @@ public class PlayerController : MonoBehaviour
                 popUpText.text = "new " + closest.name + " photo added to the diary";
                 closest.GetComponent<Photographable>().haveBeenSeen = true;
                 UpdatePageUi(closest);
+                UpdatePageButton(closest);
                 //listaTeste.Add(tex);
                 //WHEN TAKING THE PIC ACTIVATE THE IS KNOWN VARIABLE IN PHOTOGRAPHABLE
                 if (closest.name.Contains("Crocodile"))
@@ -775,6 +776,53 @@ public class PlayerController : MonoBehaviour
         popUpText.text = "You have no battery! Quickly, recharge your battery! (Press R to recharge)";
         yield return new WaitForSeconds(5f);
         popUpText.gameObject.SetActive(false);
+    }
+
+    private void UpdatePageButton(GameObject animal)
+    {
+        name = animal.name;
+        GameObject first = FindChildGameObjectByName(diaryController.gameObject, "MainPage");
+        GameObject objectName = FindChildGameObjectByName(first, name + "Button");
+        Text buttonText = FindChildGameObjectByName(objectName, "Text").GetComponent<Text>();
+        switch (objectName.name)
+        {
+            case "CrocodileButton":
+                buttonText.text = "Crocodile Page";
+                break;
+            case "Owl Button":
+                buttonText.text = "Owl Page";
+                break;
+            case "FrogButton":
+                buttonText.text = "Frog Page";
+                break;
+            case "BugButton":
+                buttonText.text = "Bug Page";
+                break;
+            case "ButterflyButton":
+                buttonText.text = "Butterfly Page";
+                break;
+            case "SnakeButton":
+                buttonText.text = "Snake Page";
+                break;
+            case "TigerButton":
+                buttonText.text = "Tiger Page";
+                break;
+            case "WhiteOrchidButton":
+                buttonText.text = "White Orchid Page";
+                break;
+            case "PurpleOrchidButton":
+                buttonText.text = "Purple Orchid Page";
+                break;
+            case "CocoaTreeButton":
+                buttonText.text = "Cocoa Tree Page";
+                break;
+            case "BananaTreeButton":
+                buttonText.text = "Banana Tree Page";
+                break;
+            case "HeliconiaButton":
+                buttonText.text = "Heliconia Page";
+                break;
+        }
     }
 
     private void UpdatePageUi(GameObject animal)
