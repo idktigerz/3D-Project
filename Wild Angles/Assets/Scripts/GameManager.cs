@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void ProcessInputs()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (pauseMenu.activeSelf == true)
             {
