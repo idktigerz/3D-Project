@@ -166,7 +166,7 @@ public class TimeController : MonoBehaviour
             RenderSettings.ambientLight = nightAmbientLight;
             RenderSettings.reflectionIntensity = 0.1f;
             playerLight.intensity = 5f;
-            flashLight.intensity = 10f;
+            flashLight.intensity = 20f;
             canToggleNightVision = true;
         }
 

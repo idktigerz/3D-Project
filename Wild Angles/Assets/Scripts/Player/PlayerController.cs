@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     public bool isFlashing;
     public GameObject light;
     public GameObject flashIcon;
-    public bool canFlash = false;
+    private bool canFlash = false;
     [Header("Other")]
     [SerializeField]
     private TextMeshProUGUI timeText;
@@ -141,6 +141,8 @@ public class PlayerController : MonoBehaviour
         picnum = 0;
         healthbar.UpdateHealthBar(100, health);
         popUpText.gameObject.SetActive(false);
+        flashIcon.SetActive(false);
+        Camera.onPostRender += OnPostRenderCallback;
     }
 
     private void Update()
@@ -156,7 +158,7 @@ public class PlayerController : MonoBehaviour
                 resting = false;
                 playerBody.SetActive(true);
                 tentCammera.SetActive(false);
-                timeController.GetComponent<TimeController>().timeMultiplier = 500;
+                timeController.GetComponent<TimeController>().timeMultiplier = 300;
             }
         }
         //CHECK IF SLEPT IN THE LAST 2 DAYS
@@ -217,7 +219,7 @@ public class PlayerController : MonoBehaviour
         {
             interactText.enabled = true;
             hit.collider.gameObject.GetComponent<PlantController>().canInteract = true;
-            interactText.text = "Press F to interact";
+            interactText.text = "Press F to Consume";
         }
         else
         {
@@ -232,7 +234,7 @@ public class PlayerController : MonoBehaviour
 
         if (cameraON)
         {
-            renderCam.SetActive(true);
+            //renderCam.SetActive(true);
             GameObject closest;
             closest = playerCam.GetClosestPhotographable();
             if (closest != null)
@@ -251,7 +253,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            canFlash = true;
             camBattery -= 1 * Time.deltaTime;
             if (nightVisionController.isEnabled)
             {
@@ -265,22 +266,25 @@ public class PlayerController : MonoBehaviour
             }
             batteryBar.UpdateBatteryBar(100, camBattery);
 
-            if (Input.GetKey(interactKey) && canFlash == true)
+            if (Input.GetKeyDown(interactKey))
             {
-                canFlash = false;
-                light.SetActive(true);
-                flashIcon.SetActive(true);
-            }
-            else
-            {
-                canFlash = true;
-                //light.SetActive(false);
-                flashIcon.SetActive(false);
+                if (canFlash)
+                {
+                    canFlash = false;
+
+                    flashIcon.SetActive(false);
+                }
+                else
+                {
+                    canFlash = true;
+                    flashIcon.SetActive(true);
+                }
             }
         }
         else
         {
-            renderCam.SetActive(false);
+            //renderCam.SetActive(false);
+
             foreach (var animal in playerCam.currentAnimalsInTheframe)
             {
                 Outline outline = animal.GetComponent<Outline>();
@@ -367,6 +371,8 @@ public class PlayerController : MonoBehaviour
                 cameraON = true;
                 sound.clip = cameraOutClip;
                 sound.Play();
+                if (canFlash) flashIcon.SetActive(true); else flashIcon.SetActive(false);
+
             }
             else
             {
@@ -387,111 +393,7 @@ public class PlayerController : MonoBehaviour
 
 
         //TAKING THE PIC
-        if (Input.GetMouseButtonDown(0) && cameraON)
-        {
-            sound.clip = takingPhotoClip;
-            sound.Play();
-            light.SetActive(true);
-            flashIcon.SetActive(true);
-            cameraUI.SetActive(false);
-            GameObject closest = null;
-            closest = playerCam.GetClosestPhotographable();
-            if (closest != null)
-            {
-                int point = GradePhoto(closest);
-                if (point == 1)
-                {
-                    points += 50;
-                }
-                else if (point == 2)
-                {
-                    points += 25;
-                }
-                else if (point == 3)
-                {
-                    points += 5;
-                }
-                int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
-                RenderTexture.active = rt;
-                Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false, true);
-                tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
-                tex.Apply();
-                RenderTexture.active = null;
-                popUpText.gameObject.SetActive(true);
-                popUpText.text = "new " + closest.name + " photo added to the diary";
-                closest.GetComponent<Photographable>().haveBeenSeen = true;
-                UpdatePageUi(closest);
-                UpdatePageButton(closest);
-                //listaTeste.Add(tex);
-                //WHEN TAKING THE PIC ACTIVATE THE IS KNOWN VARIABLE IN PHOTOGRAPHABLE
-                if (closest.name.Contains("Crocodile"))
-                {
-                    diaryController.tempcrocodilePhotos.Add(tex);
-                }
-                else if (closest.name.Contains("Owl"))
-                {
-                    diaryController.tempowlPhotos.Add(tex);
-                    //Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
-                    //IF (THE STATE IS CORRECT)
-                    GameObject animal = FindParentWithTag(closest, "Animal");
-                    if (animal.GetComponent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
-                    {
-                        OwlText.text = "Mission Passed you gained +50 points";
-                        points += 50;
-                    }
 
-                }
-                else if (closest.name.Contains("Butterfly"))
-                {
-                    diaryController.tempbutterflyPhotos.Add(tex);
-                }
-                else if (closest.name.Contains("Frog"))
-                {
-                    diaryController.tempfrogPhotos.Add(tex);
-                }
-                else if (closest.name.Contains("Snake"))
-                {
-                    diaryController.tempsnakePhotos.Add(tex);
-                }
-                else if (closest.name.Contains("Bug"))
-                {
-                    diaryController.tempbugPhotos.Add(tex);
-                }
-                else if (closest.name.Contains("Tiger"))
-                {
-                    diaryController.tempTigerPhotos.Add(tex);
-                }
-                else if (closest.name.Contains("White Orchid"))
-                {
-                    diaryController.tempwhiteOrchidPhotos.Add(tex);
-                }
-                else if (closest.name.Contains("Poison Orchid"))
-                {
-                    diaryController.temppurpleOrchidPhotos.Add(tex);
-                }
-                else if (closest.name.Contains("Cocoa Tree"))
-                {
-                    diaryController.tempcocoaTreePhotos.Add(tex);
-                }
-                else if (closest.name.Contains("Banana Tree"))
-                {
-                    diaryController.tempbananaTreePhotos.Add(tex);
-                }
-            }
-            else
-            {
-                RenderTexture.active = rt;
-                Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
-                tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
-                tex.Apply();
-                RenderTexture.active = null;
-                picnum++;
-            }
-            isFlashing = true;
-            StartCoroutine(CameraUIOn());
-            StartCoroutine(FlashOn());
-            camBattery -= 5;
-        }
         if (Input.GetKeyDown(reloadKey))
         {
 
@@ -516,7 +418,7 @@ public class PlayerController : MonoBehaviour
         {
             if (diaryOpen)
             {
-                timeController.GetComponent<TimeController>().timeMultiplier = 500;
+                timeController.GetComponent<TimeController>().timeMultiplier = 300;
                 playerCam.enabled = true;
                 diaryUI.SetActive(false);
                 diaryOpen = false;
@@ -555,7 +457,128 @@ public class PlayerController : MonoBehaviour
         {
             points += 10001;
         }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (timeController.GetComponent<TimeController>().timeMultiplier == 500) timeController.GetComponent<TimeController>().timeMultiplier = 300;
+            else if (timeController.GetComponent<TimeController>().timeMultiplier == 300) timeController.GetComponent<TimeController>().timeMultiplier = 500;
+        }
+    }
 
+    private void OnPostRenderCallback(Camera cam)
+    {
+        if (cam == Camera.main)
+        {
+            Debug.Log($"AHALÇSDIEWGELMWEG");
+            if (Input.GetMouseButtonDown(0) && cameraON)
+            {
+                renderCam.SetActive(true);
+                sound.clip = takingPhotoClip;
+                sound.Play();
+                Debug.Log(canFlash);
+                if (canFlash)
+                {
+                    light.SetActive(true);
+                    isFlashing = true;
+                }
+                cameraUI.SetActive(false);
+                GameObject closest = null;
+                closest = playerCam.GetClosestPhotographable();
+                if (closest != null)
+                {
+                    int point = GradePhoto(closest);
+                    if (point == 1)
+                    {
+                        points += 50;
+                    }
+                    else if (point == 2)
+                    {
+                        points += 25;
+                    }
+                    else if (point == 3)
+                    {
+                        points += 5;
+                    }
+                    int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
+                    RenderTexture.active = rt;
+                    Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false, true);
+                    tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+                    tex.Apply();
+                    RenderTexture.active = null;
+                    popUpText.gameObject.SetActive(true);
+                    popUpText.text = "new " + closest.name + " photo added to the diary";
+                    closest.GetComponent<Photographable>().haveBeenSeen = true;
+                    UpdatePageUi(closest);
+                    UpdatePageButton(closest);
+                    //listaTeste.Add(tex);
+                    //WHEN TAKING THE PIC ACTIVATE THE IS KNOWN VARIABLE IN PHOTOGRAPHABLE
+                    if (closest.name.Contains("Crocodile"))
+                    {
+                        diaryController.tempcrocodilePhotos.Add(tex);
+                    }
+                    else if (closest.name.Contains("Owl"))
+                    {
+                        diaryController.tempowlPhotos.Add(tex);
+                        //Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
+                        //IF (THE STATE IS CORRECT)
+                        GameObject animal = FindParentWithTag(closest, "Animal");
+                        if (animal.GetComponent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
+                        {
+                            OwlText.text = "Mission Passed you gained +50 points";
+                            points += 50;
+                        }
+
+                    }
+                    else if (closest.name.Contains("Butterfly"))
+                    {
+                        diaryController.tempbutterflyPhotos.Add(tex);
+                    }
+                    else if (closest.name.Contains("Frog"))
+                    {
+                        diaryController.tempfrogPhotos.Add(tex);
+                    }
+                    else if (closest.name.Contains("Snake"))
+                    {
+                        diaryController.tempsnakePhotos.Add(tex);
+                    }
+                    else if (closest.name.Contains("Bug"))
+                    {
+                        diaryController.tempbugPhotos.Add(tex);
+                    }
+                    else if (closest.name.Contains("Tiger"))
+                    {
+                        diaryController.tempTigerPhotos.Add(tex);
+                    }
+                    else if (closest.name.Contains("White Orchid"))
+                    {
+                        diaryController.tempwhiteOrchidPhotos.Add(tex);
+                    }
+                    else if (closest.name.Contains("Poison Orchid"))
+                    {
+                        diaryController.temppurpleOrchidPhotos.Add(tex);
+                    }
+                    else if (closest.name.Contains("Cocoa Tree"))
+                    {
+                        diaryController.tempcocoaTreePhotos.Add(tex);
+                    }
+                    else if (closest.name.Contains("Banana Tree"))
+                    {
+                        diaryController.tempbananaTreePhotos.Add(tex);
+                    }
+                }
+                else
+                {
+                    RenderTexture.active = rt;
+                    Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+                    tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+                    tex.Apply();
+                    RenderTexture.active = null;
+                    picnum++;
+                }
+                isFlashing = true;
+                StartCoroutine(CameraUIOn());
+                camBattery -= 5;
+            }
+        }
     }
 
     private void StateHandler()
@@ -692,15 +715,11 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         cameraUI.SetActive(true);
         popUpText.gameObject.SetActive(false);
-    }
-    private IEnumerator FlashOn()
-    {
-        yield return new WaitForSeconds(1);
         light.SetActive(false);
         flashIcon.SetActive(false);
         isFlashing = false;
+        renderCam.SetActive(false);
     }
-
     public void DamagePlayer(float damage)
     {
         health -= damage;
