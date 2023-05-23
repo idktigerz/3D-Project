@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool resting;
     [SerializeField] GameObject tentCammera;
     [SerializeField] GameObject playerBody;
+    [SerializeField] GameObject companion;
     [Header("Sound")]
 
     public AudioSource sound;
@@ -388,7 +389,11 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(NoBatteryText());
             }
+
         }
+        if (Input.GetKeyDown(KeyCode.G)) companion.GetComponent<FSMNavMeshAgent>().following = true;
+
+        if (Input.GetKeyDown(KeyCode.T)) companion.GetComponent<FSMNavMeshAgent>().homming = true;
 
 
 

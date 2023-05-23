@@ -39,6 +39,11 @@ public class FSMNavMeshAgent : MonoBehaviour
     private bool canDamagePlayer = false;
 
     public PlayerController playerController;
+    [Header("baby tiger")]
+    public bool following;
+    public bool homming;
+    public GameObject tent;
+
     [Header("animations")]
     public Animator animator;
 
@@ -142,6 +147,31 @@ public class FSMNavMeshAgent : MonoBehaviour
         agent.speed = 7;
         var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
         agent.SetDestination(target.position + NewPos);
+    }
+
+    public void GoToPlayerBabyTiger(Vector3 targetPos, string var)
+    {
+        agent.isStopped = false;
+        if (homming) agent.speed = 5; else if (following) agent.speed = 10;
+        Vector3 NewPos = targetPos;
+        agent.SetDestination(NewPos);
+        if (Vector3.Distance(NewPos, transform.position) < 3f)
+        {
+            if (var == "following") following = false; else if (var == "homming") homming = false;
+
+        }
+    }
+    public void GoToTentBabyTiger()
+    {
+        Debug.Log($"sdfsafsadfsdf");
+        agent.isStopped = false;
+        agent.speed = 5;
+        var NewPos = tent.transform.position;
+        agent.SetDestination(NewPos);
+        if (Vector3.Distance(tent.transform.position, transform.position) < 2f)
+        {
+            homming = false;
+        }
     }
     public void GoToNextPatrolWaypointOwl()
     {

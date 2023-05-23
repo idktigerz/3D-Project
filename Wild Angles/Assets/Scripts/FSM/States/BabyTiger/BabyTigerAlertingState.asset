@@ -18,3 +18,4 @@ MonoBehaviour:
   exitAction: {fileID: 0}
   transitions:
   - {fileID: 11400000, guid: d1c4e39747dcd9a4ab9cf884e758263c, type: 2}
+  - {fileID: 11400000, guid: b8edd112a2cad2b4cb549fed39f643df, type: 2}
