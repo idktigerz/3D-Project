@@ -29,10 +29,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ProcessInputs();
-        if (timeController.dayCounter == 7)
+        if (timeController != null)
         {
-            PlayerPrefs.SetInt("points", playerController.points);
-            Endgame();
+            if (timeController.dayCounter == 7)
+            {
+                PlayerPrefs.SetInt("points", playerController.points);
+                Endgame();
+            }
         }
     }
 
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1;
     }
 
     public void ContinueGame()

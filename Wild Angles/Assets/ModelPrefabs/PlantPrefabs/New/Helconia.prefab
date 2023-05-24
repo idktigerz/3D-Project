@@ -27,12 +27,12 @@ Transform:
   m_GameObject: {fileID: 9058840897322744313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 453.6, y: 0.06, z: 1222.68}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.720165, y: 1.720165, z: 1.720165}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5155452479141669905}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9119870356950815177
 MonoBehaviour:
@@ -153,6 +153,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106773402797581702, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb,
+        type: 3}
+      propertyPath: photographableId
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4356939707635903691, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb, type: 3}

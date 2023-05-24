@@ -128,13 +128,27 @@ public class PlayerController : MonoBehaviour
         air
     }
 
+    public class DiaryData
+    {
+        public string type;
+        public Texture2D texture;
+        public bool saved;
+
+        public DiaryData(String t,Texture2D tex, bool s)
+        {
+            type = t;
+            texture = tex;
+            saved = s;
+        }
+    }
+
     private void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
         timeController = GameObject.FindGameObjectWithTag("TimeController");
-        plantController = GameObject.FindGameObjectWithTag("Interactable Plant").GetComponent<PlantController>();
+        //plantController = GameObject.FindGameObjectWithTag("Interactable Plant").GetComponent<PlantController>();
         rb.freezeRotation = true;
         readyToJump = true;
         isFlashing = false;
@@ -144,6 +158,9 @@ public class PlayerController : MonoBehaviour
         popUpText.gameObject.SetActive(false);
         flashIcon.SetActive(false);
         Camera.onPostRender += OnPostRenderCallback;
+        List<DiaryData> list = new List<DiaryData>();
+        list.Add(new DiaryData("Crocodile", null, false));
+
     }
 
     private void Update()
@@ -219,12 +236,13 @@ public class PlayerController : MonoBehaviour
         else if (active && hit.collider.CompareTag("Interactable Plant"))
         {
             interactText.enabled = true;
-            hit.collider.gameObject.GetComponent<PlantController>().canInteract = true;
+            plantController = hit.collider.gameObject.GetComponent<PlantController>();
+            plantController.canInteract = true;
             interactText.text = "Press F to Consume";
         }
         else
         {
-            plantController.canInteract = false;
+            if (plantController != null) plantController.canInteract = false;
             canInteract = false;
             interactText.enabled = false;
             if (companion != null)
@@ -510,7 +528,14 @@ public class PlayerController : MonoBehaviour
             tex.Apply();
             RenderTexture.active = null;
             popUpText.gameObject.SetActive(true);
-            popUpText.text = "new " + closest.name + " photo added to the diary";
+            if (closest.GetComponent<Photographable>().haveBeenSeen == false)
+            {
+                popUpText.text = "new " + closest.name + " photo added to the diary \nA new mission, description and fact about " + closest.name + " have been added to the diary!";
+            }
+            else
+            {
+                popUpText.text = "new " + closest.name + " photo added to the diary!";
+            }
             closest.GetComponent<Photographable>().haveBeenSeen = true;
             UpdatePageUi(closest);
             UpdatePageButton(closest);
@@ -728,11 +753,12 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         cameraUI.SetActive(true);
-        popUpText.gameObject.SetActive(false);
         light.SetActive(false);
         flashIcon.SetActive(false);
         isFlashing = false;
-        //renderCam.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        popUpText.gameObject.SetActive(false);
+
     }
     public void DamagePlayer(float damage)
     {
@@ -813,7 +839,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePageButton(GameObject animal)
     {
-        name = animal.name;
+        String name = animal.name;
         GameObject first = FindChildGameObjectByName(diaryController.gameObject, "MainPage");
         GameObject objectName = FindChildGameObjectByName(first, name + "Button");
         Text buttonText = FindChildGameObjectByName(objectName, "Text").GetComponent<Text>();
