@@ -128,19 +128,7 @@ public class PlayerController : MonoBehaviour
         air
     }
 
-    public class DiaryData
-    {
-        public string type;
-        public Texture2D texture;
-        public bool saved;
 
-        public DiaryData(String t,Texture2D tex, bool s)
-        {
-            type = t;
-            texture = tex;
-            saved = s;
-        }
-    }
 
     private void Start()
     {
@@ -158,8 +146,7 @@ public class PlayerController : MonoBehaviour
         popUpText.gameObject.SetActive(false);
         flashIcon.SetActive(false);
         Camera.onPostRender += OnPostRenderCallback;
-        List<DiaryData> list = new List<DiaryData>();
-        list.Add(new DiaryData("Crocodile", null, false));
+
 
     }
 
@@ -541,6 +528,7 @@ public class PlayerController : MonoBehaviour
             UpdatePageButton(closest);
             //listaTeste.Add(tex);
             //WHEN TAKING THE PIC ACTIVATE THE IS KNOWN VARIABLE IN PHOTOGRAPHABLE
+            diaryController.animalList.Add(new DiaryController.DiaryData(closest.name, tex, false));
             if (closest.name.Contains("Crocodile"))
             {
                 diaryController.tempcrocodilePhotos.Add(tex);

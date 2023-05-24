@@ -43,12 +43,28 @@ public class DiaryController : MonoBehaviour
     public List<Texture2D> tempbananaTreePhotos;
     public List<Texture2D> temphelconiaPhotos;
 
+    public List<DiaryData> animalList = new List<DiaryData>();
+
 
     private int start = 0;
 
     private int end = 4;
 
     string folderName;
+
+    public class DiaryData
+    {
+        public string type;
+        public Texture2D texture;
+        public bool saved;
+
+        public DiaryData(string t, Texture2D tex, bool s)
+        {
+            type = t;
+            texture = tex;
+            saved = s;
+        }
+    }
 
     private void Start()
     {
@@ -61,6 +77,7 @@ public class DiaryController : MonoBehaviour
         if (list.Count == 1)
         {
             FindChildGameObjectByName(main, "image1").GetComponent<RawImage>().texture = list[start];
+
         }
         else if (list.Count == 2)
         {
@@ -124,9 +141,20 @@ public class DiaryController : MonoBehaviour
         }
         if (diaryPage == 1)
         {
+            List<Texture2D> tempList = ReturnList(folderName);
+            /*
+            List<Texture2D> tempList = new List<Texture2D>();
+            foreach (DiaryData item in animalList)
+            {
+                if (item.type == folderName)
+                {
+                    tempList.Add(item.texture);
+                }
+            }*/
 
             start = 0;
-            if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
+            ShowDiaryPage(tempList);
+            /*if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
             else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
             else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
             else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
@@ -138,12 +166,24 @@ public class DiaryController : MonoBehaviour
             else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
             else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
             else if (folderName == "Helconia") ShowDiaryPage(helconiaPhotos);
+            */
 
 
         }
         else
         {
+            List<Texture2D> tempList = ReturnList(folderName);
+            /*List<Texture2D> tempList = new List<Texture2D>();
+            foreach (DiaryData item in animalList)
+            {
+                if (item.type == folderName)
+                {
+                    tempList.Add(item.texture);
+                }
+            }*/
             start = diaryPage * 4 - 3;
+            ShowDiaryPage(tempList);
+            /*
             if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
             else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
             else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
@@ -156,6 +196,7 @@ public class DiaryController : MonoBehaviour
             else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
             else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
             else if (folderName == "Helconia") ShowDiaryPage(helconiaPhotos);
+            */
         }
     }
     private void Update()
@@ -172,7 +213,17 @@ public class DiaryController : MonoBehaviour
 
     public void FirstPage(string folder)
     {
+        List<Texture2D> tempList = ReturnList(folder);
+        /*List<Texture2D> tempList = new List<Texture2D>();
+        foreach (DiaryData item in animalList)
+        {
+            if (item.type == folder)
+            {
+                tempList.Add(item.texture);
+            }
+        }*/
         folderName = folder;
+        /*
         if (folderName == "Crocodile") ShowFirstDiaryPage(crocodilePhotos);
         else if (folderName == "Owl") ShowFirstDiaryPage(owlPhotos);
         else if (folderName == "Butterfly") ShowFirstDiaryPage(butterflyPhotos);
@@ -185,14 +236,27 @@ public class DiaryController : MonoBehaviour
         else if (folderName == "CocoaTree") ShowFirstDiaryPage(cocoaTreePhotos);
         else if (folderName == "BananaTree") ShowFirstDiaryPage(bananaTreePhotos);
         else if (folderName == "Helconia") ShowFirstDiaryPage(helconiaPhotos);
+        */
+        ShowFirstDiaryPage(tempList);
 
         diaryPage = 1;
     }
 
     public void Album(string folder)
     {
+        List<Texture2D> tempList = ReturnList(folder);
+        /*List<Texture2D> tempList = new List<Texture2D>();
+        foreach (DiaryData item in animalList)
+        {
+            if (item.type == folder)
+            {
+                tempList.Add(item.texture);
+            }
+        }*/
+
         folderName = folder;
-        if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
+        ShowDiaryPage(tempList);
+        /*if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
         else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
         else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
         else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
@@ -204,6 +268,7 @@ public class DiaryController : MonoBehaviour
         else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
         else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
         else if (folderName == "Helconia") ShowDiaryPage(helconiaPhotos);
+        */
 
     }
 
@@ -224,6 +289,18 @@ public class DiaryController : MonoBehaviour
             }
         }
         return null;
+    }
+    private List<Texture2D> ReturnList(string folder)
+    {
+        List<Texture2D> tempList = new List<Texture2D>();
+        foreach (DiaryData item in animalList)
+        {
+            if (item.type == folder)
+            {
+                tempList.Add(item.texture);
+            }
+        }
+        return tempList;
     }
 
     public void Back()

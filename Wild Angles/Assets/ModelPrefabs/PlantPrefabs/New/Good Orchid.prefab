@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 3077758528016379158}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2892401575573514778
 MonoBehaviour:
@@ -87,7 +87,7 @@ PrefabInstance:
     - target: {fileID: 474896951420078615, guid: e87b5dbe9b212cb43905e57be6919459,
         type: 3}
       propertyPath: m_Name
-      value: Good Orchid
+      value: WhiteOrchid
       objectReference: {fileID: 0}
     - target: {fileID: 474896951420078615, guid: e87b5dbe9b212cb43905e57be6919459,
         type: 3}
