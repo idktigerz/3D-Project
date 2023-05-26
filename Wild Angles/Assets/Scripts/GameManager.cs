@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public TimeController timeController;
     public GameObject player;
     public GameObject tent;
+    public DiaryController diaryController;
 
 
     public TextMeshProUGUI scoreText;
@@ -93,5 +94,6 @@ public class GameManager : MonoBehaviour
         timeController.currentTime += timeController.midDayTime;
         timeController.dayCounter = playerController.lastDaySaved;
         player.transform.position = tent.transform.position;
+        diaryController.DeleteUnsavedPhotos();
     }
 }

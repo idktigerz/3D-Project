@@ -15,7 +15,7 @@ public class DiaryController : MonoBehaviour
     public List<Sprite> MainPagePhotos;
 
     public PlayerController playerController;
-    public List<Texture2D> crocodilePhotos;
+    /*public List<Texture2D> crocodilePhotos;
     public List<Texture2D> owlPhotos;
     public List<Texture2D> butterflyPhotos;
     public List<Texture2D> bugPhotos;
@@ -27,9 +27,9 @@ public class DiaryController : MonoBehaviour
     public List<Texture2D> cocoaTreePhotos;
     public List<Texture2D> bananaTreePhotos;
     public List<Texture2D> helconiaPhotos;
-    public List<Texture2D> tigerPhotos;
+    public List<Texture2D> tigerPhotos;*/
     [Header("Temporary Lists")]
-    public List<Texture2D> temptigerPhotos;
+    /*public List<Texture2D> temptigerPhotos;
     public List<Texture2D> tempcrocodilePhotos;
     public List<Texture2D> tempowlPhotos;
     public List<Texture2D> tempbutterflyPhotos;
@@ -42,6 +42,7 @@ public class DiaryController : MonoBehaviour
     public List<Texture2D> tempcocoaTreePhotos;
     public List<Texture2D> tempbananaTreePhotos;
     public List<Texture2D> temphelconiaPhotos;
+    */
 
     public List<DiaryData> animalList = new List<DiaryData>();
 
@@ -99,6 +100,10 @@ public class DiaryController : MonoBehaviour
         }
         else
         {
+            FindChildGameObjectByName(main, "image1").GetComponent<RawImage>().texture = null;
+            FindChildGameObjectByName(main, "image2").GetComponent<RawImage>().texture = null;
+            FindChildGameObjectByName(main, "image3").GetComponent<RawImage>().texture = null;
+            FindChildGameObjectByName(main, "image4").GetComponent<RawImage>().texture = null;
             Debug.LogError("No photos");
         }
     }
@@ -301,6 +306,34 @@ public class DiaryController : MonoBehaviour
             }
         }
         return tempList;
+    }
+    public void DeleteUnsavedPhotos()
+    {
+        /*foreach (DiaryData item in animalList)
+        {
+            if (!item.saved)
+            {
+                animalList.Remove(item);
+            }
+        }*/
+        for (int i = 0; i < animalList.Count; i++)
+        {
+            if (!animalList[i].saved)
+            {
+                animalList.Remove(animalList[i]);
+                i--;
+            }
+        }
+    }
+    public void SavePhotos()
+    {
+        foreach (DiaryData item in animalList)
+        {
+            if (!item.saved)
+            {
+                item.saved = true;
+            }
+        }
     }
 
     public void Back()

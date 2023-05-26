@@ -531,11 +531,11 @@ public class PlayerController : MonoBehaviour
             diaryController.animalList.Add(new DiaryController.DiaryData(closest.name, tex, false));
             if (closest.name.Contains("Crocodile"))
             {
-                diaryController.tempcrocodilePhotos.Add(tex);
+                //  diaryController.tempcrocodilePhotos.Add(tex);
             }
             else if (closest.name.Contains("Owl"))
             {
-                diaryController.tempowlPhotos.Add(tex);
+                // diaryController.tempowlPhotos.Add(tex);
                 //Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
                 //IF (THE STATE IS CORRECT)
                 GameObject animal = FindParentWithTag(closest, "Animal");
@@ -548,39 +548,39 @@ public class PlayerController : MonoBehaviour
             }
             else if (closest.name.Contains("Butterfly"))
             {
-                diaryController.tempbutterflyPhotos.Add(tex);
+                //  diaryController.tempbutterflyPhotos.Add(tex);
             }
             else if (closest.name.Contains("Frog"))
             {
-                diaryController.tempfrogPhotos.Add(tex);
+                // diaryController.tempfrogPhotos.Add(tex);
             }
             else if (closest.name.Contains("Snake"))
             {
-                diaryController.tempsnakePhotos.Add(tex);
+                // diaryController.tempsnakePhotos.Add(tex);
             }
             else if (closest.name.Contains("Bug"))
             {
-                diaryController.tempbugPhotos.Add(tex);
+                // diaryController.tempbugPhotos.Add(tex);
             }
             else if (closest.name.Contains("Tiger"))
             {
-                diaryController.tempTigerPhotos.Add(tex);
+                // diaryController.tempTigerPhotos.Add(tex);
             }
             else if (closest.name.Contains("White Orchid"))
             {
-                diaryController.tempwhiteOrchidPhotos.Add(tex);
+                //diaryController.tempwhiteOrchidPhotos.Add(tex);
             }
             else if (closest.name.Contains("Poison Orchid"))
             {
-                diaryController.temppurpleOrchidPhotos.Add(tex);
+                //diaryController.temppurpleOrchidPhotos.Add(tex);
             }
             else if (closest.name.Contains("Cocoa Tree"))
             {
-                diaryController.tempcocoaTreePhotos.Add(tex);
+                //diaryController.tempcocoaTreePhotos.Add(tex);
             }
             else if (closest.name.Contains("Banana Tree"))
             {
-                diaryController.tempbananaTreePhotos.Add(tex);
+                //diaryController.tempbananaTreePhotos.Add(tex);
             }
         }
         else
@@ -723,7 +723,8 @@ public class PlayerController : MonoBehaviour
         tentCammera.SetActive(true);
         transform.position = new Vector3(441.08f, 0, 1207.82f);
         playerBody.SetActive(false);
-        diaryController.crocodilePhotos = new List<Texture2D>(diaryController.tempcrocodilePhotos);
+        diaryController.SavePhotos();
+        /*diaryController.crocodilePhotos = new List<Texture2D>(diaryController.tempcrocodilePhotos);
         diaryController.owlPhotos = new List<Texture2D>(diaryController.tempowlPhotos);
         diaryController.snakePhotos = new List<Texture2D>(diaryController.tempsnakePhotos);
         diaryController.butterflyPhotos = new List<Texture2D>(diaryController.tempbutterflyPhotos);
@@ -735,6 +736,7 @@ public class PlayerController : MonoBehaviour
         diaryController.helconiaPhotos = new List<Texture2D>(diaryController.temphelconiaPhotos);
         diaryController.cocoaTreePhotos = new List<Texture2D>(diaryController.tempcocoaTreePhotos);
         diaryController.bananaTreePhotos = new List<Texture2D>(diaryController.tempbananaTreePhotos);
+        */
 
     }
     private IEnumerator CameraUIOn()
