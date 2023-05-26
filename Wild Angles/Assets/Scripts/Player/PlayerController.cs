@@ -898,27 +898,27 @@ public class PlayerController : MonoBehaviour
                     break;
                 case "OwlPage":
                     mission.text = "Mission : Take a photo of an Owl flying";
-                    //description.text = "Description about the animal : Its an Owl";
+                    description.SetActive(true);
                     fact.text = "Fun fact about the animal : Owl very active at night";
                     break;
                 case "ButterflyPage":
                     mission.text = "Mission : Take a photo of a butterfly flying ";
-                    //description.text = "Description about the animal : its a butterfly";
+                    description.SetActive(true);
                     fact.text = "Fun fact about the animal : butterfly very beautiful";
                     break;
                 case "BugPage":
                     mission.text = "Mission : Take a perfect photo of a bug";
-                    //description.text = "Description about the animal : Its a Bug";
+                    description.SetActive(true);
                     fact.text = "Fun fact about the animal : very inofencive";
                     break;
                 case "FrogPage":
                     mission.text = "Mission : Take a perfect photo of a frog";
-                    //description.text = "Description about the animal : Its a frogy";
+                    description.SetActive(true);
                     fact.text = "Fun fact about the animal : very boing";
                     break;
                 case "SnakePage":
                     mission.text = "Mission : Take a photo of a Snake Staring at You";
-                    //description.text = "Description about the animal : Its a Sneke";
+                    description.SetActive(true);
                     fact.text = "Fun fact about the animal : Sneke very esquibo";
                     break;
             }
