@@ -138,4 +138,13 @@ public class PlayerCam : MonoBehaviour
             return false;
         }
     }
+    public bool MoreThenOneInFrame(string name)
+    {
+        int count = 0;
+        foreach (var item in currentAnimalsInTheframe)
+        {
+            if (item.name == name && IsInTheFrame(item)) count++;
+        }
+        if (count > 1) return true; else return false;
+    }
 }

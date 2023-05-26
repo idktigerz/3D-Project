@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 5155452479141669905}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9119870356950815177
 MonoBehaviour:
@@ -87,7 +87,7 @@ PrefabInstance:
     - target: {fileID: 6274832542497463967, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb,
         type: 3}
       propertyPath: m_Name
-      value: Helconia
+      value: Heliconia
       objectReference: {fileID: 0}
     - target: {fileID: 6274832542497463967, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb,
         type: 3}
@@ -168,7 +168,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6274832542497463967, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4540797002630177861}
+      addedObject: {fileID: 7482397950181696724}
   m_SourcePrefab: {fileID: 100100000, guid: 1c13aaf6dd1a1f44c8b3e97f05b550eb, type: 3}
 --- !u!4 &5155452479141669905 stripped
 Transform:
@@ -182,14 +182,14 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2005411250012055604}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4540797002630177861
+--- !u!114 &7482397950181696724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5530429256902194859}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 

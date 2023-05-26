@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 3469228802855788812}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2230331262204902780
 MonoBehaviour:
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openTime: 0
-  closeTime: 10
+  closeTime: 0
   plant: {fileID: 4282639140999510966}
   collider: {fileID: 9215896766751699770}
   timeController: {fileID: 0}
@@ -147,7 +147,7 @@ PrefabInstance:
     - target: {fileID: 9188623786201572680, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
         type: 3}
       propertyPath: m_Name
-      value: Poison Orchid
+      value: PurpleOrchid
       objectReference: {fileID: 0}
     - target: {fileID: 9188623786201572680, guid: 5b989b7aae1c67b41a4221a2b03af0a5,
         type: 3}

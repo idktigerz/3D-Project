@@ -79,7 +79,9 @@ public class PlayerController : MonoBehaviour
     private TextMeshProUGUI dayText;
     [SerializeField]
     private TextMeshProUGUI modeText;
+    [Header("Animal Mission Texts")]
     public TextMeshProUGUI OwlText;
+    public TextMeshProUGUI ButterflyText;
     public int lastDaySaved;
     [SerializeField]
     public Image batteryIcon1;
@@ -548,7 +550,11 @@ public class PlayerController : MonoBehaviour
             }
             else if (closest.name.Contains("Butterfly"))
             {
-                //  diaryController.tempbutterflyPhotos.Add(tex);
+                if (playerCam.MoreThenOneInFrame("Butterfly"))
+                {
+                    ButterflyText.text = "Mission Passed you gained +50 points";
+                    points += 50;
+                }
             }
             else if (closest.name.Contains("Frog"))
             {
@@ -838,7 +844,7 @@ public class PlayerController : MonoBehaviour
             case "CrocodileButton":
                 buttonText.text = "Crocodile Page";
                 break;
-            case "Owl Button":
+            case "OwlButton":
                 buttonText.text = "Owl Page";
                 break;
             case "FrogButton":
@@ -878,7 +884,7 @@ public class PlayerController : MonoBehaviour
     {
         if (animal.CompareTag("Animal"))
         {
-            name = animal.name;
+            string name = animal.name;
             GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
             TextMeshProUGUI mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI description = FindChildGameObjectByName(objectName, "Description Text").GetComponent<TextMeshProUGUI>();

@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 5569586383946163640}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3007073739668532585
 MonoBehaviour:
@@ -142,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 702172564095111909, guid: 663bdcdff6fff9e4f8a7b51ccea94b06,
         type: 3}
       propertyPath: m_Name
-      value: Cocoa Tree
+      value: CocoaTree
       objectReference: {fileID: 0}
     - target: {fileID: 702172564095111909, guid: 663bdcdff6fff9e4f8a7b51ccea94b06,
         type: 3}
@@ -154,10 +154,15 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9118392027638626824, guid: 663bdcdff6fff9e4f8a7b51ccea94b06, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 702172564095111909, guid: 663bdcdff6fff9e4f8a7b51ccea94b06,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 530329349275454729}
   m_SourcePrefab: {fileID: 100100000, guid: 663bdcdff6fff9e4f8a7b51ccea94b06, type: 3}
 --- !u!1 &5044301934509883138 stripped
 GameObject:
@@ -165,6 +170,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5746148751096737255}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &530329349275454729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044301934509883138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &5569586383946163640 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 213162966061303903, guid: 663bdcdff6fff9e4f8a7b51ccea94b06,

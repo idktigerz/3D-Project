@@ -47,7 +47,7 @@ Material:
     - _rippleDensity: 7
     - _rippleSpeed: 1.2
     - _rippleslimness: 8
-    - _waveScale: 2500
+    - _waveScale: 1
     - _waveSpeed: 0.0002
     m_Colors:
     - _baseColor: {r: 0, g: 0.37159562, b: 1, a: 0}
