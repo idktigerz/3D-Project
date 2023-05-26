@@ -887,38 +887,38 @@ public class PlayerController : MonoBehaviour
             string name = animal.name;
             GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
             TextMeshProUGUI mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<TextMeshProUGUI>();
-            TextMeshProUGUI description = FindChildGameObjectByName(objectName, "Description Text").GetComponent<TextMeshProUGUI>();
+            GameObject description = FindChildGameObjectByName(objectName, "Description Text");
             TextMeshProUGUI fact = FindChildGameObjectByName(objectName, "Fact Text").GetComponent<TextMeshProUGUI>();
             switch (objectName.name)
             {
                 case "CrocodilePage":
                     mission.text = "Mission : Take a photo of a crocodile attacking you";
-                    description.text = "Description about the animal : Its a Croqui";
+                    description.SetActive(true);
                     fact.text = "Fun fact about the animal : croqui ver dangewos be cawefull";
                     break;
                 case "OwlPage":
                     mission.text = "Mission : Take a photo of an Owl flying";
-                    description.text = "Description about the animal : Its an Owl";
+                    //description.text = "Description about the animal : Its an Owl";
                     fact.text = "Fun fact about the animal : Owl very active at night";
                     break;
                 case "ButterflyPage":
                     mission.text = "Mission : Take a photo of a butterfly flying ";
-                    description.text = "Description about the animal : its a butterfly";
+                    //description.text = "Description about the animal : its a butterfly";
                     fact.text = "Fun fact about the animal : butterfly very beautiful";
                     break;
                 case "BugPage":
                     mission.text = "Mission : Take a perfect photo of a bug";
-                    description.text = "Description about the animal : Its a Bug";
+                    //description.text = "Description about the animal : Its a Bug";
                     fact.text = "Fun fact about the animal : very inofencive";
                     break;
                 case "FrogPage":
                     mission.text = "Mission : Take a perfect photo of a frog";
-                    description.text = "Description about the animal : Its a frogy";
+                    //description.text = "Description about the animal : Its a frogy";
                     fact.text = "Fun fact about the animal : very boing";
                     break;
                 case "SnakePage":
                     mission.text = "Mission : Take a photo of a Snake Staring at You";
-                    description.text = "Description about the animal : Its a Sneke";
+                    //description.text = "Description about the animal : Its a Sneke";
                     fact.text = "Fun fact about the animal : Sneke very esquibo";
                     break;
             }
