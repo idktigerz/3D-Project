@@ -46,10 +46,22 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     [Header("animations")]
     public Animator animator;
+    [Header("Sounds")]
+    private AudioSource source;
+    [SerializeField] private AudioClip walkingSound;
+    [SerializeField] private AudioClip attackSound;
+
+    [SerializeField] private AudioClip hissSound;
+    [SerializeField] private AudioClip talkSound;
+
+
+
+
 
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         canFly = true;
@@ -207,6 +219,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         agent.speed = initialSpeed;
         if (gameObject.name.Contains("Crocodile"))
         {
+            source.Stop();
             GoToNextPatrolWaypoint();
         }
         else if (gameObject.name.Contains("Owl"))
@@ -235,18 +248,30 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         agent.isStopped = false;
         agent.SetDestination(target.position);
+        if (source != null && hissSound != null && source.clip != hissSound)
+        {
+            source.clip = hissSound;
+            source.Play();
+            source.loop = true;
+        }
     }
 
     public void CrocodileAttack()
     {
         if (canAttack)
         {
+            if (source != null)
+            {
+                source.clip = attackSound;
+                source.Play();
+            }
             animator.Play("CrocodileAttack");
             rb.constraints = RigidbodyConstraints.None;
             Vector3 direction = transform.position - target.transform.position;
             float force = 2;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
+
             StartCoroutine("CrocAttackWait");
 
 
