@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
@@ -36,17 +36,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -265.4098
+      value: 429.1859
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000019073486
+      value: 0.0000333786
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1191.0173
+      value: 1230.3851
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
@@ -407,6 +407,11 @@ MonoBehaviour:
   homming: 0
   tent: {fileID: 0}
   animator: {fileID: 0}
+  source: {fileID: 0}
+  walkingSound: {fileID: 8300000, guid: c9a1c1452e1937b41b0acf0433b5c413, type: 3}
+  attackSound: {fileID: 8300000, guid: c07a7f005fc4d9747ace04594ece1305, type: 3}
+  hissSound: {fileID: 8300000, guid: 97edb9fa82ef4554c863156356b89222, type: 3}
+  talkSound: {fileID: 8300000, guid: a72be94abdda4f342bd18b6f0ffd882f, type: 3}
 --- !u!54 &242364374125363191
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -467,7 +472,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -476,9 +481,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -511,7 +516,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

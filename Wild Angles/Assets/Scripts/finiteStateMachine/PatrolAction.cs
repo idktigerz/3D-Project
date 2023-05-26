@@ -9,6 +9,20 @@ public class PatrolAction : Action
     public override void Act(FiniteStateMachine fsm)
     {
         fsm.GetNavMeshAgent().agent.isStopped = false;
+
+        if (fsm.GetNavMeshAgent().source.isPlaying && fsm.name.Contains("Crocodile") && !fsm.name.Contains("Frog"))
+        {
+            fsm.GetNavMeshAgent().source.Stop();
+            fsm.GetNavMeshAgent().source.loop = false;
+        }
+        else if (!fsm.GetNavMeshAgent().source.isPlaying || fsm.GetNavMeshAgent().source.clip == fsm.GetNavMeshAgent().hissSound && !fsm.name.Contains("Frog"))
+        {
+            fsm.GetNavMeshAgent().source.clip = fsm.GetNavMeshAgent().walkingSound;
+            fsm.GetNavMeshAgent().source.Play();
+            fsm.GetNavMeshAgent().source.loop = true;
+        }
+
+
         //Debug.Log($"PATROLING");
         if (fsm.GetNavMeshAgent().IsAtDestination() || fsm.name.Contains("Baby Tiger") && Vector3.Distance(fsm.gameObject.transform.position, fsm.GetNavMeshAgent().target.position) > 15)
         {
@@ -42,7 +56,7 @@ public class PatrolAction : Action
             {
                 fsm.GetNavMeshAgent().GoToNextPatrolWaypointSnake();
             }
-             else if (fsm.name.Contains("Tiger") && fsm.GetNavMeshAgent())
+            else if (fsm.name.Contains("Tiger") && fsm.GetNavMeshAgent())
             {
                 fsm.GetNavMeshAgent().TigerPatrol();
             }

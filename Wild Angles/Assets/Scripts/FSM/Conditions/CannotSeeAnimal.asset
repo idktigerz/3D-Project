@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CannotSeeAnimal
   m_EditorClassIdentifier: 
   negation: 1
-  viewAngle: 60
-  viewDistance: 15
+  viewAngle: 70
+  viewDistance: 20

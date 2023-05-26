@@ -10,7 +10,7 @@ public class NoiseBubbleControler : MonoBehaviour
     private Vector3 scale;
     private void Start()
     {
-        scale = new Vector3(15, 15, 15);
+        scale = new Vector3(25, 25, 25);
     }
     // Update is called once per frame
     void Update()

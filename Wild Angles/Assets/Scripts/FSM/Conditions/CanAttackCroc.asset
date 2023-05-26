@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CanAttackCroc
   m_EditorClassIdentifier: 
   negation: 0
-  viewAngle: 60
+  viewAngle: 70
   viewDistance: 11

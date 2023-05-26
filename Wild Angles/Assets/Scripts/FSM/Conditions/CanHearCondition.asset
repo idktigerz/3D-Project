@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CanHearCondition
   m_EditorClassIdentifier: 
   negation: 0
-  viewAngle: 60
-  viewDistance: 15
+  viewAngle: 70
+  viewDistance: 20

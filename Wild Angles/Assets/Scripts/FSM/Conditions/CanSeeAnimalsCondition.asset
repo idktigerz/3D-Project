@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CanSeeAnimalsCondition
   m_EditorClassIdentifier: 
   negation: 0
-  viewAngle: 50
+  viewAngle: 70
   viewDistance: 15

@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 6895314824535941354}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7043644173596733165
 MonoBehaviour:
@@ -87,6 +87,11 @@ MonoBehaviour:
   homming: 0
   tent: {fileID: 0}
   animator: {fileID: 0}
+  source: {fileID: 0}
+  walkingSound: {fileID: 8300000, guid: 14c29caf3a04db64696ebc5a8c70f823, type: 3}
+  attackSound: {fileID: 8300000, guid: 323005bf2b6a6ae4ab5a5d522c10bd26, type: 3}
+  hissSound: {fileID: 8300000, guid: b082421e3fdaebe4aad7f382e95d22bf, type: 3}
+  talkSound: {fileID: 0}
 --- !u!195 &4799707437554197638
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -178,9 +183,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -213,7 +218,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

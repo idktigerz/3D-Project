@@ -73,6 +73,11 @@ MonoBehaviour:
   homming: 0
   tent: {fileID: 0}
   animator: {fileID: 3072069394521892011}
+  source: {fileID: 0}
+  walkingSound: {fileID: 8300000, guid: 6eace065e730ed741b32bb581a814007, type: 3}
+  attackSound: {fileID: 0}
+  hissSound: {fileID: 0}
+  talkSound: {fileID: 8300000, guid: 3724ecbad6beb5f47ada061e6e803560, type: 3}
 --- !u!114 &1811622839730272483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,9 +183,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -213,7 +218,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

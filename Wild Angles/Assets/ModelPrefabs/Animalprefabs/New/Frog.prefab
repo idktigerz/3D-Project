@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 6581500497188247564}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &7693272258408426462
 NavMeshAgent:
@@ -109,6 +109,11 @@ MonoBehaviour:
   homming: 0
   tent: {fileID: 0}
   animator: {fileID: 0}
+  source: {fileID: 0}
+  walkingSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  hissSound: {fileID: 0}
+  talkSound: {fileID: 0}
 --- !u!65 &1209470597972116145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -167,20 +172,20 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3660a064144ae5e41a7d3b66fcae0581, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
+  Priority: 126
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -213,7 +218,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

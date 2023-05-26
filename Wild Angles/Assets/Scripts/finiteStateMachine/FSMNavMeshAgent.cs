@@ -47,11 +47,11 @@ public class FSMNavMeshAgent : MonoBehaviour
     [Header("animations")]
     public Animator animator;
     [Header("Sounds")]
-    private AudioSource source;
-    [SerializeField] private AudioClip walkingSound;
+    public AudioSource source;
+    public AudioClip walkingSound;
     [SerializeField] private AudioClip attackSound;
 
-    [SerializeField] private AudioClip hissSound;
+    public AudioClip hissSound;
     [SerializeField] private AudioClip talkSound;
 
 
@@ -110,19 +110,13 @@ public class FSMNavMeshAgent : MonoBehaviour
     public void GoToNextPatrolWaypoint()
     {
 
+        source.clip = null;
+        source.loop = false;
+        Debug.Log($"stop sorce");
         agent.isStopped = false;
         var NewPos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
-        if (Vector3.Distance(transform.position, NewPos) > 3)
-        {
-            agent.SetDestination(transform.position + NewPos);
-        }
-        else
-        {
-            if (gameObject.name.Contains("Crocodile"))
-            {
-                GoToNextPatrolWaypoint();
-            }
-        }
+        agent.SetDestination(transform.position + NewPos);
+        agent.speed = initialSpeed;
     }
     public void GoToNextPatrolWaypointButter()
     {
@@ -200,26 +194,36 @@ public class FSMNavMeshAgent : MonoBehaviour
     public void GoToNextPatrolWaypointSnake()
     {
         agent.isStopped = false;
+        agent.speed = initialSpeed;
         var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
         agent.SetDestination(transform.position + NewPos);
     }
 
     public IEnumerator WalkingPause(float time)
     {
+        source.clip = null;
+        source.loop = false;
         canFly = false;
-        agent.isStopped = true;
-        agent.speed = 0;
+        //agent.isStopped = true;
+        if (agent.GetComponent<FiniteStateMachine>().currentState.name.Contains("PatrolState"))
+        {
+            agent.speed = 0;
+        }
+
         if (gameObject.name.Contains("Owl"))
         {
             animator.SetBool("Sleeping", true);
+            source.clip = talkSound;
+            source.Play();
+            source.loop = false;
         }
         yield return new WaitForSecondsRealtime(time);
-        agent.isStopped = false;
+        //agent.isStopped = false;
         canFly = true;
         agent.speed = initialSpeed;
         if (gameObject.name.Contains("Crocodile"))
         {
-            source.Stop();
+
             GoToNextPatrolWaypoint();
         }
         else if (gameObject.name.Contains("Owl"))
@@ -236,16 +240,9 @@ public class FSMNavMeshAgent : MonoBehaviour
             TigerPatrol();
         }
     }
-
-
-    public void Stop()
-    {
-        agent.isStopped = true;
-        agent.ResetPath();
-    }
-
     public void GoToTarget()
     {
+        agent.speed = initialSpeed * 1.5f;
         agent.isStopped = false;
         agent.SetDestination(target.position);
         if (source != null && hissSound != null && source.clip != hissSound)
@@ -258,6 +255,7 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public void CrocodileAttack()
     {
+        agent.SetDestination(target.position);
         if (canAttack)
         {
             if (source != null)
@@ -292,8 +290,14 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void SnakeAttack()
     {
+        agent.SetDestination(target.position);
         if (canAttack)
         {
+            if (source != null)
+            {
+                source.clip = attackSound;
+                source.Play();
+            }
             rb.constraints = RigidbodyConstraints.None;
             Vector3 direction = transform.position - target.transform.position;
             float force = 4;
@@ -311,6 +315,9 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void SnakeStaring()
     {
+        source.clip = talkSound;
+        source.Play();
+        source.loop = false;
         agent.SetDestination(transform.position);
         rb.constraints = RigidbodyConstraints.FreezeAll;
         timeStaring += 1 * Time.deltaTime;
@@ -334,7 +341,7 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public void OwlRunAway()
     {
-
+        source.Stop();
         Transform longestWaypoint = null;
         float longestDistance = 0;
         if (gameObject.name.Contains("Owl"))
@@ -351,6 +358,7 @@ public class FSMNavMeshAgent : MonoBehaviour
             }
             currentDest = longestWaypoint.position;
             agent.SetDestination(longestWaypoint.position);
+            animator.SetBool("Sleeping", false);
         }
     }
     public void CrocodileRunAway()
@@ -376,6 +384,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void TigerPatrol()
     {
+        agent.speed = initialSpeed;
         agent.isStopped = false;
         var NewPos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
         agent.SetDestination(transform.position + NewPos);
@@ -406,6 +415,11 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         if (canAttack)
         {
+            if (source != null)
+            {
+                source.clip = attackSound;
+                source.Play();
+            }
             rb.constraints = RigidbodyConstraints.None;
             Vector3 direction = transform.position - target.transform.position;
             float force = 4;

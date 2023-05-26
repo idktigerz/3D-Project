@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CannotSeeCondition
   m_EditorClassIdentifier: 
   negation: 1
-  viewAngle: 60
-  viewDistance: 16
+  viewAngle: 70
+  viewDistance: 21
