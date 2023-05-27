@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     public TimeController timeController;
     public GameObject player;
+    public GameObject playerUI;
     public GameObject tent;
     public DiaryController diaryController;
 
@@ -46,18 +47,22 @@ public class GameManager : MonoBehaviour
         {
             if (pauseMenu.activeSelf == true)
             {
-                Time.timeScale = 1;
-                pauseMenu.SetActive(false);
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1;
+                pauseMenu.SetActive(false);
+                playerUI.SetActive(true);
+                
             }
             else
             {
                 Time.timeScale = 0;
                 pauseMenu.SetActive(true);
+                playerUI.SetActive(false);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 playerController.cameraON = false;
+                
             }
         }
     }

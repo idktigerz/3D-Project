@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject settingsMenu;
     public void Resume()
     {
         Time.timeScale = 1;
@@ -15,8 +17,8 @@ public class PauseMenuController : MonoBehaviour
 
     public void Settings()
     {
-        Debug.Log("Opening settings...");
-
+        pauseMenu.SetActive(false);
+        settingsMenu.SetActive(true);
     }
 
     public void Quit()
@@ -29,5 +31,16 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void ToggleFullScreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
+
+    public void BackToPause()
+    {
+        settingsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 }
