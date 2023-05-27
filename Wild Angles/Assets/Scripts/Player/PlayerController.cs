@@ -886,40 +886,33 @@ public class PlayerController : MonoBehaviour
         {
             string name = animal.name;
             GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
-            TextMeshProUGUI mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<TextMeshProUGUI>();
+            Text mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<Text>();
             GameObject description = FindChildGameObjectByName(objectName, "Description Text");
-            TextMeshProUGUI fact = FindChildGameObjectByName(objectName, "Fact Text").GetComponent<TextMeshProUGUI>();
             switch (objectName.name)
             {
                 case "CrocodilePage":
                     mission.text = "Mission : Take a photo of a crocodile attacking you";
                     description.SetActive(true);
-                    fact.text = "Fun fact about the animal : croqui ver dangewos be cawefull";
                     break;
                 case "OwlPage":
                     mission.text = "Mission : Take a photo of an Owl flying";
                     description.SetActive(true);
-                    fact.text = "Fun fact about the animal : Owl very active at night";
                     break;
                 case "ButterflyPage":
                     mission.text = "Mission : Take a photo of a butterfly flying ";
                     description.SetActive(true);
-                    fact.text = "Fun fact about the animal : butterfly very beautiful";
                     break;
                 case "BugPage":
                     mission.text = "Mission : Take a perfect photo of a bug";
                     description.SetActive(true);
-                    fact.text = "Fun fact about the animal : very inofencive";
                     break;
                 case "FrogPage":
                     mission.text = "Mission : Take a perfect photo of a frog";
                     description.SetActive(true);
-                    fact.text = "Fun fact about the animal : very boing";
                     break;
                 case "SnakePage":
                     mission.text = "Mission : Take a photo of a Snake Staring at You";
                     description.SetActive(true);
-                    fact.text = "Fun fact about the animal : Sneke very esquibo";
                     break;
             }
         }
