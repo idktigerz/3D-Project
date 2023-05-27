@@ -162,6 +162,7 @@ public class PlayerController : MonoBehaviour
             healthbar.UpdateHealthBar(100, health);
             if (Input.GetKeyDown(KeyCode.F))
             {
+                Cursor.lockState = CursorLockMode.None;
                 resting = false;
                 playerBody.SetActive(true);
                 tentCammera.SetActive(false);
@@ -430,6 +431,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(interactKey) && canInteract)
         {
             Rest();
+            Cursor.lockState = CursorLockMode.Locked;
         }
         if (Input.GetKeyUp(KeyCode.Tab))
         {
