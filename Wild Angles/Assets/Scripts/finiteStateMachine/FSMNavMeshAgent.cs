@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class FSMNavMeshAgent : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     public float shootTimeInterval = 1;
     public float energy = 100;
     public bool canHear;
+    public TimeController timeController;
     [Header("Animal Stuff")]
     public bool flashed;
     private Rigidbody rb;
@@ -61,6 +63,7 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     void Start()
     {
+        timeController = GameObject.FindGameObjectWithTag("TimeController").GetComponent<TimeController>();
         source = GetComponent<AudioSource>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -82,7 +85,6 @@ public class FSMNavMeshAgent : MonoBehaviour
         GameObject[] trees = GameObject.FindGameObjectsWithTag("OwlTrees");
         foreach (GameObject tree in trees)
         {
-            Debug.Log(tree.name);
             OwlWaypoints.Add(FindChildGameObjectByName(tree, "OwlWaypoint").transform);
         }
     }
@@ -109,12 +111,13 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public void GoToNextPatrolWaypoint()
     {
-
-        source.clip = null;
-        source.loop = false;
-        Debug.Log($"stop sorce");
+        if (!agent.name.Contains("Frog"))
+        {
+            source.clip = null;
+            source.loop = false;
+        }
         agent.isStopped = false;
-        var NewPos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        var NewPos = new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
         agent.SetDestination(transform.position + NewPos);
         agent.speed = initialSpeed;
     }
@@ -122,9 +125,9 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
 
         agent.isStopped = false;
-        //agent.SetDestination(patrolWaypoints[Random.Range(0, patrolWaypoints.Length)].position);
-        //var NewPos = Random.insideUnitCircle.normalized * 100;
-        var NewPos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        //agent.SetDestination(patrolWaypoints[UnityEngine.Random.Range(0, patrolWaypoints.Length)].position);
+        //var NewPos = UnityEngine.Random.insideUnitCircle.normalized * 100;
+        var NewPos = new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
         if (Vector3.Distance(transform.position, NewPos) > 3)
         {
             agent.SetDestination(transform.position + NewPos);
@@ -138,20 +141,20 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
 
         agent.isStopped = false;
-        var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+        var NewPos = new Vector3(UnityEngine.Random.Range(-5, 5), 0, UnityEngine.Random.Range(-5, 5));
         agent.SetDestination(transform.position + NewPos);
     }
     public void GoToNextPatrolWaypointFrog()
     {
         agent.isStopped = false;
-        var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+        var NewPos = new Vector3(UnityEngine.Random.Range(-5, 5), 0, UnityEngine.Random.Range(-5, 5));
         agent.SetDestination(transform.position + NewPos);
     }
     public void GoToNextPatrolWaypointBabyTiger()
     {
         agent.isStopped = false;
         agent.speed = 7;
-        var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+        var NewPos = new Vector3(UnityEngine.Random.Range(-5, 5), 0, UnityEngine.Random.Range(-5, 5));
         agent.SetDestination(target.position + NewPos);
     }
 
@@ -185,7 +188,7 @@ public class FSMNavMeshAgent : MonoBehaviour
         {
             animator.SetBool("Sleeping", false);
             agent.isStopped = false;
-            Vector3 pos = OwlWaypoints[Random.Range(0, OwlWaypoints.Count)].position;
+            Vector3 pos = OwlWaypoints[UnityEngine.Random.Range(0, OwlWaypoints.Count)].position;
             currentDest = pos;
             agent.SetDestination(pos);
             energy -= 10;
@@ -195,14 +198,18 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         agent.isStopped = false;
         agent.speed = initialSpeed;
-        var NewPos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+        var NewPos = new Vector3(UnityEngine.Random.Range(-5, 5), 0, UnityEngine.Random.Range(-5, 5));
         agent.SetDestination(transform.position + NewPos);
     }
 
     public IEnumerator WalkingPause(float time)
     {
-        source.clip = null;
-        source.loop = false;
+        if (!agent.name.Contains("Frog"))
+        {
+            source.clip = null;
+            source.loop = false;
+        }
+
         canFly = false;
         //agent.isStopped = true;
         if (agent.GetComponent<FiniteStateMachine>().currentState.name.Contains("PatrolState"))
@@ -378,15 +385,19 @@ public class FSMNavMeshAgent : MonoBehaviour
             agent.speed = 0;
             animator.SetBool("Sleeping", true);
         }
-        agent.isStopped = false;
-        energy += 2 * Time.deltaTime;
+        if (timeController.currentTime.TimeOfDay > TimeSpan.FromHours(20) && timeController.currentTime.TimeOfDay < TimeSpan.FromHours(6))
+        {
+            agent.isStopped = false;
+            energy += 2 * Time.deltaTime;
+        }
+
 
     }
     public void TigerPatrol()
     {
         agent.speed = initialSpeed;
         agent.isStopped = false;
-        var NewPos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        var NewPos = new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
         agent.SetDestination(transform.position + NewPos);
     }
     public void TigerStalk()

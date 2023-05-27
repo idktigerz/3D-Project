@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: -8391222552659086748, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8188474619722922200, guid: 783eba6420681f54aaaa5f63adfc021b,
         type: 3}
@@ -512,6 +512,7 @@ MonoBehaviour:
   homming: 0
   tent: {fileID: 0}
   animator: {fileID: 1757857792628948297}
+  source: {fileID: 0}
   walkingSound: {fileID: 0}
   attackSound: {fileID: 8300000, guid: 02aa28ffbc8464143b16e75f8d5b1251, type: 3}
   hissSound: {fileID: 8300000, guid: bbd9c966ffc5ef6479ffd94a50bb07ed, type: 3}

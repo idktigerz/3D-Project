@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: -3718371245222020591, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6e9182e68b5fcb4b92e9255c2a56e5d,
         type: 3}

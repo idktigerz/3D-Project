@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 6895314824535941354}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7043644173596733165
 MonoBehaviour:
@@ -269,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 1462357212926484632, guid: 0dd5944ff11436e4fa24cda2f9fe9a65,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1526030842343504119, guid: 0dd5944ff11436e4fa24cda2f9fe9a65,
         type: 3}

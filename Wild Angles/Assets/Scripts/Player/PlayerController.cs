@@ -838,7 +838,7 @@ public class PlayerController : MonoBehaviour
         String name = animal.name;
         GameObject first = FindChildGameObjectByName(diaryController.gameObject, "MainPage");
         GameObject objectName = FindChildGameObjectByName(first, name + "Button");
-        Text buttonText = FindChildGameObjectByName(objectName, "Text").GetComponent<Text>();
+        TextMeshProUGUI buttonText = FindChildGameObjectByName(objectName, "Text").GetComponent<TextMeshProUGUI>();
         switch (objectName.name)
         {
             case "CrocodileButton":
