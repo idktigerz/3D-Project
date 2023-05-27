@@ -528,19 +528,18 @@ public class PlayerController : MonoBehaviour
                 popUpText.text = "new " + closest.name + " photo added to the diary!";
             }
             closest.GetComponent<Photographable>().haveBeenSeen = true;
-            UpdatePageUi(closest);
+            UpdatePageUi(closest, point);
             UpdatePageButton(closest);
-            //listaTeste.Add(tex);
             //WHEN TAKING THE PIC ACTIVATE THE IS KNOWN VARIABLE IN PHOTOGRAPHABLE
-            diaryController.animalList.Add(new DiaryController.DiaryData(closest.name, tex, false));
+            diaryController.animalList.Add(new DiaryController.DiaryData(closest.name, tex, false, point));
             if (closest.name.Contains("Crocodile"))
             {
-                //  diaryController.tempcrocodilePhotos.Add(tex);
+
             }
             else if (closest.name.Contains("Owl"))
             {
-                // diaryController.tempowlPhotos.Add(tex);
-                //Debug.Log(closest.GetComponentInParent<FiniteStateMachine>().currentState);
+
+
                 //IF (THE STATE IS CORRECT)
                 GameObject animal = FindParentWithTag(closest, "Animal");
                 if (animal.GetComponent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
@@ -560,35 +559,35 @@ public class PlayerController : MonoBehaviour
             }
             else if (closest.name.Contains("Frog"))
             {
-                // diaryController.tempfrogPhotos.Add(tex);
+
             }
             else if (closest.name.Contains("Snake"))
             {
-                // diaryController.tempsnakePhotos.Add(tex);
+
             }
             else if (closest.name.Contains("Bug"))
             {
-                // diaryController.tempbugPhotos.Add(tex);
+
             }
             else if (closest.name.Contains("Tiger"))
             {
-                // diaryController.tempTigerPhotos.Add(tex);
+
             }
             else if (closest.name.Contains("White Orchid"))
             {
-                //diaryController.tempwhiteOrchidPhotos.Add(tex);
+
             }
             else if (closest.name.Contains("Poison Orchid"))
             {
-                //diaryController.temppurpleOrchidPhotos.Add(tex);
+
             }
             else if (closest.name.Contains("Cocoa Tree"))
             {
-                //diaryController.tempcocoaTreePhotos.Add(tex);
+
             }
             else if (closest.name.Contains("Banana Tree"))
             {
-                //diaryController.tempbananaTreePhotos.Add(tex);
+
             }
         }
         else
@@ -732,20 +731,6 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(441.08f, 0, 1207.82f);
         playerBody.SetActive(false);
         diaryController.SavePhotos();
-        /*diaryController.crocodilePhotos = new List<Texture2D>(diaryController.tempcrocodilePhotos);
-        diaryController.owlPhotos = new List<Texture2D>(diaryController.tempowlPhotos);
-        diaryController.snakePhotos = new List<Texture2D>(diaryController.tempsnakePhotos);
-        diaryController.butterflyPhotos = new List<Texture2D>(diaryController.tempbutterflyPhotos);
-        diaryController.bugPhotos = new List<Texture2D>(diaryController.tempbugPhotos);
-        diaryController.frogPhotos = new List<Texture2D>(diaryController.tempfrogPhotos);
-        diaryController.tigerPhotos = new List<Texture2D>(diaryController.tempTigerPhotos);
-        diaryController.purpleOrchidPhotos = new List<Texture2D>(diaryController.temppurpleOrchidPhotos);
-        diaryController.whiteOrchidPhotos = new List<Texture2D>(diaryController.tempwhiteOrchidPhotos);
-        diaryController.helconiaPhotos = new List<Texture2D>(diaryController.temphelconiaPhotos);
-        diaryController.cocoaTreePhotos = new List<Texture2D>(diaryController.tempcocoaTreePhotos);
-        diaryController.bananaTreePhotos = new List<Texture2D>(diaryController.tempbananaTreePhotos);
-        */
-
     }
     private IEnumerator CameraUIOn()
     {
@@ -882,7 +867,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdatePageUi(GameObject animal)
+    private void UpdatePageUi(GameObject animal, int score)
     {
         if (animal.CompareTag("Animal"))
         {
@@ -890,6 +875,9 @@ public class PlayerController : MonoBehaviour
             GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
             Text mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<Text>();
             GameObject description = FindChildGameObjectByName(objectName, "Description Text");
+            GameObject score1 = FindChildGameObjectByName(objectName, "Good Rating");
+            GameObject score2 = FindChildGameObjectByName(objectName, "Mid Rating");
+            GameObject score3 = FindChildGameObjectByName(objectName, "Bad Rating");
             switch (objectName.name)
             {
                 case "CrocodilePage":
@@ -916,6 +904,24 @@ public class PlayerController : MonoBehaviour
                     mission.text = "Mission : Take a photo of a Snake Staring at You";
                     description.SetActive(true);
                     break;
+            }
+            if (score == 1)
+            {
+                score1.SetActive(true);
+                score2.SetActive(false);
+                score3.SetActive(false);
+            }
+            else if (score == 2)
+            {
+                score2.SetActive(true);
+                score1.SetActive(false);
+                score3.SetActive(false);
+            }
+            if (score == 3)
+            {
+                score3.SetActive(true);
+                score2.SetActive(false);
+                score1.SetActive(false);
             }
         }
     }

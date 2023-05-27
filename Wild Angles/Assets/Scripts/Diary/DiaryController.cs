@@ -10,63 +10,28 @@ public class DiaryController : MonoBehaviour
     public List<Vector3> diaryPhotoPlace;
     public int diaryPage;
     public List<GameObject> diaryPhotos;
-
     public List<Sprite> PhotosPage1;
     public List<Sprite> MainPagePhotos;
-
     public PlayerController playerController;
-    /*public List<Texture2D> crocodilePhotos;
-    public List<Texture2D> owlPhotos;
-    public List<Texture2D> butterflyPhotos;
-    public List<Texture2D> bugPhotos;
-    public List<Texture2D> frogPhotos;
-    public List<Texture2D> babyTigerPhotos;
-    public List<Texture2D> snakePhotos;
-    public List<Texture2D> whiteOrchidPhotos;
-    public List<Texture2D> purpleOrchidPhotos;
-    public List<Texture2D> cocoaTreePhotos;
-    public List<Texture2D> bananaTreePhotos;
-    public List<Texture2D> helconiaPhotos;
-    public List<Texture2D> tigerPhotos;*/
-    [Header("Temporary Lists")]
-    /*public List<Texture2D> temptigerPhotos;
-    public List<Texture2D> tempcrocodilePhotos;
-    public List<Texture2D> tempowlPhotos;
-    public List<Texture2D> tempbutterflyPhotos;
-    public List<Texture2D> tempbugPhotos;
-    public List<Texture2D> tempfrogPhotos;
-    public List<Texture2D> tempTigerPhotos;
-    public List<Texture2D> tempsnakePhotos;
-    public List<Texture2D> tempwhiteOrchidPhotos;
-    public List<Texture2D> temppurpleOrchidPhotos;
-    public List<Texture2D> tempcocoaTreePhotos;
-    public List<Texture2D> tempbananaTreePhotos;
-    public List<Texture2D> temphelconiaPhotos;
-    */
-
     public List<DiaryData> animalList = new List<DiaryData>();
-
-
     private int start = 0;
-
     private int end = 4;
-
     string folderName;
-
     public class DiaryData
     {
         public string type;
         public Texture2D texture;
         public bool saved;
+        public int score;
 
-        public DiaryData(string t, Texture2D tex, bool s)
+        public DiaryData(string t, Texture2D tex, bool s, int sc)
         {
             type = t;
             texture = tex;
             saved = s;
+            score = sc;
         }
     }
-
     private void Start()
     {
 
@@ -107,13 +72,30 @@ public class DiaryController : MonoBehaviour
             Debug.LogError("No photos");
         }
     }
-    private void ShowFirstDiaryPage(List<Texture2D> list)
+    private void ShowFirstDiaryPage(List<Texture2D> list, string name)
     {
         GameObject main = FindChildGameObjectByName(gameObject, folderName + "Page");
         GameObject seccond = FindChildGameObjectByName(main, "FirstPage");
         if (list.Count > 0)
         {
-            FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = list[0];
+            Texture2D chosen = null;
+            List<DiaryData> temp = new List<DiaryData>();
+            int score = 4;
+            foreach (var item in animalList)
+            {
+                if (item.type == name)
+                {
+                    temp.Add(item);
+                }
+            }
+            foreach (var item in temp)
+            {
+                if (item.score < score)
+                {
+                    chosen = item.texture;
+                }
+            }
+            FindChildGameObjectByName(seccond, "Image").GetComponent<RawImage>().texture = chosen;
         }
         else
         {
@@ -147,61 +129,17 @@ public class DiaryController : MonoBehaviour
         if (diaryPage == 1)
         {
             List<Texture2D> tempList = ReturnList(folderName);
-            /*
-            List<Texture2D> tempList = new List<Texture2D>();
-            foreach (DiaryData item in animalList)
-            {
-                if (item.type == folderName)
-                {
-                    tempList.Add(item.texture);
-                }
-            }*/
+
 
             start = 0;
             ShowDiaryPage(tempList);
-            /*if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
-            else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
-            else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
-            else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
-            else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
-            else if (folderName == "Snake") ShowDiaryPage(snakePhotos);
-            else if (folderName == "Tiger") ShowDiaryPage(tigerPhotos);
-            else if (folderName == "WhiteOrchid") ShowDiaryPage(whiteOrchidPhotos);
-            else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
-            else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
-            else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
-            else if (folderName == "Helconia") ShowDiaryPage(helconiaPhotos);
-            */
-
-
         }
         else
         {
             List<Texture2D> tempList = ReturnList(folderName);
-            /*List<Texture2D> tempList = new List<Texture2D>();
-            foreach (DiaryData item in animalList)
-            {
-                if (item.type == folderName)
-                {
-                    tempList.Add(item.texture);
-                }
-            }*/
+
             start = diaryPage * 4 - 3;
             ShowDiaryPage(tempList);
-            /*
-            if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
-            else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
-            else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
-            else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
-            else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
-            else if (folderName == "Snake") ShowDiaryPage(snakePhotos);
-            else if (folderName == "Tiger") ShowDiaryPage(tigerPhotos);
-            else if (folderName == "WhiteOrchid") ShowDiaryPage(whiteOrchidPhotos);
-            else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
-            else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
-            else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
-            else if (folderName == "Helconia") ShowDiaryPage(helconiaPhotos);
-            */
         }
     }
     private void Update()
@@ -215,68 +153,26 @@ public class DiaryController : MonoBehaviour
             SwitchDiaryPage(0);
         }
     }
-
     public void FirstPage(string folder)
     {
         List<Texture2D> tempList = ReturnList(folder);
-        /*List<Texture2D> tempList = new List<Texture2D>();
-        foreach (DiaryData item in animalList)
-        {
-            if (item.type == folder)
-            {
-                tempList.Add(item.texture);
-            }
-        }*/
+
         folderName = folder;
-        /*
-        if (folderName == "Crocodile") ShowFirstDiaryPage(crocodilePhotos);
-        else if (folderName == "Owl") ShowFirstDiaryPage(owlPhotos);
-        else if (folderName == "Butterfly") ShowFirstDiaryPage(butterflyPhotos);
-        else if (folderName == "Bug") ShowFirstDiaryPage(bugPhotos);
-        else if (folderName == "Frog") ShowFirstDiaryPage(frogPhotos);
-        else if (folderName == "Snake") ShowFirstDiaryPage(snakePhotos);
-        else if (folderName == "Tiger") ShowFirstDiaryPage(tigerPhotos);
-        else if (folderName == "WhiteOrchid") ShowFirstDiaryPage(whiteOrchidPhotos);
-        else if (folderName == "PurpleOrchid") ShowFirstDiaryPage(purpleOrchidPhotos);
-        else if (folderName == "CocoaTree") ShowFirstDiaryPage(cocoaTreePhotos);
-        else if (folderName == "BananaTree") ShowFirstDiaryPage(bananaTreePhotos);
-        else if (folderName == "Helconia") ShowFirstDiaryPage(helconiaPhotos);
-        */
-        ShowFirstDiaryPage(tempList);
+
+        ShowFirstDiaryPage(tempList, folder);
 
         diaryPage = 1;
     }
-
     public void Album(string folder)
     {
         List<Texture2D> tempList = ReturnList(folder);
-        /*List<Texture2D> tempList = new List<Texture2D>();
-        foreach (DiaryData item in animalList)
-        {
-            if (item.type == folder)
-            {
-                tempList.Add(item.texture);
-            }
-        }*/
+
 
         folderName = folder;
         ShowDiaryPage(tempList);
-        /*if (folderName == "Crocodile") ShowDiaryPage(crocodilePhotos);
-        else if (folderName == "Owl") ShowDiaryPage(owlPhotos);
-        else if (folderName == "Butterfly") ShowDiaryPage(butterflyPhotos);
-        else if (folderName == "Bug") ShowDiaryPage(bugPhotos);
-        else if (folderName == "Frog") ShowDiaryPage(frogPhotos);
-        else if (folderName == "Snake") ShowDiaryPage(snakePhotos);
-        else if (folderName == "Tiger") ShowDiaryPage(tigerPhotos);
-        else if (folderName == "WhiteOrchid") ShowDiaryPage(whiteOrchidPhotos);
-        else if (folderName == "PurpleOrchid") ShowDiaryPage(purpleOrchidPhotos);
-        else if (folderName == "CocoaTree") ShowDiaryPage(cocoaTreePhotos);
-        else if (folderName == "BananaTree") ShowDiaryPage(bananaTreePhotos);
-        else if (folderName == "Helconia") ShowDiaryPage(helconiaPhotos);
-        */
+
 
     }
-
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
     {
         for (int i = 0; i < topParentObject.transform.childCount; i++)
@@ -309,13 +205,7 @@ public class DiaryController : MonoBehaviour
     }
     public void DeleteUnsavedPhotos()
     {
-        /*foreach (DiaryData item in animalList)
-        {
-            if (!item.saved)
-            {
-                animalList.Remove(item);
-            }
-        }*/
+
         for (int i = 0; i < animalList.Count; i++)
         {
             if (!animalList[i].saved)
@@ -335,11 +225,9 @@ public class DiaryController : MonoBehaviour
             }
         }
     }
-
     public void Back()
     {
         diaryPage = 0;
         start = 0;
     }
-
 }
