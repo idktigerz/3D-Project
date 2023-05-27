@@ -10,14 +10,14 @@ public class EnergyIsLowCondition : Condition
 
     public override bool Test(FiniteStateMachine fsm)
     {
-        if (fsm.GetNavMeshAgent().energy <= 30)
+        if (fsm.GetNavMeshAgent().owlSleeping)
         {
             return !hasEnergy;
         }
-        else if (fsm.GetNavMeshAgent().timeController.currentTime.TimeOfDay > TimeSpan.FromHours(20) && fsm.GetNavMeshAgent().timeController.currentTime.TimeOfDay < TimeSpan.FromHours(6))
+        /*else if (fsm.GetNavMeshAgent().energy <= 30)
         {
-            return hasEnergy;
-        }
-        else return !hasEnergy;
+            return !hasEnergy;
+        }*/
+        else return hasEnergy;
     }
 }

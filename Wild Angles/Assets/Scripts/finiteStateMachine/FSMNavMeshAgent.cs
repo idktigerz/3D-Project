@@ -40,6 +40,8 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     private bool canDamagePlayer = false;
 
+    public bool owlSleeping;
+
     public PlayerController playerController;
     [Header("baby tiger")]
     public bool following;
@@ -223,6 +225,15 @@ public class FSMNavMeshAgent : MonoBehaviour
             source.clip = talkSound;
             source.Play();
             source.loop = false;
+            if (timeController.currentTime.TimeOfDay.Hours < 23 && 20 <= timeController.currentTime.TimeOfDay.Hours) owlSleeping = false;
+
+            else if (timeController.currentTime.TimeOfDay.Hours > 1 && (timeController.currentTime.TimeOfDay.Hours <= 6)) owlSleeping = false;
+
+            else if (timeController.currentTime.TimeOfDay.Hours < 20) owlSleeping = true;
+
+            else if (timeController.currentTime.TimeOfDay.Hours > 6) owlSleeping = true;
+
+            Debug.Log(owlSleeping);
         }
         yield return new WaitForSecondsRealtime(time);
         //agent.isStopped = false;
@@ -348,6 +359,7 @@ public class FSMNavMeshAgent : MonoBehaviour
 
     public void OwlRunAway()
     {
+        owlSleeping = false;
         source.Stop();
         Transform longestWaypoint = null;
         float longestDistance = 0;
@@ -385,12 +397,15 @@ public class FSMNavMeshAgent : MonoBehaviour
             agent.speed = 0;
             animator.SetBool("Sleeping", true);
         }
-        if (timeController.currentTime.TimeOfDay > TimeSpan.FromHours(20) && timeController.currentTime.TimeOfDay < TimeSpan.FromHours(6))
-        {
-            agent.isStopped = false;
-            energy += 2 * Time.deltaTime;
-        }
+        if (timeController.currentTime.TimeOfDay.Hours < 23 && 20 <= timeController.currentTime.TimeOfDay.Hours) owlSleeping = false;
 
+        else if (timeController.currentTime.TimeOfDay.Hours > 1 && (timeController.currentTime.TimeOfDay.Hours <= 6)) owlSleeping = false;
+
+        else if (timeController.currentTime.TimeOfDay.Hours < 20) owlSleeping = true;
+
+        else if (timeController.currentTime.TimeOfDay.Hours > 6) owlSleeping = true;
+        agent.isStopped = false;
+        energy += 2 * Time.deltaTime;
 
     }
     public void TigerPatrol()
