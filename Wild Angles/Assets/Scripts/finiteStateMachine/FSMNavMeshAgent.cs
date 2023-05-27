@@ -214,10 +214,6 @@ public class FSMNavMeshAgent : MonoBehaviour
 
         canFly = false;
         //agent.isStopped = true;
-        if (agent.GetComponent<FiniteStateMachine>().currentState.name.Contains("PatrolState"))
-        {
-            agent.speed = 0;
-        }
 
         if (gameObject.name.Contains("Owl"))
         {
@@ -463,7 +459,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     IEnumerator StopHear()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
         canHear = false;
     }
 
