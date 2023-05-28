@@ -503,6 +503,7 @@ MonoBehaviour:
   timeStaring: 0
   snakeCanAttack: 0
   Ponto: {fileID: 0}
+  damage: 35
   OwlWaypoints: []
   currentDest: {x: 0, y: 0, z: 0}
   canFly: 0

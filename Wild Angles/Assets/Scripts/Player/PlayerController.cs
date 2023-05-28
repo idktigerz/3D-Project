@@ -619,7 +619,6 @@ public class PlayerController : MonoBehaviour
             RenderTexture.active = null;
             picnum++;
         }
-        isFlashing = true;
         StartCoroutine(CameraUIOn());
         camBattery -= 5;
         renderCam.SetActive(false);
