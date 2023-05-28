@@ -22,6 +22,15 @@ public class PlayerCam : MonoBehaviour
     public List<GameObject> currentPlantsInTheframe;
 
     public float closestDistance;
+    public bool snakeSeen;
+    public bool bugSeen;
+
+    public bool frogSeen;
+    public bool tigerSeen;
+    public bool butterflySeen;
+    public bool owlSeen;
+    public bool crocodileSeen;
+
 
     private void Start()
     {
@@ -45,7 +54,6 @@ public class PlayerCam : MonoBehaviour
         photographableList[9] = "Cocoa Tree";
         photographableList[10] = "Banana Tree";
         photographableList[11] = "Helconia";
-
     }
 
     private void Update()
@@ -143,7 +151,11 @@ public class PlayerCam : MonoBehaviour
         int count = 0;
         foreach (var item in currentAnimalsInTheframe)
         {
-            if (item.name == name && IsInTheFrame(item)) count++;
+            if (item.name == name && IsInTheFrame(item))
+            {
+                count++;
+                Debug.Log(item.name);
+            }
         }
         if (count > 1) return true; else return false;
     }

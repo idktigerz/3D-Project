@@ -100,6 +100,7 @@ MonoBehaviour:
   timeStaring: 0
   snakeCanAttack: 0
   Ponto: {fileID: 0}
+  damage: 0
   OwlWaypoints: []
   currentDest: {x: 0, y: 0, z: 0}
   canFly: 0
@@ -173,7 +174,8 @@ AudioSource:
   m_GameObject: {fileID: 5458424589358267247}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2080742424400495763, guid: 346b950c0bb5239448a59da76fbcef55,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3660a064144ae5e41a7d3b66fcae0581, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
@@ -395,6 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
   haveBeenSeen: 0
+  missionPassed: 0
   photographableId: 2
 --- !u!114 &1466446670288508452
 MonoBehaviour:

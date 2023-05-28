@@ -287,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
   haveBeenSeen: 0
+  missionPassed: 0
   photographableId: 0
 --- !u!1 &5724912007579362042 stripped
 GameObject:
@@ -472,7 +473,8 @@ AudioSource:
   m_GameObject: {fileID: 5724912007579362042}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2080742424400495763, guid: 346b950c0bb5239448a59da76fbcef55,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.5

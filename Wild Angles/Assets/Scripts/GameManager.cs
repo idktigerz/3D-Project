@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public PlayerController playerController;
     public TimeController timeController;
-    public HealthbarController healthbar;
+    public GameObject healthbar;
     public GameObject player;
     public GameObject playerUI;
     public GameObject tent;
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
                 pauseMenu.SetActive(false);
                 playerUI.SetActive(true);
-                
+
             }
             else
             {
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 playerController.cameraON = false;
-                
+
             }
         }
     }
@@ -92,10 +92,11 @@ public class GameManager : MonoBehaviour
     public void RespawnPlayer()
     {
         playerController.health = 100;
+        healthbar.GetComponent<HealthbarController>().UpdateHealthBar(100, playerController.health);
         timeController.currentTime += timeController.midDayTime;
         timeController.dayCounter = playerController.lastDaySaved;
         player.transform.position = tent.transform.position;
         diaryController.DeleteUnsavedPhotos();
-        healthbar.UpdateHealthBar(100, playerController.health);
+
     }
 }

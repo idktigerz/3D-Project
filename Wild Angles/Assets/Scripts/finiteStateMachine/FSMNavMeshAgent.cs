@@ -229,8 +229,6 @@ public class FSMNavMeshAgent : MonoBehaviour
             else if (timeController.currentTime.TimeOfDay.Hours < 20) owlSleeping = true;
 
             else if (timeController.currentTime.TimeOfDay.Hours > 6) owlSleeping = true;
-
-            Debug.Log(owlSleeping);
         }
         yield return new WaitForSecondsRealtime(time);
         //agent.isStopped = false;

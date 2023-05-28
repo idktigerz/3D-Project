@@ -6,6 +6,8 @@ public class Photographable : MonoBehaviour
 {
     public PlayerCam playerCam;
     public bool haveBeenSeen;
+    
+    public bool missionPassed;
 
     public enum PhotographableID { Snake, Butterfly, Frog, Owl, Crocodile, Tiger, Bug, WhiteOrchid, PurpleOrchid, CocoaTree, BananaTree, Helconia };
 
