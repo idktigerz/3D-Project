@@ -611,7 +611,7 @@ Transform:
   - {fileID: 3431949750584276386}
   - {fileID: 955738816938657713}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 60.275, z: 0}
 --- !u!114 &756445467363312859
 MonoBehaviour:
@@ -646,6 +646,7 @@ MonoBehaviour:
   shootTimeInterval: 1
   energy: 100
   canHear: 0
+  timeController: {fileID: 0}
   flashed: 0
   canAttack: 0
   canRun: 0
@@ -657,6 +658,7 @@ MonoBehaviour:
   canFly: 0
   OwlBody: {fileID: 0}
   listOfAnimals: []
+  owlSleeping: 0
   playerController: {fileID: 0}
   following: 0
   homming: 0
@@ -917,6 +919,7 @@ PrefabInstance:
     - {fileID: 3874310199221812970, guid: 0dd5944ff11436e4fa24cda2f9fe9a65, type: 3}
     - {fileID: 8837726454514834577, guid: 0dd5944ff11436e4fa24cda2f9fe9a65, type: 3}
     - {fileID: 7391486260372504670, guid: 0dd5944ff11436e4fa24cda2f9fe9a65, type: 3}
+    - {fileID: 8557297092063964940, guid: 0dd5944ff11436e4fa24cda2f9fe9a65, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -924,6 +927,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3148498411231060805}
+    - targetCorrespondingSourceObject: {fileID: 1462357212926484632, guid: 0dd5944ff11436e4fa24cda2f9fe9a65,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6824943618396413833}
   m_SourcePrefab: {fileID: 100100000, guid: 0dd5944ff11436e4fa24cda2f9fe9a65, type: 3}
 --- !u!4 &84557549258220980 stripped
 Transform:
@@ -958,3 +965,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &5636556029182549135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1462357212926484632, guid: 0dd5944ff11436e4fa24cda2f9fe9a65,
+    type: 3}
+  m_PrefabInstance: {fileID: 6517350755852467223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6824943618396413833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636556029182549135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
