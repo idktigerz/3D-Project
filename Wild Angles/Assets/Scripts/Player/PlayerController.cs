@@ -253,15 +253,15 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (isFlashing)
+                if (canFlash)
                 {
                     flashIcon.SetActive(false);
-                    isFlashing = false;
+                    canFlash = false;
                 }
                 else
                 {
                     flashIcon.SetActive(true);
-                    isFlashing = true;
+                    canFlash = true;
                 }
             }
             //renderCam.SetActive(true);
