@@ -78,11 +78,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Continue game");
     }
 
-    public void Settings()
-    {
-        Debug.Log("Open settings");
-    }
-
     public void Quit()
     {
         Application.Quit();
