@@ -496,6 +496,7 @@ MonoBehaviour:
   shootTimeInterval: 1
   energy: 100
   canHear: 0
+  timeController: {fileID: 0}
   flashed: 0
   canAttack: 0
   canRun: 0
@@ -507,6 +508,7 @@ MonoBehaviour:
   canFly: 0
   OwlBody: {fileID: 0}
   listOfAnimals: []
+  owlSleeping: 0
   playerController: {fileID: 0}
   following: 0
   homming: 0
@@ -515,7 +517,7 @@ MonoBehaviour:
   source: {fileID: 0}
   walkingSound: {fileID: 0}
   attackSound: {fileID: 8300000, guid: 02aa28ffbc8464143b16e75f8d5b1251, type: 3}
-  hissSound: {fileID: 8300000, guid: bbd9c966ffc5ef6479ffd94a50bb07ed, type: 3}
+  hissSound: {fileID: 8300000, guid: 09bbb949d1b64b74bb8849686d597268, type: 3}
   talkSound: {fileID: 0}
 --- !u!95 &1757857792628948297
 Animator:

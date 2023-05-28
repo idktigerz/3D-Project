@@ -545,7 +545,7 @@ public class PlayerController : MonoBehaviour
             else if (closest.name.Contains("Owl"))
             {
                 GameObject animal = FindParentWithTag(closest, "Animal");
-                if (animal.GetComponent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
+                if (animal.GetComponent<FiniteStateMachine>().currentState.name == "OwlPatrolState" && closest.GetComponent<Photographable>().haveBeenSeen)
                 {
                     OwlText.text = "Mission Passed you gained +50 points";
                     points += 50;
@@ -882,7 +882,8 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePageUi(GameObject animal, int score)
     {
-        if (animal.CompareTag("Animal"))
+        GameObject an = FindParentWithTag(animal, "Animal");
+        if (an.CompareTag("Animal"))
         {
             string name = animal.name;
             GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
@@ -898,6 +899,7 @@ public class PlayerController : MonoBehaviour
                     description.SetActive(true);
                     break;
                 case "OwlPage":
+                    Debug.Log($"AQUI");
                     mission.text = "Mission : Take a photo of an Owl flying";
                     description.SetActive(true);
                     break;
