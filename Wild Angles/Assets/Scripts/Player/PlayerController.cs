@@ -490,7 +490,7 @@ public class PlayerController : MonoBehaviour
         {
             points += 10001;
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             if (timeController.GetComponent<TimeController>().timeMultiplier == 500) timeController.GetComponent<TimeController>().timeMultiplier = 300;
             else if (timeController.GetComponent<TimeController>().timeMultiplier == 300) timeController.GetComponent<TimeController>().timeMultiplier = 500;
