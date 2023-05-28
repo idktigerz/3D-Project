@@ -516,9 +516,9 @@ MonoBehaviour:
   tent: {fileID: 0}
   animator: {fileID: 1757857792628948297}
   source: {fileID: 0}
-  walkingSound: {fileID: 0}
+  walkingSound: {fileID: 8300000, guid: c9a1c1452e1937b41b0acf0433b5c413, type: 3}
   attackSound: {fileID: 8300000, guid: 02aa28ffbc8464143b16e75f8d5b1251, type: 3}
-  hissSound: {fileID: 8300000, guid: 09bbb949d1b64b74bb8849686d597268, type: 3}
+  hissSound: {fileID: 8300000, guid: 945fe151f7e67554e91b07bd4481cafd, type: 3}
   talkSound: {fileID: 0}
 --- !u!95 &1757857792628948297
 Animator:

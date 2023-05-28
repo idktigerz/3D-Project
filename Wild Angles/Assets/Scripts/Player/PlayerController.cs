@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource walkSound;
     public AudioSource sprintSound;
     [Header("step sounds")]
-    public AudioClip stepClip, sprintClip;
+    public AudioClip stepClip, sprintClip, hurtClip;
     [Header("CameraSound")]
 
     public AudioClip cameraOutClip, takingPhotoClip;
@@ -167,8 +167,12 @@ public class PlayerController : MonoBehaviour
         if (resting)
         {
             timeController.GetComponent<TimeController>().timeMultiplier = 1500;
-            health += 1 * Time.deltaTime;
+            if (health <= 100)
+            {
+                health += 3f * Time.deltaTime;
+            }
             healthbar.UpdateHealthBar(100, health);
+
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Cursor.lockState = CursorLockMode.Locked;
@@ -788,6 +792,9 @@ public class PlayerController : MonoBehaviour
     {
         health -= damage;
         healthbar.UpdateHealthBar(100, health);
+
+        sound.clip = hurtClip;
+        sound.Play();
 
         if (health < 0)
         {

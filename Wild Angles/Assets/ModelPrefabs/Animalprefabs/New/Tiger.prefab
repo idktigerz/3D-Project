@@ -91,9 +91,9 @@ MonoBehaviour:
   tent: {fileID: 0}
   animator: {fileID: 0}
   source: {fileID: 0}
-  walkingSound: {fileID: 8300000, guid: 14c29caf3a04db64696ebc5a8c70f823, type: 3}
-  attackSound: {fileID: 8300000, guid: 323005bf2b6a6ae4ab5a5d522c10bd26, type: 3}
-  hissSound: {fileID: 8300000, guid: b082421e3fdaebe4aad7f382e95d22bf, type: 3}
+  walkingSound: {fileID: 8300000, guid: d02dfa2584bdc9b4cb35bbdcb07c3f07, type: 3}
+  attackSound: {fileID: 8300000, guid: e52ddbf1c84fa604d997e7e4ea88f2d0, type: 3}
+  hissSound: {fileID: 8300000, guid: 9e96f76192623844db37c073ea580e14, type: 3}
   talkSound: {fileID: 0}
 --- !u!195 &4799707437554197638
 NavMeshAgent:

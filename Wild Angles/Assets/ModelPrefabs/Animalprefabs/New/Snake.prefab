@@ -414,8 +414,8 @@ MonoBehaviour:
   source: {fileID: 0}
   walkingSound: {fileID: 8300000, guid: c9a1c1452e1937b41b0acf0433b5c413, type: 3}
   attackSound: {fileID: 8300000, guid: c07a7f005fc4d9747ace04594ece1305, type: 3}
-  hissSound: {fileID: 8300000, guid: 97edb9fa82ef4554c863156356b89222, type: 3}
-  talkSound: {fileID: 8300000, guid: a72be94abdda4f342bd18b6f0ffd882f, type: 3}
+  hissSound: {fileID: 8300000, guid: fbfe5a97caf3cca44bb3d87b12962a50, type: 3}
+  talkSound: {fileID: 8300000, guid: 93f25ba60a3177b4b94b2bd7909b8c78, type: 3}
 --- !u!54 &242364374125363191
 Rigidbody:
   m_ObjectHideFlags: 0
