@@ -82,6 +82,12 @@ public class PlayerController : MonoBehaviour
     [Header("Animal Mission Texts")]
     public Text OwlText;
     public Text ButterflyText;
+    public Text CrocodileText;
+    public Text SnakeText;
+    public Text FrogText;
+    public Text BugText;
+    public Text TigerText;
+
     public int lastDaySaved;
     [SerializeField]
     public Image batteryIcon1;
@@ -527,7 +533,7 @@ public class PlayerController : MonoBehaviour
             {
                 popUpText.text = "new " + closest.name + " photo added to the diary!";
             }
-            closest.GetComponent<Photographable>().haveBeenSeen = true;
+
             UpdatePageUi(closest, point);
             UpdatePageButton(closest);
             //WHEN TAKING THE PIC ACTIVATE THE IS KNOWN VARIABLE IN PHOTOGRAPHABLE
@@ -538,9 +544,6 @@ public class PlayerController : MonoBehaviour
             }
             else if (closest.name.Contains("Owl"))
             {
-
-
-                //IF (THE STATE IS CORRECT)
                 GameObject animal = FindParentWithTag(closest, "Animal");
                 if (animal.GetComponent<FiniteStateMachine>().currentState.name == "OwlPatrolState")
                 {
@@ -559,11 +562,20 @@ public class PlayerController : MonoBehaviour
             }
             else if (closest.name.Contains("Frog"))
             {
-
+                if (playerCam.MoreThenOneInFrame("ButteFrogrfly") && closest.GetComponent<Photographable>().haveBeenSeen)
+                {
+                    FrogText.text = "Mission Passed you gained +50 points";
+                    points += 50;
+                }
             }
             else if (closest.name.Contains("Snake"))
             {
-
+                GameObject animal = FindParentWithTag(closest, "Animal");
+                if (animal.GetComponent<FiniteStateMachine>().currentState.name == "SnakeStareState" && closest.GetComponent<Photographable>().haveBeenSeen)
+                {
+                    SnakeText.text = "Mission Passed you gained +50 points";
+                    points += 50;
+                }
             }
             else if (closest.name.Contains("Bug"))
             {
@@ -589,6 +601,7 @@ public class PlayerController : MonoBehaviour
             {
 
             }
+            closest.GetComponent<Photographable>().haveBeenSeen = true;
         }
         else
         {
