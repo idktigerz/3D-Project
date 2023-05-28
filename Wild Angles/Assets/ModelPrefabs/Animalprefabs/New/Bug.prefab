@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8ab7cb0a5a19cc541b9c99bca2759c25,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ab7cb0a5a19cc541b9c99bca2759c25,
         type: 3}
@@ -72,6 +72,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bug
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ab7cb0a5a19cc541b9c99bca2759c25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Animal
       objectReference: {fileID: 0}
     - target: {fileID: 8632055958874330854, guid: 8ab7cb0a5a19cc541b9c99bca2759c25,
         type: 3}
@@ -156,6 +161,7 @@ MonoBehaviour:
   shootTimeInterval: 1
   energy: 100
   canHear: 0
+  timeController: {fileID: 0}
   flashed: 0
   canAttack: 0
   canRun: 0
@@ -167,6 +173,7 @@ MonoBehaviour:
   canFly: 0
   OwlBody: {fileID: 0}
   listOfAnimals: []
+  owlSleeping: 0
   playerController: {fileID: 0}
   following: 0
   homming: 0
@@ -355,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
   precomputeOutline: 0

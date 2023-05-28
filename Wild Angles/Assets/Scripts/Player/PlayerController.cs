@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     [Header("Camera Stuff")]
     [SerializeField] GameObject cameraUI;
     [SerializeField] TextMeshProUGUI popUpText;
+    private bool canOpenCamera;
 
     public bool cameraON;
     private int picnum;
@@ -140,6 +141,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        canOpenCamera = true;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
@@ -310,6 +312,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(NoBatteryText());
             cameraUI.SetActive(false);
+            cameraON = false;
             if (nightVisionController.isEnabled == true)
             {
                 nightVisionController.isEnabled = false;
@@ -378,7 +381,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isRunning", false);
         }
 
-        if (Input.GetKeyDown(cameraKey))
+        if (Input.GetKeyDown(cameraKey) && canOpenCamera)
         {
             if (!cameraON && camBattery > 0)
             {
@@ -449,6 +452,8 @@ public class PlayerController : MonoBehaviour
                 diaryOpen = false;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                canOpenCamera = true;
+                cameraON = false;
 
 
             }
@@ -462,6 +467,8 @@ public class PlayerController : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 cameraON = false;
+                cameraUI.SetActive(false);
+                canOpenCamera = false;
 
             }
         }
@@ -748,7 +755,10 @@ public class PlayerController : MonoBehaviour
     private IEnumerator CameraUIOn()
     {
         yield return new WaitForSeconds(1f);
-        cameraUI.SetActive(true);
+        if (cameraON)
+        {
+            cameraUI.SetActive(true);
+        }
         light.SetActive(false);
         flashIcon.SetActive(false);
         isFlashing = false;
@@ -883,62 +893,66 @@ public class PlayerController : MonoBehaviour
     private void UpdatePageUi(GameObject animal, int score)
     {
         GameObject an = FindParentWithTag(animal, "Animal");
-        if (an.CompareTag("Animal"))
+        if (an != null)
         {
-            string name = animal.name;
-            GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
-            Text mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<Text>();
-            GameObject description = FindChildGameObjectByName(objectName, "Description Text");
-            GameObject score1 = FindChildGameObjectByName(objectName, "Good Rating");
-            GameObject score2 = FindChildGameObjectByName(objectName, "Mid Rating");
-            GameObject score3 = FindChildGameObjectByName(objectName, "Bad Rating");
-            switch (objectName.name)
+            if (an.CompareTag("Animal"))
             {
-                case "CrocodilePage":
-                    mission.text = "Mission : Take a photo of a crocodile attacking you";
-                    description.SetActive(true);
-                    break;
-                case "OwlPage":
-                    Debug.Log($"AQUI");
-                    mission.text = "Mission : Take a photo of an Owl flying";
-                    description.SetActive(true);
-                    break;
-                case "ButterflyPage":
-                    mission.text = "Mission : Take a photo of a butterfly flying ";
-                    description.SetActive(true);
-                    break;
-                case "BugPage":
-                    mission.text = "Mission : Take a perfect photo of a bug";
-                    description.SetActive(true);
-                    break;
-                case "FrogPage":
-                    mission.text = "Mission : Take a perfect photo of a frog";
-                    description.SetActive(true);
-                    break;
-                case "SnakePage":
-                    mission.text = "Mission : Take a photo of a Snake Staring at You";
-                    description.SetActive(true);
-                    break;
-            }
-            if (score == 1)
-            {
-                score1.SetActive(true);
-                score2.SetActive(false);
-                score3.SetActive(false);
-            }
-            else if (score == 2)
-            {
-                score2.SetActive(true);
-                score1.SetActive(false);
-                score3.SetActive(false);
-            }
-            if (score == 3)
-            {
-                score3.SetActive(true);
-                score2.SetActive(false);
-                score1.SetActive(false);
+                string name = animal.name;
+                GameObject objectName = FindChildGameObjectByName(diaryController.gameObject, name + "Page");
+                Text mission = FindChildGameObjectByName(objectName, "Mission Text").GetComponent<Text>();
+                GameObject description = FindChildGameObjectByName(objectName, "Description Text");
+                GameObject score1 = FindChildGameObjectByName(objectName, "Good Rating");
+                GameObject score2 = FindChildGameObjectByName(objectName, "Mid Rating");
+                GameObject score3 = FindChildGameObjectByName(objectName, "Bad Rating");
+                switch (objectName.name)
+                {
+                    case "CrocodilePage":
+                        mission.text = "Mission : Take a photo of a crocodile attacking you";
+                        description.SetActive(true);
+                        break;
+                    case "OwlPage":
+                        Debug.Log($"AQUI");
+                        mission.text = "Mission : Take a photo of an Owl flying";
+                        description.SetActive(true);
+                        break;
+                    case "ButterflyPage":
+                        mission.text = "Mission : Take a photo of a butterfly flying ";
+                        description.SetActive(true);
+                        break;
+                    case "BugPage":
+                        mission.text = "Mission : Take a perfect photo of a bug";
+                        description.SetActive(true);
+                        break;
+                    case "FrogPage":
+                        mission.text = "Mission : Take a perfect photo of a frog";
+                        description.SetActive(true);
+                        break;
+                    case "SnakePage":
+                        mission.text = "Mission : Take a photo of a Snake Staring at You";
+                        description.SetActive(true);
+                        break;
+                }
+                if (score == 1)
+                {
+                    score1.SetActive(true);
+                    score2.SetActive(false);
+                    score3.SetActive(false);
+                }
+                else if (score == 2)
+                {
+                    score2.SetActive(true);
+                    score1.SetActive(false);
+                    score3.SetActive(false);
+                }
+                if (score == 3)
+                {
+                    score3.SetActive(true);
+                    score2.SetActive(false);
+                    score1.SetActive(false);
+                }
             }
         }
+
     }
     private GameObject FindChildGameObjectByName(GameObject topParentObject, string gameObjectName)
     {
