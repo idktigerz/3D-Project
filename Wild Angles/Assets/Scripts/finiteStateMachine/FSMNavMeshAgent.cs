@@ -24,6 +24,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     public float timeStaring;
     public bool snakeCanAttack;
     public GameObject Ponto;
+    [SerializeField] private int damage;
 
     [Header("Owl Stuff")]
 
@@ -272,6 +273,8 @@ public class FSMNavMeshAgent : MonoBehaviour
         agent.SetDestination(target.position);
         if (canAttack)
         {
+            canDamagePlayer = true;
+
             if (source != null)
             {
                 source.clip = attackSound;
@@ -283,16 +286,7 @@ public class FSMNavMeshAgent : MonoBehaviour
             float force = 2;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
-
             StartCoroutine("CrocAttackWait");
-
-
-            if (canDamagePlayer)
-            {
-                playerController.DamagePlayer(25f);
-                canDamagePlayer = false;
-            }
-
         }
     }
     IEnumerator CrocAttackWait()
@@ -301,12 +295,15 @@ public class FSMNavMeshAgent : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
         yield return new WaitForSeconds(2);
         canAttack = true;
+        canDamagePlayer = false;
     }
     public void SnakeAttack()
     {
         agent.SetDestination(target.position);
         if (canAttack)
         {
+            canDamagePlayer = true;
+
             if (source != null)
             {
                 source.clip = attackSound;
@@ -317,13 +314,6 @@ public class FSMNavMeshAgent : MonoBehaviour
             float force = 4;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
-            StartCoroutine("CrocAttackWait");
-
-            if (canDamagePlayer)
-            {
-                playerController.DamagePlayer(15f);
-                canDamagePlayer = false;
-            }
             StartCoroutine("CrocAttackWait");
         }
     }
@@ -437,6 +427,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     {
         if (canAttack)
         {
+            canDamagePlayer = true;
             if (source != null)
             {
                 source.clip = attackSound;
@@ -447,13 +438,6 @@ public class FSMNavMeshAgent : MonoBehaviour
             float force = 4;
             GetComponent<Rigidbody>().AddForce(-direction * force, ForceMode.Impulse);
             canAttack = false;
-            StartCoroutine("CrocAttackWait");
-
-            if (canDamagePlayer)
-            {
-                playerController.DamagePlayer(15f);
-                canDamagePlayer = false;
-            }
             StartCoroutine("CrocAttackWait");
         }
     }
@@ -479,9 +463,9 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player") && canDamagePlayer == false)
+        if (other.gameObject.CompareTag("Player") && canDamagePlayer)
         {
-            canDamagePlayer = true;
+            playerController.DamagePlayer(damage);
         }
     }
     /*private void OnCollisionExit(Collision other)
