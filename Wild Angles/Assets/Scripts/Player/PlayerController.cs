@@ -763,6 +763,7 @@ public class PlayerController : MonoBehaviour
     private void Rest()
     {
         points = unsavedpoints;
+        unsavedpoints = 0;
         lastDaySaved = timeController.GetComponent<TimeController>().dayCounter;
         resting = true;
         rechargeAmount = 3;

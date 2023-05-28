@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     public DiaryController diaryController;
 
 
-    public TextMeshProUGUI scoreText;
+    public Text scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
             if (timeController.dayCounter == 7)
             {
                 PlayerPrefs.SetInt("points", playerController.points);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 Endgame();
             }
         }
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
+        PlayerPrefs.SetInt("points", 0);
         SceneManager.LoadScene("SampleScene");
         Time.timeScale = 1;
     }
