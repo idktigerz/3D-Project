@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EndGameController : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText; 
+    public Text scoreText; 
     public PlayerController playerController;
 
     // Start is called before the first frame update
