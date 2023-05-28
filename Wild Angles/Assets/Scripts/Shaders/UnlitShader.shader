@@ -58,7 +58,7 @@ VertexToFragment vert(VertexData vertData)
     float4 deformColor = tex2Dlod(_DeformTex, float4(vertData.uv.xy, 0, 0));
                 //vertData.position.x *= deformColor.x;
     vertData.position.y += deformColor.r;
-    vertData.position.x += sin((_Time.y * _Num1) + (vertData.position.y * _Num2)) * _Num3;
+    vertData.position.x += sin((_Time.z * _Num1) + (vertData.position.z * _Num2)) * _Num3;
                 /*v2f.uv.y += _Time.y * 0.5;
                 v2f.uv.x += _Time.y * 0.5;
                 v2f.uvDetail.y += _Time.y * 0.5;

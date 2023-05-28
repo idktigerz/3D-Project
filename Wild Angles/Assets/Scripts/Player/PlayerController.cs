@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour
 
 
     public int points;
+    public int unsavedpoints;
     public enum MovementState
     {
         walking,
@@ -170,7 +171,7 @@ public class PlayerController : MonoBehaviour
             healthbar.UpdateHealthBar(100, health);
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.Locked;
                 resting = false;
                 playerBody.SetActive(true);
                 tentCammera.SetActive(false);
@@ -500,7 +501,6 @@ public class PlayerController : MonoBehaviour
         renderCam.SetActive(true);
         sound.clip = takingPhotoClip;
         sound.Play();
-        Debug.Log(canFlash);
         if (canFlash)
         {
             light.SetActive(true);
@@ -515,15 +515,15 @@ public class PlayerController : MonoBehaviour
             int point = GradePhoto(closest);
             if (point == 1)
             {
-                points += 50;
+                unsavedpoints += 50;
             }
             else if (point == 2)
             {
-                points += 25;
+                unsavedpoints += 25;
             }
             else if (point == 3)
             {
-                points += 5;
+                unsavedpoints += 5;
             }
             int animalTypeId = (int)closest.GetComponent<Photographable>().GetID();
             RenderTexture.active = rt;
@@ -548,67 +548,86 @@ public class PlayerController : MonoBehaviour
             if (closest.name.Contains("Crocodile"))
             {
 
+                GameObject animal = FindParentWithTag(closest, "Animal");
+                if (animal.GetComponent<FiniteStateMachine>().currentState.name == "CrocodileAttack" && playerCam.crocodileSeen ||
+                 closest.GetComponent<Photographable>().missionPassed)
+                {
+                    CrocodileText.text = "Mission Passed you gained +50 points";
+                    unsavedpoints += 50;
+                    closest.GetComponent<Photographable>().missionPassed = true;
+                }
+                playerCam.crocodileSeen = true;
             }
             else if (closest.name.Contains("Owl"))
             {
+
                 GameObject animal = FindParentWithTag(closest, "Animal");
-                if (animal.GetComponent<FiniteStateMachine>().currentState.name == "OwlPatrolState" && closest.GetComponent<Photographable>().haveBeenSeen)
+                if (animal.GetComponent<FiniteStateMachine>().currentState.name == "OwlRestState" && playerCam.owlSeen)
                 {
                     OwlText.text = "Mission Passed you gained +50 points";
-                    points += 50;
+                    unsavedpoints += 50;
+                    closest.GetComponent<Photographable>().missionPassed = true;
                 }
+                playerCam.owlSeen = true;
+
 
             }
             else if (closest.name.Contains("Butterfly"))
             {
-                if (playerCam.MoreThenOneInFrame("Butterfly") && closest.GetComponent<Photographable>().haveBeenSeen)
+
+                if (playerCam.MoreThenOneInFrame("Butterfly") && playerCam.butterflySeen)
                 {
                     ButterflyText.text = "Mission Passed you gained +50 points";
-                    points += 50;
+                    unsavedpoints += 50;
+                    closest.GetComponent<Photographable>().missionPassed = true;
                 }
+                playerCam.butterflySeen = true;
+
             }
             else if (closest.name.Contains("Frog"))
             {
-                if (playerCam.MoreThenOneInFrame("ButteFrogrfly") && closest.GetComponent<Photographable>().haveBeenSeen)
+                if (playerCam.MoreThenOneInFrame("Frog") && playerCam.frogSeen)
                 {
                     FrogText.text = "Mission Passed you gained +50 points";
-                    points += 50;
+                    unsavedpoints += 50;
+                    closest.GetComponent<Photographable>().missionPassed = true;
                 }
+                playerCam.frogSeen = true;
             }
             else if (closest.name.Contains("Snake"))
             {
                 GameObject animal = FindParentWithTag(closest, "Animal");
-                if (animal.GetComponent<FiniteStateMachine>().currentState.name == "SnakeStareState" && closest.GetComponent<Photographable>().haveBeenSeen)
+                if (animal.GetComponent<FiniteStateMachine>().currentState.name == "SnakeStareState" && playerCam.snakeSeen)
                 {
                     SnakeText.text = "Mission Passed you gained +50 points";
-                    points += 50;
+                    unsavedpoints += 50;
+                    closest.GetComponent<Photographable>().missionPassed = true;
                 }
+                playerCam.snakeSeen = true;
             }
             else if (closest.name.Contains("Bug"))
             {
-
+                if (point == 1 && playerCam.bugSeen)
+                {
+                    Debug.Log($"Cheguei aqui");
+                    BugText.text = "Mission Passed you gained +50 points";
+                    unsavedpoints += 50;
+                    closest.GetComponent<Photographable>().missionPassed = true;
+                }
+                playerCam.bugSeen = true;
             }
             else if (closest.name.Contains("Tiger"))
             {
+                GameObject animal = FindParentWithTag(closest, "Animal");
+                if (animal.GetComponent<FiniteStateMachine>().currentState.name == "TigerChaseState" && playerCam.tigerSeen)
+                {
+                    TigerText.text = "Mission Passed you gained +50 points";
+                    unsavedpoints += 50;
+                    closest.GetComponent<Photographable>().missionPassed = true;
+                }
+                playerCam.tigerSeen = true;
 
             }
-            else if (closest.name.Contains("White Orchid"))
-            {
-
-            }
-            else if (closest.name.Contains("Poison Orchid"))
-            {
-
-            }
-            else if (closest.name.Contains("Cocoa Tree"))
-            {
-
-            }
-            else if (closest.name.Contains("Banana Tree"))
-            {
-
-            }
-            closest.GetComponent<Photographable>().haveBeenSeen = true;
         }
         else
         {
@@ -743,6 +762,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Rest()
     {
+        points = unsavedpoints;
         lastDaySaved = timeController.GetComponent<TimeController>().dayCounter;
         resting = true;
         rechargeAmount = 3;
@@ -850,40 +870,40 @@ public class PlayerController : MonoBehaviour
         switch (objectName.name)
         {
             case "CrocodileButton":
-                buttonText.text = "Crocodile";
+                buttonText.text = "Crocodile Page";
                 break;
             case "OwlButton":
-                buttonText.text = "Owl";
+                buttonText.text = "Owl Page";
                 break;
             case "FrogButton":
-                buttonText.text = "Frog";
+                buttonText.text = "Frog Page";
                 break;
             case "BugButton":
-                buttonText.text = "Bug";
+                buttonText.text = "Bug Page";
                 break;
             case "ButterflyButton":
-                buttonText.text = "Butterfly";
+                buttonText.text = "Butterfly Page";
                 break;
             case "SnakeButton":
-                buttonText.text = "Snake";
+                buttonText.text = "Snake Page";
                 break;
             case "TigerButton":
-                buttonText.text = "Tiger";
+                buttonText.text = "Tiger Page";
                 break;
             case "WhiteOrchidButton":
-                buttonText.text = "White Orchid";
+                buttonText.text = "White Orchid Page";
                 break;
             case "PurpleOrchidButton":
-                buttonText.text = "Purple Orchid";
+                buttonText.text = "Purple Orchid Page";
                 break;
             case "CocoaTreeButton":
-                buttonText.text = "Cocoa Tree";
+                buttonText.text = "Cocoa Tree Page";
                 break;
             case "BananaTreeButton":
-                buttonText.text = "Banana Tree";
+                buttonText.text = "Banana Tree Page";
                 break;
             case "HeliconiaButton":
-                buttonText.text = "Heliconia";
+                buttonText.text = "Heliconia Page";
                 break;
         }
     }
@@ -902,34 +922,13 @@ public class PlayerController : MonoBehaviour
                 GameObject score1 = FindChildGameObjectByName(objectName, "Good Rating");
                 GameObject score2 = FindChildGameObjectByName(objectName, "Mid Rating");
                 GameObject score3 = FindChildGameObjectByName(objectName, "Bad Rating");
-                switch (objectName.name)
-                {
-                    case "CrocodilePage":
-                        mission.text = "Mission : Take a photo of a crocodile attacking you";
-                        description.SetActive(true);
-                        break;
-                    case "OwlPage":
-                        Debug.Log($"AQUI");
-                        mission.text = "Mission : Take a photo of an Owl flying";
-                        description.SetActive(true);
-                        break;
-                    case "ButterflyPage":
-                        mission.text = "Mission : Take a photo of a butterfly flying ";
-                        description.SetActive(true);
-                        break;
-                    case "BugPage":
-                        mission.text = "Mission : Take a perfect photo of a bug";
-                        description.SetActive(true);
-                        break;
-                    case "FrogPage":
-                        mission.text = "Mission : Take a perfect photo of a frog";
-                        description.SetActive(true);
-                        break;
-                    case "SnakePage":
-                        mission.text = "Mission : Take a photo of a Snake Staring at You";
-                        description.SetActive(true);
-                        break;
-                }
+                if (objectName.name == "OwlPage" && !playerCam.owlSeen) mission.text = "Mission : Take a photo of an owl sleeping";
+                else if (objectName.name == "CrocodilePage" && !playerCam.crocodileSeen) mission.text = "Mission : Take a photo of a crocodile attacking you";
+                else if (objectName.name == "ButterflyPage" && !playerCam.butterflySeen) mission.text = "Mission : Catch more then one butterfly on a photo";
+                else if (objectName.name == "BugPage" && !playerCam.bugSeen) mission.text = "Mission : Take a perfect photo of a ladybug";
+                else if (objectName.name == "FrogPage" && !playerCam.frogSeen) mission.text = "Mission : Catch more then one frog on a photo";
+                else if (objectName.name == "SnakePage" && !playerCam.snakeSeen) mission.text = "Mission : Take a photo of a snake staring at you";
+                else if (objectName.name == "TigerPage" && !playerCam.tigerSeen) mission.text = "Mission : Take a photo of a tiger chasing you";
                 if (score == 1)
                 {
                     score1.SetActive(true);
