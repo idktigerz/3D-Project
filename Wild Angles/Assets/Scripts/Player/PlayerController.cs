@@ -846,44 +846,44 @@ public class PlayerController : MonoBehaviour
         String name = animal.name;
         GameObject first = FindChildGameObjectByName(diaryController.gameObject, "MainPage");
         GameObject objectName = FindChildGameObjectByName(first, name + "Button");
-        TextMeshProUGUI buttonText = FindChildGameObjectByName(objectName, "Text").GetComponent<TextMeshProUGUI>();
+        Text buttonText = FindChildGameObjectByName(objectName, "Text").GetComponent<Text>();
         switch (objectName.name)
         {
             case "CrocodileButton":
-                buttonText.text = "Crocodile Page";
+                buttonText.text = "Crocodile";
                 break;
             case "OwlButton":
-                buttonText.text = "Owl Page";
+                buttonText.text = "Owl";
                 break;
             case "FrogButton":
-                buttonText.text = "Frog Page";
+                buttonText.text = "Frog";
                 break;
             case "BugButton":
-                buttonText.text = "Bug Page";
+                buttonText.text = "Bug";
                 break;
             case "ButterflyButton":
-                buttonText.text = "Butterfly Page";
+                buttonText.text = "Butterfly";
                 break;
             case "SnakeButton":
-                buttonText.text = "Snake Page";
+                buttonText.text = "Snake";
                 break;
             case "TigerButton":
-                buttonText.text = "Tiger Page";
+                buttonText.text = "Tiger";
                 break;
             case "WhiteOrchidButton":
-                buttonText.text = "White Orchid Page";
+                buttonText.text = "White Orchid";
                 break;
             case "PurpleOrchidButton":
-                buttonText.text = "Purple Orchid Page";
+                buttonText.text = "Purple Orchid";
                 break;
             case "CocoaTreeButton":
-                buttonText.text = "Cocoa Tree Page";
+                buttonText.text = "Cocoa Tree";
                 break;
             case "BananaTreeButton":
-                buttonText.text = "Banana Tree Page";
+                buttonText.text = "Banana Tree";
                 break;
             case "HeliconiaButton":
-                buttonText.text = "Heliconia Page";
+                buttonText.text = "Heliconia";
                 break;
         }
     }
