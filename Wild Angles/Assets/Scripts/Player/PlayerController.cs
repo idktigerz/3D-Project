@@ -80,8 +80,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI modeText;
     [Header("Animal Mission Texts")]
-    public TextMeshProUGUI OwlText;
-    public TextMeshProUGUI ButterflyText;
+    public Text OwlText;
+    public Text ButterflyText;
     public int lastDaySaved;
     [SerializeField]
     public Image batteryIcon1;
@@ -551,7 +551,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (closest.name.Contains("Butterfly"))
             {
-                if (playerCam.MoreThenOneInFrame("Butterfly"))
+                if (playerCam.MoreThenOneInFrame("Butterfly") && closest.GetComponent<Photographable>().haveBeenSeen)
                 {
                     ButterflyText.text = "Mission Passed you gained +50 points";
                     points += 50;
