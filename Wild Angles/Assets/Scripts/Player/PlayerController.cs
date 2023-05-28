@@ -251,6 +251,19 @@ public class PlayerController : MonoBehaviour
 
         if (cameraON)
         {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (isFlashing)
+                {
+                    flashIcon.SetActive(false);
+                    isFlashing = false;
+                }
+                else
+                {
+                    flashIcon.SetActive(true);
+                    isFlashing = true;
+                }
+            }
             //renderCam.SetActive(true);
             GameObject closest;
             closest = playerCam.GetClosestPhotographable();
@@ -282,24 +295,10 @@ public class PlayerController : MonoBehaviour
                 playerCam.GetComponent<Camera>().fieldOfView = 60;
             }
             batteryBar.UpdateBatteryBar(100, camBattery);
-
-            if (Input.GetKeyDown(interactKey))
-            {
-                if (canFlash)
-                {
-                    canFlash = false;
-
-                    flashIcon.SetActive(false);
-                }
-                else
-                {
-                    canFlash = true;
-                    flashIcon.SetActive(true);
-                }
-            }
         }
         else
         {
+            flashIcon.SetActive(false);
             //renderCam.SetActive(false);
 
             foreach (var animal in playerCam.currentAnimalsInTheframe)
@@ -311,6 +310,7 @@ public class PlayerController : MonoBehaviour
         if (camBattery <= 0)
         {
             StartCoroutine(NoBatteryText());
+            flashIcon.SetActive(false);
             cameraUI.SetActive(false);
             cameraON = false;
             if (nightVisionController.isEnabled == true)
@@ -760,7 +760,6 @@ public class PlayerController : MonoBehaviour
             cameraUI.SetActive(true);
         }
         light.SetActive(false);
-        flashIcon.SetActive(false);
         isFlashing = false;
         yield return new WaitForSeconds(2f);
         popUpText.gameObject.SetActive(false);
