@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public PlayerController playerController;
     public TimeController timeController;
+    public HealthbarController healthbar;
     public GameObject player;
     public GameObject playerUI;
     public GameObject tent;
@@ -95,5 +96,6 @@ public class GameManager : MonoBehaviour
         timeController.dayCounter = playerController.lastDaySaved;
         player.transform.position = tent.transform.position;
         diaryController.DeleteUnsavedPhotos();
+        healthbar.UpdateHealthBar(100, playerController.health);
     }
 }
