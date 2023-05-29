@@ -1029,4 +1029,33 @@ public class PlayerController : MonoBehaviour
         }
         return null; // Could not find a parent with given tag.
     }
+    public void OpenUI()
+    {
+        if (diaryOpen)
+        {
+            timeController.GetComponent<TimeController>().timeMultiplier = 300;
+            playerCam.enabled = true;
+            diaryUI.SetActive(false);
+            diaryOpen = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            canOpenCamera = true;
+            cameraON = false;
+        }
+        else
+        {
+            timeController.GetComponent<TimeController>().timeMultiplier = 0;
+
+            playerCam.enabled = false;
+            diaryUI.SetActive(true);
+            diaryOpen = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            cameraON = false;
+            cameraUI.SetActive(false);
+            canOpenCamera = false;
+
+        }
+    }
+
 }
