@@ -536,14 +536,8 @@ public class PlayerController : MonoBehaviour
             tex.Apply();
             RenderTexture.active = null;
             popUpText.gameObject.SetActive(true);
-            if (closest.GetComponent<Photographable>().haveBeenSeen == false)
-            {
-                popUpText.text = "new " + closest.name + " photo added to the diary \nA new mission, description and fact about " + closest.name + " have been added to the diary!";
-            }
-            else
-            {
-                popUpText.text = "new " + closest.name + " photo added to the diary!";
-            }
+            popUpText.text = "new " + closest.name + " photo added to the diary!";
+
 
             UpdatePageUi(closest, point);
             UpdatePageButton(closest);
@@ -559,6 +553,7 @@ public class PlayerController : MonoBehaviour
                     CrocodileText.text = "Mission Passed you gained +50 points";
                     unsavedpoints += 50;
                     closest.GetComponent<Photographable>().missionPassed = true;
+                    popUpText.text = closest.name + " mission compleeted ! +50 points";
                 }
                 playerCam.crocodileSeen = true;
             }
@@ -571,6 +566,8 @@ public class PlayerController : MonoBehaviour
                     OwlText.text = "Mission Passed you gained +50 points";
                     unsavedpoints += 50;
                     closest.GetComponent<Photographable>().missionPassed = true;
+                    popUpText.text = closest.name + " mission compleeted ! +50 points";
+
                 }
                 playerCam.owlSeen = true;
 
@@ -584,6 +581,9 @@ public class PlayerController : MonoBehaviour
                     ButterflyText.text = "Mission Passed you gained +50 points";
                     unsavedpoints += 50;
                     closest.GetComponent<Photographable>().missionPassed = true;
+                    popUpText.text = closest.name + " mission compleeted ! +50 points";
+
+
                 }
                 playerCam.butterflySeen = true;
 
@@ -595,6 +595,8 @@ public class PlayerController : MonoBehaviour
                     FrogText.text = "Mission Passed you gained +50 points";
                     unsavedpoints += 50;
                     closest.GetComponent<Photographable>().missionPassed = true;
+                    popUpText.text = closest.name + " mission compleeted ! +50 points";
+
                 }
                 playerCam.frogSeen = true;
             }
@@ -606,6 +608,8 @@ public class PlayerController : MonoBehaviour
                     SnakeText.text = "Mission Passed you gained +50 points";
                     unsavedpoints += 50;
                     closest.GetComponent<Photographable>().missionPassed = true;
+                    popUpText.text = closest.name + " mission compleeted ! +50 points";
+
                 }
                 playerCam.snakeSeen = true;
             }
@@ -617,6 +621,8 @@ public class PlayerController : MonoBehaviour
                     BugText.text = "Mission Passed you gained +50 points";
                     unsavedpoints += 50;
                     closest.GetComponent<Photographable>().missionPassed = true;
+                    popUpText.text = closest.name + " mission compleeted ! +50 points";
+
                 }
                 playerCam.bugSeen = true;
             }
@@ -628,6 +634,8 @@ public class PlayerController : MonoBehaviour
                     TigerText.text = "Mission Passed you gained +50 points";
                     unsavedpoints += 50;
                     closest.GetComponent<Photographable>().missionPassed = true;
+                    popUpText.text = closest.name + " mission compleeted ! +50 points";
+
                 }
                 playerCam.tigerSeen = true;
 
@@ -878,40 +886,40 @@ public class PlayerController : MonoBehaviour
         switch (objectName.name)
         {
             case "CrocodileButton":
-                buttonText.text = "Crocodile Page";
+                buttonText.text = "Crocodile ";
                 break;
             case "OwlButton":
-                buttonText.text = "Owl Page";
+                buttonText.text = "Owl ";
                 break;
             case "FrogButton":
-                buttonText.text = "Frog Page";
+                buttonText.text = "Frog ";
                 break;
             case "BugButton":
-                buttonText.text = "Bug Page";
+                buttonText.text = "Ladybug ";
                 break;
             case "ButterflyButton":
-                buttonText.text = "Butterfly Page";
+                buttonText.text = "Butterfly ";
                 break;
             case "SnakeButton":
-                buttonText.text = "Snake Page";
+                buttonText.text = "Snake ";
                 break;
             case "TigerButton":
-                buttonText.text = "Tiger Page";
+                buttonText.text = "Tiger ";
                 break;
             case "WhiteOrchidButton":
-                buttonText.text = "White Orchid Page";
+                buttonText.text = "White Orchid ";
                 break;
             case "PurpleOrchidButton":
-                buttonText.text = "Purple Orchid Page";
+                buttonText.text = "Purple Orchid";
                 break;
             case "CocoaTreeButton":
-                buttonText.text = "Cocoa Tree Page";
+                buttonText.text = "Cocoa Tree";
                 break;
             case "BananaTreeButton":
-                buttonText.text = "Banana Tree Page";
+                buttonText.text = "Banana Tree";
                 break;
             case "HeliconiaButton":
-                buttonText.text = "Heliconia Page";
+                buttonText.text = "Heliconia";
                 break;
         }
     }
@@ -930,13 +938,44 @@ public class PlayerController : MonoBehaviour
                 GameObject score1 = FindChildGameObjectByName(objectName, "Good Rating");
                 GameObject score2 = FindChildGameObjectByName(objectName, "Mid Rating");
                 GameObject score3 = FindChildGameObjectByName(objectName, "Bad Rating");
-                if (objectName.name == "OwlPage" && !playerCam.owlSeen) mission.text = "Mission : Take a photo of an owl sleeping";
-                else if (objectName.name == "CrocodilePage" && !playerCam.crocodileSeen) mission.text = "Mission : Take a photo of a crocodile attacking you";
-                else if (objectName.name == "ButterflyPage" && !playerCam.butterflySeen) mission.text = "Mission : Catch more then one butterfly on a photo";
-                else if (objectName.name == "BugPage" && !playerCam.bugSeen) mission.text = "Mission : Take a perfect photo of a ladybug";
-                else if (objectName.name == "FrogPage" && !playerCam.frogSeen) mission.text = "Mission : Catch more then one frog on a photo";
-                else if (objectName.name == "SnakePage" && !playerCam.snakeSeen) mission.text = "Mission : Take a photo of a snake staring at you";
-                else if (objectName.name == "TigerPage" && !playerCam.tigerSeen) mission.text = "Mission : Take a photo of a tiger chasing you";
+                if (objectName.name == "OwlPage" && !playerCam.owlSeen)
+                {
+                    mission.text = "Mission : Take a photo of an owl sleeping";
+                    popUpText.text = "new OWl photo added to the diary \nA new Owl mission is available diary!";
+                }
+                else if (objectName.name == "CrocodilePage" && !playerCam.crocodileSeen)
+                {
+                    mission.text = "Mission : Take a photo of a crocodile attacking you";
+                    popUpText.text = "new Crocodile photo added to the diary \nA new Crocodile mission is available diary!";
+                }
+                else if (objectName.name == "ButterflyPage" && !playerCam.butterflySeen)
+                {
+                    mission.text = "Mission : Catch more then one butterfly on a photo";
+                    popUpText.text = "new Butterfly photo added to the diary \nA new Butterfly mission is available diary!";
+                }
+                else if (objectName.name == "BugPage" && !playerCam.bugSeen)
+                {
+                    mission.text = "Mission : Take a perfect photo of a ladybug";
+                    popUpText.text = "new Ladybug photo added to the diary \nA new Ladybug mission is available diary!";
+                }
+                else if (objectName.name == "FrogPage" && !playerCam.frogSeen)
+                {
+                    mission.text = "Mission : Catch more then one frog on a photo";
+                    popUpText.text = "new Frog photo added to the diary \nA new Frog mission is available diary!";
+
+                }
+                else if (objectName.name == "SnakePage" && !playerCam.snakeSeen)
+                {
+                    mission.text = "Mission : Take a photo of a snake staring at you";
+                    popUpText.text = "new Snake photo added to the diary \nA new Snake mission is available diary!";
+                }
+                else if (objectName.name == "TigerPage" && !playerCam.tigerSeen)
+                {
+                    mission.text = "Mission : Take a photo of a tiger chasing you";
+                    popUpText.text = "new Tiger photo added to the diary \nA new Tiger mission is available diary!";
+
+
+                }
                 if (score == 1)
                 {
                     score1.SetActive(true);
