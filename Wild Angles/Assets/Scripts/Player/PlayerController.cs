@@ -435,8 +435,11 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                camBattery = 100f;
-                rechargeAmount--;
+                if (rechargeAmount <= 50f)
+                {
+                    camBattery = 100f;
+                    rechargeAmount--;
+                }
             }
 
         }
