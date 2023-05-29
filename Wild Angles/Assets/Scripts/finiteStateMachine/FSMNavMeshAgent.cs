@@ -57,7 +57,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     [SerializeField] private AudioClip attackSound;
 
     public AudioClip hissSound;
-    [SerializeField] private AudioClip talkSound;
+    public AudioClip talkSound;
 
 
 
@@ -155,6 +155,7 @@ public class FSMNavMeshAgent : MonoBehaviour
     }
     public void GoToNextPatrolWaypointBabyTiger()
     {
+        source.enabled=false;
         agent.isStopped = false;
         agent.speed = 7;
         var NewPos = new Vector3(UnityEngine.Random.Range(-5, 5), 0, UnityEngine.Random.Range(-5, 5));

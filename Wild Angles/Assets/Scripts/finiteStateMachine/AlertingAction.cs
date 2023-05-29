@@ -9,6 +9,8 @@ public class AlertingAction : Action
     {
         fsm.GetNavMeshAgent().Ponto.SetActive(true);
         fsm.GetNavMeshAgent().agent.isStopped = true;
+        fsm.GetNavMeshAgent().source.clip = fsm.GetNavMeshAgent().talkSound;
+        fsm.GetNavMeshAgent().source.enabled = true;
 
     }
 }
